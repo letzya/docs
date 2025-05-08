@@ -77,7 +77,7 @@
     }
   },
   "logo": {
-    "light": "/logo/light.svg",
+    "light": "https://tyk.io/docs/img/Tyk-Docs-logo-Dark.svg",
     "dark": "/logo/dark.svg"
   },
   "navbar": {
