@@ -77,19 +77,19 @@
     }
   },
   "logo": {
-    "light": "/logo/light.svg",
+    "light": "https://tyk.io/docs/img/Tyk-Docs-logo-Dark.svg",
     "dark": "/logo/dark.svg"
   },
   "navbar": {
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:Support@mintlify.com"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
+      "label": "Dashboard-tyk",
       "href": "https://dashboard.mintlify.com"
     }
   },
