@@ -55,6 +55,28 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "API Management",
+        "groups": [
+          {
+            "group": "Getting started",
+            "pages": [
+              "api-management/getting-started/create-account",
+              "api-management/getting-started/configure-first-api",
+              "api-management/getting-started/using-tyk-dashboard"
+            ]
+          },
+          {
+            "group": "Deploy Tyk",
+            "pages": [
+              "api-management/deploy-tyk/tyk-stack",
+              "api-management/tyk-cloud",
+              "api-management/tyk-open-source",
+              "api-management/tyk-self-managed"
+            ]
+          }
+        ]
       }
     ],
     "global": {
