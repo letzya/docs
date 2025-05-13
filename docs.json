@@ -78,14 +78,14 @@
     }
   },
   "logo": {
-    "light": "https://tyk.io/docs/img/Tyk-Docs-logo-Dark.svg",
-    "dark": "/logo/dark.svg"
+    "light": "https://tyk.io/docs/img/tyk-logo.png",
+    "dark": "https://tyk.io/docs/img/Tyk-Docs-logo-Dark.svg"
   },
   "navbar": {
     "links": [
       {
         "label": "Support",
-        "href": "mailto:Support@mintlify.com"
+        "href": "https://tyk.io/contact/"
       }
     ],
     "primary": {
@@ -96,9 +96,9 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://twitter.com/tyk_io",
+      "github": "https://github.com/TykTechnologies/tyk",
+      "linkedin": "https://www.linkedin.com/company/tyk/"
     }
   }
 }
