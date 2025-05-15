@@ -37,28 +37,16 @@
         ]
       },
       {
-        "tab": "API Reference",
-        "groups": [
-          {
-            "group": "API Documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint Examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
-            ]
-          }
-        ]
-      },
-      {
         "tab": "API Management",
         "groups": [
+         {
+            "group": "Overview",
+            "pages": [
+              "Overview/tyk-overview",
+              "Overview/tyk-components",
+              "Overview/tyk-overview"
+            ]
+          },
           {
             "group": "Getting started",
             "pages": [
@@ -74,6 +62,26 @@
               "api-management/tyk-cloud",
               "api-management/tyk-open-source",
               "api-management/tyk-self-managed"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "AI Management",
+        "groups": [
+          {
+            "group": "API Documentation",
+            "pages": [
+              "api-reference/introduction"
+            ]
+          },
+          {
+            "group": "Endpoint Examples",
+            "pages": [
+              "api-reference/endpoint/get",
+              "api-reference/endpoint/create",
+              "api-reference/endpoint/delete",
+              "api-reference/endpoint/webhook"
             ]
           }
         ]
