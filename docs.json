@@ -3,7 +3,7 @@
   "theme": "mint",
   "name": "Mint Starter Kit",
   "colors": {
-    "primary": "#16A34A",
+    "primary": "#1e22db",
     "light": "#07C983",
     "dark": "#15803D"
   },
@@ -11,8 +11,12 @@
   "navigation": {
     "tabs": [
       {
-          "tab": "API Reference",
-          "openapi": "https://petstore3.swagger.io/api/v3/openapi.json"
+        "tab": "Home",
+        "href": "https://tyk.io"        
+      },
+      {
+         "tab": "API Reference",
+         "openapi": "https://petstore3.swagger.io/api/v3/openapi.json"
       },
       {
         "tab": "Guides",
@@ -43,29 +47,12 @@
       {
         "tab": "API Management",
         "groups": [
-         {
-            "group": "Overview",
-            "pages": [
-              "Overview/tyk-overview",
-              "Overview/tyk-components",
-              "Overview/tyk-overview"
-            ]
-          },
           {
             "group": "Getting started",
             "pages": [
               "api-management/getting-started/create-account",
               "api-management/getting-started/configure-first-api",
               "api-management/getting-started/using-tyk-dashboard"
-            ]
-          },
-          {
-            "group": "Deploy Tyk",
-            "pages": [
-              "api-management/deploy-tyk/tyk-stack",
-              "api-management/tyk-cloud",
-              "api-management/tyk-open-source",
-              "api-management/tyk-self-managed"
             ]
           }
         ]
