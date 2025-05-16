@@ -1,6 +1,10 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
+  "modeToggle": {
+    "default": "system",
+    "dark": false
+  },
   "name": "Mint Starter Kit",
   "colors": {
     "primary": "#16A34A",
@@ -11,57 +15,45 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Get Started",
-            "pages": [
-              "index",
-              "quickstart",
-              "development",
-              "test-dir/test"
-            ]
-          },
-          {
-            "group": "Essentials",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets",
-              "essentials/test"
-            ]
-          }
-        ]
-      },
-      {
         "tab": "API Management",
         "groups": [
          {
             "group": "Overview",
             "pages": [
-              "Overview/tyk-overview",
-              "Overview/tyk-components",
-              "Overview/tyk-overview"
+              "/content/api-management/overview/tyk-overview",
+              "/content/api-management/overview/tyk-components",
+              "/content/api-management/overview/apim"
             ]
           },
           {
             "group": "Getting started",
             "pages": [
-              "api-management/getting-started/create-account",
-              "api-management/getting-started/configure-first-api",
-              "api-management/getting-started/using-tyk-dashboard"
+              "/content/api-management/gettinfg-started/create-account",
+              "/content/api-management/getting-started/configure-first-api",
+              "/content/api-management/getting-started/dashboard-config",
+              "/content/api-management/getting-started/using-tyk-dashboard"
             ]
           },
           {
             "group": "Deploy Tyk",
             "pages": [
-              "api-management/deploy-tyk/tyk-stack",
-              "api-management/tyk-cloud",
-              "api-management/tyk-open-source",
-              "api-management/tyk-self-managed"
+              "/content/api-management/deploy-tyk/tyk-stack",
+              "/content/api-management/deploy-tyk/tyk-cloud",
+              "/content/api-management/deploy-tyk/tyk-open-source",
+              "/content/api-management/deploy-tyk/tyk-self-managed"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Developer Portal",
+        "groups": [
+          {
+            "group": "empty",
+            "pages": [
+              "/content/developer-portal/overview",
+              "/content/developer-portal/settings",
+              "/content/developer-portal/customization"
             ]
           }
         ]
@@ -70,18 +62,30 @@
         "tab": "AI Management",
         "groups": [
           {
-            "group": "API Documentation",
+            "group": "AI Studio",
             "pages": [
-              "api-reference/introduction"
+              "/content/ai-management/ai-studio/overview"
             ]
           },
           {
-            "group": "Endpoint Examples",
+            "group": "MCPs",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "/content/ai-management/mcps/overview",
+              "/content/ai-management/mcps/api-to-mcp",
+              "/content/ai-management/mcps/dashboard-api-to-mcp"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Governance",
+        "groups": [
+          {
+            "group": "empty",
+            "pages": [
+              "/content/developer-portal/overview/tyk-overview",
+              "/content/developer-portal/overview/tyk-components",
+              "/content/developer-portal/overview/apim"
             ]
           }
         ]
