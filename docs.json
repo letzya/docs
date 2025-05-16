@@ -1,6 +1,10 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
+  "modeToggle": {
+    "default": "system",
+    "dark": false
+  },
   "name": "Mint Starter Kit",
   "colors": {
     "primary": "#1e22db",
@@ -13,43 +17,47 @@
       {
         "tab": "Home",
         "href": "https://tyk.io"
-        
       },
       {
         "tab": "Guides",
         "groups": [
-          {
-            "group": "Get Started",
+         {
+            "group": "Overview",
             "pages": [
-              "index",
-              "quickstart",
-              "development",
-              "test-dir/test"
+              "/content/api-management/overview/tyk-overview",
+              "/content/api-management/overview/tyk-components",
+              "/content/api-management/overview/apim"
             ]
           },
           {
-            "group": "Essentials",
+            "group": "Getting started",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets",
-              "essentials/test"
+              "/content/api-management/gettinfg-started/create-account",
+              "/content/api-management/getting-started/configure-first-api",
+              "/content/api-management/getting-started/dashboard-config",
+              "/content/api-management/getting-started/using-tyk-dashboard"
+            ]
+          },
+          {
+            "group": "Deploy Tyk",
+            "pages": [
+              "/content/api-management/deploy-tyk/tyk-stack",
+              "/content/api-management/deploy-tyk/tyk-cloud",
+              "/content/api-management/deploy-tyk/tyk-open-source",
+              "/content/api-management/deploy-tyk/tyk-self-managed"
             ]
           }
         ]
       },
       {
-        "tab": "API Management",
+        "tab": "Developer Portal",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "empty",
             "pages": [
-              "api-management/getting-started/create-account",
-              "api-management/getting-started/configure-first-api",
-              "api-management/getting-started/using-tyk-dashboard"
+              "/content/developer-portal/overview",
+              "/content/developer-portal/settings",
+              "/content/developer-portal/customization"
             ]
           }
         ]
@@ -58,18 +66,30 @@
         "tab": "AI Management",
         "groups": [
           {
-            "group": "API Documentation",
+            "group": "AI Studio",
             "pages": [
-              "api-reference/introduction"
+              "/content/ai-management/ai-studio/overview"
             ]
           },
           {
-            "group": "Endpoint Examples",
+            "group": "MCPs",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "/content/ai-management/mcps/overview",
+              "/content/ai-management/mcps/api-to-mcp",
+              "/content/ai-management/mcps/dashboard-api-to-mcp"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Governance",
+        "groups": [
+          {
+            "group": "empty",
+            "pages": [
+              "/content/developer-portal/overview/tyk-overview",
+              "/content/developer-portal/overview/tyk-components",
+              "/content/developer-portal/overview/apim"
             ]
           }
         ]
