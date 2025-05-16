@@ -16,7 +16,7 @@
       },
       {
          "tab": "API Reference",
-         "openapi": "https://petstore3.swagger.io/api/v3/openapi.json"
+         "openapi": "https://raw.githubusercontent.com/TykTechnologies/tyk-docs/refs/heads/master/tyk-docs/assets/others/gateway-swagger.yml"
       },
       {
         "tab": "Guides",
