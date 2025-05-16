@@ -11,6 +11,11 @@
   "navigation": {
     "tabs": [
       {
+        "tab": "Home",
+        "href": "/"
+        
+      },
+      {
         "tab": "Guides",
         "groups": [
           {
