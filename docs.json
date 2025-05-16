@@ -1,75 +1,97 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Tyk",
   "colors": {
-    "primary": "#1e22db",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#0EBE92",
+    "light": "#21ecb8",
+    "dark": "#21ecb8"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon.png",
+  "background": {
+    "color": {
+      "light": "#f7faff",
+      "dark": "#03031C"
+    },
+    "decoration": "gradient"
+  },
+  "fonts": {
+    "body": {
+      "family": "Inter"
+    },
+    "heading": {
+      "family": "Inter"
+    }
+  },
+  "appearance": {
+    "default": "light"
+  },
+  "styling": {
+    "codeblocks": "system"
+  },
   "navigation": {
-    "tabs": [
+    "versions": [
       {
-        "tab": "Home",
-        "href": "https://tyk.io"
-        
-      },
-      {
-        "tab": "Guides",
-        "groups": [
+        "version": "5.8 - Latest",
+        "tabs": [
           {
-            "group": "Get Started",
+            "tab": "Home",
             "pages": [
-              "index",
-              "quickstart",
-              "development",
-              "test-dir/test"
+              "docs/home"
             ]
           },
           {
-            "group": "Essentials",
+            "tab": "API Management",
+            "groups": [
+              {
+                "group": "Overview",
+                "pages": [
+                  "docs/tyk-overview/tyk-overview",
+                  "docs/apim"
+                ]
+              },
+              {
+                "group": "Getting Started",
+                "pages": [
+                  "docs/getting-started/create-account",
+                  "docs/getting-started/using-tyk-dashboard"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Developer Portal",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets",
-              "essentials/test"
+              "docs/portal/install"
+            ]
+          },
+          {
+            "tab": "AI Management",
+            "pages": [
+              "docs/ai-management/overview"
+            ]
+          },
+          {
+            "tab": "API Governance",
+            "pages": [
+              "docs/tyk-governance/overview"
             ]
           }
         ]
       },
       {
-        "tab": "API Management",
-        "groups": [
+        "version": "5.7",
+        "tabs": [
           {
-            "group": "Getting started",
-            "pages": [
-              "api-management/getting-started/create-account",
-              "api-management/getting-started/configure-first-api",
-              "api-management/getting-started/using-tyk-dashboard"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "AI Management",
-        "groups": [
-          {
-            "group": "API Documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint Examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+            "tab": "Documentation",
+            "groups": [
+              {
+                "group": "API Management",
+                "pages": [
+                  "docs/5.7/getting-started/getting-started",
+                  "docs/5.7/api-management/ai-management/overview"
+                ]
+              }
             ]
           }
         ]
@@ -78,45 +100,48 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "Cloud Status",
+          "href": "https://status.tyk.io/#/",
+          "icon": "signal"
         },
         {
           "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
+          "href": "https://tyk.io/community/",
+          "icon": "users"
         },
         {
           "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
+          "href": "https://tyk.io/blog/",
           "icon": "newspaper"
         }
       ]
     }
   },
   "logo": {
-    "light": "https://tyk.io/docs/img/tyk-logo.png",
-    "dark": "https://tyk.io/docs/img/Tyk-Docs-logo-Dark.svg"
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg",
+    "href": "https://tyk.io/"
   },
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "https://tyk.io/contact/"
+        "label": "Start for free",
+        "href": "https://tyk.io/sign-up/"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard-tyk",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Get a demo",
+      "href": "https://tyk.io/contact-book-a-demo/"
     }
   },
   "footer": {
     "socials": {
-      "x": "https://twitter.com/tyk_io",
       "github": "https://github.com/TykTechnologies/tyk",
-      "linkedin": "https://www.linkedin.com/company/tyk/"
+      "linkedin": "https://www.linkedin.com/company/tyk/",
+      "x": "https://twitter.com/tyk_io",
+      "facebook": "https://www.facebook.com/Tyk.API.Management/",
+      "youtube": "https://www.youtube.com/@TykAPIM"
     }
   }
 }

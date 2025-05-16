@@ -1,0 +1,10 @@
+li[id="topbar-cta-button"] > a > div > span {
+    color: #000 !important;
+   }
+   li[id="topbar-cta-button"] > a > div > svg > path {
+    stroke: #000 !important;
+   }
+
+   .dark li[id="topbar-cta-button"] > a > div > span {
+    color: #000 !important;
+   }
