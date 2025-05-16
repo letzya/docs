@@ -7,7 +7,7 @@
   },
   "name": "Mint Starter Kit",
   "colors": {
-    "primary": "#16A34A",
+    "primary": "#1e22db",
     "light": "#07C983",
     "dark": "#15803D"
   },
@@ -15,7 +15,11 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "API Management",
+        "tab": "Home",
+        "href": "https://tyk.io"
+      },
+      {
+        "tab": "Guides",
         "groups": [
          {
             "group": "Overview",
