@@ -59,3 +59,32 @@ li[id="topbar-cta-button"] > a > div > span {
     text-decoration: none;
 }
 .sec-btn:hover { background: #E5E5E8; }
+
+.stack-heading {
+    color: var(--action-primary-default, var(--primary-primary-50, #8438FA));
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 142.857% */
+}
+
+.fs-xs {
+    font-size: 14px;
+}
+
+.lh-20 {
+    line-height: 20px ;
+}
+
+.banner {
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: right;
+    margin-left: 36px;
+    margin-right: 36px;
+
+}
+
+.home-container{
+    padding-top: 50px;
+}
