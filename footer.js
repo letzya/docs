@@ -1,10 +1,8 @@
-// Runs on every page because Mintlify bundles all *.js files
 document.addEventListener("DOMContentLoaded", () => {
-  // Skip if we already injected (e.g. after client-side nav)
   if (document.querySelector(".footer")) return;
 
   const wrapper = document.createElement("footer");
-  wrapper.className = "footer";          // reuse your existing selector
+  wrapper.className = "footer";
   wrapper.innerHTML = `
     <div class="container-xl section-padding">
       <nav class="footer__menu">
@@ -53,5 +51,5 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
   `;
 
-  document.body.appendChild(wrapper);     // mount at the very bottom
+  document.body.appendChild(wrapper);
 });
