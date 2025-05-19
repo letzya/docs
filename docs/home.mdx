@@ -2,6 +2,8 @@
 mode: "custom"
 ---
 
+
+
 export const mostViewed = [
   {
     title: "Tyk Platforms",
@@ -184,7 +186,7 @@ export const tykStacksCols = [
       </div>
 
       {/* flex row → two vertical lists on md+, one list on mobile */}
-      <div className="flex flex-col md:flex-row md:gap-6">
+      <div className="flex flex-col md:flex-row md:gap-6 home-bottom">
         {tykStacksCols.map((col, idx) => (
           <div key={idx} className="w-full md:w-1/2 space-y-4">
             {col.map((item) => (
@@ -215,5 +217,7 @@ export const tykStacksCols = [
       </div>
     </div>
   </section>
+
+  <Footer />
 
 </div>
