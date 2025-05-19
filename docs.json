@@ -3,7 +3,7 @@
   "theme": "mint",
   "name": "Tyk",
   "colors": {
-    "primary": "#0EBE92",
+    "primary": "#8438fa",
     "light": "#21ecb8",
     "dark": "#21ecb8"
   },
@@ -131,7 +131,7 @@
     ],
     "primary": {
       "type": "button",
-      "label": "Get a demo",
+      "label": "Cloud Login",
       "href": "https://tyk.io/contact-book-a-demo/"
     }
   },
