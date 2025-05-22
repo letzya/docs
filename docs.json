@@ -32,7 +32,7 @@
           {
             "group": "Getting started",
             "pages": [
-              "/content/api-management/gettinfg-started/create-account",
+              "/content/api-management/getting-started/create-account",
               "/content/api-management/getting-started/configure-first-api",
               "/content/api-management/getting-started/dashboard-config",
               "/content/api-management/getting-started/using-tyk-dashboard"
