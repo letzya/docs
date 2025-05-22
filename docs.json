@@ -89,7 +89,8 @@
                 "group": "API Management",
                 "pages": [
                   "docs/5.7/getting-started/getting-started",
-                  "docs/5.7/api-management/ai-management/overview"
+                  "docs/5.7/api-management/ai-management/overview",
+                  "https://tyk.io/docs/5.7/portal/api-consumer/#approve-self-registering-requests"
                 ]
               }
             ]
