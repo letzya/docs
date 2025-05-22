@@ -1,0 +1,237 @@
+---
+mode: "custom"
+---
+
+import {Button} from '/snippets/button.mdx';
+
+export function openSearch() {
+  document.getElementById('search-bar-entry').click();
+}
+
+<div className="relative w-full flex items-center justify-center" style={{ height: '26rem', overflow: 'hidden'}}>
+<div className="absolute inset-0 bg-primary dark:bg-primary-light" style={{opacity: 0.05 }}></div>
+  <div style={{ position: 'absolute', textAlign: 'center', padding: '0 1rem' }}>
+    <div
+      className="text-gray-900 dark:text-white"
+      style={{
+       fontWeight: '800',
+       fontSize: '2.5rem',
+       margin: '0',
+       marginTop: '5rem'
+      }}
+    >
+      Welcome to Tyk Documentation
+    </div>
+    <p className="mt-4 text-gray-900 dark:text-white" style={{ fontSize: '1rem', fontWeight: '600' , maxWidth: '40rem'}}> The hub for Tyk API management.  </p>
+    <div className="flex items-center justify-center" style={{ maxWidth: '800px', margin: '0 auto' }}>
+    <button
+      type="button"
+      className="hidden w-full lg:flex items-center text-sm leading-6 py-4 pl-4 pr-4 text-gray-500 rounded-full"
+      id="home-search-entry"
+      style={{
+        marginTop: '2rem',
+        maxWidth: '40rem',
+        background: '#FFF',
+        boxShadow: '0px 1px 4px 0px rgba(8, 9, 10, 0.25), 0px 0px 0px 4px rgba(255, 255, 255, 0.20)',
+        cursor: 'pointer',
+        textAlign: 'left',
+      }}
+      onClick={openSearch}
+    >
+      <svg
+        className="h-4 w-4 ml-1.5 flex-none bg-primary hover:bg-gray-600 dark:bg-primary-dark dark:hover:bg-white/70"
+        style={{
+        marginRight: '0.5rem',
+         maskImage:
+           'url("https://mintlify.b-cdn.net/v6.5.1/solid/magnifying-glass.svg")',
+         maskRepeat: 'no-repeat',
+         maskPosition: 'center center',
+        }}
+      />
+      Search or ask...
+    </button>
+    </div>
+  </div>
+</div>
+<div
+  style={{marginTop: '2rem', marginBottom: '8rem', maxWidth: '70rem', marginLeft: 'auto',
+  marginRight: 'auto', paddingLeft: '1.25rem',
+  paddingRight: '1.25rem' }}
+>
+
+<div className="flex flex-col w-full " style={{ marginTop: '2rem', marginBottom: '0.5rem' }}>
+  <h2
+    className="text-gray-900 dark:text-gray-200"
+    style={{
+      fontSize: '2rem',
+      fontWeight: '500',
+    }}
+  >
+  Try it out
+  </h2>
+</div>
+
+  <p
+    className="text-gray-700 dark:text-gray-300"
+    style={{
+      fontSize: '1.05rem',
+      marginBottom: '1rem'
+    }}
+  >
+  Get started on any of our platforms
+</p>
+
+
+<CardGroup cols={2}>
+  <Card
+    title="Schedule your guided evaluation"
+    icon="calendar"
+    iconType="solid"
+  >
+    Looking to evaluate our powerful Hybrid or Self-Managed deployment types?
+    <br/>
+    Our Solution Architects will collaborate with you to understand your needs and guide you to success.
+    <br/>
+    <Button href="https://tyk.io/guided-evaluation/" >Get in touch</Button>
+  </Card>
+
+  <Card
+    title="Start your 48-hour free trial"
+    href="https://tyk.io/sign-up/"
+    icon="rocket"
+    iconType="solid"
+  >
+    Dive in with a cloud-based trial.
+    <br/>
+    Get access to all features and capabilities of Tyk. No installation or credit card needed (and no need to speak with the sales team).
+    <br/>
+    <br/>
+    <Button href="https://tyk.io/sign-up/" >Start trial</Button>
+  </Card>
+</CardGroup>
+
+<div className="flex flex-col w-full " style={{ marginTop: '2rem', marginBottom: '0.5rem' }}>
+  <h2
+    className="text-gray-900 dark:text-gray-200"
+    style={{
+      fontSize: '2rem',
+      fontWeight: '500',
+    }}
+  >
+  Explore by Tyk Stack
+  </h2>
+
+</div>
+  <p
+    className="text-gray-700 dark:text-gray-300"
+    style={{
+      fontSize: '1.05rem',
+      marginBottom: '1rem'
+    }}
+  >
+  Explore everything Tyk has to offer
+</p>
+
+
+<CardGroup>
+  <Card
+    title="Tyk Gateway"
+    href="#"
+    icon="door-open"
+    iconType="solid"
+    horizontal
+  >
+    Open source Enterprise API Gateway.
+  </Card>
+
+  <Card
+    title="Tyk Dashboard"
+    href="#"
+    icon="gauge"
+    iconType="solid"
+    horizontal
+  >
+    The GUI and analytics platform for Tyk.
+  </Card>
+
+  <Card
+    title="Universal Data Graph"
+    href="#"
+    icon="diagram-project"
+    iconType="solid"
+    horizontal
+  >
+    Combine multiple APIs into one universal interface.
+  </Card>
+
+  <Card
+    title="Tyk Enterprise Developer Portal"
+    href="#"
+    icon="window"
+    iconType="solid"
+    horizontal
+  >
+    Expose APIs for third-party developers to register and use.
+  </Card>
+
+  <Card
+    title="Tyk Multi Data Center Bridge"
+    href="#"
+    icon="bridge"
+    iconType="solid"
+    horizontal
+  >
+    Control plane that performs management and synchronisation.
+  </Card>
+
+  <Card
+    title="Tyk Pump"
+    href="#"
+    icon="database"
+    iconType="solid"
+    horizontal
+  >
+    Responsible for moving analytics into a persistent data store.
+  </Card>
+
+  <Card
+    title="Tyk Operator"
+    href="#"
+    icon="gears"
+    iconType="solid"
+    horizontal
+  >
+    Manage your APIs on Tyk Gateway.
+  </Card>
+
+  <Card
+    title="Tyk Sync"
+    href="#"
+    icon="rotate"
+    iconType="solid"
+    horizontal
+  >
+    Command line tool to manage and synchronise Tyk installation.
+  </Card>
+
+  <Card
+    title="Tyk Identity Broker"
+    href="#"
+    icon="id-card"
+    iconType="solid"
+    horizontal
+  >
+    A bridge between various Identity Management Systems.
+  </Card>
+
+  <Card
+    title="Tyk Streams"
+    href="#"
+    icon="wave-square"
+    iconType="solid"
+    horizontal
+  >
+    Enables to securely expose, manage and monetize real-time event streams, brokers and async APIs.
+  </Card>
+</CardGroup>
+</div>
