@@ -35,6 +35,12 @@
         "version": "5.8 - Latest",
         "tabs": [
           {
+            "tab": "bla",
+            "pages": [
+              "tyk.io"
+            ]
+          },
+          {
             "tab": "Home",
             "pages": [
               "docs/home"
