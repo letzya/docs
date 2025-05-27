@@ -2,236 +2,222 @@
 mode: "custom"
 ---
 
-import {Button} from '/snippets/button.mdx';
 
-export function openSearch() {
-  document.getElementById('search-bar-entry').click();
-}
 
-<div className="relative w-full flex items-center justify-center" style={{ height: '26rem', overflow: 'hidden'}}>
-<div className="absolute inset-0 bg-primary dark:bg-primary-light" style={{opacity: 0.05 }}></div>
-  <div style={{ position: 'absolute', textAlign: 'center', padding: '0 1rem' }}>
-    <div
-      className="text-gray-900 dark:text-white"
-      style={{
-       fontWeight: '800',
-       fontSize: '2.5rem',
-       margin: '0',
-       marginTop: '5rem'
-      }}
-    >
-      Welcome to Tyk Documentation
-    </div>
-    <p className="mt-4 text-gray-900 dark:text-white" style={{ fontSize: '1rem', fontWeight: '600' , maxWidth: '40rem'}}> The hub for Tyk API management.  </p>
-    <div className="flex items-center justify-center" style={{ maxWidth: '800px', margin: '0 auto' }}>
-    <button
-      type="button"
-      className="hidden w-full lg:flex items-center text-sm leading-6 py-4 pl-4 pr-4 text-gray-500 rounded-full"
-      id="home-search-entry"
-      style={{
-        marginTop: '2rem',
-        maxWidth: '40rem',
-        background: '#FFF',
-        boxShadow: '0px 1px 4px 0px rgba(8, 9, 10, 0.25), 0px 0px 0px 4px rgba(255, 255, 255, 0.20)',
-        cursor: 'pointer',
-        textAlign: 'left',
-      }}
-      onClick={openSearch}
-    >
-      <svg
-        className="h-4 w-4 ml-1.5 flex-none bg-primary hover:bg-gray-600 dark:bg-primary-dark dark:hover:bg-white/70"
-        style={{
-        marginRight: '0.5rem',
-         maskImage:
-           'url("https://mintlify.b-cdn.net/v6.5.1/solid/magnifying-glass.svg")',
-         maskRepeat: 'no-repeat',
-         maskPosition: 'center center',
-        }}
-      />
-      Search or ask...
-    </button>
+export const mostViewed = [
+  {
+    title: "Tyk Platforms",
+    items: [
+      { title: "Deployment Options",            path: "apim/" },
+      { title: "Self-managed",                  path: "tyk-on-premises/" },
+      { title: "Cloud",                         path: "tyk-cloud/" },
+      { title: "Open Source Gateway",           path: "apim/open-source/" },
+    ],
+  },
+  {
+    title: "API management",
+    items: [
+      { title: "Create API",                    path: "getting-started/create-api/" },
+      { title: "Access an API",                 path: "getting-started/create-api-key/" },
+      { title: "Create UDG schema",             path: "universal-data-graph/udg-getting-started/creating-schema/" },
+      { title: "Using OAS API definition",      path: "getting-started/using-oas-definitions/" },
+    ],
+  },
+  {
+    title: "Product stack",
+    items: [
+      { title: "OSS Tyk Gateway",               path: "tyk-oss-gateway/" },
+      { title: "OSS Tyk gateway configuration", path: "tyk-oss-gateway/configuration/" },
+      { title: "Tyk Gateway API",               path: "tyk-gateway-api/" },
+      { title: "Tyk Dashboard",                 path: "tyk-dashboard/" },
+    ],
+  },
+  {
+    title: "Developer support",
+    items: [
+      { title: "FAQs",                          path: "frequently-asked-questions/" },
+      { title: "Latest Release",                path: "product-stack/tyk-gateway/release-notes/overview/" },
+      { title: "How to upgrade",                path: "upgrading-tyk/" },
+      { title: "Contribute to docs",            path: "contribute/" },
+    ],
+  },
+];
+
+export const tykStacksCols = [
+  [
+    { title: "Tyk Gateway (Open source)",          desc: "Open source Enterprise API Gateway.",                                         path: "tyk-oss-gateway/" },
+    { title: "Tyk Dashboard",                      desc: "The GUI and analytics platform for Tyk.",                                    path: "tyk-dashboard/" },
+    { title: "Universal Data Graph",               desc: "Combine multiple APIs into one universal interface.",                        path: "universal-data-graph/" },
+    { title: "Tyk Enterprise Developer Portal",    desc: "Expose APIs for third-party developers to register and use.",                path: "tyk-developer-portal/tyk-enterprise-developer-portal/" },
+    { title: "Tyk Multi Data Center Bridge",       desc: "Control plane that performs management and synchronisation.",                path: "tyk-multi-data-centre/" },
+  ],
+  [
+    { title: "Tyk Pump (Open source)",             desc: "Responsible for moving analytics into a persistent data store.",             path: "tyk-pump/" },
+    { title: "Tyk Operator",                       desc: "Manage your APIs on Tyk Gateway.",                                           path: "tyk-operator/" },
+    { title: "Tyk Sync",                           desc: "Command-line tool to manage and synchronise Tyk installation.",              path: "tyk-sync/" },
+    { title: "Tyk Identity Broker (Open source)",  desc: "A bridge between various Identity Management Systems.",                      path: "tyk-identity-broker/" },
+    { title: "Tyk Streams",                        desc: "Expose, manage & monetise real-time event streams, brokers and async APIs.", path: "product-stack/tyk-streaming/overview/" },
+  ],
+];
+
+<div className="home-container">
+
+  <div className="banner border border-[#dee2e6]  overflow-hidden">
+    <div className="max-w-7xl mx-auto px-4 lg:px-[1%] py-8 section-padding">
+
+      {/* headline */}
+      <h1
+        id="home-page-title"
+        className="
+        font-bold text-[36px] leading-normal mb-3
+        lh-normal fs-normal
+        text-gray-900 dark:text-white
+      "
+      >
+        Tyk Documentation
+      </h1>
+
+      {/* body copy */}
+      <p className="mb-4 fs-16 font-400 lh-normal text-sec">
+        The hub for Tyk API management. Whether you’re new or experienced, get
+        started with Tyk, explore our product stack and core concepts, access
+        in-depth guides, and actively contribute to our ever-evolving products.
+      </p>
+
     </div>
   </div>
-</div>
-<div
-  style={{marginTop: '2rem', marginBottom: '8rem', maxWidth: '70rem', marginLeft: 'auto',
-  marginRight: 'auto', paddingLeft: '1.25rem',
-  paddingRight: '1.25rem' }}
->
+  <section className="home-section mt-10">
+    {/* container-xl with 1 % inline padding ≥ 992 px */}
+    <div className="max-w-7xl mx-auto px-4 lg:px-[1%]">
 
-<div className="flex flex-col w-full " style={{ marginTop: '2rem', marginBottom: '0.5rem' }}>
-  <h2
-    className="text-gray-900 dark:text-gray-200"
-    style={{
-      fontSize: '2rem',
-      fontWeight: '500',
-    }}
-  >
-  Try it out
-  </h2>
-</div>
+      {/* section heading */}
+      <div className="component-heading flex flex-col lg:flex-row lg:items-center justify-between mb-5">
+        <div>
+          <h2 className="home-section-heading">Try it out</h2>
+          <p className="fs-16 font-400 text-sec lh-normal">Get started on any of our platforms</p>
+        </div>
+      </div>
 
-  <p
-    className="text-gray-700 dark:text-gray-300"
-    style={{
-      fontSize: '1.05rem',
-      marginBottom: '1rem'
-    }}
-  >
-  Get started on any of our platforms
-</p>
+      {/* 2-column Card grid */}
+      <div className="grid gap-8 lg:grid-cols-2">
+        {/* ───────── Card 1 ───────── */}
+        <div className="border border-gray-300 p-8 flex flex-col items-center text-center h-full">
+          <div className="parent-container">
+            <div>
+              <div className="image-container mb-6">
+                <img src="/images/home-page-review-icon.svg" alt="Guided evaluation" className="home-img" />
+              </div>
+              <p className="fs-xs font-semibold mb-4 text-sec">Schedule your guided evaluation</p>
+              <p className="fs-xs mb-3 text-sec">
+                Looking to evaluate our powerful Hybrid or&nbsp;Self-Managed deployment types?
+              </p>
+              <p className="fs-xs mb-3 text-sec">
+                Our Solution Architects will collaborate with you to understand your needs and guide you to success.
+              </p>
+            </div>
 
+            <div className="py-4">
+              <a href="https://tyk.io/guided-evaluation/" className="sec-btn">Get in touch</a>
+            </div>
+          </div>
+        </div>
 
-<CardGroup cols={2}>
-  <Card
-    title="Schedule your guided evaluation"
-    icon="calendar"
-    iconType="solid"
-  >
-    Looking to evaluate our powerful Hybrid or Self-Managed deployment types?
-    <br/>
-    Our Solution Architects will collaborate with you to understand your needs and guide you to success.
-    <br/>
-    <Button href="https://tyk.io/guided-evaluation/" >Get in touch</Button>
-  </Card>
+        {/* ───────── Card 2 ───────── */}
+        <div className="border border-gray-300 p-8 flex flex-col items-center text-center h-full">
+          <div className="parent-container">
+            <div>
+              <div className="image-container mb-6">
+                <img src="/images/home_page_free_trial_icon.svg" alt="48-hour free trial" className="home-img" />
+              </div>
+              <p className="fs-xs font-semibold mb-4 text-sec">Start your 48-hour free trial</p>
+              <p className="fs-xs mb-3 text-sec">Dive in with a cloud-based trial.</p>
+              <p className="fs-xs mb-3 text-sec">
+                Get access to all features and capabilities of Tyk. No installation or credit card needed (and no need
+                to speak with the sales team).
+              </p>
+            </div>
 
-  <Card
-    title="Start your 48-hour free trial"
-    href="https://tyk.io/sign-up/"
-    icon="rocket"
-    iconType="solid"
-  >
-    Dive in with a cloud-based trial.
-    <br/>
-    Get access to all features and capabilities of Tyk. No installation or credit card needed (and no need to speak with the sales team).
-    <br/>
-    <br/>
-    <Button href="https://tyk.io/sign-up/" >Start trial</Button>
-  </Card>
-</CardGroup>
+            <div className="py-4">
+              <a href="https://tyk.io/sign-up/" className="sec-btn">Start trial</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div className="flex flex-col w-full " style={{ marginTop: '2rem', marginBottom: '0.5rem' }}>
-  <h2
-    className="text-gray-900 dark:text-gray-200"
-    style={{
-      fontSize: '2rem',
-      fontWeight: '500',
-    }}
-  >
-  Explore by Tyk Stack
-  </h2>
+  <section className="home-section mt-10">
+    <div className="max-w-7xl mx-auto px-4 lg:px-[1%]">
 
-</div>
-  <p
-    className="text-gray-700 dark:text-gray-300"
-    style={{
-      fontSize: '1.05rem',
-      marginBottom: '1rem'
-    }}
-  >
-  Explore everything Tyk has to offer
-</p>
+      {/* heading */}
+      <div className="component-heading mb-5">
+        <h2 className="home-section-heading">Most viewed</h2>
+        <p className="fs-16 font-400 text-sec lh-normal">
+          Quick links to pages our users visit most
+        </p>
+      </div>
 
+      {/* responsive grid */}
+      <div className="grid gap-y-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {mostViewed.map((col) => (
+          <div key={col.title}>
+            {col.items.map((item) => (
+              <div key={item.path} className="mb-2">
+                <a href={`/${item.path}`} className="text-primary fs-xs">
+                  {item.title}
+                </a>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-<CardGroup>
-  <Card
-    title="Tyk Gateway"
-    href="#"
-    icon="door-open"
-    iconType="solid"
-    horizontal
-  >
-    Open source Enterprise API Gateway.
-  </Card>
+  <section className="home-section explore-section mt-10">
+    <div className="max-w-7xl mx-auto px-4 lg:px-[1%]">
 
-  <Card
-    title="Tyk Dashboard"
-    href="#"
-    icon="gauge"
-    iconType="solid"
-    horizontal
-  >
-    The GUI and analytics platform for Tyk.
-  </Card>
+      {/* heading */}
+      <div className="component-heading mb-5">
+        <h2 className="home-section-heading">Explore by Tyk Stack</h2>
+        <p className="fs-16 font-400 text-sec lh-normal">
+          Explore everything Tyk has to offer
+        </p>
+      </div>
 
-  <Card
-    title="Universal Data Graph"
-    href="#"
-    icon="diagram-project"
-    iconType="solid"
-    horizontal
-  >
-    Combine multiple APIs into one universal interface.
-  </Card>
+      {/* flex row → two vertical lists on md+, one list on mobile */}
+      <div className="flex flex-col md:flex-row md:gap-6 home-bottom">
+        {tykStacksCols.map((col, idx) => (
+          <div key={idx} className="w-full md:w-1/2 space-y-4">
+            {col.map((item) => (
+              <a
+                key={item.path}
+                href={`/${item.path}`}
+                className="
+                stack-box
+                flex items-center
+                border border-gray-300 rounded-md
+                px-4 py-3
+                hover:bg-gray-50 transition
+              "
+              >
+                {/* green leaf icon */}
+                <svg viewBox="0 0 32 32" className="w-8 h-8 flex-none mr-3" fill="#20EDBA">
+                  <path d="M31.956 14.561C31.251 6.452 24.507.087 16.22 0H0v3.575v13.079C.353 24.981 7.052 31.695 15.427 32H32V14.605c0-.044-.044-.044-.044-.044z"/>
+                </svg>
 
-  <Card
-    title="Tyk Enterprise Developer Portal"
-    href="#"
-    icon="window"
-    iconType="solid"
-    horizontal
-  >
-    Expose APIs for third-party developers to register and use.
-  </Card>
+                <div>
+                  <div className="stack-heading">{item.title}</div>
+                  <div className="fs-xs text-sec font-400 lh-20">{item.desc}</div>
+                </div>
+              </a>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-  <Card
-    title="Tyk Multi Data Center Bridge"
-    href="#"
-    icon="bridge"
-    iconType="solid"
-    horizontal
-  >
-    Control plane that performs management and synchronisation.
-  </Card>
+  <Footer />
 
-  <Card
-    title="Tyk Pump"
-    href="#"
-    icon="database"
-    iconType="solid"
-    horizontal
-  >
-    Responsible for moving analytics into a persistent data store.
-  </Card>
-
-  <Card
-    title="Tyk Operator"
-    href="#"
-    icon="gears"
-    iconType="solid"
-    horizontal
-  >
-    Manage your APIs on Tyk Gateway.
-  </Card>
-
-  <Card
-    title="Tyk Sync"
-    href="#"
-    icon="rotate"
-    iconType="solid"
-    horizontal
-  >
-    Command line tool to manage and synchronise Tyk installation.
-  </Card>
-
-  <Card
-    title="Tyk Identity Broker"
-    href="#"
-    icon="id-card"
-    iconType="solid"
-    horizontal
-  >
-    A bridge between various Identity Management Systems.
-  </Card>
-
-  <Card
-    title="Tyk Streams"
-    href="#"
-    icon="wave-square"
-    iconType="solid"
-    horizontal
-  >
-    Enables to securely expose, manage and monetize real-time event streams, brokers and async APIs.
-  </Card>
-</CardGroup>
 </div>
