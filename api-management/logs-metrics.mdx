@@ -1367,7 +1367,7 @@ Ensure the following prerequisites are in place before proceeding:
     EOF
     ```
 
-2. **Deploy Tyk Gateway with OpenTelemetry Enabled using Helm**
+  2.**Deploy Tyk Gateway with OpenTelemetry Enabled using Helm**
 
     To install or upgrade [Tyk Gateway OSS using Helm](https://github.com/TykTechnologies/tyk-charts/tree/main/tyk-oss), execute the following commands:
 
@@ -1393,12 +1393,12 @@ Ensure the following prerequisites are in place before proceeding:
 
     <Note>
 Please make sure you are installing Redis versions that are supported by Tyk. Please refer to Tyk docs to get list of [supported versions](/tyk-self-managed#redis-1).
-</Note>
+    </Note>
 
 
     Tyk Gateway is now accessible through service gateway-svc-tyk-oss-tyk-gateway at port 8080 and exports the OpenTelemetry traces to the `jaeger-all-in-one-collector` service.
 
-3. **Deploy Tyk Operator**
+3.**Deploy Tyk Operator**
 
     Deploy Tyk Operator to manage APIs in your cluster:
 

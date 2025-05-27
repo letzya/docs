@@ -4449,11 +4449,11 @@ output:
       period: 100ms
 ```
 
-{{< note >}}
+
 **Note**
 A batch policy has the capability to *create* batches, but not to break them down.
 
-{{</ note>}}
+
 
 If your configured pipeline is processing messages that are batched *before* they reach the batch policy then they may circumvent the conditions you've specified here, resulting in sizes you aren't expecting.
 

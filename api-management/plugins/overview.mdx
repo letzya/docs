@@ -81,13 +81,7 @@ cd custom-go-plugin
 
 <GridWrapper type="">
 
-{{< badge read="15 mins" imageStyle="object-fit:contain" href="plugins/tutorials/quick-starts/go/dashboard" image="/img/logos/tyk-logo-selfmanaged.svg" alt="Dashboard">}}
-Dashboard Tutorial
-{{< /badge >}}
 
-{{< badge read="15 mins" imageStyle="object-fit:contain" href="plugins/tutorials/quick-starts/go/open-source" image="/img/logos/tyk-logo-selfmanaged.svg" alt="Tyk OSS Gateway">}}
-Tyk OSS Gateway Tutorial
-{{< /badge >}}
 
 </GridWrapper>
 
@@ -596,9 +590,6 @@ To configure Tyk Gateway to load plugin bundles the following parameters must be
 
 
 
-    <Note>
-    Remember to set `"enable_coprocess": true` in your `tyk.conf` when using [rich plugins](/api-management/plugins/overview#plugin-bundles)!
-    </Note>
 
 
 
@@ -813,9 +804,7 @@ To configure plugin bundles for Tyk Classic APIs click on the APIs menu item in 
 The bundler tool is a CLI service, provided by _Tyk Gateway_ as part of its binary since v2.8. This lets you generate
 [plugin bundles](/api-management/plugins/overview#plugin-bundles).
 
-<Note>
-Generated plugin bundles must be served using your own web server.
-</Note>
+
 
 Issue the following command to see more details on the `bundle` command:
 
@@ -837,10 +826,7 @@ To create plugin bundles you will need the following:
 - **Plugin source code files**: The plugin source code files should be contained relative to the directory in which the
   _manifest.json_ file is located. The _manifest.json_ should contain relative path references to source code files.
 
-  <Note>
-Source code files are not required when creating a plugin bundle for gRPC plugins since the plugin
-  source code is located at the gRPC server.
-</Note>
+
 
 - **Certificate key**: Plugin bundles can optionally be signed with an RSA private key. The corresponding public key
   should be located in the file configured in environmental variable `TYK_GW_PUBLICKEYPATH` or the `public_key_path`
@@ -860,9 +846,7 @@ Source code files are not required when creating a plugin bundle for gRPC plugin
 
 A suggested directory structure is shown below for Golang, Javascript and Python bundles in the tabs below.
 
-<Note>
-Sub-directories (folders) are not supported inside the `bundle-directory` location.
-</Note>
+
 
 <Tabs> <Tab title="Golang">
 

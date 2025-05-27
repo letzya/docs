@@ -269,11 +269,11 @@ You can also use our [Postman collection](https://www.postman.com/tyk-technologi
 
 In order to use the Gateway API you will need an API key for your Gateway and one command to create the API and make it live.
 
-1. **Make sure you know your API secret**
+1.**Make sure you know your API secret**
 
     Your Tyk Gateway API secret is stored in your `tyk.conf` file, the property is called `secret`, you will need to use this as a header called `x-tyk-authorization` to make calls to the Gateway API.
 
-2. **Create a GQL API**
+2.**Create a GQL API**
 
     To create a GQL API, let's send a definition to the `apis` endpoint, which will return the status and version of your Gateway. Change the `x-tyk-authorization` value and `curl` domain name and port to be the correct values for your environment.
 
@@ -306,7 +306,7 @@ In order to use the Gateway API you will need an API key for your Gateway and on
 Notice that  when creating a GQL API you need to include your GQL service schema in the API definition. Tyk Gateway doesn't have the capacity to introspect your GQL service on its own.
 
 Including the correct schema allows Tyk Gateway to validate incoming requests against it. More on validation can be found [here](/api-management/graphql#validation)
-</Note>
+    </Note>
 
     **Restart or hot reload**
 
