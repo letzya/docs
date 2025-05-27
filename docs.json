@@ -11,16 +11,6 @@
     "light": "#20EDBA",
     "dark": "#8438FA"
   },
-  "topbarLinks": [
-    {
-      "name": "Tyk Website",
-      "url": "https://tyk.io"
-    }
-  ],
-  "topbarCtaButton": {
-    "name": "Get Started",
-    "url": "/getting-started"
-  },
   "navigation": {
     "tabs": [
       {
