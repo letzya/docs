@@ -54,7 +54,9 @@
                 "group": "Getting Started",
                 "pages": [
                   "docs/getting-started/create-account",
-                  "docs/getting-started/using-tyk-dashboard"
+                  "docs/getting-started/using-tyk-dashboard",
+                  "docs/getting-started/configure-first-api"
+
                 ]
               }
             ]
