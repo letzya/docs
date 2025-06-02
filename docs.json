@@ -353,7 +353,7 @@
         "tab": "API Reference",
         "groups": [
           {
-            "group": "Dashboard Admin",
+            "group": "Dashboard Admin API",
             "openapi": {
               "source": "/api-reference/dashboard-admin-swagger.yml",
               "directory": "api-reference"
