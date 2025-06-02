@@ -30,19 +30,6 @@
         ]
       },
       {
-        "tab": "API Reference",
-        "groups": [
-          {
-            "group": "Dashboard Admin",
-            "openapi": {
-              "source": "/api-reference/dashboard-admin-swagger.yml",
-              "directory": "api-reference"
-            }
-          }
-        ]
-      },
-
-      {
         "tab": "API Management",
         "groups": [
           {
@@ -359,6 +346,18 @@
               "tyk-governance/api-repository",
               "tyk-governance/api-labeling"
             ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "Dashboard Admin",
+            "openapi": {
+              "source": "/api-reference/dashboard-admin-swagger.yml",
+              "directory": "api-reference"
+            }
           }
         ]
       }
