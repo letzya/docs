@@ -4,6 +4,7 @@ sidebarTitle: "Step by step guide using Curity"
 order: 4
 ---
 
+
 <Warning>
 **Attention:**
 
@@ -20,6 +21,7 @@ has been superseded by the new [Tyk Developer Portal](/portal/overview).
 Please note that the Tyk Classic Portal now has limited support and maintenance. Please contact us at
 [support@tyk.io](<mailto:support@tyk.io?subject=Tyk classic developer portal>)if you have any questions.
 </Warning>
+
 
 This guide describes how to integrate [The Curity Identity Server](https://curity.io/) with the Tyk Developer Portal using [OpenID Connect Dynamic Client Registration protocol](https://tools.ietf.org/html/rfc7591).
 
@@ -70,11 +72,13 @@ If a change is needed in `tyk_analytics.conf`, remember to restart the service t
 
 The Curity Identity Server requires a token with a `dcr` scope in order to authenticate the DCR endpoint. A workaround is to configure the DCR endpoint to use no-authentication. A proxy API can be configured in such a way that Tyk will proxy the DCR request to the Curity Identity Server and a static token used to authenticate the DCR proxy API.
 
+
 <Warning>
 **Use in secure environments only**
 
 Make sure that the communication between Tyk and the Curity Identity Server is appropriately secured. The DCR endpoint on the Curity Identity Server if set to `no-authentication` should only be accessible by Tyk.
 </Warning>
+
 
 In the Tyk Dashboard, navigate to **System Management** &rarr; **APIs**. Create a new API and give it the name, `dcr`. Make sure the **API Listen Path** is set to `/dcr/`.
 Set the Target URL to the DCR endpoint of the Curity Identity Server (Ex. https://idsvr.example.com/token-service/oauth-registration).
@@ -109,11 +113,13 @@ The Tyk Gateway needs to make use of a facade API in order for the API to be pub
 In the Tyk Dashboard, navigate to **System Management** &rarr; **APIs**. Create a new API and give it the name `facade-oauth-registration`.
 Set the Target URL to `http://httpbin.org`.
 
+
 <Warning>
 **NOTE**
 
 The `path` and `Target URL` for this API doesn't matter and will never be used.
 </Warning>
+
 
 In the **Authentication** section, set **Authentication Mode** to `JSON Web Token (JWT)`.
 <img src="img/dcr/curity/5-split-facade-curity-configure-api.png.png" alt="Configure Facade API" />
@@ -144,11 +150,13 @@ Navigate to **System Management** &rarr; **Keys**, click `Add Key`. Switch to th
 
 <img src="img/dcr/curity/6-split-dcr-key-curity.png" alt="DCR API Key" />
 
+
 <Warning>
 **Important**
 
 Take note of the `Key Hash` and `Key ID` as they will be needed later.
 </Warning>
+
 
 #### Publish the API to the Developer Portal
 
@@ -175,7 +183,7 @@ Initial Registration Access Token | Token to authenticate the DCR endpoint | Add
 Tyk and The Curity Identity Server should now be configured and the flow to register an OAuth client using the Tyk Developer Portal can be tested.
 
 #### Create an OAuth Client
-Start by registering a developer by navigating to **Portal Management** &rarr; **Developers** and add a developer. Then open the Tyk Developer Portal (ex. http://<host>:3000/portal) and open the **OAuth clients** page. Start the wizard by clicking **Create first Oauth Client**.
+Start by registering a developer by navigating to **Portal Management** &rarr; **Developers** and add a developer. Then open the Tyk Developer Portal (ex. `http://<host>:3000/portal`) and open the **OAuth clients** page. Start the wizard by clicking **Create first Oauth Client**.
 
 <img src="img/dcr/curity/9-split-curity-create-oauth-client-wizard.png" alt="Create OAuth client wizard" />
 
@@ -257,11 +265,13 @@ Navigate to **System Management** &rarr; **Keys**, click `Add Key`. Switch to th
 
 <img src="img/dcr/curity/6-jwt-dcr-key-curity.png" alt="DCR API Key" />
 
+
 <Warning>
 **Important**
 
 Take note of the `Key Hash` and `Key ID` as they will be needed later.
 </Warning>
+
 
 #### Publish the API to the Developer Portal
 
@@ -288,7 +298,7 @@ Initial Registration Access Token | Token to authenticate the DCR endpoint | Add
 Tyk and The Curity Identity Server should now be configured and the flow to register an OAuth client using the Tyk Developer Portal can be tested.
 
 #### Create an OAuth Client
-Start by registering a developer by navigating to **Portal Management** &rarr; **Developers** and add a developer. Then open the Tyk Developer Portal (ex. http://<host>:3000/portal) and open the **OAuth clients** page. Start the wizard by clicking **Create first Oauth Client**.
+Start by registering a developer by navigating to **Portal Management** &rarr; **Developers** and add a developer. Then open the Tyk Developer Portal (ex. `http://<host>:3000/portal`) and open the **OAuth clients** page. Start the wizard by clicking **Create first Oauth Client**.
 
 <img src="img/dcr/curity/9-jwt-curity-create-oauth-client-wizard.png" alt="Create OAuth client wizard" />
 

@@ -6,6 +6,7 @@ order: 3
 
 import PortalDeveloperAnalytics from '/snippets/portal-developer-analytics.mdx';
 
+
 <Warning>
 **Attention:**
 
@@ -22,6 +23,7 @@ has been superseded by the new [Tyk Developer Portal](/portal/overview).
 Please note that the Tyk Classic Portal now has limited support and maintenance. Please contact us at
 [support@tyk.io](<mailto:support@tyk.io?subject=Tyk classic developer portal>)if you have any questions.
 </Warning>
+
 
 ### List Developers
 
@@ -84,7 +86,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description**               |
 | ------------ | ----------------------------- |
-| Resource URL | `/api/portal/developers/`{id}`` |
+| Resource URL | `/api/portal/developers/{id}` |
 | Method       | GET                           |
 | Type         | None                          |
 | Body         | Developer Object              |
@@ -181,7 +183,7 @@ Authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description**               |
 | ------------ | ----------------------------- |
-| Resource URL | `/api/portal/developers/`{id}`` |
+| Resource URL | `/api/portal/developers/{id}` |
 | Method       | PUT                           |
 | Type         | None                          |
 | Body         | Developer Object              |
@@ -226,7 +228,7 @@ Authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description**               |
 | ------------ | ----------------------------- |
-| Resource URL | `/api/portal/developers/`{id}`` |
+| Resource URL | `/api/portal/developers/{id}` |
 | Method       | DELETE                        |
 | Type         | None                          |
 | Body         | None                          |
@@ -404,7 +406,7 @@ curl https://admin.cloud.tyk.io/api/portal/developers/:developerId/keys/:keyId \
 
 | **Property** | **Description**                                |
 | ------------ | ---------------------------------------------- |
-| Resource URL | `/oauth-clients/`{oauthClientId}`/revoke`       |
+| Resource URL | `/oauth-clients/{oauthClientId}/revoke`       |
 | Method       | POST                                           |
 | Type         | JSON                                           |
 | Body         | Client Object                                  |
@@ -435,7 +437,7 @@ Body: {
 
 | **Property** | **Description**                                |
 | ------------ | ---------------------------------------------- |
-| Resource URL | `/oauth-clients/`{oauthClientId}`/revoke_all`    |
+| Resource URL | `/oauth-clients/{oauthClientId}/revoke_all`    |
 | Method       | POST                                           |
 | Type         | JSON                                           |
 | Body         | Client Object                                  |

@@ -213,7 +213,7 @@ If you're using the legacy Tyk Classic APIs, then check out the [Tyk Classic](/a
 
 #### Configuring the middleware in the Tyk OAS API Definition
 
-The design of the Tyk OAS API Definition takes advantage of the `operationId` defined in the OpenAPI Document that declares both the path and method for which the middleware should be added. The `path` can contain wildcards in the form of any string bracketed by curly braces, for example ``{user_id}``. These wildcards are so they are human readable and do not translate to variable names. Under the hood, a wildcard translates to the “match everything” regex of: `(.*)`.
+The design of the Tyk OAS API Definition takes advantage of the `operationId` defined in the OpenAPI Document that declares both the path and method for which the middleware should be added. The `path` can contain wildcards in the form of any string bracketed by curly braces, for example `{user_id}`. These wildcards are so they are human readable and do not translate to variable names. Under the hood, a wildcard translates to the “match everything” regex of: `(.*)`.
 
 **Configuring the endpoint cache is performed in two parts:**
 
@@ -689,13 +689,13 @@ Caches are cleared on per-API basis, so the request to the invalidation endpoint
 For example, with the Tyk Gateway API:
 
 ```
-DELETE /tyk/cache/`{api-id}`
+DELETE /tyk/cache/{api-id}
 ```
 
 and with the Tyk Dashboard API:
 
 ```
-DELETE /api/cache/`{api-id}`
+DELETE /api/cache/{api-id}
 ```
 
 Note that prior to Tyk version 3.0.9 and 4.0, this was not supported on MDCB Data Plane gateways.

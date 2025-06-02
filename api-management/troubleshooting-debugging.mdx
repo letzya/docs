@@ -135,8 +135,7 @@ tags: ['troubleshooting', 'debugging', 'Open Source', 'Self-Managed', 'Tyk Cloud
         * block        - stack traces that led to blocking on synchronisation primitives
         * mutex        - stack traces of holders of contended mutexes
 
-7. ##### Support Information {#support-information}
-
+<h5 id="support-information">7. Support Information</h5>
     When contacting support, you may be asked to supply extra information and supply log files, etc, so we can quickly handle your request. Questions may include:
 
     * "Can you send us your log files"
@@ -342,7 +341,7 @@ tags: ['troubleshooting', 'debugging', 'Open Source', 'Self-Managed', 'Tyk Cloud
     To hot-restart a Tyk Gateway process, you simply need to send a `SIGUSR2` signal to the process, for example:
 
     ```bash
-    > sudo kill -SIGUSR2 `{gateway-pid}`
+    > sudo kill -SIGUSR2 {gateway-pid}
     ```
 
     This will fork and load a new process, passing all open handles to the new server and wait to drain the old ones.
@@ -380,13 +379,13 @@ tags: ['troubleshooting', 'debugging', 'Open Source', 'Self-Managed', 'Tyk Cloud
     **OSS**
 
     ```
-    DELETE /tyk/cache/`{api-id}`
+    DELETE /tyk/cache/{api-id}
     ```
 
     **Tyk Dashboard**
 
     ```
-    DELETE /api/cache/`{api-id}`
+    DELETE /api/cache/{api-id}
     ```
 
 17. ##### How to find the Gateway logging output
@@ -1400,7 +1399,7 @@ If you are using DocumentDB, capped collections are not supported. See [here](ht
 
         | Config File           | Environment Variable | Type   | Examples
         | ---                   | --                   | ----   | ---- |
-        | "mongo_url"                       | TYK_DB_MONGOURL      | string | "mongodb://`{username}`@`{host}`:`{port}`/`{db}`?authSource=$external&authMechanism=MONGODB-X509" |
+        | "mongo_url"                       | TYK_DB_MONGOURL      | string | "mongodb://{username}@{host}:{port}/{db}?authSource=$external&authMechanism=MONGODB-X509" |
         | "mongo_use_ssl"                   | TYK_DB_MONGOUSESSL      | bool | true, false |
         | "mongo_ssl_ca_file"               | TYK_DB_MONGOSSLCAFILE      | string | "certificates/ca.pem" |
         | "mongo_ssl_pem_keyfile"           | TYK_DB_MONGOSSLPEMKEYFILE      | string | "certificates/key.pem" |
@@ -1437,7 +1436,7 @@ If you are using DocumentDB, capped collections are not supported. See [here](ht
 
         | Config File           | Type  | Examples
         | -- | -- | --
-        "mongo_url" | string     | "mongodb://`{username}`@`{host}`:`{port}`/`{db}`?authSource=$external&authMechanism=MONGODB-X509" |   
+        "mongo_url" | string     | "mongodb://{username}@{host}:{port}/{db}?authSource=$external&authMechanism=MONGODB-X509" |   
         "mongo_use_ssl" | bool | true, false |
         "mongo_ssl_ca_file" | string      | "certificates/ca.pem" |  
         “mongo_ssl_pem_keyfile" | string     | "certificates/key.pem" |     
@@ -1464,7 +1463,7 @@ If you are using DocumentDB, capped collections are not supported. See [here](ht
         ```
         | Config File           | Environment Variable | Type   | Examples
         | ---                   | --                   | ----   | ---- |
-        "analytics.mongo_url" | TYK_MDCB_ANALYTICSCONFIG_MONGOURL | string   |  "mongodb://`{username}`@`{host}`:`{port}`/`{db}`?authSource=$external&authMechanism=MONGODB-X509"
+        "analytics.mongo_url" | TYK_MDCB_ANALYTICSCONFIG_MONGOURL | string   |  "mongodb://{username}@{host}:{port}/{db}?authSource=$external&authMechanism=MONGODB-X509"
         "analytics.mongo_use_ssl" | TYK_MDCB_ANALYTICSCONFIG_MONGOUSESSL | bool | true, false |
         "analytics.mongo_ssl_ca_file" | TYK_MDCB_ANALYTICSCONFIG_MONGOSSLCAFILE | string |  "certificates/ca.pem" |
         "analytics.mongo_ssl_pem_keyfile" | TYK_MDCB_ANALYTICSCONFIG_MONGOSSLPEMKEYFILE | string | "certificates/key.pem" |

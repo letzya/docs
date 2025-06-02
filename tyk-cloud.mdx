@@ -293,6 +293,7 @@ Next you'll [set up your first API](/#deploy-and-add-your-first-api) from the Ty
 
 Your onboarding is now complete! The next step will be to setup a very basic API to demonstrate how APIs are managed within Tyk Cloud.
 
+
 <Warning>
 Warning
 
@@ -302,6 +303,7 @@ It is not possible to rollback to previous versions of Tyk components with Tyk O
 
 For further details, please refer to the [release notes](/developer-support/release-notes/gateway#530-release-notes) for Tyk Gateway v5.3.0.
 </Warning>
+
 
 ##### Steps to add an API in Tyk Cloud
 
@@ -313,9 +315,12 @@ For further details, please refer to the [release notes](/developer-support/rele
   2. Scroll down to the **Target URL** setting and use the URL https://httpbin.org/
   3. Then scroll down to the Authentication section and select **Open(Keyless)** to keep things simple for this demo.
 
-<Warning>
-Ensure you configure a valid API Listen path.  Root ("/") listen paths are **not** supported on Tyk Cloud deployments prior to version v3.2.0.
-</Warning>
+
+
+    <Warning>
+    Ensure you configure a valid API Listen path.  Root ("/") listen paths are **not** supported on Tyk Cloud deployments prior to version v3.2.0.
+    </Warning>
+
 
 * **Step 4 - Advanced Options:**
 
@@ -337,9 +342,11 @@ When a Cloud Data Plane is deployed, the tag 'edge' and a location tag are autom
 </Note>
 
 
+
 <Warning>
 All APIs must be connected to a Cloud Data Plane by adding the appropriate tag in the *Segment Tags (Node Segmentation)* in the API Designer.
 </Warning>
+
 
 * **Step 5 - Save Your API:** Click **Save** from the API Designer. Your API will now be added to the APIs list and as the next step you'll access your API from the Gateway Ingress.
 
@@ -481,7 +488,7 @@ Tyk supports API mocking using our versioning `use_extended_paths` setup, adding
 ```json
 "ignored": [
   {
-    "path": "/v1/ignored/with_id/`{id}`",
+    "path": "/v1/ignored/with_id/{id}",
     "method_actions": {
       "GET": {
         "action": "reply",
@@ -756,9 +763,11 @@ An Org Admin can perform the following:
 
 <img src="img/admin/tyk-cloud-rename-delete.png" alt="Delete or Rename Env" />
 
+
 <Warning>
 Deleting an environment will also delete all the Control Planes and Cloud Data Planes associated with it
 </Warning>
+
 
 #### Managing Control Planes
 
@@ -972,7 +981,7 @@ You need to modify the following values in [tyk.hybrid.conf](https://github.com/
 
 ```json
 {
-"rpc_key": "`<ORG_ID>`",
+"rpc_key": "<ORG_ID>",
 "api_key": "<API-KEY>",
 "connection_string": "<MDCB-INGRESS>:443",
 "group_id": "dataplane-europe",
@@ -1111,11 +1120,13 @@ For the complete installation guide and configuration options, please see [Tyk D
 
 ##### Remove hybrid data plane configuration
 
+
 <Warning>
 Please note the action of removing a hybrid data plane configuration cannot be undone.
 
 To remove the hybrid data plane configuration, navigate to the page of the hybrid data plane you want to remove and click _OPEN DETAILS_
 </Warning>
+
 
 
   <img src="img/hybrid-gateway/tyk-cloud-hybrid-open-details.png" alt="Tyk Cloud hybrid open for details" />
@@ -1390,11 +1401,13 @@ Edit the fields you would like to change and then click on the _SAVE PROFILE_ bu
 
 ##### Delete SSO profile
 
+
 <Warning>
 Please note the action of deleting an SSO profile cannot be undone.
 
 To delete an SSO profile, login to Tyk Cloud, navigate to _Profile_ list and click on the profile you would like to remove.
 </Warning>
+
 
   <img src="img/cloud/cloud-sso-delete-select.png" alt="Tyk Cloud SSO delete selection" />
 
@@ -1721,9 +1734,12 @@ This page explains how to set up a control plane with plugins to customize it on
 
 - We have included a sample IAM policy that you need to create in AWS to allow the plugin bundle to work. For more information on creating IAM policies, see the [AWS Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html).
 
-<Warning>
-We recommend you restrict your IAM user as much as possible before sharing the credentials with any 3rd party, including Tyk Cloud. See [IAM User Permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html) for more details.
-</Warning>
+
+
+    <Warning>
+    We recommend you restrict your IAM user as much as possible before sharing the credentials with any 3rd party, including Tyk Cloud. See [IAM User Permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html) for more details.
+    </Warning>
+
 
 ```.json
 {
@@ -2080,11 +2096,13 @@ pip3 install protobuf grpcio
 
 ### Deploy Legacy Hybrid Gateways
 
+
 <Warning>
 `tyk-hybrid` chart is deprecated. Please use our [Tyk Data Plane helm chart](/#deploy-hybrid-gateways) instead. 
 
 We recommend that all users to migrate to the `tyk-data-plane` Chart. Please review the [Configuration](/product-stack/tyk-charts/tyk-data-plane-chart#configuration) section of the new helm chart and cross-check with your existing configurations while planning for migration.
 </Warning>
+
 
 1. **Add the Tyk official Helm repo `tyk-helm` to your local Helm repository**
 
@@ -2575,9 +2593,11 @@ A: When a Cloud Data Plane is deployed, the tag 'edge' and a location tag are au
 
 To add either of the tags, see [Adding an API](#steps-to-add-an-api-in-tyk-cloud) in the Getting Started section.
 
+
 <Warning>
 You must add one of the above tags to any API you add to your Control Plane Dashboard.
 </Warning>
+
 
 #### Glossary
 

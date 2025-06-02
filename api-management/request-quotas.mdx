@@ -152,7 +152,7 @@ In this tutorial, we will configure Request Quotas on a Tyk Security Policy to l
 
     As the Dashboard UI doesn't allow setting a shorter duration, we will set the Quota reset period to a value of 1 minute for testing purposes. The following commands search for the policy, modify its `quota_renewal_rate` to 60 seconds, and update the API.
 
-    **Note:** Obtain your Dashboard API key by clicking on the User profile at the top right corner, then click on `Edit Profile`, and select the key available under `Tyk Dashboard API Access Credentials`. Now in the below command replace <your-api-key> with the API key you obtained from the Dashboard UI.
+    **Note:** Obtain your Dashboard API key by clicking on the User profile at the top right corner, then click on `Edit Profile`, and select the key available under `Tyk Dashboard API Access Credentials`. Now in the below command replace `<your-api-key>` with the API key you obtained from the Dashboard UI.
 
     ```
     curl -s --location 'http://localhost:3000/api/portal/policies/search?q=Request%20Quota%20Policy' \
@@ -201,7 +201,7 @@ In this tutorial, we will configure Request Quotas on a Tyk Security Policy to l
     ```bash
     for i in $(seq 1 15); do \
         echo -n "Request $i: "; \
-        curl -s -o /dev/null -w "%`{http_code}`\n" -H "Authorization: <replace-with-key-id>" http://tyk-gateway.localhost:8080/request-quota-test/get; \
+        curl -s -o /dev/null -w "%{http_code}\n" -H "Authorization: <replace-with-key-id>" http://tyk-gateway.localhost:8080/request-quota-test/get; \
         sleep 0.1; \
     done
     ```
@@ -245,7 +245,7 @@ In this tutorial, we will configure Request Quotas on a Tyk Security Policy to l
     2. Send one more request using the same API key:
 
         ```bash
-        curl -s -o /dev/null -w "%`{http_code}`\n" -H "Authorization: <replace-with-key-id>" http://tyk-gateway.localhost:8080/request-quota-test/get
+        curl -s -o /dev/null -w "%{http_code}\n" -H "Authorization: <replace-with-key-id>" http://tyk-gateway.localhost:8080/request-quota-test/get
         ```
 
     3.  **Expected Observation:** This request should now succeed, returning an HTTP status code `200`. This demonstrates that because the 60-second quota period ended, the *next* request made after that period triggered the quota reset, replenishing the allowance.
@@ -326,13 +326,13 @@ Organization quotas limit the total number of requests across all APIs for a spe
 Organization quotas are configured through the Tyk Dashboard API or Gateway API:
 
 ```bash
-curl -X POST -H "Authorization: `{your-api-key}`" \
+curl -X POST -H "Authorization: {your-api-key}" \
   -H "Content-Type: application/json" \
   -d '{
     "quota_max": 1000,
     "quota_renewal_rate": 3600,
   }' \
-  http://tyk-gateway:8080/tyk/org/keys/`{org-id}`
+  http://tyk-gateway:8080/tyk/org/keys/{org-id}
 ``` */}
 
 ### API-Level Configuration
@@ -463,9 +463,9 @@ These are the fields that you can set directly in the Policy object or the Acces
 <Tab title="Security Policy">
 
 To update the policy, do the following:
-1. Retrieve the policy object using `GET /api/portal/policies/`{POLICY_ID}``
+1. Retrieve the policy object using `GET /api/portal/policies/{POLICY_ID}`
 2. Add or modify the `quota_max` and `quota_renewal_rate` fields within the policy JSON object
-3. Update the policy using `PUT /api/portal/policies/`{POLICY_ID}`` with the modified object, or create a new one using `POST /api/portal/policies/`
+3. Update the policy using `PUT /api/portal/policies/{POLICY_ID}` with the modified object, or create a new one using `POST /api/portal/policies/`
 
 **Explanation:**
 The above adds request quotas to a policy. Any key using this policy will inherit the quotas settings and behaves as follows: each key will be permitted 1000 requests per 24-hour (86400 seconds) cycle before the quota resets.
@@ -477,9 +477,9 @@ The above adds request quotas to a policy. Any key using this policy will inheri
 **Note:** Direct key configuration overrides policy settings only for that specific key.
 
 To update the access key do the following:
-1. Retrieve the key's session object using `GET /api/keys/`{KEY_ID}``
+1. Retrieve the key's session object using `GET /api/keys/{KEY_ID}`
 2. Add or modify the `quota_max` and `quota_renewal_rate` fields within the session object JSON
-3. Update the key using `PUT /api/keys/`{KEY_ID}`` with the modified session object
+3. Update the key using `PUT /api/keys/{KEY_ID}` with the modified session object
 
 **Explanation:**
 The above adds quotas to an access key. Any request made by the key will behave as follows: each key will be permitted 1000 requests per 24-hour (86400 seconds) cycle before the quota resets.
@@ -523,7 +523,7 @@ Tyk implements request quotas using a Redis-based counter mechanism with time-ba
 ```mermaid
 graph LR
  A[API Request Received] --> B(Check Redis Quota Counter);
- B -- Counter < QuotaMax --> C`{Increment Redis Counter}`;
+ B -- Counter < QuotaMax --> C{Increment Redis Counter};
  C --> D[Calculate quota_remaining = QuotaMax - Counter];
  D --> E[Update Session State];
  E --> F[Forward Request to Upstream];
@@ -567,7 +567,7 @@ The core logic for checking and enforcing Request Quotas is executed within the 
     *   `QuotaRenewalRate`: The duration (in seconds) of the quota period for setting the TTL in Redis.
 
 4.  **Redis Interaction & Enforcement:** This is the core enforcement step, interacting directly with Redis:
-    *   **Construct Key:** Generates the unique Redis key for tracking this specific quota counter (e.g., `quota-`{scope}`-`{api-key-hash}``).
+    *   **Construct Key:** Generates the unique Redis key for tracking this specific quota counter (e.g., `quota-{scope}-{api-key-hash}`).
     *   **Check Expiry/Existence:** It checks Redis to see if the key exists and if its TTL is still valid.
     *   **Handle Renewal (If Expired/Missing):** If the key doesn't exist or its TTL has passed, Tyk initiates the renewal logic described previously (attempting a distributed lock, setting the counter to 0, and applying the `QuotaRenewalRate` as the new TTL).
     *   **Increment Counter:** Tyk atomically increments the Redis counter value. This operation returns the *new* value of the counter *after* the increment.
@@ -697,8 +697,8 @@ You can manually reset a quota for a specific key in two ways:
 
 **Via Tyk Gateway API:**
 ```
-POST /tyk/keys/reset/`{key_id}`
-Authorization: `{your-gateway-secret}`
+POST /tyk/keys/reset/{key_id}
+Authorization: {your-gateway-secret}
 ```
 This endpoint will immediately reset the quota for the specified key, allowing the key to make requests up to its quota limit again.
 </Accordion>

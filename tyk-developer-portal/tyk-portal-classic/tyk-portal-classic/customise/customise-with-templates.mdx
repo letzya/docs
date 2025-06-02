@@ -4,6 +4,7 @@ sidebarTitle: "Customize Page Templates"
 order: 2
 ---
 
+
 <Warning>
 **Attention:**
 
@@ -20,6 +21,7 @@ has been superseded by the new [Tyk Developer Portal](/portal/overview).
 Please note that the Tyk Classic Portal now has limited support and maintenance. Please contact us at
 [support@tyk.io](<mailto:support@tyk.io?subject=Tyk classic developer portal>)if you have any questions.
 </Warning>
+
 
 The Tyk Developer Portal can be fully customized using templates. The templates for the Portal are only available to Self-Managed users currently. These templates are located in the `/opt/tyk-dashboard/portal` folder of your Tyk installation.
 
@@ -46,7 +48,7 @@ To set a new template name up in your Tyk installation, you will need to add the
 ```
 {{ define "customPage" }}
 <!--- HTML IN HERE --/>
-{`{ end }`}
+{{ end }}
 ```
 
 In the above snippet, we've created the `customPage` template, this can then be used as the template name in the CMS form when generating for the page type.
@@ -105,10 +107,10 @@ You have different teams of developers, and for each team we want to show them a
 ```
 {{if .UserData.Fields.Team == `internal`}}
 … Display internal APIs …
-{`{end}`}
+{{end}}
 {{if .UserData.Fields.Team == `public`}}
 … Display public set of APIs …
-{`{end}`}
+{{end}}
 ```
 
 ### Add Files for Downloading

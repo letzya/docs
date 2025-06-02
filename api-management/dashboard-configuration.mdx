@@ -267,7 +267,7 @@ Similar to API list response
 
 | **Property** | **Description**  |
 | ------------ | ---------------- |
-| Resource URL | `/api/apis/`{id}`` |
+| Resource URL | `/api/apis/{id}` |
 | Method       | GET              |
 | Type         | None             |
 | Body         | None             |
@@ -275,7 +275,7 @@ Similar to API list response
 
 
 <Note>
-``{id}`` can either be the internal or public ID ( see `api_id` in the sample response )
+`{id}` can either be the internal or public ID ( see `api_id` in the sample response )
 </Note>
 
 
@@ -603,7 +603,7 @@ Please note that whilst `api_id` can be updated for Self-Managed installations, 
 
 | **Property** | **Description**                       |
 | ------------ | ------------------------------------- |
-| Resource URL | `/api/apis/`{internal_or_external_id}`` |
+| Resource URL | `/api/apis/{internal_or_external_id}` |
 | Method       | PUT                                   |
 | Type         | None                                  |
 | Body         | Advanced API Definition               |
@@ -820,7 +820,7 @@ Below APIs returns data only if you have Pump 1.7.0
 #### Analytics of API Key
 | **Property** | **Description** |
 | ------------ | --------------- |
-| Resource URL | `/api/activity/keys/endpoint/`{keyHash}`/`{startDay}`/`{startMonth}`/`{startYear}`/`{EndDay}`/`{EndMonth}`/`{EndYear}``    |
+| Resource URL | `/api/activity/keys/endpoint/{keyHash}/{startDay}/{startMonth}/{startYear}/{EndDay}/{EndMonth}/{EndYear}`    |
 | Method       | GET             |
 | Type         | None            |
 | Body         | None            |
@@ -905,7 +905,7 @@ authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 #### Analytics of OAuth Client
 | **Property** | **Description** |
 | ------------ | --------------- |
-| Resource URL | `/api/activity/oauthid/endpoint/`{OAuthClientID}`/`{startDay}`/`{startMonth}`/`{startYear}`/`{EndDay}`/`{EndMonth}`/`{EndYear}``    |
+| Resource URL | `/api/activity/oauthid/endpoint/{OAuthClientID}/{startDay}/{startMonth}/{startYear}/{EndDay}/{EndMonth}/{EndYear}`    |
 | Method       | GET             |
 | Type         | None            |
 | Body         | None            |
@@ -1056,7 +1056,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description**         |
 | ------------ | ----------------------- |
-| Resource URL | `/api/users/`{USER_ID}``  |
+| Resource URL | `/api/users/{USER_ID}`  |
 | Method       | GET                     |
 | Type         | None                    |
 | Body         | None                    |
@@ -1141,7 +1141,7 @@ You need to have the `users` [Permission object](/api-management/user-management
 
 | **Property** | **Description**                      |
 | ------------ | -------------------------------------|
-| Resource URL | `/api/users/`{USER_ID}`/actions/reset` |
+| Resource URL | `/api/users/{USER_ID}/actions/reset` |
 | Method       | POST                                 |
 | Type         | None                                 |
 | Body         | Password Object                      |
@@ -1175,7 +1175,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description**                                       |
 | ------------ | ------------------------------------------------------|
-| Resource URL | `/admin/users/`{USER_ID}`/actions/allow_reset_passwords`|
+| Resource URL | `/admin/users/{USER_ID}/actions/allow_reset_passwords`|
 | Method       | PUT                                                   |
 | Type         | None                                                  |
 | Body         | None                                                  |
@@ -1184,7 +1184,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 **Sample Request**
 ```http
 PUT -H "admin-auth: 
-<your secret>" http://<dashboard>/admin/users/`{USER_ID}`/actions/allow_reset_passwords
+<your secret>" http://<dashboard>/admin/users/{USER_ID}/actions/allow_reset_passwords
 ```
 
 **Sample Response**
@@ -1201,7 +1201,7 @@ PUT -H "admin-auth:
 
 | **Property** | **Description**                                           |
 | ------------ | ----------------------------------------------------------|
-| Resource URL | `/admin/users/`{USER_ID}`/actions/disallow_reset_passwords` |
+| Resource URL | `/admin/users/{USER_ID}/actions/disallow_reset_passwords` |
 | Method       | PUT                                                       |
 | Type         | None                                                      |
 | Body         | None                                                      |
@@ -1209,7 +1209,7 @@ PUT -H "admin-auth:
 
 **Sample Request**
 ```http
-PUT -H "admin-auth: <your secret>" http://<dashboard>/admin/users/`{USER_ID}`/actions/disallow_reset_passwords
+PUT -H "admin-auth: <your secret>" http://<dashboard>/admin/users/{USER_ID}/actions/disallow_reset_passwords
 ```
 
 **Sample Response**
@@ -1229,7 +1229,7 @@ You need to have the `users` [Permission object](/api-management/user-management
 
 | **Property** | **Description**        |
 | ------------ | -----------------------|
-| Resource URL | `/api/users/`{USER_ID}`` |
+| Resource URL | `/api/users/{USER_ID}` |
 | Method       | PUT                    |
 | Type         | None                   |
 | Body         | User Object            |
@@ -1275,10 +1275,10 @@ This also resets the user's Dashboard API credentials.
 
 | **Property** | **Description**                            |
 | ------------ | ------------------------------------------ |
-| Resource URL | `/api/users/`{USER_ID}`/actions/key/reset`   |
+| Resource URL | `/api/users/{USER_ID}/actions/key/reset`   |
 | Method       | PUT                                        |
 | Type         | None                                       |
-| Body         | `{"userId":"`{USER_ID}`"}`                     |
+| Body         | `{"userId":"{USER_ID}"}`                     |
 | Param        | None                                       |
 
 **Sample Request**
@@ -1288,7 +1288,7 @@ PUT /api/users/54c25e845d932847067402e2/actions/key/reset HTTP/1.1
 Host: localhost:3000
 authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 {
-  "userId":"`{USER_ID}`"
+  "userId":"{USER_ID}"
 }
 ```
 
@@ -1306,7 +1306,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description**        |
 | ------------ | -----------------------|
-| Resource URL | `/api/users/`{USER_ID}`` |
+| Resource URL | `/api/users/{USER_ID}` |
 | Method       | DELETE                 |
 | Type         | None                   |
 | Body         | None                   |
@@ -1380,7 +1380,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description**         |
 | ------------ | ----------------------- |
-| Resource URL | `/api/usergroups/`{user_group-id}``  |
+| Resource URL | `/api/usergroups/{user_group-id}`  |
 | Method       | GET                     |
 | Type         | None                    |
 | Body         | None                    |
@@ -1449,7 +1449,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description**        |
 | ------------ | -----------------------|
-| Resource URL | `/api/usergroups/`{user_group-id}`` |
+| Resource URL | `/api/usergroups/{user_group-id}` |
 | Method       | PUT                    |
 | Type         | None                   |
 | Body         | User Group Object            |
@@ -1482,7 +1482,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description**        |
 | ------------ | -----------------------|
-| Resource URL | `/api/usergroups/`{user_group-id}`` |
+| Resource URL | `/api/usergroups/{user_group-id}` |
 | Method       | DELETE                 |
 | Type         | None                   |
 | Body         | None                   |
@@ -1602,7 +1602,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 
 <Note>
-``{api-id}`` can either be the internal or external API id.
+`{api-id}` can either be the internal or external API id.
 </Note>
 
 
@@ -1612,7 +1612,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description**            |
 | ------------ | -------------------------- |
-| Resource URL | `/api/apis/`{api-id}`/keys` |
+| Resource URL | `/api/apis/{api-id}/keys` |
 | Method       | GET                        |
 | Type         | None                       |
 | Body         | None                       |
@@ -1647,7 +1647,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description**                     |
 | ------------ | ----------------------------------- |
-| Resource URL | `/api/apis/`{api-id}`/keys/`{key-id}`` |
+| Resource URL | `/api/apis/{api-id}/keys/{key-id}` |
 | Method       | GET                                 |
 | Type         | None                                |
 | Body         | None                                |
@@ -1702,7 +1702,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description** |
 | ------------ | --------------- |
-| Resource URL | `/api/keys/`{custom-key-id}``     |
+| Resource URL | `/api/keys/{custom-key-id}`     |
 | Method       | POST            |
 | Type         | None            |
 | Body         | Session Object  |
@@ -1843,7 +1843,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description**                      |
 | ------------ | ------------------------------------ |
-| Resource URL | `/api/apis/`{api-id}`/keys/`{keyId}`` |
+| Resource URL | `/api/apis/{api-id}/keys/{keyId}` |
 | Method       | PUT                                  |
 | Type         | None                                 |
 | Body         | Session Object                       |
@@ -1899,7 +1899,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description**                   |
 | ------------ | --------------------------------- |
-| Resource URL | `/api/apis/`{api-id}`/keys/`{keyId}`` |
+| Resource URL | `/api/apis/{api-id}/keys/{keyId}` |
 | Method       | DELETE                            |
 | Type         | None                              |
 | Body         | None                              |
@@ -1941,7 +1941,7 @@ Basic Auth users are essentially a form of API token, just with a customized, pr
 
 | **Property** | **Description**                   |
 | ------------ | --------------------------------- |
-| Resource URL | `/api/apis/keys/basic/`{username}`` |
+| Resource URL | `/api/apis/keys/basic/{username}` |
 | Method       | POST                              |
 | Type         | None                              |
 | Body         | Session Object                    |
@@ -2023,7 +2023,7 @@ Any OAuth keys must be generated under an API in the Dashboard. Any POST request
 
 | **Property** | **Description**              |
 | ------------ | ---------------------------- |
-| Resource URL | `/api/apis/oauth/{`{api-id}`}` |
+| Resource URL | `/api/apis/oauth/{{api-id}}` |
 | Method       | POST                         |
 | Type         | JSON                         |
 | Body         | Client Object                |
@@ -2032,9 +2032,9 @@ Any OAuth keys must be generated under an API in the Dashboard. Any POST request
 **Sample Request**
 
 ```curl
-  curl -vX POST -H "Authorization: {`{API Access Credentials}`}" \
+  curl -vX POST -H "Authorization: {{API Access Credentials}}" \
     -H "Content-Type: application/json" \
-    -d '{"redirect_uri": "", "policy_id": "{`{policy_id}`}"}' http://{`{dasboard-hostname}`}/api/apis/oauth/{`{api-id}`}
+    -d '{"redirect_uri": "", "policy_id": "{{policy_id}}"}' http://{{dasboard-hostname}}/api/apis/oauth/{{api-id}}
 ```
 
 **Sample Response**
@@ -2052,7 +2052,7 @@ Any OAuth keys must be generated under an API in the Dashboard. Any POST request
 
 | **Property** | **Description**              |
 | ------------ | ---------------------------- |
-| Resource URL | `/api/apis/oauth/{`{api-id}`}` |
+| Resource URL | `/api/apis/oauth/{{api-id}}` |
 | Method       | GET                          |
 | Type         | JSON                         |
 | Body         | NONE                         |
@@ -2061,9 +2061,9 @@ Any OAuth keys must be generated under an API in the Dashboard. Any POST request
 **Sample Request**
 
 ```http
-curl -vX GET -H "Authorization: {`{API Access Credentials}`}" \
+curl -vX GET -H "Authorization: {{API Access Credentials}}" \
   -H "Content-Type: application/json" \
-  http://{`{dashboard-hostname}`}/api/apis/oauth/{`{api-id}`}
+  http://{{dashboard-hostname}}/api/apis/oauth/{{api-id}}
 ```
 
 **Sample Response**
@@ -2092,7 +2092,7 @@ curl -vX GET -H "Authorization: {`{API Access Credentials}`}" \
 
 | **Property** | **Description**                            |
 | ------------ | ------------------------------------------ |
-| Resource URL | `/api/apis/oauth/{`{api-id}`}/{`{client_id}`}` |
+| Resource URL | `/api/apis/oauth/{{api-id}}/{{client_id}}` |
 | Method       | GET                                        |
 | Type         | JSON                                       |
 | Body         | NONE                                       |
@@ -2101,9 +2101,9 @@ curl -vX GET -H "Authorization: {`{API Access Credentials}`}" \
 **Sample Request**
 
 ```curl
-curl -vX GET -H "Authorization: {`{API Access Credentials}`}" \
+curl -vX GET -H "Authorization: {{API Access Credentials}}" \
   -H "Content-Type: application/json" \
-  http://localhost:3000/api/apis/oauth/{`{api-id}`}/{`{client_id}`}
+  http://localhost:3000/api/apis/oauth/{{api-id}}/{{client_id}}
 ```
 
 **Sample Response**
@@ -2123,7 +2123,7 @@ You can delete an OAuth client using a simple DELETE method. Please note that to
 
 | **Property** | **Description**                            |
 | ------------ | ------------------------------------------ |
-| Resource URL | `/api/apis/oauth/{`{api-id}`}/{`{client_id}`}` |
+| Resource URL | `/api/apis/oauth/{{api-id}}/{{client_id}}` |
 | Method       | DELETE                                     |
 | Type         | JSON                                       |
 | Body         | NONE                                       |
@@ -2132,9 +2132,9 @@ You can delete an OAuth client using a simple DELETE method. Please note that to
 **Sample Request**
 
 ```curl
-curl -vX DELETE -H "Authorization: {`{API Access Credentials}`}" \
+curl -vX DELETE -H "Authorization: {{API Access Credentials}}" \
   -H "Content-Type: application/json" \
-  http://{`{dashboard-hostname}`}/api/apis/oauth/{`{api-id}`}/{`{client_id}`}
+  http://{{dashboard-hostname}}/api/apis/oauth/{{api-id}}/{{client_id}}
 ```
 
 **Sample Response**
@@ -2160,7 +2160,7 @@ This option is available from v2.6.0 onwards.
 
 | **Property** | **Description**                                      |
 | ------------ | ---------------------------------------------------- |
-| Resource URL | `/api/apis/oauth/`{apiID}`/`{oauthClientId}`/tokens` |
+| Resource URL | `/api/apis/oauth/{apiID}/{oauthClientId}/tokens` |
 | Method       | GET                                                  |
 | Type         |                                                      |
 | Body         | NONE                                                 |
@@ -2169,7 +2169,7 @@ This option is available from v2.6.0 onwards.
 ```http
 GET /api/apis/oauth/528a67c1ac9940964f9a41ae79235fcc/25348e8cf157409b52e39357fd9578f1/tokens HTTP/1.1
 Host: localhost:3000
-Authorization: {`{API Access Credentials}`}
+Authorization: {{API Access Credentials}}
 Cache-Control: no-cache
 ```
 
@@ -2201,7 +2201,7 @@ You can control how long you want to store expired tokens in this list using `oa
 
 | **Property** | **Description**                                |
 | ------------ | ---------------------------------------------- |
-| Resource URL | `/api/apis/oauth/`{oauthClientId}`/revoke`       |
+| Resource URL | `/api/apis/oauth/{oauthClientId}/revoke`       |
 | Method       | POST                                           |
 | Type         | JSON                                           |
 | Body         | Client Object                             |
@@ -2232,7 +2232,7 @@ Body: {
 
 | **Property** | **Description**                                |
 | ------------ | ---------------------------------------------- |
-| Resource URL | `/api/apis/oauth/`{oauthClientId}`/revoke_all`   |
+| Resource URL | `/api/apis/oauth/{oauthClientId}/revoke_all`   |
 | Method       | POST                                           |
 | Type         | JSON                                           |
 | Body         | Client Object                                  |
@@ -2265,7 +2265,7 @@ This endpoint is used in the [Authorization Code Grant](/api-management/authenti
 
 | **Property** | **Description**                                |
 | ------------ | ---------------------------------------------- |
-| Resource URL | `/api/apis/oauth/{`{api_id}`}/authorize-client/` |
+| Resource URL | `/api/apis/oauth/{{api_id}}/authorize-client/` |
 | Method       | POST                                           |
 | Type         | Form-Encoded                                   |
 | Body         | Fields (see below)                             |
@@ -2282,10 +2282,10 @@ Note that in the following example, the `policy_id` isn't included in the reques
 **Sample Request**
 
 ```curl
-curl -vX POST -H "Authorization: {`{API Access Credentials}`}" \
+curl -vX POST -H "Authorization: {{API Access Credentials}}" \
   -H "Content-Type: application/x-www-form-urlencoded" \
-  -d 'response_type=code&client_id={`{client_id}`}&redirect_uri=http%3A%2F%2Foauth.com%2Fredirect&key_rules=%7B+++++%22allowance%22%3A+999%2C+++++%22rate%22%3A+1000%2C+++++%22per%22%3A+60%2C+++++%22expires%22%3A+0%2C+++++%22quota_max%22%3A+-1%2C+++++%22quota_renews%22%3A+1406121006%2C+++++%22quota_remaining%22%3A+0%2C+++++%22quota_renewal_rate%22%3A+60%2C+++++%22access_rights%22%3A+%7B+++++++++%22528a67c1ac9940964f9a41ae79235fcc%22%3A+%7B+++++++++++++%22api_name%22%3A+%22{`{api_name}`}%22%2C+++++++++++++%22api_id%22%3A+%{`{api_id}`}%22%2C+++++++++++++%22versions%22%3A+%5B+++++++++++++++++%22Default%22+++++++++++++%5D+++++++++%7D+++++%7D%2C+++++%22org_id%22%3A+%22{`{org_id}`}%22+%7D'
-http://{`{dashboard-hostname}`}/api/apis/oauth/{`{api_id}`}/authorize-client
+  -d 'response_type=code&client_id={{client_id}}&redirect_uri=http%3A%2F%2Foauth.com%2Fredirect&key_rules=%7B+++++%22allowance%22%3A+999%2C+++++%22rate%22%3A+1000%2C+++++%22per%22%3A+60%2C+++++%22expires%22%3A+0%2C+++++%22quota_max%22%3A+-1%2C+++++%22quota_renews%22%3A+1406121006%2C+++++%22quota_remaining%22%3A+0%2C+++++%22quota_renewal_rate%22%3A+60%2C+++++%22access_rights%22%3A+%7B+++++++++%22528a67c1ac9940964f9a41ae79235fcc%22%3A+%7B+++++++++++++%22api_name%22%3A+%22{{api_name}}%22%2C+++++++++++++%22api_id%22%3A+%{{api_id}}%22%2C+++++++++++++%22versions%22%3A+%5B+++++++++++++++++%22Default%22+++++++++++++%5D+++++++++%7D+++++%7D%2C+++++%22org_id%22%3A+%22{{org_id}}%22+%7D'
+http://{{dashboard-hostname}}/api/apis/oauth/{{api_id}}/authorize-client
 ```
 
 **Sample Response**
@@ -2400,7 +2400,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description**        |
 | ------------ | ---------------------- |
-| Resource URL | `/api/hooks/`{hook-id}`` |
+| Resource URL | `/api/hooks/{hook-id}` |
 | Method       | GET                    |
 | Type         | None                   |
 | Body         | None                   |
@@ -2473,7 +2473,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description**        |
 | ------------ | ---------------------- |
-| Resource URL | `/api/hooks/`{hook-id}`` |
+| Resource URL | `/api/hooks/{hook-id}` |
 | Method       | PUT                    |
 | Type         | None                   |
 | Body         | Hook object            |
@@ -2515,7 +2515,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description**           |
 | ------------ | ------------------------- |
-| Resource URL | `/api/hooks/`{hook-id}``    |
+| Resource URL | `/api/hooks/{hook-id}`    |
 | Method       | DELETE                    |
 | Type         | None                      |
 | Body         | None                      |
@@ -2647,10 +2647,12 @@ American spelling “organization” with a 'z'.
 </Note>
 
 
+
 <Warning>
 In a production environment, you must change the default `admin_Secret` in the`tyk_analytics.conf` file. Admin APIs use this value for authentication, and you should set it in the `admin-auth` header while sending the request.
 <br />
 </Warning>
+
 
 For the official Tyk Dashboard Admin API Reference, please visit our [API Documentation](/dashboard-admin-api).
 
@@ -2660,7 +2662,7 @@ For the official Tyk Dashboard Admin API Reference, please visit our [API Docume
 
 | **Property** | **Description**                 |
 | ------------ |---------------------------------|
-| Resource URL | `/admin/organisations/`{org-id}`` |
+| Resource URL | `/admin/organisations/{org-id}` |
 | Method       | GET                             |
 | Type         | None                            |
 | Body         | Organization Object             |
@@ -2669,7 +2671,7 @@ For the official Tyk Dashboard Admin API Reference, please visit our [API Docume
 **Sample Request**
 
 ```http
-GET /admin/organisations/`{ORG_ID}` HTTP/1.1
+GET /admin/organisations/{ORG_ID} HTTP/1.1
 Host: localhost:3000
 admin-auth: 12345
 ```
@@ -2837,7 +2839,7 @@ admin-auth: 12345
 
 | **Property** | **Description**             |
 | ------------ |-----------------------------|
-| Resource URL | `/admin/organisations/`{id}`` |
+| Resource URL | `/admin/organisations/{id}` |
 | Method       | PUT                         |
 | Type         | None                        |
 | Body         | Organization Object         |
@@ -2871,7 +2873,7 @@ admin-auth: 12345
 
 | **Property** | **Description**             |
 | ------------ |-----------------------------|
-| Resource URL | `/admin/organisations/`{id}`` |
+| Resource URL | `/admin/organisations/{id}` |
 | Method       | DELETE                      |
 | Type         | None                        |
 | Body         | None                        |
@@ -2901,7 +2903,7 @@ admin-auth: 12345
 
 | **Property** | **Description**           |
 | ------------ | ------------------------- |
-| Resource URL | `/admin/users/`{USER_ID}`` |
+| Resource URL | `/admin/users/{USER_ID}` |
 | Method       | GET                       |
 | Type         | None                      |
 | Body         | None                      |
@@ -3003,7 +3005,7 @@ You need to have the `users` [Permission object](/api-management/user-management
 
 | **Property** | **Description**          |
 | ------------ | ------------------------ |
-| Resource URL | `/admin/users/`{USER_ID}`` |
+| Resource URL | `/admin/users/{USER_ID}` |
 | Method       | PUT                      |
 | Type         | None                     |
 | Body         | User Object              |
@@ -3140,7 +3142,7 @@ The organization object is the most fundamental object in a Tyk setup, all other
 
 | **Property** | **Description**                 |
 | ------------ | ------------------------------- |
-| Resource URL | `/admin/organisations/`{ORG-ID}`` |
+| Resource URL | `/admin/organisations/{ORG-ID}` |
 | Method       | GET                             |
 | Type         | None                            |
 | Body         | None                            |
@@ -3693,7 +3695,7 @@ The *track endpoint* middleware only affects the inclusion of endpoints in the p
 
 #### Selecting Tyk OAS APIs endpoints to be tracked
 
-The design of the Tyk OAS API Definition takes advantage of the `operationId` defined in the OpenAPI Document that declares both the path and method for which the middleware should be added. The `path` can contain wildcards in the form of any string bracketed by curly braces, for example ``{user_id}``. These wildcards are so they are human readable and do not translate to variable names. Under the hood, a wildcard translates to the “match everything” regex of: `(.*)`.
+The design of the Tyk OAS API Definition takes advantage of the `operationId` defined in the OpenAPI Document that declares both the path and method for which the middleware should be added. The `path` can contain wildcards in the form of any string bracketed by curly braces, for example `{user_id}`. These wildcards are so they are human readable and do not translate to variable names. Under the hood, a wildcard translates to the “match everything” regex of: `(.*)`.
 
 The track endpoint middleware (`trackEndpoint`) can be added to the `operations` section of the Tyk OAS Extension (`x-tyk-api-gateway`) in your Tyk OAS API Definition for the appropriate `operationId` (as configured in the `paths` section of your OpenAPI Document).
 
@@ -3941,22 +3943,22 @@ When working with Tyk OAS APIs, you can manage categories for an API using these
 
 | Method | Endpoint path                        | Action                                                                                 |
 |--------|--------------------------------------|----------------------------------------------------------------------------------------|
-| `PUT`  | `/api/apis/oas/`{apiID}`/categories`   | Assign a list of categories to the specified API   
-| `GET`  | `/api/apis/oas/`{apiID}`/categories`   | Retrieve the list of categories assigned to the specified API                          |
+| `PUT`  | `/api/apis/oas/{apiID}/categories`   | Assign a list of categories to the specified API   
+| `GET`  | `/api/apis/oas/{apiID}/categories`   | Retrieve the list of categories assigned to the specified API                          |
 
 When working with Tyk Classic APIs, you manage categories for an API by modifying the `name` field in the API definition and then updating the API in Tyk with that using these endpoints:
 
 | Method | Endpoint                             | Action                                                                                 |
 |--------|--------------------------------------|----------------------------------------------------------------------------------------|
-| `PUT`  | `/api/apis/`{apiID}``                  | Update the API definition for the specified API - CRUD category tags in the `name` field |
-| `GET`  | `/api/apis/`{apiID}``                  | Retrieve the API definition for the specified API - category tags in `name` field      |
+| `PUT`  | `/api/apis/{apiID}`                  | Update the API definition for the specified API - CRUD category tags in the `name` field |
+| `GET`  | `/api/apis/{apiID}`                  | Retrieve the API definition for the specified API - category tags in `name` field      |
 
 These endpoints will return information for categories across all APIs in the system (both Tyk OAS and Tyk Classic):
 
 | Method | Endpoint path                        | Action                                                                                 |
 |--------|--------------------------------------|----------------------------------------------------------------------------------------|
 | `GET`  | `/api/apis/categories`               | Retrieve a list of all categories defined in the system and the number of APIs in each |
-| `GET`  | `/api/apis?category=`{category_name}`` | Retrieve a list of all APIs assigned to the specified category                         |
+| `GET`  | `/api/apis?category={category_name}` | Retrieve a list of all APIs assigned to the specified category                         |
 
 #### Tyk Operator
 
@@ -4271,7 +4273,7 @@ For example:
 ``` bash  {linenos=true, linenostart=1}
 curl --location 'http://localhost:3000/api/apis/oas/import?templateID=my-unique-template-id' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Bearer `<DASHBOARD_SECRET>`' \
+--header 'Authorization: Bearer <DASHBOARD_SECRET>' \
 --data '{
   "components": {},
   "info": {
@@ -4407,7 +4409,7 @@ For example:
 ``` bash  {linenos=true, linenostart=1}
 curl --location 'http://localhost:3000/api/apis/oas?templateID=my-unique-template-id' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Bearer `<DASHBOARD_SECRET>`' \
+--header 'Authorization: Bearer <DASHBOARD_SECRET>' \
 --data '{
   "components": {},  
   "info": {
@@ -5344,8 +5346,8 @@ The remainder of this document explains how to configure Tyk Dashboard and Tyk P
 Tyk Dashboard has configuration environment variables for each data storage layer in the following format:
 
 ```console
-TYK_DB_STORAGE_`<LAYER>`_TYPE
-TYK_DB_STORAGE_`<LAYER>`_CONNECTIONSTRING
+TYK_DB_STORAGE_<LAYER>_TYPE
+TYK_DB_STORAGE_<LAYER>_CONNECTIONSTRING
 ```
 
 where *LAYER* can be *ANALYTICS*, *LOGS* or *UPTIME*.
@@ -5498,7 +5500,7 @@ TYK_PMP_PUMPS_SQLAGGREGATE_META_CONNECTIONSTRING=user=postgres password=topsecre
 
 ##### Mongo Database
 
-Tyk Pump can be configured to write aggregated analytics data to MongoDB. Aggregated analytics are written to a collection named *z_tyk_analyticz_aggregate_`{ORG ID}`*, where *ORG_ID* corresponds to the ID of your organization assigned by Tyk.
+Tyk Pump can be configured to write aggregated analytics data to MongoDB. Aggregated analytics are written to a collection named `z_tyk_analyticz_aggregate_{ORG ID}`, where *ORG_ID* corresponds to the ID of your organization assigned by Tyk.
 
 The following environment variables can be used as a minimum to manage this configuration:
 

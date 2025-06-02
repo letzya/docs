@@ -101,7 +101,7 @@ This is your **Tyk Dashboard API Access Credentials**, which can be found on the
 You can [create a user](/api-management/dashboard-configuration#add-user) with a call to the `POST /api/users` endpoint, for example:
 
 ``` bash
-curl -H "Authorization: `{YOUR-TYK-DASHBOARD-API-ACCESS-CREDENTIALS}`" \
+curl -H "Authorization: {YOUR-TYK-DASHBOARD-API-ACCESS-CREDENTIALS}" \
  -s \
  -H "Content-Type: application/json" \
  -X POST \
@@ -114,7 +114,7 @@ curl -H "Authorization: `{YOUR-TYK-DASHBOARD-API-ACCESS-CREDENTIALS}`" \
       "IsAdmin": "admin"
   },
   "password": "thisisatest"
- }' http://`{your-dashboard-host}`:`{port}`/api/users | python -mjson.tool
+ }' http://{your-dashboard-host}:{port}/api/users | python -mjson.tool
 ```
 
 In this example, we have given the user Admin privileges. To see a detailed breakdown of permission objects, please see below.
@@ -432,8 +432,8 @@ When working with Tyk OAS APIs, you can manage owners for an API using these end
 
 | Method | Endpoint path           | Action                                                                                 |
 |--------|-------------------------|----------------------------------------------------------------------------------------|
-| `PUT`  | `/api/apis/`{apiID}`/access`  | Assign a list of owners to the specified API                                           |
-| `GET`  | `/api/apis/`{apiID}`/access`  | Retrieve the list of owners of the specified API                                       |
+| `PUT`  | `/api/apis/{apiID}/access`  | Assign a list of owners to the specified API                                           |
+| `GET`  | `/api/apis/{apiID}/access`  | Retrieve the list of owners of the specified API                                       |
 
 For each of these endpoints, the payload consists of two string lists: one for user IDs, the other for user group IDs.
 ```json
@@ -452,8 +452,8 @@ When working with Tyk Classic APIs, you manage owners for an API by modifying th
 
 | Method | Endpoint            | Action                                                                                                                |
 |--------|---------------------|-----------------------------------------------------------------------------------------------------------------------|
-| `PUT`  | `/api/apis/`{apiID}`` | Update the API definition for the specified API - CRUD API owners in the `user_owners` and `user_group_owners` fields |
-| `GET`  | `/api/apis/`{apiID}`` | Retrieve the API definition for the specified API - ownership details are included in `user_owners` and `user_group_owners` fields |
+| `PUT`  | `/api/apis/{apiID}` | Update the API definition for the specified API - CRUD API owners in the `user_owners` and `user_group_owners` fields |
+| `GET`  | `/api/apis/{apiID}` | Retrieve the API definition for the specified API - ownership details are included in `user_owners` and `user_group_owners` fields |
 
 ## Manage Tyk Dashboard Users in Multiple Organizations
 

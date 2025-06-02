@@ -80,7 +80,7 @@ You can configure:
 
 ## Using Custom Auth Tokens
 
-If you have your own identity provider you may want to use that to generate and manage the access tokens, rather than having Tyk generate the tokens. You can use the `POST /tyk/keys/`{keyID}`` endpoint in the [Tyk Gateway API](/tyk-gateway-api) to import those tokens to Tyk, off-loading access control, quotas and rate limiting from your own application.
+If you have your own identity provider you may want to use that to generate and manage the access tokens, rather than having Tyk generate the tokens. You can use the `POST /tyk/keys/{keyID}` endpoint in the [Tyk Gateway API](/tyk-gateway-api) to import those tokens to Tyk, off-loading access control, quotas and rate limiting from your own application.
 
 ## Using Tyk Dashboard to Configure Auth Token
 

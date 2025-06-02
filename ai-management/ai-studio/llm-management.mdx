@@ -36,7 +36,7 @@ Administrators can configure connections to different LLM providers through the 
     *   **Allowed Models:** Specify the exact model names from the vendor that can be used via this configuration (e.g., `gpt-4-turbo`, `claude-3-opus-20240229`).
     *   **Default Model:** The model used if a request doesn't specify one.
 
-5.  **Route ID:** A unique identifier used in API paths (e.g., `/proxy/`{routeId}`/...` or `/openai/`{routeId}`/...`) to target this specific LLM configuration.
+5.  **Route ID:** A unique identifier used in API paths (e.g., `/proxy/{routeId}/...` or `/openai/{routeId}/...`) to target this specific LLM configuration.
 
 6.  **Privacy Level:** Assign a privacy level to the LLM. This interacts with the Tool system, preventing tools with higher privacy levels from being used with LLMs having lower levels.
 

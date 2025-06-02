@@ -37,7 +37,7 @@ This is where Tyk’s Multi Data Center Bridge (MDCB) comes in.
 
 The Tyk MDCB makes it possible to manage federated global deployments easily, from a central Dashboard: you can confidently deploy a multi-data center, geographically isolated set of Tyk Gateway clusters for maximum redundancy, failover, latency optimization, and uptime.
 
-Combining Tyk Dashboard with MDCB, you are provided with a “single pane of glass” or control plane that allows you to centrally manage multiple Tyk Gateway clusters. This has many advantages over having separate gateways and corresponding dashboard/portals, which would require manual synchronisation to roll out any changes (e.g. new APIs) across all the individual gateways. 
+Combining Tyk Dashboard with MDCB, you are provided with a “single pane of glass” or control plane that allows you to centrally manage multiple Tyk Gateway clusters. This has many advantages over having separate gateways and corresponding dashboard/portals, which would require manual synchronisation to roll out any changes (e.g. new APIs) across all the individual gateways. 
 
 By deploying MDCB, API Management with Tyk becomes a service that can be easily offered to multiple teams from a centralised location.
 
@@ -535,15 +535,15 @@ Before a worker gateway can connect to MDCB, it is important to enable the organ
 
 To make things easier, we will first set a few [environment variables](/tyk-oss-gateway/configuration):
 
-1. `export DASH_ADMIN_SECRET=`<YOUR_ADMIN_SECRET>``
+1. `export DASH_ADMIN_SECRET=<YOUR_ADMIN_SECRET>`
 
 You can find `<YOUR_ADMIN_SECRET>` in `tyk_analytics.conf` file under `admin_secret` field or `TYK_DB_ADMINSECRET` environment variable.
 
-2. `export DASH_URL=`<YOUR_DASH_URL>``
+2. `export DASH_URL=<YOUR_DASH_URL>`
 
 This is the URL you use to access the Dashboard (including the port if not using the default port).
 
-3. `export ORG_ID=`<YOUR_ORG_ID>``
+3. `export ORG_ID=<YOUR_ORG_ID>`
 
 You can find your organization id in the Dashboard, under your user account details.
 
@@ -706,12 +706,12 @@ Lastly, we add the sections that enforce the Worker mechanism:
 ```{.json}
 "slave_options": {
   "use_rpc": true,
-  "rpc_key": "`{ORGID}`",
-  "api_key": "`{APIKEY}`",
+  "rpc_key": "{ORGID}",
+  "api_key": "{APIKEY}",
   "connection_string": "{MDCB_HOSTNAME:9091}",
   "enable_rpc_cache": true,
   "bind_to_slugs": false,
-  "group_id": "`{ny}`",
+  "group_id": "{ny}",
   "use_ssl": false,
   "ssl_insecure_skip_verify": true
 },

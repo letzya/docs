@@ -9,7 +9,7 @@ tags: ['Dashboard', 'User Management', 'RBAC', 'Role Based Access Control', 'Use
 
 Custom Plugins enable users to execute custom code to complete tasks specific to their use case, allowing users to complete tasks that would not otherwise be possible using Tyk’s standard middleware options. 
 
-Tyk has a [pre-defined execution order](/api-management/traffic-transformation#request-middleware-chain) for the middleware which also includes **seven hooks** for the custom plugins. As such, users can execute, or `hook`, their plugin in these phases of the API request/response lifecycle based on their specific use case.
+Tyk has a [pre-defined execution order](/api-management/traffic-transformation#request-middleware-chain) for the middleware which also includes **seven hooks** for the custom plugins. As such, users can execute, or `hook`, their plugin in these phases of the API request/response lifecycle based on their specific use case.
 
 ## Plugin and Hook Types
 This table includes all the plugin types with the relevant hooks, their place in the execution chain, description and examples:
@@ -173,7 +173,7 @@ def ResponseHook(request, response, session, metadata, spec):
     tyk.log("ResponseHook is called", "info")
     # In this hook we have access to the response object, to inspect it, uncomment the following line:
     # print(response)
-    tyk.log("ResponseHook: upstream returned `{0}`".format(response.status_code), "info")
+    tyk.log("ResponseHook: upstream returned {0}".format(response.status_code), "info")
     # Attach a new response header:
     response.headers["injectedkey"] = "injectedvalue"
     return response
@@ -363,7 +363,7 @@ If you're using the legacy Tyk Classic APIs, then check out the [Tyk Classic](/a
 
 #### Using Tyk OAS API Definition
 
-The design of the Tyk OAS API Definition takes advantage of the `operationId` defined in the OpenAPI Document that declares both the path and method for which the middleware should be added. The `path` can contain wildcards in the form of any string bracketed by curly braces, for example ``{user_id}``. These wildcards are so they are human readable and do not translate to variable names. Under the hood, a wildcard translates to the “match everything” regex of: `(.*)`.
+The design of the Tyk OAS API Definition takes advantage of the `operationId` defined in the OpenAPI Document that declares both the path and method for which the middleware should be added. The `path` can contain wildcards in the form of any string bracketed by curly braces, for example `{user_id}`. These wildcards are so they are human readable and do not translate to variable names. Under the hood, a wildcard translates to the “match everything” regex of: `(.*)`.
 
 The endpoint plugin middleware (`postPlugins`) can be added to the `operations` section of the Tyk OAS Extension (`x-tyk-api-gateway`) in your Tyk OAS API Definition for the appropriate `operationId` (as configured in the `paths` section of your OpenAPI Document).
 

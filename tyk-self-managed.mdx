@@ -403,6 +403,7 @@ Installing Tyk on Kubernetes requires a multi-node Tyk license. If you are evalu
 </Note>
 
 
+
 <Warning>
 This deployment is NOT designed for production use or performance testing. The Tyk Pro Docker Demo is our full, [Self-Managed](/tyk-self-managed#installation-options-for-tyk-self-managed) solution, which includes our Gateway, Dashboard and analytics processing pipeline. 
 
@@ -410,6 +411,7 @@ This demo will run Tyk Self-Managed on your machine, which contains 5 containers
 
 This demo is great for proof of concept and demo purposes, but if you want to test performance, you need to move each component to a separate machine.
 </Warning>
+
 
 
 <Note>
@@ -447,11 +449,13 @@ Now you have your prerequisites, follow the instructions from our [Tyk Helm Char
 
 #### Use Legacy Helm Chart
 
+
 <Warning>
 `tyk-pro` chart is deprecated. Please use our [Tyk Stack helm chart](/product-stack/tyk-charts/tyk-stack-chart) instead. 
 
 We recommend all users migrate to the `tyk-stack` Chart. Please review the [Configuration](/product-stack/tyk-charts/tyk-stack-chart) section of the new helm chart and cross-check with your existing configurations while planning for migration.
 </Warning>
+
 
 **Introduction**
 
@@ -595,6 +599,7 @@ You can update connection details in `values.yaml` file under `postgres`.
 ---
 
 **Quick Redis and MongoDB PoC installation**
+
 <Warning>
 Another option for Redis and MongoDB, to get started quickly, is to use our **simple-redis** and **simple-mongodb** charts.
 Please note that these provided charts must not ever be used in production and for anything
@@ -607,10 +612,11 @@ helm install mongo tyk-helm/simple-mongodb -n tyk
 ```
 </Warning>
 
+
 **License setting**
 
 For the **Tyk Self-Managed** chart we need to set the license key in your custom `values.yaml` file under `dash.license` field
-or use `--set dash.license=`{YOUR-LICENSE_KEY}`` with the `helm install` command.
+or use `--set dash.license={YOUR-LICENSE_KEY}` with the `helm install` command.
 
 
 Tyk Self-Managed licensing allow for different numbers of Gateway nodes to connect to a single Dashboard instance.
@@ -2141,11 +2147,11 @@ sudo /opt/tyk-pump/install/setup.sh --redishost=<hostname> --redisport=6379 --mo
 <br />
 
 <Note>
-You need to replace `<hostname>` for `--redishost=<hostname>`, and `<Postgres Host Name>`,`<Port>`, `<User>`, `<Password>`, ``<DB>`` for `--postgres="host=<Postgres Host Name> port=<Port> user=<User> password=<Password> dbname=`<DB>`"` with your own values to run this script.
+You need to replace `<hostname>` for `--redishost=<hostname>`, and `<Postgres Host Name>`,`<Port>`, `<User>`, `<Password>`, `<DB>` for `--postgres="host=<Postgres Host Name> port=<Port> user=<User> password=<Password> dbname=<DB>"` with your own values to run this script.
 </Note>
 
 ```bash
-sudo /opt/tyk-pump/install/setup.sh --redishost=<hostname> --redisport=6379 --postgres="host=<Postgres Host Name> port=<Port> user=<User> password=<Password> dbname=`<DB>`"
+sudo /opt/tyk-pump/install/setup.sh --redishost=<hostname> --redisport=6379 --postgres="host=<Postgres Host Name> port=<Port> user=<User> password=<Password> dbname=<DB>"
 ```
 
 
@@ -2701,7 +2707,7 @@ You need to ensure the PostgreSQL and Redis services are running before proceedi
 
 
 <Note>
-You need to replace `<hostname>` for `--redishost=<hostname>`, and `<Postgres Host Name>`, `<Port>`, `<User>`, `<Password>`, ``<DB>`` for `--connection_string="host=<Postgres Host Name> port=<Port> user=<User> password=<Password> dbname=`<DB>`"` with your own values to run this script.
+You need to replace `<hostname>` for `--redishost=<hostname>`, and `<Postgres Host Name>`, `<Port>`, `<User>`, `<Password>`, `<DB>` for `--connection_string="host=<Postgres Host Name> port=<Port> user=<User> password=<Password> dbname=<DB>"` with your own values to run this script.
 </Note>
 
 
@@ -2709,7 +2715,7 @@ You need to replace `<hostname>` for `--redishost=<hostname>`, and `<Postgres Ho
 You can set the Tyk Dashboard up with a helper setup command script. This will get the Dashboard set up for the local instance:
 
 ```bash
-sudo /opt/tyk-dashboard/install/setup.sh --listenport=3000 --redishost=<hostname> --redisport=6379 --storage=postgres --connection_string="host=<Postgres Host Name> port=<Port> user=<User> password=<Password> dbname=`<DB>`" --tyk_api_hostname=$HOSTNAME --tyk_node_hostname=http://localhost --tyk_node_port=8080 --portal_root=/portal --domain="XXX.XXX.XXX.XXX"
+sudo /opt/tyk-dashboard/install/setup.sh --listenport=3000 --redishost=<hostname> --redisport=6379 --storage=postgres --connection_string="host=<Postgres Host Name> port=<Port> user=<User> password=<Password> dbname=<DB>" --tyk_api_hostname=$HOSTNAME --tyk_node_hostname=http://localhost --tyk_node_port=8080 --portal_root=/portal --domain="XXX.XXX.XXX.XXX"
 ```
 
 
@@ -2726,7 +2732,7 @@ What we have done here is:
 - `--redisport=6379`: The Tyk Dashboard should use the default port.
 - `--domain="XXX.XXX.XXX.XXX"`: Bind the dashboard to the IP or DNS hostname of this instance (required).
 - `--storage=postgres`: Use storage type postgres.
-- `--connection_string="host=<Postgres Host Name> port=<Port> user=<User> password=<Password> dbname=`<DB>`"`: Use the postgres instance provided in the connection string(should always be the same as the gateway).
+- `--connection_string="host=<Postgres Host Name> port=<Port> user=<User> password=<Password> dbname=<DB>"`: Use the postgres instance provided in the connection string(should always be the same as the gateway).
 - `--tyk_api_hostname=$HOSTNAME`: The Tyk Dashboard has no idea what hostname has been given to Tyk, so we need to tell it, in this instance we are just using the local HOSTNAME env variable, but you could set this to the public-hostname/IP of the instance.
 - `--tyk_node_hostname=http://localhost`: The Tyk Dashboard needs to see a Tyk node in order to create new tokens, so we need to tell it where we can find one, in this case, use the one installed locally.
 - `--tyk_node_port=8080`: Tell the dashboard that the Tyk node it should communicate with is on port 8080.
@@ -2952,12 +2958,12 @@ sudo /opt/tyk-pump/install/setup.sh --redishost=<hostname> --redisport=6379 --mo
 <br />
 
 <Note>
-You need to replace `<hostname>` for `--redishost=<hostname>`, and `<Postgres Host Name>`,`<Port>`, `<User>`, `<Password>`, ``<DB>`` for `--postgres="host=<Postgres Host Name> port=<Port> user=<User> password=<Password> dbname=`<DB>`"` with your own values to run this script.
+You need to replace `<hostname>` for `--redishost=<hostname>`, and `<Postgres Host Name>`,`<Port>`, `<User>`, `<Password>`, `<DB>` for `--postgres="host=<Postgres Host Name> port=<Port> user=<User> password=<Password> dbname=<DB>"` with your own values to run this script.
 </Note>
 
 
 ```bash
-sudo /opt/tyk-pump/install/setup.sh --redishost=<hostname> --redisport=6379 --postgres="host=<Postgres Host Name> port=<Port> user=<User> password=<Password> dbname=`<DB>`"
+sudo /opt/tyk-pump/install/setup.sh --redishost=<hostname> --redisport=6379 --postgres="host=<Postgres Host Name> port=<Port> user=<User> password=<Password> dbname=<DB>"
 ```
 
 **Step 4: Start Tyk Pump**
@@ -3528,9 +3534,11 @@ You can also use this guide for your PoC since it spins up a full Tyk Self Manag
 #### What's included?
 The *Tyk Pro Docker Demo* is our [Self-Managed](/tyk-self-managed) solution, which includes our Gateway, Dashboard, and analytics processing pipeline. This demo will run Tyk Self-Managed on your machine, which contains 5 containers: Tyk Gateway, Tyk Dashboard, Tyk Pump, Redis and MongoDB. This demo is great for proof of concept and demo purposes, but if you want to test performance, you will need to move each component to a separate machine.
 
+
 <Warning>
 This demo is NOT intended for production use or performance testing, since it uses docker compose and the configuration files are not specifically tuned for performance testing or high loads. Please visit the [Planning for Production](/tyk-self-managed#planning-for-production) page to learn how to configure settings for optimal performance.
 </Warning>
+
 
 <Note>
 The Tyk Pro Docker demo does not provide access to the [Developer Portal](/portal/overview#).
@@ -3638,9 +3646,11 @@ docker-compose -f ./docker-compose.yml -f ./docker-compose.postgres.yml down -v
 
 The Tyk Pro Docker demo is our full [On-Premises](https://tyk.io/api-gateway/on-premise/) Pro solution, which includes our Gateway, Dashboard, and analytics processing pipeline. This demo will run Tyk Self-Managed Pro on your machine, which contains 5 containers: Tyk Gateway, Tyk Dashboard, Tyk Pump, Redis and MongoDB. This demo is great for proof of concept and demo purposes, but if you want to test performance, you will need to move each component to a separate machine.
 
+
 <Warning>
 This demo is NOT designed for production use or performance testing.
 </Warning>
+
 
 
 <Note>
@@ -3814,7 +3824,7 @@ This creates the developer portal URL. For the `Authorization` Header, the Value
 *Sample Request*
 
 ```yaml
-`{SECRET_VALUE}`
+{SECRET_VALUE}
 ```
 
 *Sample Response*
@@ -3831,9 +3841,11 @@ This creates the developer portal URL. For the `Authorization` Header, the Value
 
 The Tyk Pro Docker demo is our full [Self-Managed](/#docker-demo) solution, which includes our Gateway, Dashboard, and analytics processing pipeline. This demo will run Tyk Self-Managed on your machine, which contains 5 containers: Tyk Gateway, Tyk Dashboard, Tyk Pump, Redis and MongoDB. This demo is great for proof of concept and demo purposes, but if you want to test performance, you will need to move each component to a separate machine.
 
+
 <Warning>
 This demo is NOT designed for production use or performance testing.
 </Warning>
+
 
 
 <Note>
@@ -4025,7 +4037,7 @@ In addition to changing the default secrets (see [Change all the shared secrets]
 
 #### Ensure you are matching only the URL paths that you want to match
 
-We recommend that you configure Tyk Gateway to use [exact URL path matching](/getting-started/key-concepts/url-matching#exact-match) and to enforce [strict route matching](/tyk-oss-gateway/configuration#http_server_optionsenable_strict_routes) to avoid accidentally invoking your unsecured `/health` endpoint when a request is made to `/customer/`{customer_id}`/account/health`...
+We recommend that you configure Tyk Gateway to use [exact URL path matching](/getting-started/key-concepts/url-matching#exact-match) and to enforce [strict route matching](/tyk-oss-gateway/configuration#http_server_optionsenable_strict_routes) to avoid accidentally invoking your unsecured `/health` endpoint when a request is made to `/customer/{customer_id}/account/health`...
 
 Unless you want to make use of Tyk's flexible *listen path* and *endpoint path* matching modes and understand the need to configure patterns carefully, you should enable `TYK_GW_HTTPSERVEROPTIONS_ENABLESTRICTROUTES`, `TYK_GW_HTTPSERVEROPTIONS_ENABLEPATHPREFIXMATCHING` and `TYK_GW_HTTPSERVEROPTIONS_ENABLEPATHSUFFIXMATCHING`.
 
@@ -4109,7 +4121,7 @@ Now we need to configure the file handles available to your Tyk services.
 
 ##### systemd
 
-Override your `systemd` unit files for each of the Tyk services using `systemctl edit `{service_name}``.
+Override your `systemd` unit files for each of the Tyk services using `systemctl edit {service_name}`.
 
 * Gateway `systemctl edit tyk-gateway.service`
 * Dashboard `systemctl edit tyk-dashboard.service`
@@ -4298,9 +4310,6 @@ MDCB and Multi-Cloud clients - the Gateways write the data to a temporary Redis 
 **Redis RAM Calculator**
 You can calculate your Redis RAM requirements by entering your known values in the middle section of the calculator settings below:
 
-{{< redis-calculator >}}
-
-
 #### MongoDB
 
 ##### Supported Versions
@@ -4419,7 +4428,7 @@ For 90 days: 140MB × 90 = ~12.6GB
 **MongoDB Database Storage Calculator**
 You can calculate your MongoDB storage requirements by entering your known values in the middle section of the calculator settings below:
 
-{{< database-calculator >}}
+
 
 
 #### PostgreSQL
@@ -4480,7 +4489,7 @@ Per month: 30GB request logs + 30MB aggregate logs
 **PostgreSQL Database Storage Calculator**
 You can calculate your PostgreSQL storage requirements by entering your known values in the middle section of the calculator settings below:
 
-{{< database-calculator >}}
+
 
 
 ### Ensure High Availability
@@ -4605,7 +4614,7 @@ If you're using the legacy Tyk Classic APIs, then check out the [Tyk Classic](/#
 
 ##### Configuring the Circuit Breaker in the Tyk OAS API Definition
 
-The design of the Tyk OAS API Definition takes advantage of the `operationId` defined in the OpenAPI Document that declares both the path and method for which the middleware should be added. Endpoint `paths` entries (and the associated `operationId`) can contain wildcards in the form of any string bracketed by curly braces, for example `/status/`{code}``. These wildcards are so they are human-readable and do not translate to variable names. Under the hood, a wildcard translates to the “match everything” regex of: `(.*)`.
+The design of the Tyk OAS API Definition takes advantage of the `operationId` defined in the OpenAPI Document that declares both the path and method for which the middleware should be added. Endpoint `paths` entries (and the associated `operationId`) can contain wildcards in the form of any string bracketed by curly braces, for example `/status/{code}`. These wildcards are so they are human-readable and do not translate to variable names. Under the hood, a wildcard translates to the “match everything” regex of: `(.*)`.
 
 The circuit breaker middleware (`circuitBreaker`) can be added to the `operations` section of the Tyk OAS Extension (`x-tyk-api-gateway`) in your Tyk OAS API Definition for the appropriate `operationId` (as configured in the `paths` section of your OpenAPI Document).
 
@@ -4788,7 +4797,7 @@ The Dashboard supports the separate `BreakerTripped` and `BreakerReset` events, 
 
 ##### Configuring the Circuit Breaker in Tyk Operator
 
-The example API Definition below configures an API to listen on path `/httpbin-timeout-breaker` and forwards requests upstream to http://httpbin.org. A hard timeout value of 2 seconds is configured for path `/delay/`{delay_seconds}``. This will return a `504 Gateway Timeout` response to the client if the upstream response is not received before expiry of the timer.
+The example API Definition below configures an API to listen on path `/httpbin-timeout-breaker` and forwards requests upstream to http://httpbin.org. A hard timeout value of 2 seconds is configured for path `/delay/{delay_seconds}`. This will return a `504 Gateway Timeout` response to the client if the upstream response is not received before expiry of the timer.
 
 ```yaml {linenos=true, linenostart=1, hl_lines=["30-35"]}
 apiVersion: tyk.tyk.io/v1alpha1
@@ -4818,7 +4827,7 @@ spec:
         extended_paths:
           hard_timeouts:
             - method: GET
-              path: /delay/`{delay_seconds}`
+              path: /delay/{delay_seconds}
               timeout: 2
           circuit_breakers:
             - method: GET
@@ -4894,7 +4903,7 @@ If you're using the legacy Tyk Classic APIs, then check out the [Tyk Classic](/#
 
 **Configuring an enforced timeout in the Tyk OAS API Definition**
 
-The design of the Tyk OAS API Definition takes advantage of the `operationId` defined in the OpenAPI Document that declares both the path and method for which the middleware should be added. Endpoint `paths` entries (and the associated `operationId`) can contain wildcards in the form of any string bracketed by curly braces, for example `/status/`{code}``. These wildcards are so they are human readable and do not translate to variable names. Under the hood, a wildcard translates to the “match everything” regex of: `(.*)`.
+The design of the Tyk OAS API Definition takes advantage of the `operationId` defined in the OpenAPI Document that declares both the path and method for which the middleware should be added. Endpoint `paths` entries (and the associated `operationId`) can contain wildcards in the form of any string bracketed by curly braces, for example `/status/{code}`. These wildcards are so they are human readable and do not translate to variable names. Under the hood, a wildcard translates to the “match everything” regex of: `(.*)`.
 
 The enforced timeout middleware (`enforceTimeout`) can be added to the `operations` section of the Tyk OAS Extension (`x-tyk-api-gateway`) in your Tyk OAS API Definition for the appropriate `operationId` (as configured in the `paths` section of your OpenAPI Document).
 
@@ -5051,7 +5060,7 @@ Use the *save* or *create* buttons to save the changes and activate the middlewa
 
 The process for configuring the middleware in Tyk Operator is similar to that explained in [configuring an enforced timeout in the Tyk Classic API Definition](#using-the-enforced-timeout-middleware-with-tyk-classic-apis). It is possible to configure an enforced timeout using the `hard_timeouts` object within the `extended_paths` section of the API Definition.
 
-The example API Definition below configures an API to listen on path `/httpbin-timeout-breaker` and forwards requests upstream to http://httpbin.org. A hard timeout value of 2 seconds is configured for path `/delay/`{delay_seconds}``. This will return a `504 Gateway Timeout` response to the client if the upstream response is not received before expiry of the timer.
+The example API Definition below configures an API to listen on path `/httpbin-timeout-breaker` and forwards requests upstream to http://httpbin.org. A hard timeout value of 2 seconds is configured for path `/delay/{delay_seconds}`. This will return a `504 Gateway Timeout` response to the client if the upstream response is not received before expiry of the timer.
 
 ```yaml {linenos=true, linenostart=1, hl_lines=["26-29"]}
 apiVersion: tyk.tyk.io/v1alpha1
@@ -5081,7 +5090,7 @@ spec:
         extended_paths:
           hard_timeouts:
             - method: GET
-              path: /delay/`{delay_seconds}`
+              path: /delay/{delay_seconds}
               timeout: 2
           circuit_breakers:
             - method: GET
@@ -5989,7 +5998,7 @@ When the Gateway starts, Tyk will read the *Value* from the environment variable
 
 
 <Note>
-Prior to Tyk Gateway v5.3.0, **environment variables** used for the Target URL or Listen Path had to be named `TYK_SECRET_`{KEY_NAME}``. They were referred to in the API definition using `env://`{KEY_NAME}`` excluding the `TYK_SECRET_` prefix.
+Prior to Tyk Gateway v5.3.0, **environment variables** used for the Target URL or Listen Path had to be named `TYK_SECRET_{KEY_NAME}`. They were referred to in the API definition using `env://{KEY_NAME}` excluding the `TYK_SECRET_` prefix.
 <br /><br />
 From v5.3.0 onward, environment variables can have any `KEY_NAME`, and the full name should be provided in the API definition reference. The pre-v5.3.0 naming convention is still supported for backward compatibility, but only for these two fields.
 </Note>
@@ -6031,7 +6040,7 @@ For example, if you create a Key-Value pair in Consul with the *Key* `user_id` t
 }
 ```
 
-When a call is made to `GET /anything`, Tyk will retrieve the *Value* assigned to the `user_id` *Key* in Consul and rewrite the Target URL for the request to `/api/v1/users/`{user_id}``.
+When a call is made to `GET /anything`, Tyk will retrieve the *Value* assigned to the `user_id` *Key* in Consul and rewrite the Target URL for the request to `/api/v1/users/{user_id}`.
 
 These references are read (and replaced with the values read from the KV location) during the processing of the API request or response.
 
@@ -6039,16 +6048,16 @@ These references are read (and replaced with the values read from the KV locatio
 
 There are some subtleties with the use of environment variables as KV storage for the transformation middleware.
 
-- **Request and Response Body Transforms** support only the `$secret_env.`{KEY_NAME}`` format.
-- **Request and Response Header Transforms** support both `env://`{KEY_NAME}`` and `$secret_env.`{KEY_NAME}`` formats.
-- **URL Rewrite** supports the `env://`{KEY_NAME}`` format for both the `pattern` and `rewriteTo` fields. The `rewriteTo` field also supports `$secret_env.`{KEY_NAME}`` format.
+- **Request and Response Body Transforms** support only the `$secret_env.{KEY_NAME}` format.
+- **Request and Response Header Transforms** support both `env://{KEY_NAME}` and `$secret_env.{KEY_NAME}` formats.
+- **URL Rewrite** supports the `env://{KEY_NAME}` format for both the `pattern` and `rewriteTo` fields. The `rewriteTo` field also supports `$secret_env.{KEY_NAME}` format.
 
 
 
     <Note>
     **Notes**  
 
-    Due to the way that Tyk Gateway processes the API definition, when you use transformation middleware with the `$secret_env` format, it expects the environment variable to be named `TYK_SECRET_`{KEY_NAME}`` and to be referenced from the API definition using `$secret_env.`{KEY_NAME}``.
+    Due to the way that Tyk Gateway processes the API definition, when you use transformation middleware with the `$secret_env` format, it expects the environment variable to be named `TYK_SECRET_{KEY_NAME}` and to be referenced from the API definition using `$secret_env.{KEY_NAME}`.
     <br /><br />
     For example, if you create a Gateway environment variable `TYK_SECRET_NEW_UPSTREAM=http://new.upstream.com`, then in a request body transform middleware, you would reference it as follows:
 

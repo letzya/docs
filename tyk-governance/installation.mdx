@@ -211,11 +211,11 @@ API_KEY="your-access-key"
 AGENT_NAME="My AWS Agent (US)"
 
 # Create agent first
-curl -s -X POST --location "$`{GOVERNANCE_URL}`/api/agents/" \
-  -H "X-API-Key: $`{API_KEY}`" \
+curl -s -X POST --location "${GOVERNANCE_URL}/api/agents/" \
+  -H "X-API-Key: ${API_KEY}" \
   -H "Content-Type: application/json" \
   -d '{
-    "name": "'"$`{AGENT_NAME}`"'"
+    "name": "'"${AGENT_NAME}"'"
   }'
 ```
 
@@ -236,11 +236,11 @@ Now you can generate an access token for the agent.
 
 ```bash
 # API call to create an agent token
-curl -X POST "$`{GOVERNANCE_URL}`/api/auth/token/" \
-  -H "X-API-Key: $`{API_KEY}`" \
+curl -X POST "${GOVERNANCE_URL}/api/auth/token/" \
+  -H "X-API-Key: ${API_KEY}" \
   -H "Content-Type: application/json" \
   -d '{
-    "agent_id": "'"$`{AGENT_ID}`"'"
+    "agent_id": "'"${AGENT_ID}"'"
   }'
 ```
 
@@ -254,7 +254,7 @@ curl -X POST "$`{GOVERNANCE_URL}`/api/auth/token/" \
 
 4. **Save the token securely**:
 
-	 - Copy the `token` value from the response
+	 - Copy the `token` value from the response
 	 - Store it securely, as you'll need it for agent configuration
 	 - Note: This token cannot be retrieved later, so make sure to save it
 

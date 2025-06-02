@@ -13,6 +13,7 @@ One of the great things about working with Tyk is that the OpenAPI document cont
 
 <img src="img/oas/diagram_oas-flow-2.png" alt="Tyk OAS API workflow" />
 
+
 <Warning>
 Warning
 
@@ -22,6 +23,7 @@ It is not possible to rollback to previous versions of Tyk components with Tyk O
 
 For further details, please refer to the [release notes](/developer-support/release-notes/gateway) for Tyk Gateway v5.3.0.
 </Warning>
+
 
 ### API Definition Management with Tyk
 
@@ -221,7 +223,7 @@ To create the API in Tyk, you simply send your Tyk OAS API Definition in the pay
 Using [this](https://bit.ly/39jUnuq) API definition it is possible to create a Tyk OAS API on your Tyk Gateway that forwards requests to the [Swagger Petstore](/https://petstore3.swagger.io) request/response service.
 
 ```
-curl -H "Authorization: $`{DASH_KEY}`" -H "Content-Type: application/json" $`{DASH_URL}`/apis/oas -d "$(wget -qO- https://bit.ly/39jUnuq)"
+curl -H "Authorization: ${DASH_KEY}" -H "Content-Type: application/json" ${DASH_URL}/apis/oas -d "$(wget -qO- https://bit.ly/39jUnuq)"
 ```
 
 **Check request response**
@@ -232,7 +234,7 @@ If the command succeeds, you will see the following response, where `Meta` conta
 {
     "Status": "OK",
     "Message": "API created",
-    "Meta": `{NEW-API-ID}`
+    "Meta": {NEW-API-ID}
 }
 ```
 
@@ -255,8 +257,8 @@ To create the API in Tyk, you simply send your Tyk OAS API Definition in the pay
 Using [this](https://bit.ly/39tnXgO) minimal API definition it is possible to create a Tyk OAS API on your Tyk Gateway using only 30 lines:
 
 ```curl
-curl --location --request POST 'http://`{your-tyk-host}`:`{port}`/tyk/apis/oas' \
---header 'x-tyk-authorization: `{your-secret}`' \
+curl --location --request POST 'http://{your-tyk-host}:{port}/tyk/apis/oas' \
+--header 'x-tyk-authorization: {your-secret}' \
 --header 'Content-Type: text/plain' \
 --data-raw 
 '{
@@ -293,7 +295,7 @@ If the command succeeds, you will see the following response, where `key` contai
 
 ```.json
 {
-    "key": `{NEW-API-ID}`,
+    "key": {NEW-API-ID},
     "status": "ok",
     "action": "added"
 }
@@ -306,7 +308,7 @@ What you have done is to send a Tyk OAS API definition to Tyk Gateway's `/tyk/ap
 Once you have created your API you need to load it into the Gateway so that it can serve traffic. To do this you can either restart the Tyk Gateway or issue a [hot reload](/tyk-stack/tyk-gateway/important-prerequisites#hot-reload-is-critical-in-tyk-ce) command:
 
 ```.curl
-curl -H "x-tyk-authorization: `{your-secret}`" -s http://`{your-tyk-host}`:`{port}`/tyk/reload/group
+curl -H "x-tyk-authorization: {your-secret}" -s http://{your-tyk-host}:{port}/tyk/reload/group
 ```
 
 You can go to the `/apps` folder of your Tyk Gateway installation (by default in `/var/tyk-gateway`) to see where Tyk has stored your Tyk OAS API Definition.
@@ -425,7 +427,7 @@ If the command succeeds, you will see the following response, where `Meta` conta
 {
     "Status": "OK",
     "Message": "API created",
-    "Meta": `{NEW-API-ID}`
+    "Meta": {NEW-API-ID}
 }
 ```
 
@@ -467,7 +469,7 @@ If the command succeeds, you will see the following response, where `key` contai
 
 ```.json
 {
-    "key": `{NEW-API-ID}`,
+    "key": {NEW-API-ID},
     "status": "ok",
     "action": "added"
 }
@@ -478,7 +480,7 @@ If the command succeeds, you will see the following response, where `key` contai
 Once you have created your API you need to load it into the Gateway so that it can serve traffic. To do this you can either restart the Tyk Gateway or issue a [hot reload](/tyk-stack/tyk-gateway/important-prerequisites#hot-reload-is-critical-in-tyk-ce) command:
 
 ```.curl
-curl -H "x-tyk-authorization: `{your-secret}`" -s http://`{your-tyk-host}`:`{port}`/tyk/reload/group
+curl -H "x-tyk-authorization: {your-secret}" -s http://{your-tyk-host}:{port}/tyk/reload/group
 ```
 
 You can go to the `/apps` folder of your Tyk Gateway installation (by default in `/var/tyk-gateway`) to see where Tyk has stored your Tyk OAS API Definition.
@@ -652,29 +654,29 @@ You will also need to have ‘admin’ or ‘api:write’ permission if [RBAC](/
 
 **Applying an Updated OpenAPI Description**
 
-To update just the OpenAPI description of your API in Tyk, you simply send the OpenAPI document in the payload to the `PATCH /api/apis/oas/`{API-ID}`` endpoint of your Tyk Gateway API. 
+To update just the OpenAPI description of your API in Tyk, you simply send the OpenAPI document in the payload to the `PATCH /api/apis/oas/{API-ID}` endpoint of your Tyk Gateway API. 
 
 | Property     | Description                              |
 |--------------|------------------------------------------|
-| Resource URL | `/api/apis/oas/`{API-ID}``                 |
+| Resource URL | `/api/apis/oas/{API-ID}`                 |
 | Method       | `PATCH`                                  |
 | Type         | None                                     |
 | Body         | OpenAPI document                         |
-| Parameters   | Path: ``{API-ID}``                         |
+| Parameters   | Path: `{API-ID}`                         |
 
 You need to specify which API to update - and so so using the `API-ID` value from the response you received from Tyk when creating the API. You can find this in the `x-tyk-api-gateway.info.id` field of the Tyk OAS API Definition stored in your main storage.
 
 **Applying an Updated Tyk OAS API Definition** 
 
-To update the whole API in Tyk, you simply send the Tyk OAS API definition in the payload to the `PATCH /api/apis/oas/`{API-ID}`` endpoint of your Tyk Gateway API. 
+To update the whole API in Tyk, you simply send the Tyk OAS API definition in the payload to the `PATCH /api/apis/oas/{API-ID}` endpoint of your Tyk Gateway API. 
 
 | Property     | Description                              |
 |--------------|------------------------------------------|
-| Resource URL | `/api/apis/oas/`{API-ID}``                 |
+| Resource URL | `/api/apis/oas/{API-ID}`                 |
 | Method       | `PATCH`                                  |
 | Type         | None                                     |
 | Body         | Tyk OAS API Definition                   |
-| Parameters   | Path: ``{API-ID}``                         |
+| Parameters   | Path: `{API-ID}`                         |
 
 You need to specify which API to update - and so so using the `API-ID` value from the response you received from Tyk when creating the API. You can find this in the `x-tyk-api-gateway.info.id` field of the Tyk OAS API Definition stored in your main storage.
 
@@ -686,7 +688,7 @@ If the command succeeds, you will see the following response, where `Meta` conta
 {
     "Status": "OK",
     "Message": "API modified",
-    "Meta": `{API-ID}`
+    "Meta": {API-ID}
 }
 ```
 
@@ -703,30 +705,30 @@ When making calls to the Tyk Gateway API you'll need to set the domain name and 
 
 **Applying an Updated OpenAPI Description**
 
-To update just the OpenAPI description of your API in Tyk, you simply send the OpenAPI document in the payload to the `PATCH /tyk/apis/oas/`{API-ID}`` endpoint of your Tyk Gateway API. 
+To update just the OpenAPI description of your API in Tyk, you simply send the OpenAPI document in the payload to the `PATCH /tyk/apis/oas/{API-ID}` endpoint of your Tyk Gateway API. 
 
 | Property     | Description                              |
 |--------------|------------------------------------------|
-| Resource URL | `/tyk/apis/oas/`{API-ID}``                 |
+| Resource URL | `/tyk/apis/oas/{API-ID}`                 |
 | Method       | `PATCH`                                  |
 | Type         | None                                     |
 | Body         | OpenAPI document                         |
-| Parameters   | Path: ``{API-ID}``  Query: `templateId`    |
+| Parameters   | Path: `{API-ID}`  Query: `templateId`    |
 
 You need to specify which API to update - and so so using the `API-ID` value from the response you received from Tyk when creating the API. You can find this in the `x-tyk-api-gateway.info.id` field of the Tyk OAS API Definition that Tyk has stored in the `/apps` folder of your Tyk Gateway installation.
 
 
 **Applying an Updated Tyk OAS API Definition** 
 
-To update the whole API in Tyk, you simply send the Tyk OAS API definition in the payload to the `PATCH /tyk/apis/oas/`{API-ID}`` endpoint of your Tyk Gateway API. 
+To update the whole API in Tyk, you simply send the Tyk OAS API definition in the payload to the `PATCH /tyk/apis/oas/{API-ID}` endpoint of your Tyk Gateway API. 
 
 | Property     | Description                              |
 |--------------|------------------------------------------|
-| Resource URL | `/tyk/apis/oas/`{API-ID}``                 |
+| Resource URL | `/tyk/apis/oas/{API-ID}`                 |
 | Method       | `PATCH`                                  |
 | Type         | None                                     |
 | Body         | Tyk OAS API Definition                   |
-| Parameters   | Path: ``{API-ID}``                         |
+| Parameters   | Path: `{API-ID}`                         |
 
 You need to specify which API to update - and so so using the `API-ID` value from the response you received from Tyk when creating the API. You can find this in the `x-tyk-api-gateway.info.id` field of the Tyk OAS API Definition that Tyk has stored in the `/apps` folder of your Tyk Gateway installation.
 
@@ -737,7 +739,7 @@ If the command succeeds, you will see the following response, where `key` contai
 
 ```.json
 {
-    "key": `{API-ID}`,
+    "key": {API-ID},
     "status": "ok",
     "action": "modified"
 }
@@ -748,7 +750,7 @@ If the command succeeds, you will see the following response, where `key` contai
 Once you have updated your API you need to load it into the Gateway so that it can serve traffic. To do this you can either restart the Tyk Gateway or issue a [hot reload](/tyk-stack/tyk-gateway/important-prerequisites#hot-reload-is-critical-in-tyk-ce) command:
 
 ```.curl
-curl -H "x-tyk-authorization: `{your-secret}`" -s http://`{your-tyk-host}`:`{port}`/tyk/reload/group
+curl -H "x-tyk-authorization: {your-secret}" -s http://{your-tyk-host}:{port}/tyk/reload/group
 ```
 
 </Tab>
@@ -795,14 +797,14 @@ You can obtain your authorization credential (Dashboard API key) from the Tyk Da
 
 You will also need to have ‘admin’ or ‘api:write’ permission if [RBAC](/api-management/user-management) is enabled.
 
-To export an API asset, you use the `GET /api/apis/oas/`{API-ID}`/export` endpoint, indicating whether you require the full Tyk OAS API definition or only the OpenAPI description using the `mode` parameter.
+To export an API asset, you use the `GET /api/apis/oas/{API-ID}/export` endpoint, indicating whether you require the full Tyk OAS API definition or only the OpenAPI description using the `mode` parameter.
 
 | Property     | Description                                      |
 |--------------|--------------------------------------------------|
-| Resource URL | `/api/apis/oas/`{API-ID}``                         |
+| Resource URL | `/api/apis/oas/{API-ID}`                         |
 | Method       | `GET`                                            |
 | Type         | None                                             |
-| Parameters   | Path: ``{API-ID}``  Query: `mode`   `Content-Type` |
+| Parameters   | Path: `{API-ID}`  Query: `mode`   `Content-Type` |
 
 Where:
 - `API-ID` is the unique `id` assigned in the Tyk Vendor Extension that identifies the API
@@ -818,14 +820,14 @@ When making calls to the Tyk Gateway API you'll need to set the domain name and 
 |-----------------|------|-----------------------|----------------------------------|
 | Tyk Gateway API | 8080 | `x-tyk-authorization` | `secret` value set in `tyk.conf` |
 
-To export an API asset, you use the `GET /tyk/apis/oas/`{API-ID}`/export` endpoint, indicating whether you require the full Tyk OAS API definition or only the OpenAPI description using the `mode` parameter.
+To export an API asset, you use the `GET /tyk/apis/oas/{API-ID}/export` endpoint, indicating whether you require the full Tyk OAS API definition or only the OpenAPI description using the `mode` parameter.
 
 | Property     | Description                                |
 |--------------|--------------------------------------------|
-| Resource URL | `/tyk/apis/oas/`{API-ID}``                   |
+| Resource URL | `/tyk/apis/oas/{API-ID}`                   |
 | Method       | `GET`                                      |
 | Type         | None                                       |
-| Parameters   | Path: ``{API-ID}``  Query: `mode`            |
+| Parameters   | Path: `{API-ID}`  Query: `mode`            |
 
 Where:
 - `API-ID` is the unique `id` assigned in the Tyk Vendor Extension that identifies the API

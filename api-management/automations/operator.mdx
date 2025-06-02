@@ -270,7 +270,7 @@ environment variable names and example values.
 ```yaml
 envVars:
   - name: TYK_OPERATOR_LICENSEKEY
-    value: "`{YOUR_LICENSE_KEY}`"
+    value: "{YOUR_LICENSE_KEY}"
   - name: TYK_MODE
     value: "pro"
   - name: TYK_URL
@@ -292,7 +292,7 @@ The Kubernetes secret or envVars field should set the following keys:
 
 | Key                          | Mandatory | Example Value                                       | Description                                                                                                                  |
 | :--------------------------- | :-------- |:----------------------------------------------------| :--------------------------------------------------------------------------------------------------------------------------- |
-| TYK_OPERATOR_LICENSEKEY      | Yes       | ``<JWT_ENCODED_LICENSE_KEY>``                          | Tyk Operator license key                                                                                                     |
+| TYK_OPERATOR_LICENSEKEY      | Yes       | `<JWT_ENCODED_LICENSE_KEY>`                          | Tyk Operator license key                                                                                                     |
 | TYK_MODE                     | Yes       | pro                                                 | “ce” for Tyk Open Source mode, “pro” for Tyk licensed mode.                                                                  |
 | TYK_URL                      | Yes       | http://dashboard-svc-tyk-tyk-dashboard.tyk.svc:3000 | Management URL of Tyk Gateway (Open Source) or Tyk Dashboard                                                                 |
 | TYK_AUTH                     | Yes       | 2d095c2155774fe36d77e5cbe3ac963b                    | Operator user API key.                                                                                                       |
@@ -312,7 +312,7 @@ key is required for running Tyk Operator.
 
 | Key                          | Mandatory | Example Value                                      | Description                                                                                                                  |
 | :--------------------------- | :-------- |:---------------------------------------------------| :--------------------------------------------------------------------------------------------------------------------------- |
-| TYK_OPERATOR_LICENSEKEY      | Yes       | ``<JWT_ENCODED_LICENSE_KEY>``                         | Tyk Operator license key                                                                                                     |
+| TYK_OPERATOR_LICENSEKEY      | Yes       | `<JWT_ENCODED_LICENSE_KEY>`                         | Tyk Operator license key                                                                                                     |
 | TYK_MODE                     | Yes       | ce                                                 | “ce” for Tyk Open Source mode, “pro” for Tyk licensed mode.                                                                  |
 | TYK_URL                      | Yes       | http://gateway-svc-tyk-ce-tyk-gateway.tyk.svc:8080 | Management URL of Tyk Gateway (Open Source) or Tyk Dashboard                                                                 |
 | TYK_AUTH                     | Yes       | myapisecret                                        | Operator user API key.                                                                                                       |
@@ -337,11 +337,11 @@ installation, please prepare `tyk-operator-conf` secret yourself using the comma
 $ kubectl create namespace tyk-operator-system
 
 $ kubectl create secret -n tyk-operator-system generic tyk-operator-conf \
-  --from-literal "TYK_OPERATOR_LICENSEKEY=$`{TYK_OPERATOR_LICENSEKEY}`" \
-  --from-literal "TYK_AUTH=$`{TYK_AUTH}`" \
-  --from-literal "TYK_ORG=$`{TYK_ORG}`" \
-  --from-literal "TYK_MODE=$`{TYK_MODE}`" \
-  --from-literal "TYK_URL=$`{TYK_URL}`"
+  --from-literal "TYK_OPERATOR_LICENSEKEY=${TYK_OPERATOR_LICENSEKEY}" \
+  --from-literal "TYK_AUTH=${TYK_AUTH}" \
+  --from-literal "TYK_ORG=${TYK_ORG}" \
+  --from-literal "TYK_MODE=${TYK_MODE}" \
+  --from-literal "TYK_URL=${TYK_URL}"
 ```
 
 
@@ -402,7 +402,7 @@ Starting from Tyk Operator v1.2.0, `webhookPort` is deprecated in favor of `webh
 | ------------------------------------------- | ------ | -------------------------------------- |
 | envFrom[0].secretRef.name                   | string | `"tyk-operator-conf"`                  |
 | envVars[0].name                             | string | `"TYK_OPERATOR_LICENSEKEY"`            |
-| envVars[0].value                            | string | `"`{OPERATOR_LICENSEKEY}`"`              |
+| envVars[0].value                            | string | `"{OPERATOR_LICENSEKEY}"`              |
 | envVars[1].name                             | string | `"TYK_HTTPS_INGRESS_PORT"`             |
 | envVars[1].value                            | string | `"8443"`                               |
 | envVars[2].name                             | string | `"TYK_HTTP_INGRESS_PORT"`              |
@@ -1145,19 +1145,19 @@ You can obtain the API name and API ID from `name` and `status.api_id` field.
 
 In our example, it is as follows:
 
-- `{API-NAME}`: httpbin
-- `{API-ID}`: ZGVmYXVsdC9odHRwYmlu
+- {API-NAME}: httpbin
+- {API-ID}: ZGVmYXVsdC9odHRwYmlu
 
 When you have successfully created a key, you can use it to access the `httpbin` API.
 
 ```curl
-curl -H "Authorization: Bearer `{Key ID}`" localhost:8080/httpbin/get
+curl -H "Authorization: Bearer {Key ID}" localhost:8080/httpbin/get
 {
   "args": {},
   "headers": {
     "Accept": "*/*",
     "Accept-Encoding": "gzip",
-    "Authorization": "Bearer `{Key ID}`",
+    "Authorization": "Bearer {Key ID}",
     "Host": "httpbin.org",
     "User-Agent": "curl/7.77.0",
     "X-Amzn-Trace-Id": "Root=1-6221de2a-01aa10dd56f6f13f420ba313"
@@ -1532,10 +1532,10 @@ spec:
     schema: |
       directive @cacheControl(maxAge: Int, scope: CacheControlScope) on FIELD_DEFINITION | OBJECT | INTERFACE
 
-      enum CacheControlScope `{
+      enum CacheControlScope {
         PUBLIC
         PRIVATE
-      }`
+      }
 
       type Continent {
         code: ID!
@@ -1668,7 +1668,7 @@ kind: Issuer
 metadata:
   name: selfsigned-issuer
 spec:
-  selfSigned: `{ }`
+  selfSigned: { }
 ---
 apiVersion: cert-manager.io/v1
 kind: Certificate
@@ -3189,7 +3189,7 @@ To achieve this, the developer should update the Users SubGraph CRD. Once the Su
 
     If the subgraph is not referenced in any ApiDefinition CRD or SuperGraph CRD, it is easy to delete SubGraph CRDs as follows:
     ```bash
-    kubectl delete subgraphs.tyk.tyk.io `<SUBGRAPH_NAME>`
+    kubectl delete subgraphs.tyk.tyk.io <SUBGRAPH_NAME>
     ```
 
 - **SubGraph referenced in ApiDefinition**
@@ -3213,7 +3213,7 @@ To achieve this, the developer should update the Users SubGraph CRD. Once the Su
     If the supergraph is not referenced in any ApiDefinition CRD, it can be deleted as follows:
 
     ```bash
-    kubectl delete supergraphs.tyk.tyk.io `<SUPERGRAPH_NAME>`
+    kubectl delete supergraphs.tyk.tyk.io <SUPERGRAPH_NAME>
     ```
 
 - **SuperGraph referenced in ApiDefinition**
@@ -3959,7 +3959,7 @@ In this example, the `ApiDefinition` object references the `team-alpha` context,
 
 ## Internal Looping With Tyk Operator
 
-The concept of [internal looping](/advanced-configuration/transform-traffic/looping) allows you to use URL Rewriting to redirect your URL to *another API endpoint* or to *another API* in the Gateway. In Tyk, looping is generally targeted using the `tyk://`<API_ID>`/<path>` scheme, which requires prior knowledge of the `API_ID`. Tyk Operator simplifies the management and transformation of API traffic within Kubernetes environments by abstracting APIs as objects, managing them and dynamically assigning `API_ID`s by its Kubernetes metedata name and namespace.
+The concept of [internal looping](/advanced-configuration/transform-traffic/looping) allows you to use URL Rewriting to redirect your URL to *another API endpoint* or to *another API* in the Gateway. In Tyk, looping is generally targeted using the `tyk://<API_ID>/<path>` scheme, which requires prior knowledge of the `API_ID`. Tyk Operator simplifies the management and transformation of API traffic within Kubernetes environments by abstracting APIs as objects, managing them and dynamically assigning `API_ID`s by its Kubernetes metedata name and namespace.
 
 ### Configuring looping to internal ApiDefinition resources
 
@@ -3971,7 +3971,7 @@ Looping can be configured within Tyk Operator for [URL Rewrites](/#url-rewrites)
 
 - **Target**: The `target` property identifies the API resource to which the request should be routed. It consists of two components: `name` and `namespace`. The `name` is the identifier of the target API, while the `namespace` specifies the Kubernetes namespace where the API resource resides. Together, these elements ensure that Tyk Operator accurately locates and routes the request to the intended API. For example, `name: "proxy-api"` and `namespace: "default"` direct the request to the `proxy-api` resource in the `default` namespace.
 
-Tyk Operator would dynamically update the API definition by generating internal looping URL in the form of `tyk://`<API_ID>`/<path>`. This mechanism is essential for routing traffic within a microservices architecture or when managing APIs across different namespaces in Kubernetes. Using this object you can effectively manage and optimize API traffic within your Tyk Gateway.
+Tyk Operator would dynamically update the API definition by generating internal looping URL in the form of `tyk://<API_ID>/<path>`. This mechanism is essential for routing traffic within a microservices architecture or when managing APIs across different namespaces in Kubernetes. Using this object you can effectively manage and optimize API traffic within your Tyk Gateway.
 
 ---
 
@@ -3985,7 +3985,7 @@ In this case we can use a `rewrite_to_internal` object to instruct Tyk Operator 
 
 ```yaml
 url_rewrites:
-  - path: "/`{id}`"
+  - path: "/{id}"
     match_pattern: "/basic/(.*)"
     method: GET
     rewrite_to_internal:
@@ -3995,17 +3995,17 @@ url_rewrites:
       path: proxy/$1
 ```
 
-In the above example an incoming request of `/basic/456` would be matched by the `match_pattern` rule `/basic/(.*)` for `GET` requests specified in the `method` field. The `456` part of the URL will be captured and replaces ``{id}`` in the `path` field. Tyk Operator will use the `rewrite_to_internal` configuration to generate the URL rewrite for the API named `proxy-api` in the `default` namespace, and update the `rewrite_to` field accordingly:
+In the above example an incoming request of `/basic/456` would be matched by the `match_pattern` rule `/basic/(.*)` for `GET` requests specified in the `method` field. The `456` part of the URL will be captured and replaces `{id}` in the `path` field. Tyk Operator will use the `rewrite_to_internal` configuration to generate the URL rewrite for the API named `proxy-api` in the `default` namespace, and update the `rewrite_to` field accordingly:
 
 ```yaml
 url_rewrites:
 - match_pattern: /basic/(.*)
   method: GET
-  path: /`{id}`
+  path: /{id}
   rewrite_to: tyk://ZGVmYXVsdC9wcm94eS1hcGk/proxy/$1
 ```
 
-Here we can see that the `rewrite_to` field has been generated with the value `tyk://ZGVmYXVsdC9wcm94eS1hcGk/proxy/$1` where `ZGVmYXVsdC9wcm94eS1hcGk` represents the API ID for the `proxy-api` API resource in the `default` namespace. Notice also that path `proxy/$1` is appended to the base URL `tyk://ZGVmYXVsdC9wcm94eS1hcGk` and contains the context variable `$1`. This will be substituted with the value of ``{id}`` in the `path` configuration parameter.
+Here we can see that the `rewrite_to` field has been generated with the value `tyk://ZGVmYXVsdC9wcm94eS1hcGk/proxy/$1` where `ZGVmYXVsdC9wcm94eS1hcGk` represents the API ID for the `proxy-api` API resource in the `default` namespace. Notice also that path `proxy/$1` is appended to the base URL `tyk://ZGVmYXVsdC9wcm94eS1hcGk` and contains the context variable `$1`. This will be substituted with the value of `{id}` in the `path` configuration parameter.
 
 ### URL Rewrite Triggers 
 
@@ -4148,7 +4148,7 @@ spec:
         use_extended_paths: true
         extended_paths:
           url_rewrites:
-            - path: "/`{id}`"
+            - path: "/{id}"
               match_pattern: "/(.*)/(.*)"
               method: GET
               triggers:
@@ -4204,7 +4204,7 @@ spec:
         use_extended_paths: true
         extended_paths:
           url_rewrites:
-            - path: "/`{id}`"
+            - path: "/{id}"
               match_pattern: "/basic/(.*)"
               method: GET
               rewrite_to_internal:
@@ -4216,7 +4216,7 @@ spec:
             - add_headers:
                 x-transform-api: "basic-auth"
               method: GET
-              path: "/`{id}`"
+              path: "/{id}"
               delete_headers: []
 ```
 
@@ -4250,7 +4250,7 @@ spec:
         use_extended_paths: true
         extended_paths:
           url_rewrites:
-            - path: "/`{id}`"
+            - path: "/{id}"
               match_pattern: "/token/(.*)"
               method: GET
               rewrite_to_internal:
@@ -4262,7 +4262,7 @@ spec:
             - add_headers:
                 x-transform-api: "token-auth"
               method: GET
-              path: "/`{id}`"
+              path: "/{id}"
               delete_headers: []
 ```
 

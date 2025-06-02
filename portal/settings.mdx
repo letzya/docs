@@ -128,8 +128,8 @@ TIB uses **user group mapping** to map the user groups from the identity provide
 To define the user group mapping for your developer audience, you need to add the UserGroupMapping object to the corresponding [TIB profile](/api-management/external-service-integration#exploring-tib-profiles):
 ```yaml
   "UserGroupMapping": {
-    "`{IDP groupA ID}`": "`{portal teamA ID}`",
-    "`{IDP groupB ID}`": "`{portal teamB ID}`",
+    "{IDP groupA ID}": "{portal teamA ID}",
+    "{IDP groupB ID}": "{portal teamB ID}",
     ...
  }
 ```
@@ -247,7 +247,7 @@ As an example, for Okta, you can use the following configuration:
     "Key": "{oAuth2.0 key}",
     "Secret": "{oAuth2.0 secret}",
     "Scopes": ["openid", "email"],
-    "DiscoverURL": "`{OIDC well-known endpoint}`"
+    "DiscoverURL": "{OIDC well-known endpoint}"
  }
 ]
 ```
@@ -271,7 +271,7 @@ Here is an example of such a page that works with a profile for the LDAP identit
  </head>
  <body>
  <b> Login to the Developer portal</b>
- <form method="post" action="http://`{Tyk Developer Portal host}`:`{Tyk Developer Portal port}`/tib/auth/`{profile ID}`/ldap">
+ <form method="post" action="http://{Tyk Developer Portal host}:{Tyk Developer Portal port}/tib/auth/{profile ID}/ldap">
  username: <input type="text" name="username"/> <br/>
  password: <input type="text" name="password"/> <br/>
  <button type="submit">Login</button>
@@ -338,9 +338,9 @@ Create tib.conf file for [the Docker installation](https://hub.docker.com/r/tyki
 	},
     "TykAPISettings":{
         "DashboardConfig":{
-            "Endpoint":"https://`{your portal host}`",
-            "Port":"`{your portal port}`",
-            "AdminSecret":"`{portal-api-secret}`"
+            "Endpoint":"https://{your portal host}",
+            "Port":"{your portal port}",
+            "AdminSecret":"{portal-api-secret}"
         }
     }
 }
@@ -376,11 +376,11 @@ extraEnvs:
   - name: TYK_IB_BACKEND_IDENTITYBACKENDSETTINGS_MAXACTIVE
     value: "2000"
   - name: TYK_IB_TYKAPISETTINGS_DASHBOARDCONFIG_ENDPOINT
-    value: "https://`{your portal host}`"
+    value: "https://{your portal host}"
   - name: TYK_IB_TYKAPISETTINGS_DASHBOARDCONFIG_PORT
-    value: "`{your portal port}`"
+    value: "{your portal port}"
   - name: TYK_IB_TYKAPISETTINGS_DASHBOARDCONFIG_ADMINSECRET
-    value: "`{portal-api-secret}`"
+    value: "{portal-api-secret}"
 ```
 
 The full reference for the configuration file is in [the TIB section of the documentation](/tyk-configuration-reference/tyk-identity-broker-configuration).
@@ -399,14 +399,14 @@ Here is an example of profiles.json file for Docker or packages installation:
 [
   {
     "ActionType": "GenerateOrLoginUserProfile",
-    "ID": "`{ID of your TIB profile}`",
+    "ID": "{ID of your TIB profile}",
     "OrgID": "0",
     "IdentityHandlerConfig": {
-      "DashboardCredential": "`{portal API secret}`"
+      "DashboardCredential": "{portal API secret}"
     },
     "ProviderConfig": {
-      "CallbackBaseURL": "http://`{TIB host}`:`{TIB port}`",
-      "FailureRedirect": "http://`{portal host}`:`{portal port}`/?fail=true",
+      "CallbackBaseURL": "http://{TIB host}:{TIB port}",
+      "FailureRedirect": "http://{portal host}:{portal port}/?fail=true",
       "UseProviders": [
         {
           "Name": "openid-connect",
@@ -417,19 +417,19 @@ Here is an example of profiles.json file for Docker or packages installation:
       ]
     },
     "ProviderName": "SocialProvider",
-    "ReturnURL": "http://`{portal host}`:`{portal port}`/sso",
+    "ReturnURL": "http://{portal host}:{portal port}/sso",
     "Type": "redirect"
   },
   {
     "ActionType": "GenerateOrLoginDeveloperProfile",
-    "ID": "`{ID of your TIB profile}`",
+    "ID": "{ID of your TIB profile}",
     "OrgID": "0",
     "IdentityHandlerConfig": {
-      "DashboardCredential": "`{portal API secret}`"
+      "DashboardCredential": "{portal API secret}"
     },
     "ProviderConfig": {
-      "CallbackBaseURL": "http://`{TIB host}`:`{TIB port}`",
-      "FailureRedirect": "http://`{portal host}`:`{portal port}`/?fail=true",
+      "CallbackBaseURL": "http://{TIB host}:{TIB port}",
+      "FailureRedirect": "http://{portal host}:{portal port}/?fail=true",
       "UseProviders": [
         {
           "Name": "openid-connect",
@@ -440,7 +440,7 @@ Here is an example of profiles.json file for Docker or packages installation:
       ]
     },
     "ProviderName": "SocialProvider",
-    "ReturnURL": "http://`{portal host}`:`{portal port}`/sso",
+    "ReturnURL": "http://{portal host}:{portal port}/sso",
     "Type": "redirect",
     "DefaultUserGroupID": "1"
   }
@@ -458,14 +458,14 @@ data:
   profiles.json: |
     [{
       "ActionType": "GenerateOrLoginUserProfile",
-      "ID": "`{ID of your TIB profile}`",
+      "ID": "{ID of your TIB profile}",
       "OrgID": "0",
       "IdentityHandlerConfig": {
-        "DashboardCredential": "`{portal API secret}`"
+        "DashboardCredential": "{portal API secret}"
       },
       "ProviderConfig": {
-        "CallbackBaseURL": "http://`{TIB host}`:`{TIB port}`",
-        "FailureRedirect": "http://`{portal host}`:`{portal port}`/?fail=true",
+        "CallbackBaseURL": "http://{TIB host}:{TIB port}",
+        "FailureRedirect": "http://{portal host}:{portal port}/?fail=true",
         "UseProviders": [
           {
             "Name": "openid-connect",
@@ -476,19 +476,19 @@ data:
         ]
       },
       "ProviderName": "SocialProvider",
-      "ReturnURL": "http://`{portal host}`:`{portal port}`/sso",
+      "ReturnURL": "http://{portal host}:{portal port}/sso",
       "Type": "redirect"
     },
     {
       "ActionType": "GenerateOrLoginDeveloperProfile",
-      "ID": "`{ID of your TIB profile}`",
+      "ID": "{ID of your TIB profile}",
       "OrgID": "0",
       "IdentityHandlerConfig": {
-        "DashboardCredential": "`{portal API secret}`"
+        "DashboardCredential": "{portal API secret}"
       },
       "ProviderConfig": {
-        "CallbackBaseURL": "http://`{TIB host}`:`{TIB port}`",
-        "FailureRedirect": "http://`{portal host}`:`{portal port}`/?fail=true",
+        "CallbackBaseURL": "http://{TIB host}:{TIB port}",
+        "FailureRedirect": "http://{portal host}:{portal port}/?fail=true",
         "UseProviders": [
           {
             "Name": "openid-connect",
@@ -499,7 +499,7 @@ data:
         ]
       },
       "ProviderName": "SocialProvider",
-      "ReturnURL": "http://`{portal host}`:`{portal port}`/sso",
+      "ReturnURL": "http://{portal host}:{portal port}/sso",
       "Type": "redirect",
       "DefaultUserGroupID": "1"
     }]
@@ -513,25 +513,25 @@ to enable Single Sign-On for admin users in your portal instance:
 ```.json
 [{
   "ActionType": "GenerateOrLoginUserProfile",
-  "ID": "`{ID of your TIB profile}`",
+  "ID": "{ID of your TIB profile}",
   "OrgID": "0",
   "IdentityHandlerConfig": {
-    "DashboardCredential": "`{portal API secret}`"
+    "DashboardCredential": "{portal API secret}"
   },
   "ProviderConfig": {
-    "CallbackBaseURL": "http://`{TIB host}`:`{TIB port}`",
-    "FailureRedirect": "http://`{portal host}`:`{portal port}`/?fail=true",
+    "CallbackBaseURL": "http://{TIB host}:{TIB port}",
+    "FailureRedirect": "http://{portal host}:{portal port}/?fail=true",
     "UseProviders": [
       {
         "Name": "openid-connect",
         "Key": "{oAuth2.0 key}",
         "Secret": "{oAuth2.0 secret}",
-        "DiscoverURL": "`{OIDC well-known endpoint}`"
+        "DiscoverURL": "{OIDC well-known endpoint}"
       }
     ]
   },
   "ProviderName": "SocialProvider",
-  "ReturnURL": "http://`{portal host}`:`{portal port}`/sso",
+  "ReturnURL": "http://{portal host}:{portal port}/sso",
   "Type": "redirect"
 }]
 ```
@@ -539,8 +539,8 @@ In the above example, you need to specify the following parameters:
 - `OrgID` must be `"0"` for being accepted as a provider-admin or super-admin
 - `ActionType` must be equal to `"GenerateOrLoginUserProfile"`
 - `IdentityHandlerConfig.DashboardCredential` must be equal to the `PortalAPISecret` field in the configuration file of the portal
-- Replace ``{portal host}`` and ``{portal port}`` with the actual host and port on which your portal instance is running. Also, replace `http` with `https` for the respective fields if you use https for your portal instance
-- Replace ``{TIB host}`` and ``{TIB port}`` with the actual host and port on which your TIB instance is running. Also, replace `http` with `https` for the respective fields if you use https for your TIB instance
+- Replace `{portal host}` and `{portal port}` with the actual host and port on which your portal instance is running. Also, replace `http` with `https` for the respective fields if you use https for your portal instance
+- Replace `{TIB host}` and `{TIB port}` with the actual host and port on which your TIB instance is running. Also, replace `http` with `https` for the respective fields if you use https for your TIB instance
 - In the `"ID"` field, specify an ID of this TIB profile. You can select any value for this field that consists of digits, letters, and special signs, no spaces allowed. It is better to pick a human-readable ID for your profile for better maintainability of the configuration
 
 
@@ -560,7 +560,7 @@ In the above example, you need to specify the following parameters:
         "Key": "{oAuth2.0 key}",
         "Secret": "{oAuth2.0 secret}",
         "Scopes": ["openid", "email"],
-        "DiscoverURL": "`{OIDC well-known endpoint}`"
+        "DiscoverURL": "{OIDC well-known endpoint}"
       }
     ]
     ```
@@ -579,7 +579,7 @@ Here is an example of such page that works with a profile for LDAP identity mana
     </head>
     <body>
       <b> Login to the Developer portal</b>
-      <form method="post" action="http://`{Tyk Identity Broker host}`:`{Tyk Identity Broker port}`/auth/`{profile ID}`/ldap">
+      <form method="post" action="http://{Tyk Identity Broker host}:{Tyk Identity Broker port}/auth/{profile ID}/ldap">
         username: <input type="text" name="username"/> <br/>
         password: <input type="text" name="password"/> <br/>
         <button type="submit">Login</button>
@@ -602,8 +602,8 @@ in the TIB profile that creates a binding between user groups in your IDP and de
 To define the user group mapping for your developer audience, you need to add the UserGroupMapping object to the corresponding TIB profile:
 ```yaml
   "UserGroupMapping": {
-    "`{IDP groupA ID}`": "`{portal teamA ID}`",
-    "`{IDP groupB ID}`": "`{portal teamB ID}`",
+    "{IDP groupA ID}": "{portal teamA ID}",
+    "{IDP groupB ID}": "{portal teamB ID}",
     ...
   }
 ```
@@ -625,39 +625,39 @@ Follow these steps to enable Single Sign-On for developers:
 ```.json
 [{
   "ActionType": "GenerateOrLoginDeveloperProfile",
-  "ID": "`{ID of your TIB profile}`",
+  "ID": "{ID of your TIB profile}",
   "OrgID": "0",
   "IdentityHandlerConfig": {
-    "DashboardCredential": "`{ID of your TIB profile}`"
+    "DashboardCredential": "{ID of your TIB profile}"
   },
   "ProviderConfig": {
-    "CallbackBaseURL": "http://`{TIB host}`:`{TIB port}`",
-    "FailureRedirect": "http://`{portal host}`:`{portal port}`/?fail=true",
+    "CallbackBaseURL": "http://{TIB host}:{TIB port}",
+    "FailureRedirect": "http://{portal host}:{portal port}/?fail=true",
     "UseProviders": [
       {
         "Name": "openid-connect",
         "Key": "{oAuth2.0 key}",
         "Secret": "{oAuth2.0 secret}",
-        "DiscoverURL": "`{OIDC well-known endpoint}`"
+        "DiscoverURL": "{OIDC well-known endpoint}"
       }
     ]
   },
   "ProviderName": "SocialProvider",
-  "ReturnURL": "http://`{portal host}`:`{portal port}`/sso",
+  "ReturnURL": "http://{portal host}:{portal port}/sso",
   "Type": "redirect",
-  "CustomUserGroupField": "`{your group ID field}`",
+  "CustomUserGroupField": "{your group ID field}",
   "UserGroupMapping": {
-    "`{IDP group ID}`": "`{portal team ID}`"
+    "{IDP group ID}": "{portal team ID}"
   },
-  "DefaultUserGroupID": "`{portal team ID}`"
+  "DefaultUserGroupID": "{portal team ID}"
 }]
 ```
 In the above example, you need to specify the following parameters:
 - `OrgID` could be anything as its value is ignored;
 - `ActionType` must be equal to `"GenerateOrLoginDeveloperProfile"`
 - `IdentityHandlerConfig.DashboardCredential` must be equal to the `PortalAPISecret` field in the configuration file of the portal
-- Replace ``{portal host}`` and ``{portal port}`` with the actual host and port on which your portal instance is running. Also, replace `http` with `https` for the respective fields if you use https for your portal instance
-- Replace ``{TIB host}`` and ``{TIB port}`` with the actual host and port on which your TIB instance is running. Also, replace `http` with `https` for the respective fields if you use https for your TIB instance
+- Replace `{portal host}` and `{portal port}` with the actual host and port on which your portal instance is running. Also, replace `http` with `https` for the respective fields if you use https for your portal instance
+- Replace `{TIB host}` and `{TIB port}` with the actual host and port on which your TIB instance is running. Also, replace `http` with `https` for the respective fields if you use https for your TIB instance
 - In the `"ID"` field, specify an ID of this TIB profile. You can select any value for this field that consists of digits, letters, and special signs, no spaces allowed. It is better to pick a human-readable ID for your profile for better maintainability of the configuration
 - `CustomUserGroupField` must be equal to the JWT claim name that refers to the user group in your IDP
 - `UserGroupMapping` an object that defines relationship between user groups in the IDP and teams in the portal. The optional parameter, if not specified, will cause the portal to rely on the `DefaultUserGroupID` field to determine which team a developer should log in to. Please refer to the [User group mapping section](/portal/settings#user-group-mapping ) for guidance
@@ -680,7 +680,7 @@ In the above example, you need to specify the following parameters:
         "Key": "{oAuth2.0 key}",
         "Secret": "{oAuth2.0 secret}",
         "Scopes": ["openid", "email"],
-        "DiscoverURL": "`{OIDC well-known endpoint}`"
+        "DiscoverURL": "{OIDC well-known endpoint}"
       }
     ]
     ```
@@ -696,7 +696,7 @@ Here is an example of such page that works with a profile for LDAP identity mana
     </head>
     <body>
       <b> Login to the Developer portal</b>
-      <form method="post" action="http://`{Tyk Identity Broker host}`:`{Tyk Identity Broker port}`/auth/`{profile ID}`/ldap">
+      <form method="post" action="http://{Tyk Identity Broker host}:{Tyk Identity Broker port}/auth/{profile ID}/ldap">
         username: <input type="text" name="username"/> <br/>
         password: <input type="text" name="password"/> <br/>
         <button type="submit">Login</button>
@@ -765,7 +765,7 @@ You can fetch a specific organisation using either its database ID or CID. For e
 **Using database ID:**
 ```bash
 curl -X GET 'http://localhost:3001/portal-api/organisations/27' \
-  -H "Authorization: $`{TOKEN}`" \
+  -H "Authorization: ${TOKEN}" \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 ```
@@ -773,7 +773,7 @@ curl -X GET 'http://localhost:3001/portal-api/organisations/27' \
 **Using CID (recommended):**
 ```bash
 curl -X GET 'http://localhost:3001/portal-api/organisations/2sG5umt8rGHMiwjcgaHXxwExt8O' \
-  -H "Authorization: $`{TOKEN}`" \
+  -H "Authorization: ${TOKEN}" \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 ```
@@ -821,7 +821,7 @@ Here's an example of how you can export organisations from Environment A:
 
 ```bash
 # Fetch organisations from Environment A
-response=$(curl -s -H "Authorization: $`{ENV_A_TOKEN}`" \
+response=$(curl -s -H "Authorization: ${ENV_A_TOKEN}" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
   "https://portal-env-a.example.com/organisations?page=1&per_page=50")
@@ -843,13 +843,13 @@ while IFS= read -r org; do
   echo "Fetching teams for organisation CID: $org_cid..."
 
   # Fetch teams for the organisation
-  teams_response=$(curl -s -H "Authorization: $`{ENV_A_TOKEN}`" \
+  teams_response=$(curl -s -H "Authorization: ${ENV_A_TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
     "https://portal-env-a.example.com/organisations/$org_cid/teams?page=1&per_page=50")
 
   # Process each team
-  echo "$teams_response" | jq -c '.[] | select(.Name | endswith("All users") | not) | del(.Users)' > "data/teams_$`{org_cid}`.json"
+  echo "$teams_response" | jq -c '.[] | select(.Name | endswith("All users") | not) | del(.Users)' > "data/teams_${org_cid}.json"
 done < data/organisations.json
 ```
 
@@ -866,8 +866,8 @@ while IFS= read -r org; do
   echo "Importing organisation CID: $org_cid..."
 
   # Import the organisation
-  curl -s -o /dev/null -w "%`{http_code}`" -X POST \
-    -H "Authorization: $`{ENV_B_TOKEN}`" \
+  curl -s -o /dev/null -w "%{http_code}" -X POST \
+    -H "Authorization: ${ENV_B_TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
     -d "$org" "https://portal-env-b.example.com/organisations"
@@ -890,8 +890,8 @@ for file in data/teams_*.json; do
     echo "Importing team CID: $team_cid for organisation CID: $org_cid..."
 
     # Import the team
-    curl -s -o /dev/null -w "%`{http_code}`" -X POST \
-      -H "Authorization: $`{ENV_B_TOKEN}`" \
+    curl -s -o /dev/null -w "%{http_code}" -X POST \
+      -H "Authorization: ${ENV_B_TOKEN}" \
       -H "Content-Type: application/json" \
       -H "Accept: application/json" \
       -d "$team" "https://portal-env-b.example.com/organisations/$org_cid/teams"
@@ -929,7 +929,7 @@ source_orgs=$(jq -r '.[] | .CID + " " + .Name' data/organisations.json | sort)
 
 # Get organisations from target environment via API
 # Exclude default organisation and format same as source
-target_orgs=$(curl -s -H "Authorization: $`{ENV_B_TOKEN}`" \
+target_orgs=$(curl -s -H "Authorization: ${ENV_B_TOKEN}" \
   -H "Accept: application/json" \
   "https://portal-env-b.example.com/organisations" | \
   jq -r '.[] | select(.Name != "Default Organisation") | .CID + " " + .Name' | sort)
@@ -954,11 +954,11 @@ while IFS= read -r org; do
     org_name=$(echo "$org" | cut -d' ' -f2-)
     
     # Get teams from source data file for this organisation
-    source_teams=$(jq -r '.[] | .Name' "data/teams_$`{org_cid}`.json" | sort)
+    source_teams=$(jq -r '.[] | .Name' "data/teams_${org_cid}.json" | sort)
 
     # Get teams from target environment for this organisation
     # Exclude auto-generated "All users" teams
-    target_teams=$(curl -s -H "Authorization: $`{ENV_B_TOKEN}`" \
+    target_teams=$(curl -s -H "Authorization: ${ENV_B_TOKEN}" \
       -H "Accept: application/json" \
       "https://portal-env-b.example.com/organisations/$org_cid/teams" | \
       jq -r '.[] | select(.Name | endswith("All users") | not) | .Name' | sort)

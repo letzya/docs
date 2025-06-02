@@ -207,8 +207,8 @@ When using the UDG, there may be a situation where you want to access an API wit
 Consider the following REST APIs:
 
  - REST API for people: `https://people-api.dev/people`
- - REST API for a specific person: `https://people-api.dev/people/`{person_id}``
- - REST API for driver licenses: `https://driver-license-api.dev/driver-licenses/`{driver_license_id}``
+ - REST API for a specific person: `https://people-api.dev/people/{person_id}`
+ - REST API for driver licenses: `https://driver-license-api.dev/driver-licenses/{driver_license_id}`
 
 The REST API for a person will give us the following response:
 ```json
@@ -297,11 +297,11 @@ A query like:
         id
         name
         age
-        driverLicense `{
+        driverLicense {
             id
             issuedBy
             validUntil
-        }`
+        }
     }
 }
 ```
@@ -474,10 +474,10 @@ Let's assume we would send the following query to a GraphQL server running this 
 
 ```graphql
 query TykCEO {
-    employee(id: 1) `{
+    employee(id: 1) {
         id
         name
-    }`
+    }
 }
 ```
 
@@ -656,11 +656,11 @@ The `productUpdated` field will be updated each time a product is updated. Updat
 
 ```bash
 subscription Products {
-    productUpdated `{
+    productUpdated {
         name
         price
         inStock
-    }`
+    }
 }
 ```
 
@@ -1326,7 +1326,7 @@ Then your request body will look like this:
 ```json
 {
     "type": "openapi",
-    "data": {`{oas_document}`}
+    "data": {{oas_document}}
 }
 ```
 
@@ -1549,9 +1549,9 @@ query getUser {
     reviews {
       id
       text
-      user `{
+      user {
         id
-      }`
+      }
       
     }
   }
@@ -1662,10 +1662,10 @@ Now that we have attached datasources to our `Query` in the schema let's try to 
 
     ```gql
     mutation AddReview {
-    addReview(text: "review using udg", userId:"1")`{
+    addReview(text: "review using udg", userId:"1"){
         id
         text
-    }`
+    }
     }
     ```
 
@@ -1746,9 +1746,9 @@ For this tutorial we'll mitigate these risks using `Query Depth Limit` but you c
                 reviews {
                 user {
                     reviews {
-                    user `{
+                    user {
                         id
-                    }`
+                    }
                     }
                 }
                 }

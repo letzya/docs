@@ -163,7 +163,7 @@ This will walk you through securing your APIs with JWTs via Auth0. We also have 
    curl --request POST \
      --url https://dev-yjd8e8u5.us.auth0.com/oauth/token \
      --header 'content-type: application/json' \
-     --data '{"client_id":`{CLIENT_ID}`,"client_secret":`{CLIENT_SECRET}`,"audience":`{AUDIENCE}`,"grant_type":"client_credentials"}'
+     --data '{"client_id":{CLIENT_ID},"client_secret":{CLIENT_SECRET},"audience":{AUDIENCE},"grant_type":"client_credentials"}'
    ```
 
 6. Paste the command in a terminal window to generate your token. Save this token locally.
@@ -221,7 +221,7 @@ This will walk you through securing your APIs with JWTs via Auth0. We also have 
 2.  From a terminal window using the API URL and the Auth0 generated token.
 
 ```.curl
-curl -X GET `{API URL}`  -H "Accept: application/json" -H "Authorization: Bearer `{token}`"
+curl -X GET {API URL}  -H "Accept: application/json" -H "Authorization: Bearer {token}"
 ```
 18. If using the [httpbin upstream URL](https://httpbin.org/) as in the example Tyk API, you should see the HTML returned for the httpbin service in your terminal.
 19. If there is an error with the request, you will see the following error message.

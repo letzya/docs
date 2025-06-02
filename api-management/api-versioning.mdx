@@ -560,7 +560,7 @@ spec:
                   headers:
                     x-tyk-override-test: tyk-override
                     x-tyk-override-test-2: tyk-override-2
-            - path: v1/allowed/allowlist/reply/`{id}`
+            - path: v1/allowed/allowlist/reply/{id}
               method_actions:
                 GET:
                   action: reply
@@ -569,7 +569,7 @@ spec:
                   headers:
                     x-tyk-override-test: tyk-override
                     x-tyk-override-test-2: tyk-override-2
-            - path: v1/allowed/allowlist/`{id}`
+            - path: v1/allowed/allowlist/{id}
               method_actions:
                 GET:
                   action: no_action

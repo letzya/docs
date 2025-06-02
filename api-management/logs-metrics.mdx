@@ -965,7 +965,7 @@ Credit: Elasticsearch, [OpenTelemetry on Elastic](https://www.elastic.co/blog/op
     gateway:
         opentelemetry:
         enabled: true
-        endpoint: {`{Add your endpoint here}`}
+        endpoint: {{Add your endpoint here}}
         exporter: grpc
     ```
 
@@ -976,10 +976,10 @@ Credit: Elasticsearch, [OpenTelemetry on Elastic](https://www.elastic.co/blog/op
     environment:
     - TYK_GW_OPENTELEMETRY_ENABLED=true
     - TYK_GW_OPENTELEMETRY_EXPORTER=grpc
-    - TYK_GW_OPENTELEMETRY_ENDPOINT={`{Add your endpoint here}`}
+    - TYK_GW_OPENTELEMETRY_ENDPOINT={{Add your endpoint here}}
     ```
 
-    Make sure to replace {`{Add your endpoint here}`} with the appropriate endpoint from your OpenTelemetry collector.
+    Make sure to replace `{{Add your endpoint here}}` with the appropriate endpoint from your OpenTelemetry collector.
 
     After enabling OpenTelemetry at the Gateway level, you can activate [detailed tracing](/api-management/logs-metrics#opentelemetry) for specific APIs by editing their respective API definitions. Set the `detailed_tracing` option to either true or false. By default, this setting is false.
 
@@ -1478,6 +1478,7 @@ Please make sure you are installing Redis versions that are supported by Tyk. Pl
 
 ## OpenTracing (deprecated)
 
+
 <Warning>
 **Deprecation**
 
@@ -1487,6 +1488,7 @@ We introduced support for [OpenTelemetry](/api-management/logs-metrics#opentelem
 
 OpenTracing is now deprecated in Tyk products.
 </Warning>
+
 
 ### OpenTracing tools with legacy Tyk integration
 
@@ -1502,7 +1504,7 @@ OpenTracing can be configured at the Gateway level by adding the following confi
 {
   "tracing": {
     "enabled": true,
-    "name": "$`{tracer_name}`",
+    "name": "${tracer_name}",
     "options": {}
   }
 }

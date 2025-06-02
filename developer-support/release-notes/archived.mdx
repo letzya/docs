@@ -124,7 +124,7 @@ In addition you can now use any Python 3.x version. Tyk will automatically detec
 
 Previously if you wanted migrate to Tyk and keep existing API keys, you had to use our low level Tyk Gateway API, which has lot of constraints, especially regarding complex setups with multiple organizations and data centers.
 
-We have introduced a new Dashboard API for importing custom keys, which is as simple as `POST /api/keys/`{custom_key}` `{key-payload}``. This new API ensures that Keys from multiple orgs will not intersect, and it also works for multi-data center setups, and even Tyk SaaS.
+We have introduced a new Dashboard API for importing custom keys, which is as simple as `POST /api/keys/{custom_key} {key-payload}`. This new API ensures that Keys from multiple orgs will not intersect, and it also works for multi-data center setups, and even Tyk SaaS.
 
 ### Single sign on for the Tyk SaaS
 
@@ -313,11 +313,11 @@ See the Keys section of the [Tyk Gateway REST API](/tyk-gateway-api) Swagger doc
 
 Now it is possible to do more operations with key by hash (when we set `"hash_keys":` to `true` in `tyk.conf`):
 
-- endpoints `POST /keys/create`, `POST /keys` and `POST /keys/`{keyName}`` also return field `"key_hash"` for future use
+- endpoints `POST /keys/create`, `POST /keys` and `POST /keys/{keyName}` also return field `"key_hash"` for future use
 - endpoint `GET /keys` get all (or per API) key hashes. You can disable this endpoint by using the new `tyk.conf` setting `enable_hashed_keys_listing` (set to false by default)
-- endpoint `GET /keys/`{keyName}`` was modified to be able to get a key by hash. You just need provide the key hash as a `keyName` 
-and call it with the new optional query parameter `hashed=true`. So the new format is `GET /keys/`{keyName}`?hashed=true"`
-- also, we already have the same optional parameter for endpoint `DELETE /keys/`{keyName}`?hashed=true`
+- endpoint `GET /keys/{keyName}` was modified to be able to get a key by hash. You just need provide the key hash as a `keyName` 
+and call it with the new optional query parameter `hashed=true`. So the new format is `GET /keys/{keyName}?hashed=true"`
+- also, we already have the same optional parameter for endpoint `DELETE /keys/{keyName}?hashed=true`
 
 #### JSON schema validation
 
@@ -359,7 +359,7 @@ The schema must be a draft v4 JSON Schema spec, see http://json-schema.org/speci
 
 #### New endpoint to get list of tokens generated for provided OAuth-client
 
-`GET /oauth/clients/`{apiID}`/`{oauthClientId}`/tokens`
+`GET /oauth/clients/{apiID}/{oauthClientId}/tokens`
 
 This endpoint allows you to retrieve a list of all current tokens and their expiry date issued for a provided API ID and OAuth-client ID in the following format. New endpoint will work only for newly created tokens:
 ```
@@ -511,9 +511,9 @@ Reflecting the Tyk Gateway changes, on the Dashboard we have added a new **Valid
 The Tyk Dashboard API reflects changes made in the v2.6.0 Gateway API, and now supports more operations with key by hash (when we have set `"hash_keys":` to ` true` in `tyk_analytics.conf`):
 
 - endpoint `POST /keys/` also returns a new field `key_hash` per each key in the list
-- endpoint `GET /apis/`{apiId}`/keys/`{keyId}`` supports query string parameter `hashed=true` to get the key info via hash
-- endpoint `GET /apis/`{apiId}`/keys` returns keys hashes
-- endpoint `DELETE /apis/`{apiId}`/keys?hashed=true` can delete a key by its hash, but its functionality is disabled by default, unless you set `enable_delete_key_by_hash` boolean option inside the Dashboard configuration file. 
+- endpoint `GET /apis/{apiId}/keys/{keyId}` supports query string parameter `hashed=true` to get the key info via hash
+- endpoint `GET /apis/{apiId}/keys` returns keys hashes
+- endpoint `DELETE /apis/{apiId}/keys?hashed=true` can delete a key by its hash, but its functionality is disabled by default, unless you set `enable_delete_key_by_hash` boolean option inside the Dashboard configuration file. 
 
 
 #### Key requests management API now supports OAuth
@@ -546,9 +546,9 @@ Where:
 - `"version"` - is expected to have the value `"v2"`
 - `"oauth_info"` - simple structure which contains a field with comma-separated list of redirect URI for OAuth flow
 
-A new field `"oauth_info"` will be present in replies for endpoints `GET /api/portal/requests/`{id}`` and `GET /api/portal/requests`
+A new field `"oauth_info"` will be present in replies for endpoints `GET /api/portal/requests/{id}` and `GET /api/portal/requests`
 
-When this kind of OAuth key request gets approved when using endpoint `PUT /api/portal/requests/approve/`{id}`` 
+When this kind of OAuth key request gets approved when using endpoint `PUT /api/portal/requests/approve/{id}` 
 a new OAuth-client is generated for a developer specified in the specified `"by_user"` field.
 
 Example of OAuth key request approval reply:
@@ -589,8 +589,8 @@ was approved, i.e.:
 
 These endpoints allow you to get a list of all current tokens issued for provided OAuth client ID:
 
-- `GET /apis/oauth/`{apiId}`/`{oauthClientId}`/tokens`
-- `GET /apis/oauth/`{oauthClientId}`/tokens` when the API ID is unknown or OAuth-client provides access to several APIs
+- `GET /apis/oauth/{apiId}/{oauthClientId}/tokens`
+- `GET /apis/oauth/{oauthClientId}/tokens` when the API ID is unknown or OAuth-client provides access to several APIs
 
 
 #### Renamed the response `_id` field to `id` in List Key Requests
@@ -631,7 +631,7 @@ If set, Catalog settings will override global ones.
 
 At the moment the following options can be overriden: `Key request fields`, `Require key approval` and `Redirect on key request` (with `Redirect to` option as well).
 
-#### {{<fn>}}Blocklist{{</fn>}} IP Support
+#### <Tooltip tip="A list of blocked or denied items or entries">Blocklist</Tooltip> IP Support
 
 Tyk allows you to block IP Addresses, which is located in the **Advanced Options** tab in the **Endpoint Designer**.
 

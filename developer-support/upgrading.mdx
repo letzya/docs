@@ -252,8 +252,8 @@ for your current version still.
 <Note>
 This step is a sanity check to catch any potential issues with the bundle for the current version and will ensure that
   any requests that your Gateway processes prior to being upgraded are able to invoke the plugin as you expect.
+</Note>
 
-  {{< / note>}}
 
 3. Proceed with upgrading your [Tyk Data Plane Hybrid Gateways](#upgrading-data-plane-hybrid-gateways). Given that you
 loaded your target version plugin in step 1, this version will be loaded automatically once you upgrade.
@@ -424,7 +424,8 @@ Follow our [Tyk OSS guide](/#go-plugins-upgrade-guide) for upgrading Tyk Gateway
 
 #### Helm
 
-{{< note success >}}
+
+<Note>
 **Upgrade instructions for *Tyk Dashboard*, *Tyk Pump* and *MDCB***
 
 The instruction below refer to upgrading *Tyk Gateway*. You can follow the same steps for *Tyk Dashboard*, *Tyk Pump*
@@ -983,7 +984,7 @@ yum history
 Display details of the specific "update" transaction, replacing ID noted in the previous step
 
 ```bash
-yum history info `<ID>`
+yum history info <ID>
 ```
 
 **Example**
@@ -997,13 +998,13 @@ If you encounter difficulties after an upgrade and wish to revert the changes, y
 If you're experiencing issues specifically related to the upgrade and want to undo those changes only, you can use the *yum history undo* command. This will undo the changes for a specific update transaction only.
 
 ```bash
-yum history undo `<ID>`
+yum history undo <ID>
 ```
 
 If you encounter issues after the upgrade and wish to revert your system to its previous state entirely, you can use the *yum history rollback* command. This command will rollback the system to a specific point in time, undoing all transactions that occurred after that point. 
 
 ```bash
-yum history rollback `<ID>`
+yum history rollback <ID>
 ```
 
 
@@ -1133,7 +1134,7 @@ go mod vendor
 1. Open a terminal/command prompt in the directory of your plugin source file(s)  
 2. Based on your Target Version run the appropriate commands to initialize your plugin:
 
-- **Target Version <= v4.2.0**  
+- **`Target Version <= v4.2.0`**  
     ```bash
     go get github.com/TykTechnologies/tyk@6c76e802a29838d058588ff924358706a078d0c5
     # Tyk Gateway versions < 4.2 have a dependency on graphql-go-tools

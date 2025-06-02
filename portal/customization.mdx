@@ -303,9 +303,9 @@ Golang's templates use the following syntax:
 - `{{ . }}` to output a value
 - `{{ .FieldName }}` to access a field of an object
 - `{{ .MethodName }}` to call a method on an object 
-- `{`{ if }`} {`{ else }`} {`{ end }`}` for conditionals
-- `{{ range . }} {{ . }} {`{ end }`}` to iterate over a slice
-- Functions can be called like `{{ FuncName . }}` or just `{`{ FuncName }`}`
+- `{{ if }} {{ else }} {{ end }}` for conditionals
+- `{{ range . }} {{ . }} {{ end }}` to iterate over a slice
+- Functions can be called like `{{ FuncName . }}` or just `{{ FuncName }}`
 
 These templates are part of the default theme that ships with the portal, which can be fully customized by modifying the
 template files. The templates have access to template data which contains dynamic values that can be rendered into the
@@ -384,7 +384,7 @@ Accessible via `{{ range .apps }}`
     <option value="{{ $app.ID }}">
       {{ $app.Name }}
     </option>
-  {`{ end }`}
+  {{ end }}
 </select>
 ```
 
@@ -409,12 +409,12 @@ This template is used to render the application creation form.
     <ul>
       {{ range $errs }}
       <li>{{ . }}</li>
-      {`{ end }`}
+      {{ end }}
     </ul>
   </div>
 </div>
-{`{ end }`}
-{`{ end }`}
+{{ end }}
+{{ end }}
 ```
 
 #### Application Detail
@@ -534,7 +534,7 @@ Accessible via `{{ $acreq.Plan }}`
   <p>OAuth Client ID: {{ $cred.OAuthClientID }}</p>
   <p>Expires: {{ $cred.Expires }}</p>
 </div>
-{`{ end }`}
+{{ end }}
 <h2>Access Requests</h2>
 {{ range $acreq := .app.AccessRequests }}
 <div>
@@ -543,7 +543,7 @@ Accessible via `{{ $acreq.Plan }}`
   <p>Product: {{ $acreq.Product.Name }}</p>
   <p>Plan: {{ $acreq.Plan.Name }}</p>
 </div>
-{`{ end }`}
+{{ end }}
 ```
 
 #### Blogs
@@ -583,7 +583,7 @@ Accessible via `{{ range .posts }}`
   <img src="{{ .HeaderImage.URL }}" alt="{{ .Title }}">
   <p>{{ .Lede }}</p>
 </div>
-{`{ end }`}
+{{ end }}
 ```
 
 #### Blog Detail
@@ -622,9 +622,9 @@ Accessible via `{{ .post }}` or `{{ range .latest_posts }}`
 <p>{{ .post.Lede }}</p>
 {{ if .post.MarkdownEnabled }}
 {{ .post.MarkdownContent | markdownify }}
-{`{ else }`}
+{{ else }}
 {{ .post.Content }}
-{`{ end }`}
+{{ end }}
 <p>Read more at: <a href="{{ .post.URL }}">{{ .post.URL }}</a></p>
 <h2>Latest Posts</h2>
 {{ range .latest_posts }}
@@ -632,7 +632,7 @@ Accessible via `{{ .post }}` or `{{ range .latest_posts }}`
   <h3><a href="{{ .URL }}">{{ .Title }}</a></h3>
   <p>{{ .Lede }}</p>
 </div>
-{`{ end }`}
+{{ end }}
 ```
 
 #### Cart Checkout 
@@ -750,16 +750,16 @@ Accessible via `{{ range $template := $product.Templates }}`
     <p>{{ $product.Description }}</p>
     <p>Path: {{ $product.Path }}</p>
   </div>
-  {`{ end }`}
+  {{ end }}
 </div>
-{`{ end }`}
+{{ end }}
 <h2>Your Applications</h2>
 {{ range $app := .apps }}
 <div class="application">
   <h3>{{ $app.Name }}</h3>
   <p>{{ $app.Description }}</p>
 </div>
-{`{ end }`}
+{{ end }}
 {{ if .certs }}
 <h2>MTLS Certificates</h2>
 {{ range $cert := .certs }}
@@ -767,8 +767,8 @@ Accessible via `{{ range $template := $product.Templates }}`
   <p>ID: {{ $cert.ID }}</p>
   <p>Name: {{ $cert.Name }}</p>
 </div>
-{`{ end }`}
-{`{ end }`}
+{{ end }}
+{{ end }}
 ```
 </Expandable>
 
@@ -815,12 +815,12 @@ Accessible via `{{ .user }}`
     <ul>
       {{ range $errs }}
       <li>{{ . }}</li>
-      {`{ end }`}
+      {{ end }}
     </ul>
   </div>
 </div>
-{`{ end }`}
-{`{ end }`}
+{{ end }}
+{{ end }}
 <p>Name: {{ .user.DisplayName }}</p>
 <p>Email: {{ .user.Email }}</p>
 <p>Role: {{ .user.DisplayRole }}</p>
@@ -873,7 +873,7 @@ Accessible via `{{ .user }}`
   <div class="alert alert-danger" role="alert">
     {{ .error }}
   </div>
-  {`{ end }`}
+  {{ end }}
   <h2>Developer details</h2>
   <div>
     <label>Name:</label>
@@ -893,10 +893,10 @@ Accessible via `{{ .user }}`
     <select name="role" required>
       {{ range $role := .roles }}
       <option value="{{ $role.ID }}">{{ $role.DisplayName }}</option>
-      {`{ end }`}
+      {{ end }}
     </select>
   </div>
-  {`{ end }`}
+  {{ end }}
   <div>
     <a href="/portal/private/users">Cancel</a>
     <input type="submit" value="Save Changes" />
@@ -918,7 +918,7 @@ This template is used to render the list of organization users.
 ###### Example Usage
 ```html
 <td> {{ index $roles $userInvite.Role }} </td>
-{`{ end }`}
+{{ end }}
 ```
 
 #### Product Detail 
@@ -1035,21 +1035,21 @@ Accessible via `{{ range .posts }}`
   <h3>{{ .Name }}</h3>
   <p>Status: {{ .Status }}</p>
   <p>Target URL: {{ .TargetURL }}</p>
-  {`{ end }`}
+  {{ end }}
   <h2>Documentation</h2>
   {{ range .product.Docs }}
   <h3>{{ .Title }}</h3>
   {{ if .MarkdownEnabled }}
   {{ .MarkdownContent | markdownify }}
-  {`{ else }`}
+  {{ else }}
   {{ .Content }}
-  {`{ end }`}
-  {`{ end }`}
+  {{ end }}
+  {{ end }}
   <h2>Available in Catalogues</h2>
   <ul>
     {{ range .catalogues }}
     <li>{{ .Name }} ({{ .VisibilityStatus }})</li>
-    {`{ end }`}
+    {{ end }}
   </ul>
   <h2>Available Plans</h2>
   {{ range .unique_plans }}
@@ -1059,7 +1059,7 @@ Accessible via `{{ range .posts }}`
     <p>Rate: {{ .Rate }} per {{ .Per }}</p>
     <p>Quota: {{ .QuotaMax }}</p>
   </div>
-  {`{ end }`}
+  {{ end }}
   <h2>Related Posts</h2>
   {{ range .posts }}
   <div class="related-post">
@@ -1067,7 +1067,7 @@ Accessible via `{{ range .posts }}`
     <img src="{{ .HeaderImage.URL }}" alt="{{ .Title }}">
     <p>{{ .Lede }}</p>
   </div>
-  {`{ end }`}
+  {{ end }}
 </div>
 ```
 </Expandable>
@@ -1149,9 +1149,9 @@ Returns true if user can create an organization.
 
 ###### Example Usage
 ```
-{`{ if CanCreateOrganisation req }`}
+{{ if CanCreateOrganisation req }}
   ...
-{`{ end }`}
+{{ end }}
 ```
 
 ##### Clients
@@ -1243,15 +1243,15 @@ Accessible via `{{ $acreq.Plan }}`
       <strong>{{ $product.Name }}</strong>
       {{ $product.Description }}
     </li>
-    {`{ end }`}
+    {{ end }}
   </ul>
   <h4>Plan:</h4>
   <p><strong>Name:</strong> {{ $acreq.Plan.Name }}</p>
   <p><strong>Rate:</strong> {{ $acreq.Plan.Rate }} per {{ $acreq.Plan.Per }}</p>
   <p><strong>Quota Max:</strong> {{ $acreq.Plan.QuotaMax }}</p>
-  {`{ end }`}
+  {{ end }}
 </div>
-{`{ end }`}
+{{ end }}
 ```
 
 ##### CurrentUser
@@ -1287,13 +1287,13 @@ Accessible via `{{ $user := CurrentUser req }}`
   <p>You have admin privileges.</p>
   {{ else if $user.IsOrgAdmin }}
   <p>You are an organization admin.</p>
-  {`{ else }`}
+  {{ else }}
   <p>Your role: {{ $user.DisplayRole }}</p>
-  {`{ end }`}
+  {{ end }}
 </div>
-{`{ else }`}
+{{ else }}
 <p>Please log in to view your account information.</p>
-{`{ end }`}
+{{ end }}
 ```
 
 ##### FeaturedProducts
@@ -1302,7 +1302,7 @@ Returns a list of featured products.
 
 ###### Product Attributes
 
-Accessible via `{`{ range FeaturedProducts }`}`
+Accessible via `{{ range FeaturedProducts }}`
 
 | Attribute | Description |
 |-----------|-------------|
@@ -1354,7 +1354,7 @@ Accessible via `{{ range .Catalogues }}`
   <div class="product-card">
     {{ if .Logo }}
     <img src="{{ .Logo.URL }}" alt="{{ .Name }} logo">
-    {`{ end }`}
+    {{ end }}
     <div class="product-info">
       <span class="auth-type">{{ .AuthType }}</span>
       <h3>{{ .Name }}</h3>
@@ -1368,12 +1368,12 @@ Accessible via `{{ range .Catalogues }}`
         <a href="/portal/catalogue-products/{{ $.Path }}/{{ .APIID }}/docs" target="blank">
           {{ .Name }}
         </a>
-        {`{ end }`}
-        {`{ end }`}
+        {{ end }}
+        {{ end }}
       </div>
     </div>
   </div>
-  {`{ end }`}
+  {{ end }}
 </div>
 ```
 </Expandable>
@@ -1423,17 +1423,17 @@ Accessible via `{{ range $invite := FilterUserInvites req }}`
         Joined
         {{ else if $invite.Uactive }}
         Pending
-        {`{ else }`}
+        {{ else }}
         Inactive
-        {`{ end }`}
+        {{ end }}
       </td>
     </tr>
-    {`{ end }`}
+    {{ end }}
   </tbody>
 </table>
-{`{ else }`}
+{{ else }}
 <p>No pending invitations.</p>
-{`{ end }`}
+{{ end }}
 ```
 </Expandable>
 
@@ -1448,7 +1448,7 @@ Formats a given time with a given format.
 {{$time := FormatTime $user.CreatedAt "2 Jan, 2006 at 3:04:00 PM (MST)"}}
 {/* Use $time or other variables here */}
 ...
-{`{end}`}
+{{end}}
 ```
 
 ##### GetCart
@@ -1533,13 +1533,13 @@ Accessible via `{{ range $template := $product.Templates }}`
       <h4>{{ $product.DisplayName }}</h4>
       <p>{{ $product.Description }}</p>
     </div>
-    {`{ end }`}
+    {{ end }}
   </div>
-  {`{ end }`}
-  {`{ else }`}
+  {{ end }}
+  {{ else }}
   <p>Your cart is empty.</p>
-  {`{ end }`}
-{`{ end }`}
+  {{ end }}
+{{ end }}
 ```
 
 ##### GetCatalogueList
@@ -1549,8 +1549,8 @@ Returns a list of catalogue names. Expects the request as parameter.
 ###### Example Usage
 ```gotemplate
 {{ range $key, $value := GetCatalogueList req }}
-<option value="{{ $key }}" {{ if eq $value.Selected true }} selected {`{ end }`}>{{ $value.Name }}</option>
-{`{ end }`}
+<option value="{{ $key }}" {{ if eq $value.Selected true }} selected {{ end }}>{{ $value.Name }}</option>
+{{ end }}
 ```
 
 ##### GetCataloguesForProduct
@@ -1578,7 +1578,7 @@ Accessible via `{{ range GetCataloguesForProduct req $user $product.ID }}`
     <strong>{{ .Name }}</strong>
     (Visibility: {{ .VisibilityStatus }})
   </li>
-  {`{ end }`}
+  {{ end }}
 </ul>
 ```
 
@@ -1591,7 +1591,7 @@ Returns an application description given a credential ID.
 {{ range $app.Credentials }}
 ...
 {{ GetClientDescription .ID}}
-{`{end}`}
+{{end}}
 ```
 
 ##### GetClientName
@@ -1603,7 +1603,7 @@ Returns an application name given a credential ID.
 {{ range $app.Credentials }}
 ...
 {{ GetClientName .ID}}
-{`{end}`}
+{{end}}
 ```
 
 ##### GetMenus
@@ -1618,9 +1618,9 @@ Returns a map of all [menus](/portal/customization#configure-menus).
     <li class="nav-item">
       <a class="dropdown-item" href="{{ .Path }}">{{ .Tag }}</a>
     </li>
-    {`{ end }`}
-  {`{ end }`}
-{`{ end }`}
+    {{ end }}
+  {{ end }}
+{{ end }}
 ```
 
 ##### GetProducts
@@ -1673,12 +1673,12 @@ Accessible via `{{ range $catalogue := $product.Catalogues }}`
 
 <Expandable title={'Example Usage'}>
 ```html
-{`{ range GetProducts req }`}
+{{ range GetProducts req }}
 <div class="col-lg-12 card-container">
-  <div class="card d-flex flex-row {{ if .Logo.URL }}has-logo{`{ end }`}">
+  <div class="card d-flex flex-row {{ if .Logo.URL }}has-logo{{ end }}">
     {{ if .Logo.URL }}
     <img class="card-img-top img-fluid" src="{{ .Logo.URL }}" alt="">
-    {`{ end }`}
+    {{ end }}
     <div class="card-body align-self-center w-100">
       <div class="card-title d-flex flex-column justify-content-end align-items-baseline">
         <div class="pill-container">
@@ -1688,7 +1688,7 @@ Accessible via `{{ range $catalogue := $product.Catalogues }}`
       </div>
       {{ if .Description }}
       <p class="card-text">{{ .Description }}</p>
-      {`{ end }`}
+      {{ end }}
     </div>
     <div class="card-cta d-flex flex-column align-self-center justify-content-between align-items-baseline w-100">
       <div>
@@ -1697,7 +1697,7 @@ Accessible via `{{ range $catalogue := $product.Catalogues }}`
     </div>
   </div>
 </div>
-{`{ end }`}
+{{ end }}
 ```
 </Expandable>
 
@@ -1749,8 +1749,8 @@ Splits a given string with given separator and returns a slice of split strings.
 ...
 {{ range SplitStrings .GrantType "," }}
 ...
-{`{ end }`}
-{`{ end }`}
+{{ end }}
+{{ end }}
 ```
 
 ##### TruncateString
@@ -1772,8 +1772,8 @@ Returns the credential type ("oAuth2.0" or "authToken") given the credential.
 ...
 {{ if eq (TypeOfCredential . ) "oAuth2.0" }}
 ...
-{`{ end }`}
-{`{end}`}
+{{ end }}
+{{end}}
 ```
 
 
@@ -1874,10 +1874,10 @@ Accessible via `{{ range $product := $acreq.Products }}`
     <ul>
       {{ range $product := $acreq.Products }}
       <li>{{ $product.DisplayName }} ({{ $product.AuthType }})</li>
-      {`{ end }`}
+      {{ end }}
     </ul>
   </li>
-  {`{ end }`}
+  {{ end }}
 </ul>
 ```
 
@@ -1942,19 +1942,19 @@ Accessible via `{{ .user }}`
   Role: {{ .user.Role }}<br/>
   {{ if gt .user.OrganisationID 0 }}
   Organisation: {{ .user.Organisation.Name }}<br/>
-  {`{ else }`}
+  {{ else }}
   Organisation: Administrators' organisation<br/>
-  {`{ end }`}
+  {{ end }}
   {{ if gt (len .user.Teams) 0 }}
   Teams:<br/>
   <ul>
     {{ range .user.Teams }}
     <li>{{ .Name }}</li>
-    {`{ end }`}
+    {{ end }}
   </ul>
-  {`{ else }`}
+  {{ else }}
   Teams: none
-  {`{ end }`}
+  {{ end }}
 </p>
 ```
 
@@ -1966,7 +1966,7 @@ This template is used for notifying users that their organization creation reque
 
 ###### Available Objects
 
-- `{`{ site }`}`: Returns the application host.
+- `{{ site }}`: Returns the application host.
 
 ###### Example Usage
 ```
@@ -2038,12 +2038,12 @@ This template is used for sending password reset emails to users.
 
 ###### Available Functions
 
-- `{`{ current_user }`}`: Returns the current user object.
-- `{`{ reset_password_url }`}`: Returns the URL with the token for setting the password.
+- `{{ current_user }}`: Returns the current user object.
+- `{{ reset_password_url }}`: Returns the URL with the token for setting the password.
 
 ###### User Attributes
 
-Accessible via `{`{ current_user }`}`
+Accessible via `{{ current_user }}`
 
 | Attribute/Method | Description |
 |-------------------|-------------|
@@ -2065,7 +2065,7 @@ Accessible via `{`{ current_user }`}`
 {{ $user := current_user}}
 <p>Hello {{ $user.DisplayName }},</p>
 <p>Someone has requested a link to change your password. You can do this through the link below.</p>
-<p>{`{reset_password_url}`}</p>
+<p>{{reset_password_url}}</p>
 <p>If you didn't request this, please ignore this email.</p>
 <p>Your password won't change until you access the link above and create a new one.</p>
 ```
@@ -2078,13 +2078,13 @@ This template is used for sending targeted invitations to users.
 
 ###### Available Functions
 
-- `{`{ user }`}`: Returns the targeted user object.
-- `{`{ team }`}`: Returns the team name to which the user is being invited.
-- `{`{ invite_url }`}`: Returns the URL with the token for setting the password.
+- `{{ user }}`: Returns the targeted user object.
+- `{{ team }}`: Returns the team name to which the user is being invited.
+- `{{ invite_url }}`: Returns the URL with the token for setting the password.
 
 ###### User Attributes
 
-Accessible via `{`{ user }`}`
+Accessible via `{{ user }}`
 
 | Attribute/Method | Description |
 |-------------------|-------------|
@@ -2105,8 +2105,8 @@ Accessible via `{`{ user }`}`
 ```html
 {{ $u := user }}
 Hi, <strong>{{ $u.DisplayName }}</strong><br/>
-<p>Someone is inviting you to join {{ if $u.IsAdmin }}as an Administrator{`{ else }`}the {`{ team }`} team{`{end }`}. You can do this through the link below.</p>
-<p>{`{ invite_url }`}</p>
+<p>Someone is inviting you to join {{ if $u.IsAdmin }}as an Administrator{{ else }}the {{ team }} team{{end }}. You can do this through the link below.</p>
+<p>{{ invite_url }}</p>
 <p>If you didn't request this, please ignore this email.</p>
 ```
 
@@ -2153,8 +2153,8 @@ Accessible via `{{ .user }}`
 <p>Your assigned teams:</p>
 <ul>
   {{ range .user.Teams }}
-  <li>{{ .Name }}{{ if .Default }} (Default){`{ end }`}</li>
-  {`{ end }`}
+  <li>{{ .Name }}{{ if .Default }} (Default){{ end }}</li>
+  {{ end }}
 </ul>
 <p>We're excited to have you on board!</p>
 ```
@@ -2206,7 +2206,7 @@ A layout behaves like a component that can be reused to inject templates in orde
     <meta name="description" content="">
     <meta name="author" content="">
 
-   <title>{{ if .page}} {{.page.Title}} {`{else}`} Developer Portal {`{end}`}</title>
+   <title>{{ if .page}} {{.page.Title}} {{else}} Developer Portal {{end}}</title>
 
     {/* Bootstrap core CSS */}
     <link href="/system/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -2219,7 +2219,7 @@ A layout behaves like a component that can be reused to inject templates in orde
     {{ render "top_nav" . }}
     <div class="page-wrapper">
       {/* Page Content */}
-      {`{ yield }`}
+      {{ yield }}
    </div>
 
 
@@ -2395,20 +2395,20 @@ We have mentioned above the relationship between a menu’s `Path` and the code 
 ```go
 {{ if GetMenus.Primary }}
   {{ range GetMenus.Primary.Children }}
-    <li class="nav-item {{ if .Children }}dropdown{`{end}`} mr-2">
-      <a class="nav-link {{ if .Children }}dropdown-toggle{`{end}`}" href="{{.Path}}" {{ if .Children }}data-toggle="dropdown" aria-haspopup=”true" aria-expanded="false"{`{end}`}>{{.Tag}}</a>
+    <li class="nav-item {{ if .Children }}dropdown{{end}} mr-2">
+      <a class="nav-link {{ if .Children }}dropdown-toggle{{end}}" href="{{.Path}}" {{ if .Children }}data-toggle="dropdown" aria-haspopup=”true" aria-expanded="false"{{end}}>{{.Tag}}</a>
       {{ if .Children }}
         <ul class="dropdown-menu submenu" aria-labelledby="navbarDropdownMenuLink">
           {{ range .Children }}
             <li class="nav-item">
               <a class="dropdown-item" href="{{.Path}}">{{.Tag}}</a>
             </li>
-          {`{ end }`}
+          {{ end }}
         </ul>
-      {`{ end }`}
+      {{ end }}
     </li>
-  {`{ end }`}
-{`{ end }`}
+  {{ end }}
+{{ end }}
 ```
 Let's pick each line that is used to render the menu attributes and see how they work:
 
@@ -2416,8 +2416,8 @@ Let's pick each line that is used to render the menu attributes and see how they
 2. `{{ range GetMenus.Primary.Children }}` Each Menu (Primary) has some children (Menu items) so what this code does is loop through all the children and they are rendered as below:
 
 ```go
-<li class="nav-item {{ if .Children }}dropdown{`{end}`} mr-2">
-<a class="nav-link {{ if .Children }}dropdown-toggle{`{end}`}" href="{{.Path}}" {{ if .Children }}data-toggle="dropdown" aria-haspopup=”true" aria-expanded="false"{`{end}`}>{{.Tag}}</a>
+<li class="nav-item {{ if .Children }}dropdown{{end}} mr-2">
+<a class="nav-link {{ if .Children }}dropdown-toggle{{end}}" href="{{.Path}}" {{ if .Children }}data-toggle="dropdown" aria-haspopup=”true" aria-expanded="false"{{end}}>{{.Tag}}</a>
 ```
 Where:
 
@@ -2619,7 +2619,7 @@ These are three layouts:
 * **The default layout**: emails.tmpl.
 
 The HTML and text layout are used to render HTML and plain text content respectively. If the portal fails to find both the HTML and the text templates, it will use the default one.
-To display the content of a template, the layout use special keyword `yield`: `{`{ yield }`}`.
+To display the content of a template, the layout use special keyword `yield`: `{{ yield }}`.
 
 #### Templates
 

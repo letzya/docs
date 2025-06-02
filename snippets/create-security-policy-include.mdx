@@ -91,16 +91,16 @@ To create a security policy with the Dashboard, follow these steps:
 
 Security Policies can be created with a single call to the API. It is very similar to the token creation process. To generate a simple security policy using the Tyk Dashboard API you can use the following curl command:
 ```{.copyWrapper}
-curl -X POST -H "authorization: `{API-TOKEN}`" \
+curl -X POST -H "authorization: {API-TOKEN}" \
   -s \
   -H "Content-Type: application/json" \
   -X POST \
   -d '{
     "access_rights": {
-      "`{API-ID}`": {
+      "{API-ID}": {
         "allowed_urls": [],
-        "api_id": "`{API-ID}`",
-        "api_name": "`{API-NAME}`",
+        "api_id": "{API-ID}",
+        "api_name": "{API-NAME}",
         "versions": [
           "Default"
         ]
@@ -119,9 +119,9 @@ curl -X POST -H "authorization: `{API-TOKEN}`" \
 
 You must replace:
 
-*   ``{API-TOKEN}``: Your API Token for the Dashboard API.
-*   ``{API-ID}``: The API ID you wish this policy to grant access to, there can be more than one of these entries.
-*   ``{API-NAME}``: The name of the API that is being granted access to (this is not required, but helps when debugging or auditing).
+*   `{API-TOKEN}`: Your API Token for the Dashboard API.
+*   `{API-ID}`: The API ID you wish this policy to grant access to, there can be more than one of these entries.
+*   `{API-NAME}`: The name of the API that is being granted access to (this is not required, but helps when debugging or auditing).
 *   `POLICY NAME`: The name of this security policy.
 
 The important elements:

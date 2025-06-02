@@ -272,7 +272,7 @@ To create a global webhook definition from the Dashboard UI you should follow th
 
     Select **Webhooks** from the **API Management** Menu:
 
-    <img src="img/2.10/webhooks_menu.png" alt="Webhooks menu item" />
+    <img src="/img/2.10/webhooks_menu.png" alt="Webhooks menu item" />
 
     Click **Add Webhook**.
 
@@ -740,9 +740,9 @@ This contains the [event metadata](/api-management/gateway-events#event-metadata
   "EventType": "Event Type Code",
   "EventMetaData": {
     "Message": "My Event Description",
-    "Path": "/{`{api_id}`}/{`{path}`}",
+    "Path": "/{{api_id}}/{{path}}",
     "Origin": "1.1.1.1:PORT",
-    "Key": "{`{Auth Key}`}"
+    "Key": "{{Auth Key}}"
   },
   "TimeStamp": "2024-01-01 23:59:59.111157073 +0000 UTC"
 }
@@ -753,10 +753,10 @@ This contains the [event metadata](/api-management/gateway-events#event-metadata
 Tyk injects a `context` object into your event handler giving access to more information about the request. This object has the following structure:
 
 ```js
-type JSVMContextGlobal struct `{
+type JSVMContextGlobal struct {
   APIID string
   OrgID string
-}`
+}
 ```
 
 It is populated with the API ID and Org ID of the request that your custom function can use together with the `event` metadata to interact with the Tyk REST API functions, for example:
@@ -891,9 +891,11 @@ When the quota consumption monitor is fired, the webhook request that is issued 
 *Note: if the webhook was triggered by an organization threshold, `key` will be blank.*
 
 <br />
+
 <Warning>
 When the monitor is triggered by a user hitting their quota threshold, the <b>raw API key</b> is provided in the webhook payload. It is important to secure the webhook endpoint and to handle the payload securely on the receiving end.
 </Warning>
+
 
 ## Error Templates
 

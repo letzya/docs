@@ -213,7 +213,7 @@ input:
       check: ""
 ```
 
-## Advanced
+## Advanced
 
 ```yml
 # All config fields, showing default values
@@ -521,8 +521,8 @@ input:
     # oauth2:
     #   enabled: true
     #   token_url: https://api.example.com/oauth2/token
-    #   client_key: "$`{EXAMPLE_KEY}`"
-    #   client_secret: "$`{EXAMPLE_SECRET}`"
+    #   client_key: "${EXAMPLE_KEY}"
+    #   client_secret: "${EXAMPLE_SECRET}"
 
 rate_limit_resources:
   - label: foo_searches
@@ -1187,7 +1187,7 @@ It's possible to return a response for each message received using synchronous r
 
 ##### Endpoints
 
-The following fields specify endpoints that are registered for sending messages, and support path parameters of the form `/`{foo}``, which are added to ingested messages as metadata. A path ending in `/` will match against all extensions of that path:
+The following fields specify endpoints that are registered for sending messages, and support path parameters of the form `/{foo}`, which are added to ingested messages as metadata. A path ending in `/` will match against all extensions of that path:
 
 ###### path (defaults to `/post`)
 
@@ -1796,7 +1796,7 @@ Default: `""`
 password: foo
 ```
 
-{/* When Tyk streams with secrets released include this in above example => password: $`{KEY_PASSWORD}` */}
+{/* When Tyk streams with secrets released include this in above example => password: ${KEY_PASSWORD} */}
 
 ##### sasl
 
@@ -1833,7 +1833,7 @@ Default: `""`
 ```yml
 # Examples
 
-user: $`{USER}`
+user: ${USER}
 ```
 
 ##### sasl.password
@@ -1850,7 +1850,7 @@ Default: `""`
 ```yml
 # Examples
 
-password: $`{PASSWORD}`
+password: ${PASSWORD}
 ```
 
 ##### sasl.access_token
@@ -3589,7 +3589,7 @@ Default: `""`
 password: foo
 ```
 
-{/* When Tyk streams with secrets released include this in above example => password: $`{KEY_PASSWORD}` */}
+{/* When Tyk streams with secrets released include this in above example => password: ${KEY_PASSWORD} */}
 
 ##### sasl
 
@@ -3626,7 +3626,7 @@ Default: `""`
 ```yml
 # Examples
 
-user: $`{USER}`
+user: ${USER}
 ```
 
 ##### sasl.password
@@ -3643,7 +3643,7 @@ Default: `""`
 ```yml
 # Examples
 
-password: $`{PASSWORD}`
+password: ${PASSWORD}
 ```
 
 ##### sasl.access_token
@@ -4076,11 +4076,13 @@ avro:
   schema_path: ""
 ```
 
+
 <Warning>
 **Note**
 
 If you are consuming or generating messages using a schema registry service then it is likely this processor will fail as those services require messages to be prefixed with the identifier of the schema version being used.
 </Warning>
+
 
 #### Operators
 
@@ -4449,11 +4451,11 @@ output:
       period: 100ms
 ```
 
-{{< note >}}
-**Note**
-A batch policy has the capability to *create* batches, but not to break them down.
 
-{{</ note>}}
+<Note>
+A batch policy has the capability to *create* batches, but not to break them down.
+</Note>
+
 
 If your configured pipeline is processing messages that are batched *before* they reach the batch policy then they may circumvent the conditions you've specified here, resulting in sizes you aren't expecting.
 

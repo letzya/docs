@@ -4,6 +4,7 @@ sidebarTitle: "Portal Configuration"
 order: 5
 ---
 
+
 <Warning>
 **Attention:**
 
@@ -20,6 +21,7 @@ has been superseded by the new [Tyk Developer Portal](/portal/overview).
 Please note that the Tyk Classic Portal now has limited support and maintenance. Please contact us at
 [support@tyk.io](<mailto:support@tyk.io?subject=Tyk classic developer portal>)if you have any questions.
 </Warning>
+
 
 This section will cover the following endpoints:
 * [Configuration](#configuration)
@@ -122,9 +124,9 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 #### Sample Response
 
 ```
-`{
+{
   Response here
-}`
+}
 ```
 
 ### Update Portal Configuration
@@ -148,9 +150,9 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 #### Sample Response
 
 ```
-`{
+{
   Response here
-}`
+}
 ```
 
 ## Menus
@@ -205,9 +207,9 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 #### Sample Response
 
 ```
-`{
+{
   Response here
-}`
+}
 ```
 
 ### Update Portal Menus
@@ -231,9 +233,9 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 #### Sample Response
 
 ```
-`{
+{
   Response here
-}`
+}
 ```
 
 
@@ -289,9 +291,9 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
       },
       "org_id":"5cc03283d07e7f00019404b3",
       "is_homepage":true,
-      "page_settings":`{
+      "page_settings":{
 
-      }`
+      }
     }
   ],
   "Pages":1
@@ -319,16 +321,16 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 #### Sample Response
 
 ```
-`{
+{
   Response here
-}`
+}
 ```
 
 ### Get a Portal Page
 
 | **Property** | **Description**          |
 | ------------ | ------------------------ |
-| Resource URL | `/api/portal/pages/`{id}``      |
+| Resource URL | `/api/portal/pages/{id}`      |
 | Method       | GET                      |
 | Type         | None                     |
 | Body         | None                     |
@@ -337,7 +339,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 #### Sample Request
 
 ```{.copyWrapper}
-GET /api/portal/pages/`{id}` HTTP/1.1
+GET /api/portal/pages/{id} HTTP/1.1
 Host: localhost
 authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 ```
@@ -371,9 +373,9 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
   },
   "org_id":"5cc03283d07e7f00019404b3",
   "is_homepage":true,
-  "page_settings":`{
+  "page_settings":{
 
-  }`
+  }
 }
 ```
 
@@ -381,7 +383,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description**          |
 | ------------ | ------------------------ |
-| Resource URL | `/api/portal/pages/`{id}`` |
+| Resource URL | `/api/portal/pages/{id}` |
 | Method       | PUT                      |
 | Type         | None                     |
 | Body         | None                     |
@@ -390,7 +392,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 #### Sample Request
 
 ```{.copyWrapper}
-PUT /api/portal/pages/`{id}` HTTP/1.1
+PUT /api/portal/pages/{id} HTTP/1.1
 Host: localhost
 authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 ```
@@ -398,16 +400,16 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 #### Sample Response
 
 ```
-`{
+{
   Response here
-}`
+}
 ```
 
 ### Delete a Portal Page
 
 | **Property** | **Description**          |
 | ------------ | ------------------------ |
-| Resource URL | `/api/portal/pages/`{id}`` |
+| Resource URL | `/api/portal/pages/{id}` |
 | Method       | DELETE                   |
 | Type         | None                     |
 | Body         | None                     |
@@ -416,7 +418,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 #### Sample Request
 
 ```{.copyWrapper}
-DELETE /api/portal/pages/`{id}` HTTP/1.1
+DELETE /api/portal/pages/{id} HTTP/1.1
 Host: localhost
 authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 ```
@@ -424,9 +426,9 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 #### Sample Response
 
 ```
-`{
+{
   Response here
-}`
+}
 ```
 ## CSS
 
@@ -480,9 +482,9 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 #### Sample Response
 
 ```
-`{
+{
   Response here
-}`
+}
 ```
 
 ### Update Portal CSS
@@ -506,9 +508,9 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 #### Sample Response
 
 ```
-`{
+{
   Response here
-}`
+}
 ```
 
 ## JavaScript

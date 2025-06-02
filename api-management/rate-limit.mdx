@@ -520,7 +520,7 @@ The design of the Tyk OAS API Definition takes advantage of the
 and method for which the middleware should be added. Endpoint `paths`
 entries (and the associated `operationId`) can contain wildcards in the
 form of any string bracketed by curly braces, for example
-`/status/`{code}``. These wildcards are so they are human-readable and do
+`/status/{code}`. These wildcards are so they are human-readable and do
 not translate to variable names. Under the hood, a wildcard translates to
 the “match everything” regex of: `(.*)`.
 
@@ -625,7 +625,7 @@ definition as follows:
                 }
             }
         },
-        "/`{any}`": {
+        "/{any}": {
             "post": {
                 "operationId": "anypost",
                 "responses": {
@@ -676,7 +676,7 @@ definition as follows:
 
 In this example, the first rule limits requests to the `POST /user/login`
 endpoint to 100 requests per second (rps). Any other `POST` request to an
-endpoint path that matches the regex pattern `/`{any}`` will be limited to
+endpoint path that matches the regex pattern `/{any}` will be limited to
 60 rps. The order of evaluation ensures that the specific `POST
 /user/login` endpoint is matched and evaluated before the regex pattern.
 

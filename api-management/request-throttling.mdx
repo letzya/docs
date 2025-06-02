@@ -332,9 +332,9 @@ These are the fields that you can set directly in the Policy object or the Acces
 <Tab title="Security Policy">
 
 To update the policy, do the following:
-1. Retrieve the policy object using `GET /api/portal/policies/`{POLICY_ID}``
+1. Retrieve the policy object using `GET /api/portal/policies/{POLICY_ID}`
 2. Add or modify the `throttle_interval` and `throttle_retry_limit` fields within the policy JSON object
-3. Update the policy using `PUT /api/portal/policies/`{POLICY_ID}`` with the modified object, or create a new one using `POST /api/portal/policies/`
+3. Update the policy using `PUT /api/portal/policies/{POLICY_ID}` with the modified object, or create a new one using `POST /api/portal/policies/`
 
 **Explanation:**
 The above adds throttling to a policy. Any key using this policy will inherit the throttling settings and behaves as follows: wait 1 second between retries for queued requests, attempting up to 5 times before failing (so overall 5 seconds before getting another 429 error response).
@@ -346,9 +346,9 @@ The above adds throttling to a policy. Any key using this policy will inherit th
 Note: Direct key configuration overrides policy settings only for that specific key.
 
 To update the access key do the following:
-1. Retrieve the key's session object using `GET /api/keys/`{KEY_ID}``
+1. Retrieve the key's session object using `GET /api/keys/{KEY_ID}`
 2. Add or modify the `throttle_interval` and `throttle_retry_limit` fields within the session object JSON
-3. Update the key using `PUT /api/keys/`{KEY_ID}`` with the modified session object
+3. Update the key using `PUT /api/keys/{KEY_ID}` with the modified session object
 
 
 **Explanation:**
@@ -433,4 +433,4 @@ Yes, Tyk tracks throttled requests in its health check metrics. You can monitor 
 <Accordion title={'Is Request Throttling enabled by default?'}>
 No, Request Throttling is not enabled by default. To enable throttling, you need to explicitly set `ThrottleRetryLimit` to a value greater than 0 and configure an appropriate `ThrottleInterval`. These settings can be applied through policies or directly in access keys.
 </Accordion>
-</AccordionGroup> 
+</AccordionGroup> 

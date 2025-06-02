@@ -78,7 +78,7 @@ Replace [command] with the specific Tyk Sync command you want to execute.
 For Dashboard users, you can provide the necessary connection details using the `--dashboard` and `--secret` options.
 
 ```bash
-tyk-sync --dashboard `<DASHBOARD_URL>` --secret `<SECRET>` [command] [flags]
+tyk-sync --dashboard <DASHBOARD_URL> --secret <SECRET> [command] [flags]
 ```
 
 DASHBOARD_URL is the fully qualified dashboard target URL (e.g. `http://localhost:3000`) and SECRET refers to the API access key use to access your Dashboard API. For dashboard users, you can get it from the “Users” page under “Tyk Dashboard API Access Credentials”.
@@ -86,15 +86,15 @@ DASHBOARD_URL is the fully qualified dashboard target URL (e.g. `http://localhos
 If you prefer not to provide the secret via the command line, you can set the environment variable `TYKGIT_DB_SECRET` instead. This method keeps your secret secure and avoids exposure in command history.
 
 ```bash
-export TYKGIT_DB_SECRET=`<SECRET>`
-tyk-sync --dashboard `<DASHBOARD_URL>` [command] [flags]
+export TYKGIT_DB_SECRET=<SECRET>
+tyk-sync --dashboard <DASHBOARD_URL> [command] [flags]
 ```
 
 #### Open Source Gateway
 For open source Gateway users, you can provide the necessary connection details using the `--gateway` and `--secret` options.
 
 ```bash
-tyk-sync --gateway `<GATEWAY_URL>` --secret `<SECRET>` [command] [flags]
+tyk-sync --gateway <GATEWAY_URL> --secret <SECRET> [command] [flags]
 ```
 
 GATEWAY_URL is the fully qualified gateway target URL (e.g. `http://localhost:8080`) and SECRET refers to the API secret (`secret` parameter in your tyk.conf file) used to access your Gateway API.
@@ -102,8 +102,8 @@ GATEWAY_URL is the fully qualified gateway target URL (e.g. `http://localhost:80
 If you prefer not to provide the secret via the command line, you can set the environment variable `TYKGIT_GW_SECRET` instead. This method keeps your secret secure and avoids exposure in command history.
 
 ```bash
-export TYKGIT_GW_SECRET=`<SECRET>`
-tyk-sync --gateway `<GATEWAY_URL>` [command] [flags]
+export TYKGIT_GW_SECRET=<SECRET>
+tyk-sync --gateway <GATEWAY_URL> [command] [flags]
 ```
 
 2. Export configurations from your development environment:
@@ -211,7 +211,7 @@ jobs:
 
     - name: Dump API Configurations
       run: |
-        docker run --user 1001:1001 -v ${{ github.workspace }}:/app/data tykio/tyk-sync:$`{TYK_SYNC_VERSION}` dump --target /app/data/${{ env.BACKUP_DIR }} --dashboard $`{TYK_DASHBOARD_URL}` --secret $`{TYK_DASHBOARD_SECRET}`
+        docker run --user 1001:1001 -v ${{ github.workspace }}:/app/data tykio/tyk-sync:${TYK_SYNC_VERSION} dump --target /app/data/${{ env.BACKUP_DIR }} --dashboard ${TYK_DASHBOARD_URL} --secret ${TYK_DASHBOARD_SECRET}
       env:
         TYK_SYNC_VERSION: ${{ vars.TYK_SYNC_VERSION }}
         TYK_DASHBOARD_URL: ${{ secrets.TYK_DASHBOARD_URL }}
@@ -300,8 +300,8 @@ jobs:
 
     - name: Sync with Tyk
       run: |
-        docker run tykio/tyk-sync:$`{TYK_SYNC_VERSION}` version
-        docker run -v ${{ github.workspace }}:/app/data tykio/tyk-sync:$`{TYK_SYNC_VERSION}` sync --path /app/data --dashboard $`{TYK_DASHBOARD_URL}` --secret $`{TYK_DASHBOARD_SECRET}`
+        docker run tykio/tyk-sync:${TYK_SYNC_VERSION} version
+        docker run -v ${{ github.workspace }}:/app/data tykio/tyk-sync:${TYK_SYNC_VERSION} sync --path /app/data --dashboard ${TYK_DASHBOARD_URL} --secret ${TYK_DASHBOARD_SECRET}
       env:
         TYK_SYNC_VERSION: ${{ vars.TYK_SYNC_VERSION }}
         TYK_DASHBOARD_URL: ${{ secrets.TYK_DASHBOARD_URL }}

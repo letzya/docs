@@ -264,7 +264,7 @@ Determines the uptime type. Options are `mongo` and `sql`. Defaults to `mongo`.
 
 ### pumps
 The default environment variable prefix for each pump follows this format:
-`TYK_PMP_PUMPS_`{PUMP-NAME}`_`, for example `TYK_PMP_PUMPS_KAFKA_`.
+`TYK_PMP_PUMPS_{PUMP-NAME}_`, for example `TYK_PMP_PUMPS_KAFKA_`.
 
 You can also set custom names for each pump specifying the pump type. For example, if you
 want a Kafka pump which is called `PROD` you need to create `TYK_PMP_PUMPS_PROD_TYPE=kafka`
@@ -374,10 +374,10 @@ The timeout is configured within the main pump config as shown here; note that t
 Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
 If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
 
 If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.csv.omit_detailed_recording
 ENV: <b>TYK_PMP_PUMPS_CSV_OMITDETAILEDRECORDING</b><br />
@@ -529,10 +529,10 @@ The timeout is configured within the main pump config as shown here; note that t
 Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
 If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
 
 If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.dogstatsd.omit_detailed_recording
 ENV: <b>TYK_PMP_PUMPS_DOGSTATSD_OMITDETAILEDRECORDING</b><br />
@@ -775,10 +775,10 @@ The timeout is configured within the main pump config as shown here; note that t
 Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
 If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
 
 If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.elasticsearch.omit_detailed_recording
 ENV: <b>TYK_PMP_PUMPS_ELASTICSEARCH_OMITDETAILEDRECORDING</b><br />
@@ -1069,10 +1069,10 @@ The timeout is configured within the main pump config as shown here; note that t
 Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
 If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
 
 If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.graylog.omit_detailed_recording
 ENV: <b>TYK_PMP_PUMPS_GRAYLOG_OMITDETAILEDRECORDING</b><br />
@@ -1252,10 +1252,10 @@ The timeout is configured within the main pump config as shown here; note that t
 Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
 If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
 
 If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.hybrid.omit_detailed_recording
 ENV: <b>TYK_PMP_PUMPS_HYBRID_OMITDETAILEDRECORDING</b><br />
@@ -1475,10 +1475,10 @@ The timeout is configured within the main pump config as shown here; note that t
 Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
 If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
 
 If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.influx.omit_detailed_recording
 ENV: <b>TYK_PMP_PUMPS_INFLUX_OMITDETAILEDRECORDING</b><br />
@@ -1663,10 +1663,10 @@ The timeout is configured within the main pump config as shown here; note that t
 Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
 If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
 
 If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.kafka.omit_detailed_recording
 ENV: <b>TYK_PMP_PUMPS_KAFKA_OMITDETAILEDRECORDING</b><br />
@@ -1900,10 +1900,10 @@ The timeout is configured within the main pump config as shown here; note that t
 Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
 If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
 
 If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.kinesis.omit_detailed_recording
 ENV: <b>TYK_PMP_PUMPS_KINESIS_OMITDETAILEDRECORDING</b><br />
@@ -2072,10 +2072,10 @@ The timeout is configured within the main pump config as shown here; note that t
 Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
 If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
 
 If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.logzio.omit_detailed_recording
 ENV: <b>TYK_PMP_PUMPS_LOGZIO_OMITDETAILEDRECORDING</b><br />
@@ -2260,10 +2260,10 @@ The timeout is configured within the main pump config as shown here; note that t
 Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
 If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
 
 If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.moesif.omit_detailed_recording
 ENV: <b>TYK_PMP_PUMPS_MOESIF_OMITDETAILEDRECORDING</b><br />
@@ -2501,10 +2501,10 @@ The timeout is configured within the main pump config as shown here; note that t
 Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
 If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
 
 If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.mongo.omit_detailed_recording
 ENV: <b>TYK_PMP_PUMPS_MONGO_OMITDETAILEDRECORDING</b><br />
@@ -2762,10 +2762,10 @@ The timeout is configured within the main pump config as shown here; note that t
 Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
 If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
 
 If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.mongoaggregate.omit_detailed_recording
 ENV: <b>TYK_PMP_PUMPS_MONGOAGGREGATE_OMITDETAILEDRECORDING</b><br />
@@ -2891,7 +2891,7 @@ ENV: <b>TYK_PMP_PUMPS_MONGOAGGREGATE_META_USEMIXEDCOLLECTION</b><br />
 Type: `bool`<br />
 
 If set to `true` your pump will store analytics to both your organization defined
-collections z_tyk_analyticz_aggregate_`{ORG ID}` and your org-less tyk_analytics_aggregates
+collections `z_tyk_analyticz_aggregate_{ORG ID}` and your org-less tyk_analytics_aggregates
 collection. When set to 'false' your pump will only store analytics to your org defined
 collection.
 
@@ -3049,10 +3049,10 @@ The timeout is configured within the main pump config as shown here; note that t
 Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
 If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
 
 If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.mongoselective.omit_detailed_recording
 ENV: <b>TYK_PMP_PUMPS_MONGOSELECTIVE_OMITDETAILEDRECORDING</b><br />
@@ -3291,10 +3291,10 @@ The timeout is configured within the main pump config as shown here; note that t
 Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
 If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
 
 If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.prometheus.omit_detailed_recording
 ENV: <b>TYK_PMP_PUMPS_PROMETHEUS_OMITDETAILEDRECORDING</b><br />
@@ -3340,7 +3340,7 @@ Defaults to `TYK_PMP_PUMPS_PROMETHEUS_META`
 ENV: <b>TYK_PMP_PUMPS_PROMETHEUS_META_ADDR</b><br />
 Type: `string`<br />
 
-The full URL to your Prometheus instance, `{HOST}`:`{PORT}`. For example `localhost:9090`.
+The full URL to your Prometheus instance, {HOST}:{PORT}. For example `localhost:9090`.
 
 ### pumps.prometheus.meta.path
 ENV: <b>TYK_PMP_PUMPS_PROMETHEUS_META_PATH</b><br />
@@ -3478,10 +3478,10 @@ The timeout is configured within the main pump config as shown here; note that t
 Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
 If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
 
 If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.splunk.omit_detailed_recording
 ENV: <b>TYK_PMP_PUMPS_SPLUNK_OMITDETAILEDRECORDING</b><br />
@@ -3708,10 +3708,10 @@ The timeout is configured within the main pump config as shown here; note that t
 Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
 If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
 
 If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.sql.omit_detailed_recording
 ENV: <b>TYK_PMP_PUMPS_SQL_OMITDETAILEDRECORDING</b><br />
@@ -3935,10 +3935,10 @@ The timeout is configured within the main pump config as shown here; note that t
 Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
 If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
 
 If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.sqlaggregate.omit_detailed_recording
 ENV: <b>TYK_PMP_PUMPS_SQLAGGREGATE_OMITDETAILEDRECORDING</b><br />
@@ -4193,10 +4193,10 @@ The timeout is configured within the main pump config as shown here; note that t
 Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
 If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
 
 If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.statsd.omit_detailed_recording
 ENV: <b>TYK_PMP_PUMPS_STATSD_OMITDETAILEDRECORDING</b><br />
@@ -4366,10 +4366,10 @@ The timeout is configured within the main pump config as shown here; note that t
 Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
 If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
 
 If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.stdout.omit_detailed_recording
 ENV: <b>TYK_PMP_PUMPS_STDOUT_OMITDETAILEDRECORDING</b><br />
@@ -4528,10 +4528,10 @@ The timeout is configured within the main pump config as shown here; note that t
 Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
 If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
 
 If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.syslog.omit_detailed_recording
 ENV: <b>TYK_PMP_PUMPS_SYSLOG_OMITDETAILEDRECORDING</b><br />
@@ -4717,10 +4717,10 @@ The timeout is configured within the main pump config as shown here; note that t
 Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
 If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
 
 If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
-`Pump `{pump_name}` is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.timestream.omit_detailed_recording
 ENV: <b>TYK_PMP_PUMPS_TIMESTREAM_OMITDETAILEDRECORDING</b><br />

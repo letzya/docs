@@ -38,9 +38,12 @@ Tyk Dashboard supports four different migration modes to suit your needs:
 
 4. **Direct Mode**: Directly migrates APIs from Tyk Classic to Tyk OAS format without staging; typically this will be used if testing was performed on a **dry run** copy of the original. This mode will also replace the original Tyk Classic API with the Tyk OAS version - the Tyk OAS API will inherit both the API ID and database ID of the original API.
 
-<Warning>
-Note that both <b>Promote</b> and <b>Direct</b> operations are destructive. The converted API will replace the original in the API database, inheriting both API Id and database ID.
-</Warning>
+
+
+    <Warning>
+    Note that both <b>Promote</b> and <b>Direct</b> operations are destructive. The converted API will replace the original in the API database, inheriting both API Id and database ID.
+    </Warning>
+
 
 ## Using the API Designer
 

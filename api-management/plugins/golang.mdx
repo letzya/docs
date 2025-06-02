@@ -131,7 +131,7 @@ Using the *Go workspace* ensures build compatibility between the plugins and Gat
     go work init ./tyk-release-5.3.6
     go work use ./plugins
     commit_hash=$(cd tyk-release-5.3.6 && git rev-parse HEAD)
-    cd plugins && go get github.com/TykTechnologies/tyk@$`{commit_hash}` && go mod tidy && cd -
+    cd plugins && go get github.com/TykTechnologies/tyk@${commit_hash} && go mod tidy && cd -
     ```
 
     The following snippet provides you to get the commit hash exactly, so it can be used with `go get`.
@@ -617,9 +617,9 @@ As the plugins are built with `-trimpath`, to omit local filesystem path details
 
 Since v4.1.0 the plugin compiler has automatically added the following suffixes to the root filename provided in the `plugin_name` argument:
 
-- ``{Gw-version}``: the Tyk Gateway version, for example, `v5.3.0`
-- ``{OS}``: the target operating system, for example `linux`
-- ``{arch}``: the target CPU architecture, for example, `arm64`
+- `{Gw-version}`: the Tyk Gateway version, for example, `v5.3.0`
+- `{OS}`: the target operating system, for example `linux`
+- `{arch}`: the target CPU architecture, for example, `arm64`
 
 Thus, if `plugin_name` is set to `plugin.so` then given these example values the output file will be: `plugin_v5.3.0_linux_arm64.so`.
 
@@ -898,9 +898,9 @@ func getSessionByKey(key string) *user.SessionState {
   //Here goes our logic to check if the provided API key is valid and appropriate key session can be retrieved
 
   // perform auth (only one token "abc" is allowed)
-  if key != "abc" `{
+  if key != "abc" {
     return nil
-  }`
+  }
 
   // return session
   return &user.SessionState{
@@ -1002,7 +1002,7 @@ Here we see that our custom middleware successfully authenticated the request an
 
 ## Upgrading your Tyk Gateway
 
-When upgrading your Tyk Gateway deployment, you need to re-compile your plugin with the new version. At the moment of loading a plugin, the Gateway will try to find a plugin with the name provided in the API definition. If none is found then it will fall back to search the plugin file with the name: ``{plugin-name}`_`{Gw-version}`_`{OS}`_`{arch}`.so`.
+When upgrading your Tyk Gateway deployment, you need to re-compile your plugin with the new version. At the moment of loading a plugin, the Gateway will try to find a plugin with the name provided in the API definition. If none is found then it will fall back to search the plugin file with the name: `{plugin-name}_{Gw-version}_{OS}_{arch}.so`.
 
 Since Tyk v4.1.0, the compiler [automatically](/api-management/plugins/golang#output-filename) creates plugin files following this convention so when you upgrade, say from Tyk v5.2.5 to v5.3.0 you only need to have the plugins compiled for v5.3.0 before performing the upgrade.
 

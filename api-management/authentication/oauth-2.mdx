@@ -118,10 +118,10 @@ The Tyk Dashboard API contains several endpoints that are provided to manage *cl
 
 | Action | Endpoint | Reference |
 | --- | --- | --- |
-| Register a new client app | `POST /api/apis/oauth/{`{api-id}`}` | [link](/api-management/dashboard-configuration#create-a-new-oauth20-client) |
-| Get a list of registered client apps | `GET /api/apis/oauth/{`{api-id}`}` | [link](/api-management/dashboard-configuration#list-oauth-clients) |
-| Get the details of a client app | `GET /api/apis/oauth/{`{api-id}`}/{`{client_id}`}` | [link](/api-management/dashboard-configuration#get-an-oauth20-client) |
-| Delete a client app | `DELETE /api/apis/oauth/{`{api-id}`}/{`{client_id}`}` | [link](/api-management/dashboard-configuration#delete-oauth-client) |
+| Register a new client app | `POST /api/apis/oauth/{{api-id}}` | [link](/api-management/dashboard-configuration#create-a-new-oauth20-client) |
+| Get a list of registered client apps | `GET /api/apis/oauth/{{api-id}}` | [link](/api-management/dashboard-configuration#list-oauth-clients) |
+| Get the details of a client app | `GET /api/apis/oauth/{{api-id}}/{{client_id}}` | [link](/api-management/dashboard-configuration#get-an-oauth20-client) |
+| Delete a client app | `DELETE /api/apis/oauth/{{api-id}}/{{client_id}}` | [link](/api-management/dashboard-configuration#delete-oauth-client) |
 
 
 ## Using the Authorization Code Grant
@@ -178,7 +178,7 @@ If the *client Id* (`my-client-id`) is valid, the response will be `HTTP 307 Tem
 
 ### Authorization Code Request
 
-The *Identity Server* requests an *Authorization Code* from the *Authentication Server*. Tyk's *authorization code* endpoint is hosted in the [Tyk Dashboard API](/api-management/dashboard-configuration#oauth20-authorization-code), accessible from `POST /api/apis/`{api_id}`/authorize-client`. The same `redirect_uri` as provided in the original request must be provided alongside the `client_id` as a security feature to verify the client identity.
+The *Identity Server* requests an *Authorization Code* from the *Authentication Server*. Tyk's *authorization code* endpoint is hosted in the [Tyk Dashboard API](/api-management/dashboard-configuration#oauth20-authorization-code), accessible from `POST /api/apis/{api_id}/authorize-client`. The same `redirect_uri` as provided in the original request must be provided alongside the `client_id` as a security feature to verify the client identity.
 
 This endpoint is protected using the Dashboard API secret assigned to the *Identity Server*, which must be provided in the `Authorization` header.
 
@@ -194,7 +194,7 @@ For example:
 
 ```bash
 curl -X POST \
-  https://admin.cloud.tyk.io/api/apis/oauth/`{my-api-id}`/authorize-client/ \
+  https://admin.cloud.tyk.io/api/apis/oauth/{my-api-id}/authorize-client/ \
   -H "Authorization: <dashboard-secret>" \
   -H "Content-Type: application/x-www-form-urlencoded" \
   -d "response_type=code&client_id=my-client-id&redirect_uri=http%3A%2F%2Fidentityserver.com%2Fclient-redirect-uri"
@@ -584,7 +584,7 @@ In this example, we issue a request to the `/revoke` endpoint of the *auth serve
 
 ```bash
 curl -X POST \
-  https://admin.cloud.tyk.io/api/apis/oauth/`{CLIENT_ID}`/revoke/ \
+  https://admin.cloud.tyk.io/api/apis/oauth/{CLIENT_ID}/revoke/ \
   -H "Authorization: <dashboard-secret>" \
   -H "Content-Type: application/x-www-form-urlencoded" \
   -d "token=580defdbe1d21e0001c67e5c2a0a6c98ba8b4a059dc5825388501573&token_type_hint=access_token&client_id=my-client-id&client_secret=my-client-secret"

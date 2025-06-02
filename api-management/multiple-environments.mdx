@@ -138,10 +138,10 @@ First you must set up your new environment to respect explicit policy IDs. To do
 1. **Get your Policy**
 
     ```{.copyWrapper}
-    curl -X GET -H "authorization: `{YOUR TOKEN}`" \
+    curl -X GET -H "authorization: {YOUR TOKEN}" \
     -s \
     -H "Content-Type: application/json" \
-    https://admin.cloud.tyk.io/api/portal/policies/`{POLICY-ID}` | python -mjson.tool > policy.json
+    https://admin.cloud.tyk.io/api/portal/policies/{POLICY-ID} | python -mjson.tool > policy.json
     ```
 
 2. **Edit the file we just created**
@@ -224,11 +224,11 @@ First you must set up your new environment to respect explicit policy IDs. To do
     Save the new `policies.json` file and then let's POST it back to the new environment:
 
     ```{.copyWrapper}
-    curl -X POST -H "authorization: `{API-TOKEN}`" \
+    curl -X POST -H "authorization: {API-TOKEN}" \
     -s \
     -H "Content-Type: application/json" \
     -d @policies.json \
-    https://`{YOUR-NEW-ENV}`/api/portal/policies | python -mjson.tool
+    https://{YOUR-NEW-ENV}/api/portal/policies | python -mjson.tool
     ```
 
 That's it, Tyk will now load this policy, and you will be able to manage and edit it the same way in your new environment, if you are re-creating tokens in your new environment, then those tokens' ACL does not need to be changed to a new policy ID since the legacy one will always be used as the reference for the policy.

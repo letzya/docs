@@ -740,9 +740,9 @@ output:
 pipeline:
   processors:
     - bloblang: |
-        root = if this.order_value > 1000 `{
+        root = if this.order_value > 1000 {
           this
-        }` else {
+        } else {
           deleted()
         }
     - branch:
@@ -852,7 +852,7 @@ pipeline:
                         verb: POST
                         body: '${! json() }'
                   result_map: 'root.api2_response = this'
-    - bloblang: 'root = if this.type == "event_from_stream1" && this.api1_response.status == "ok" `{ this }` else if this.type == "event_from_stream2" && this.api2_response.status == "ok" `{ this }` else { deleted() }'
+    - bloblang: 'root = if this.type == "event_from_stream1" && this.api1_response.status == "ok" { this } else if this.type == "event_from_stream2" && this.api2_response.status == "ok" { this } else { deleted() }'
 output:
   broker:
     pattern: "fan_out"

@@ -607,7 +607,7 @@ Since v2.9, Tyk supports any currently stable [Python 3.x version](https://www.p
 
 Python plugins are [embedded](https://docs.python.org/3/extending/embedding.html) within the Tyk Gateway process. Tyk Gateway integrates with Python custom plugins via a [cgo](https://golang.org/cmd/cgo) bridge.
 
-`Tyk Gateway` <-> CGO <-> `Python Custom Plugin`
+`Tyk Gateway` &lt;-&gt; CGO &lt;-&gt; `Python Custom Plugin`
 
 In order to integrate with Python custom plugins, the *libpython3.x.so* shared object library is used to embed a Python interpreter directly in the Tyk Gateway. Further details can be found [here](/api-management/plugins/rich-plugins#coprocess-gateway-api)
 
@@ -636,7 +636,7 @@ This example Dockerfile extends the official Tyk Gateway image to support Python
 
 ```dockerfile
 ARG BASE_IMAGE
-FROM $`{BASE_IMAGE}` AS base
+FROM ${BASE_IMAGE} AS base
 
 FROM python:3.11-bookworm
 COPY --from=base /opt/tyk-gateway/ /opt/tyk-gateway/
@@ -1596,7 +1596,7 @@ Our implementation of the *DispatchEvent* RPC method will deserialize and output
         self, event: coprocess_object_pb2.Event, context: grpc.aio.ServicerContext
     ) -> coprocess_object_pb2.EventReply:
         event = json.loads(event.payload)
-        http://logging.info (f"RECEIVED EVENT: `{event}`")
+        http://logging.info (f"RECEIVED EVENT: {event}")
         return coprocess_object_pb2.EventReply()
 ```
 
@@ -2061,8 +2061,8 @@ dependencies {
 
 idea {
   module {
-    sourceDirs += file("$`{projectDir}`/src/generated/main/java");
-    sourceDirs += file("$`{projectDir}`/src/generated/main/grpc");
+    sourceDirs += file("${projectDir}/src/generated/main/java");
+    sourceDirs += file("${projectDir}/src/generated/main/grpc");
   }
 }
 ```
@@ -2777,7 +2777,7 @@ http://localhost:8080/grpc-custom-auth/get
 From the above example, it should be noted that:
 
 - The *Date* header contains a date string formatted as follows: *Fri, 03 May 2024 11:06:00 GMT*.
-- The *Authorization* header is formatted as *Signature keyId=”<keyId>”, algorithm=”<hmac-algorithm>”, signature=”<hmac signature>”* where:
+- The *Authorization* header is formatted as `Signature keyId="<keyId>", algorithm="<hmac-algorithm>", signature="<hmac signature>"` where:
 
     - **keyId** is a Tyk authentication key.
     - **algorithm** is the HMAC algorithm used to sign the signature, *hmac-sha512* or *hmac-sha256*. 
@@ -3083,9 +3083,9 @@ def generate_hmac_signature(algorithm: str, date_string: str, secret_key: str) -
     else:
         raise ValueError("Unsupported hash algorithm")
 
-    base_string = f"date: `{date_string}`"
+    base_string = f"date: {date_string}"
 
-    logging.info(f"generating signature from: `{base_string}`")
+    logging.info(f"generating signature from: {base_string}")
     hmac_signature = hmac.new(secret_key.encode(), base_string.encode(), hash_algorithm)
 
     return base64.b64encode(hmac_signature.digest()).decode()
@@ -3115,7 +3115,7 @@ def verify_hmac_signature(algorithm: str, signature: str, source_string) -> bool
     received_signature = urllib.parse.unquote(signature)
 
     if expected_signature != received_signature:
-        error = f"Signatures did not match\nreceived: `{received_signature}`\nexpected: `{expected_signature}`"
+        error = f"Signatures did not match\nreceived: {received_signature}\nexpected: {expected_signature}"
         logging.error(error)
     else:
         logging.info("Signatures matched!")
@@ -3263,7 +3263,7 @@ ENDPOINT=/grpc-custom-auth/get
 HMAC_ALGORITHM=hmac-sha512
 HMAC_SECRET=c2VjcmV0
 KEY=eyJvcmciOiI1ZTlkOTU0NGExZGNkNjAwMDFkMGVkMjAiLCJpZCI6ImdycGNfaG1hY19rZXkiLCJoIjoibXVybXVyNjQifQ==
-REQUEST_URL=$`{BASE_URL}`$`{ENDPOINT}`
+REQUEST_URL=${BASE_URL}${ENDPOINT}
 
 
 function urlencode() {
@@ -3275,13 +3275,13 @@ date="$(LC_ALL=C date -u +"%a, %d %b %Y %H:%M:%S GMT")"
 
 # Generate the signature using hmac algorithm with hmac secret from created Tyk key and
 # then base64 encoded
-signature=$(echo -n "date: $`{date}`" | openssl sha512 -binary -hmac "$`{HMAC_SECRET}`" | base64)
+signature=$(echo -n "date: ${date}" | openssl sha512 -binary -hmac "${HMAC_SECRET}" | base64)
 
 # Ensure the signature is base64 encoded
-url_encoded_signature=$(echo -n "$`{signature}`" | perl -MURI::Escape -ne 'print uri_escape($_)' | sed "s/%20/+/g")
+url_encoded_signature=$(echo -n "${signature}" | perl -MURI::Escape -ne 'print uri_escape($_)' | sed "s/%20/+/g")
 
 # Output the date, encoded date, signature and the url encoded signature
-echo "request: $`{REQUEST_URL}`"
+echo "request: ${REQUEST_URL}"
 echo "date: $date"
 echo "signature: $signature"
 echo "url_encoded_signature: $url_encoded_signature"
@@ -3289,9 +3289,9 @@ echo "url_encoded_signature: $url_encoded_signature"
 # Make the curl request using headers
 printf "\n\n----\n\nMaking request to  http://localhost:8080/grpc-custom-auth/get\n\n"
 set -x
-curl -v -H "Date: $`{date}`" \
-    -H "Authorization: Signature keyId=\"$`{KEY}`\",algorithm=\"$`{HMAC_ALGORITHM}`\",signature=\"$`{url_encoded_signature}`\"" \
-    $`{REQUEST_URL}`
+curl -v -H "Date: ${date}" \
+    -H "Authorization: Signature keyId=\"${KEY}\",algorithm=\"${HMAC_ALGORITHM}\",signature=\"${url_encoded_signature}\"" \
+    ${REQUEST_URL}
 ```
 
 After creating and saving the script, ensure that it is executable by issuing the following command:

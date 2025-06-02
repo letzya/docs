@@ -4,6 +4,7 @@ sidebarTitle: "Customize Pages with CSS and JavaScript"
 order: 3
 ---
 
+
 <Warning>
 **Attention:**
 
@@ -20,6 +21,7 @@ has been superseded by the new [Tyk Developer Portal](/portal/overview).
 Please note that the Tyk Classic Portal now has limited support and maintenance. Please contact us at
 [support@tyk.io](<mailto:support@tyk.io?subject=Tyk classic developer portal>)if you have any questions.
 </Warning>
+
 
 The main customization that can be done with the Tyk Dashboard is via the CSS Editor.
 
@@ -55,14 +57,14 @@ To do so, run this `curl` command:
 
 ```{.copyWrapper}
 curl www.tyk-test.com:3000/api/portal/css \
--H "Authorization:`{DASHBOARD_API_KEY}`"
+-H "Authorization:{DASHBOARD_API_KEY}"
 ```
 Response:
 ```{.copyWrapper}
 {
     "email_css": "",
-    "id": "`{CSS_BLOCK_ID}`,
-    "org_id": "`{ORG_ID}`",
+    "id": "{CSS_BLOCK_ID},
+    "org_id": "{ORG_ID}",
     "page_css": ".btn-success {background-color: magenta1}"
 }
 ```
@@ -71,11 +73,11 @@ The below `curl` command will update the CSS for a specific organization.
 
 ```{.copyWrapper}
 curl -X PUT http://tyk-dashboard.com/api/portal/css \
-  -H "authorization:`{DASHBOARD_API_KEY}`" \
+  -H "authorization:{DASHBOARD_API_KEY}" \
   -d '{
     "email_css": "",
-    "id": "`{CSS_BLOCK_ID}`,
-    "org_id": "`{ORG_ID}`",
+    "id": "{CSS_BLOCK_ID},
+    "org_id": "{ORG_ID}",
     "page_css": ".btn-success {background-color: magenta}"
   }' 
 ```
@@ -89,7 +91,7 @@ curl -X PUT http://tyk-dashboard.com/api/portal/css \
 
  ```{.copyWrapper}
 curl -X POST www.tyk-test.com:3000/api/portal/js \
--H "Authorization:`{DASHBOARD_API_KEY}`" \
+-H "Authorization:{DASHBOARD_API_KEY}" \
 -d '{"page_js": "console.log(1)"}'
 ```
 
@@ -113,7 +115,7 @@ The endpoint will return the ID of the portal JS object, this can be used to upd
 
  ```{.copyWrapper}
 curl www.tyk-test.com:3000/api/portal/js \
--H "Authorization:`{DASHBOARD_API_KEY}`" \
+-H "Authorization:{DASHBOARD_API_KEY}" \
 --data '{"page_js": "console.log(2)", "id": "609b71df21c9371dd5906ec1"}'
 ```
 

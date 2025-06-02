@@ -556,14 +556,14 @@ links to API documentation and FAQs. You can copy it from the previous release. 
 
 ##### 1. URL Path Matching Configuration Changes
 
-Tyk Charts v2.0 introduces a **breaking change** related to URL path matching behavior in the Tyk Gateway. If you are using Tyk Gateway versions 5.0.14 (2023 LTS), 5.3.5 (2024 LTS), or 5.5.1 (latest feature branch) or above, two new configuration options have been added to the Gateway:
+Tyk Charts v2.0 introduces a **breaking change** related to URL path matching behavior in the Tyk Gateway. If you are using Tyk Gateway versions 5.0.14 (2023 LTS), 5.3.5 (2024 LTS), or 5.5.1 (latest feature branch) or above, two new configuration options have been added to the Gateway:
 
 - `http_server_options.enable_path_prefix_matching`
 - `http_server_options.enable_path_suffix_matching`
 
-These options allow more restrictive URL path matching by controlling whether the request path matches the start or end of the specified pattern. If both are set to `true`, Tyk enforces "exact" path matching. By default, these options are set to `false` in the Gateway to avoid breaking existing configurations.
+These options allow more restrictive URL path matching by controlling whether the request path matches the start or end of the specified pattern. If both are set to `true`, Tyk enforces "exact" path matching. By default, these options are set to `false` in the Gateway to avoid breaking existing configurations.
 
-However, starting with **Tyk Charts v2.0**, these options will be set to `true` by default, enforcing stricter security by requiring precise path matches. This change applies to new installations or upgrades via Tyk Charts v2.0 and above.
+However, starting with **Tyk Charts v2.0**, these options will be set to `true` by default, enforcing stricter security by requiring precise path matches. This change applies to new installations or upgrades via Tyk Charts v2.0 and above.
 
 From this version of Tyk Charts we also set the following configuration option to `true` by default as part of the stricter path matching:
 
@@ -576,13 +576,13 @@ From this version of Tyk Charts we also set the following configuration option t
 
 **Action required:**
 
-- Familiarize yourself with URL matching in Tyk [here](/getting-started/key-concepts/url-matching).
-- For production setup guidance, see [this guide](/tyk-self-managed#ensure-you-are-matching-only-the-url-paths-that-you-want-to-match).
+- Familiarize yourself with URL matching in Tyk [here](/getting-started/key-concepts/url-matching).
+- For production setup guidance, see [this guide](/tyk-self-managed#ensure-you-are-matching-only-the-url-paths-that-you-want-to-match).
 - Configure the new options via the Helm chart, and test the changes in a non-production environment before upgrading.
 
 ##### 2. Default Tyk Component Versions
 
-This release changes the default component versions in Tyk Charts v2.0 to **Long-Term Support (LTS)** versions for greater stability in production environments. The new defaults are:
+This release changes the default component versions in Tyk Charts v2.0 to **Long-Term Support (LTS)** versions for greater stability in production environments. The new defaults are:
 
 |Tyk Component|Default Version|Customization Parameter|
 |---|---|---|
@@ -912,7 +912,7 @@ tyk-mdcb:
      # className specifies your ingress controller class name below
      className: ""
      # annotations specifies annotations to be added on Ingress resource.
-     annotations: `{ }`
+     annotations: { }
        # kubernetes.io/ingress.class: nginx
        # kubernetes.io/tls-acme: "true"
      # hosts corresponds to the rules to be added on Ingress rules.

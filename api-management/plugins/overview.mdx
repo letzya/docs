@@ -578,7 +578,7 @@ Tyk downloads a plugin bundle on startup based on the configuration in the API d
 As a suggestion, you may organize your plugin bundle files using a Git commit reference or version number, e.g. `bundle-e5e6044.zip`, `bundle-48714c8.zip`, `bundle-1.0.0.zip`, `bundle-1.0.1.zip`, etc.
 
 Alternatively, you may delete the cached bundle from Tyk manually and then trigger a hot reload to tell Tyk to fetch a new one.  By default, Tyk will store downloaded bundles in this path:
-``{ TYK_ROOT }` / `{ CONFIG_MIDDLEWARE_PATH }` / bundles`
+`{ TYK_ROOT } / { CONFIG_MIDDLEWARE_PATH } / bundles`
 
 #### Gateway configuration
 

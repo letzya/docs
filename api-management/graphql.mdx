@@ -152,7 +152,7 @@ You will need an API key for your organization and one command to create a GQL A
 2. **Query the `/api/apis` endpoint to see what APIs are loaded**
 
     ```curl
-    curl -H "Authorization: $`{DASH_KEY}`" $`{DASH_URL}`/apis
+    curl -H "Authorization: ${DASH_KEY}" ${DASH_URL}/apis
     {"apis":[],"pages":1}
     ```
 
@@ -165,7 +165,7 @@ You will need an API key for your organization and one command to create a GQL A
     To view the raw API definition object, you may visit: https://bit.ly/3zmviZ3
 
     ```curl
-    curl -H "Authorization: $`{DASH_KEY}`" -H "Content-Type: application/json" $`{DASH_URL}`/apis \
+    curl -H "Authorization: ${DASH_KEY}" -H "Content-Type: application/json" ${DASH_URL}/apis \
       -d "$(wget -qO- https://bit.ly/3zmviZ3)"
     {"Status":"OK","Message":"API created","Meta":"64270eccb1821e3a5c203d98"}
     ```
@@ -179,7 +179,7 @@ You will need an API key for your organization and one command to create a GQL A
 4. **Test your new GQL API**
 
     ```curl
-    curl --location $`{GATEWAY_URL}`/trevorblades/
+    curl --location ${GATEWAY_URL}/trevorblades/
     --header 'Content-Type: application/json'
     --data '{"query":"query {\n    countries {\n        name\n        capital\n        awsRegion\n    }\n}","variables":{}}'
     ```
@@ -193,7 +193,7 @@ You will need an API key for your organization and one command to create a GQL A
   Let's grab the API definition we created before and store the output in a file locally.
 
   ```curl
-  curl -s -H "Authorization: $`{DASH_KEY}`" -H "Content-Type: application/json" $`{DASH_URL}`/apis/$`{API_ID}` | python -mjson.tool > api.trevorblades.json
+  curl -s -H "Authorization: ${DASH_KEY}" -H "Content-Type: application/json" ${DASH_URL}/apis/${API_ID} | python -mjson.tool > api.trevorblades.json
   ```
 
   We can now edit the `api.trevorblades.json` file we just created, and modify a couple of fields to enable authentication.
@@ -205,7 +205,7 @@ You will need an API key for your organization and one command to create a GQL A
   Then send a `PUT` request back to Tyk Dashboard to update its configurations.
 
   ```curl
-  curl -H "Authorization: $`{DASH_KEY}`" -H "Content-Type: application/json" $`{DASH_URL}`/apis/$`{API_ID}` -X PUT -d "@api.trevorblades.json"
+  curl -H "Authorization: ${DASH_KEY}" -H "Content-Type: application/json" ${DASH_URL}/apis/${API_ID} -X PUT -d "@api.trevorblades.json"
   {"Status":"OK","Message":"Api updated","Meta":null}
   ```
 
@@ -214,7 +214,7 @@ You will need an API key for your organization and one command to create a GQL A
   Send request without any credentials
 
   ```curl
-  curl -I $`{GATEWAY_URL}`/trevorblades/ \
+  curl -I ${GATEWAY_URL}/trevorblades/ \
   --header 'Content-Type: application/json' \
   --data '{"query":"query {\n    countries {\n        name\n        capital\n        awsRegion\n    }\n}","variables":{}}'
 
@@ -228,7 +228,7 @@ You will need an API key for your organization and one command to create a GQL A
   Send a request with incorrect credentials
 
   ```curl
-  curl -I $`{GATEWAY_URL}`/trevorblades/ \
+  curl -I ${GATEWAY_URL}/trevorblades/ \
   --header 'Content-Type: application/json' \
   --data '{"query":"query {\n    countries {\n        name\n        capital\n        awsRegion\n    }\n}","variables":{}}' \
   -H 'apikey: somekey'
@@ -284,10 +284,10 @@ In order to use the Gateway API you will need an API key for your Gateway and on
     To view the raw API definition object, you may visit: https://bit.ly/3nt8KDa
 
     ```curl
-    curl --location --request POST 'http://`{your-tyk-host}`:`{port}`/tyk/apis' \
+    curl --location --request POST 'http://{your-tyk-host}:{port}/tyk/apis' \
     --header 'Content-Type: application/json' \
     --header 'Accept: application/json' \
-    --header 'X-Tyk-Authorization: `{your-secret}`' \
+    --header 'X-Tyk-Authorization: {your-secret}' \
     --data "$(wget -qO- https://bit.ly/3nt8KDa)"
     ```
 
@@ -316,7 +316,7 @@ Including the correct schema allows Tyk Gateway to validate incoming requests ag
 
     After generating the file, you must either restart the Gateway or initiate a hot reload through an API call to the gateway, as outlined below:
     ```curl
-    curl -H "x-tyk-authorization: `{your-secret}`" -s http://`{your-tyk-host}`:`{port}`/tyk/reload/group
+    curl -H "x-tyk-authorization: {your-secret}" -s http://{your-tyk-host}:{port}/tyk/reload/group
     ```
 
     This command will hot-reload your API Gateway(s) and the new GQL API will be loaded, if you take a look at the output of the Gateway (or the logs), you will see that it should have loaded [Trevorblades API](https://countries.trevorblades.com/) on `/trevorblades/`.
@@ -423,9 +423,9 @@ The complexity of a GraphQL query is about its depth. checkout this query:
       continent {
         countries {
           continent {
-            countries `{
+            countries {
               name
-            }`
+            }
           }
         }
       }
@@ -511,9 +511,9 @@ Once you learn how to utilize the API to create a security policy or a key, you 
 ```bash
 {
     "access_rights": {
-        "`{API-ID}`": {
-            "api_id": "`{API-ID}`",
-            "api_name": "`{API-NAME}`",
+        "{API-ID}": {
+            "api_id": "{API-ID}",
+            "api_name": "{API-NAME}",
             "disable_introspection": true,
             "allowed_types": [],
             "restricted_types": []
@@ -548,16 +548,16 @@ This query will respond with information about all types and queries defined in 
 ```graphql
 query {
  __schema {
-	    types `{
+	    types {
 		  name
 		  description
 		  kind
-		}`
+		}
 		queryType {
-		  fields `{
+		  fields {
 			name
 			description
-		  }`
+		  }
 		}
    }
  }
@@ -570,7 +570,7 @@ If you want to know more about a certain type in the schema, you can use the fol
 
 ```graphql
   query {
-    __type(name: "`{type name}`") {
+    __type(name: "{type name}") {
   	...FullType
     }
   }
@@ -600,12 +600,12 @@ If you want to know more about a certain type in the schema, you can use the fol
   	...TypeRef
     }
 
-    enumValues(includeDeprecated: true) `{
+    enumValues(includeDeprecated: true) {
   	name
   	description
   	isDeprecated
   	deprecationReason
-    }`
+    }
 
     possibleTypes {
   	...TypeRef
@@ -642,10 +642,10 @@ If you want to know more about a certain type in the schema, you can use the fol
   			ofType {
   			  kind
   			  name
-  			  ofType `{
+  			  ofType {
   				kind
   				name
-  			  }`
+  			  }
   			}
   		  }
   		}
@@ -661,15 +661,15 @@ The query to introspect a single type can be used for any type, but you might pr
 
 ```graphql
 query {
-__type(name: "`{interface name}`") {
+__type(name: "{interface name}") {
   name
   kind
   description
-  possibleTypes `{
+  possibleTypes {
     name
     kind
     description
-  }`
+  }
 }
 }  
 ```
@@ -680,14 +680,14 @@ An `enum` type defines a set of discrete values. With this query you can get a c
 
 ```graphql
 query {
-__type(name: "`{enum name}`") {
+__type(name: "{enum name}") {
   name
   kind
   description
-  enumValues `{
+  enumValues {
     name
     description
-  }`
+  }
 }
 }
 ```
@@ -707,17 +707,17 @@ GraphQL requires queries to be defined in a special type `Query` in the schema. 
     fields {
   	name
   	description
-  	type `{
+  	type {
   		name
   		kind
-  	}`
+  	}
   	args {
   	  name
   	  description
-  	  type `{
+  	  type {
   		  name
   		  kind
-  	  }`
+  	  }
   	}
     }
   }
@@ -742,9 +742,9 @@ If you prefer to introspect GraphQL all at once, you can do that by sending this
     query IntrospectionQuery {
       __schema {
         
-        queryType `{ name }`
-        mutationType `{ name }`
-        subscriptionType `{ name }`
+        queryType { name }
+        mutationType { name }
+        subscriptionType { name }
         types {
           ...FullType
         }
@@ -783,12 +783,12 @@ If you prefer to introspect GraphQL all at once, you can do that by sending this
       interfaces {
         ...TypeRef
       }
-      enumValues(includeDeprecated: true) `{
+      enumValues(includeDeprecated: true) {
         name
         description
         isDeprecated
         deprecationReason
-      }`
+      }
       possibleTypes {
         ...TypeRef
       }
@@ -824,10 +824,10 @@ If you prefer to introspect GraphQL all at once, you can do that by sending this
                 ofType {
                   kind
                   name
-                  ofType `{
+                  ofType {
                     kind
                     name
-                  }`
+                  }
                 }
               }
             }
@@ -1044,7 +1044,7 @@ On its own, this isn’t particularly remarkable. To enable GraphQL to REST midd
 
 The vital part of this is the `extended_paths.persist_graphql` field. The `persist_graphql` object consists of three fields:
 
-`method`: The HTTP method used to access that endpoint, in this example, any GET requests to ``<PROXY ENDPOINT>`/getContinentByCode` will be handled by the *persist graphql* middleware
+`method`: The HTTP method used to access that endpoint, in this example, any GET requests to `<PROXY ENDPOINT>/getContinentByCode` will be handled by the *persist graphql* middleware
 
 `path`: The path the middleware listens to
 
@@ -1106,7 +1106,7 @@ Similarly, you can also pass variables in the request URL. Modify your `persist_
 ```json
 {
   "method": "GET",
-  "path": "/getCountryByCode/`{countryCode}`",
+  "path": "/getCountryByCode/{countryCode}",
   "operation": "query ($countryCode: ID!) {\n   country(code: $countryCode) {\n        code\n        name\n        }\n}",
   "variables": {
     "countryCode": "$path.countryCode"
@@ -1162,9 +1162,9 @@ query {
           continent {
             countries {
               continent {
-                countries `{
+                countries {
                   name
-                }`
+                }
               }
             }
           }
@@ -1181,9 +1181,9 @@ Deeply nested queries can be limited by setting a query depth limitation. The de
 Example for a query depth of `2`:
 ```json
 {
-  continents `{
+  continents {
     name
-  }`
+  }
 }
 ```
 
@@ -1191,9 +1191,9 @@ Example for a query depth of `3`:
 ```json
 {
   continents {
-    countries `{
+    countries {
       name
-    }`
+    }
   }
 }
 ```
@@ -1379,9 +1379,9 @@ Once you learn how to utilize the API to create a security policy or key, you ca
 ```yaml
 {
     "access_rights": {
-        "`{API-ID}`": {
-            "api_id": "`{API-ID}`",
-            "api_name": "`{API-NAME}`",
+        "{API-ID}": {
+            "api_id": "{API-ID}",
+            "api_name": "{API-NAME}",
             "allowed_types": [
                 {
                     "name": "Query",
@@ -1416,9 +1416,9 @@ You can allow or restrict all fields of a type by using an asterisk (*) operator
 ```yaml
 {
     "access_rights": {
-        "`{API-ID}`": {
-            "api_id": "`{API-ID}`",
-            "api_name": "`{API-NAME}`",
+        "{API-ID}": {
+            "api_id": "{API-ID}",
+            "api_name": "{API-NAME}",
             "allowed_types": [
                 {
                     "name": "Query",
@@ -1438,9 +1438,9 @@ With this configuration, the consumers are allowed to access all current and fut
 ```yaml
 {
     "access_rights": {
-        "`{API-ID}`": {
-            "api_id": "`{API-ID}`",
-            "api_name": "`{API-NAME}`",
+        "{API-ID}": {
+            "api_id": "{API-ID}",
+            "api_name": "{API-NAME}",
             "allowed_types": [
                 {
                     "name": "Query",
@@ -1456,9 +1456,9 @@ The asterisk operator also works for the list of restricted types:
 ```yaml
 {
     "access_rights": {
-        "`{API-ID}`": {
-            "api_id": "`{API-ID}`",
-            "api_name": "`{API-NAME}`",
+        "{API-ID}": {
+            "api_id": "{API-ID}",
+            "api_name": "{API-NAME}",
             "restricted_types": [
                 {
                     "name": "Query",
@@ -1768,9 +1768,9 @@ enum Example {
   B
 }
 
-extend enum Example `{
+extend enum Example {
   C  
-}`
+}
 ```
 
 **Subgraph 2:**
@@ -1874,13 +1874,13 @@ Be aware of those behaviors:
 **Sending queries**
 
 ```
-{"id":"1","type":"subscribe","payload":{"query":"`{ hello }`"}}
+{"id":"1","type":"subscribe","payload":{"query":"{ hello }"}}
 ```
 
 **Sending mutations**
 
 ```
-{"id":"2","type":"subscribe","payload":{"query":"mutation SavePing `{ savePing }`"}}
+{"id":"2","type":"subscribe","payload":{"query":"mutation SavePing { savePing }"}}
 ```
 
 **Starting and stopping Subscriptions**
@@ -1922,13 +1922,13 @@ For Subscriptions, the Tyk Gateway will respond with a stream of `data` messages
 **Sending queries**
 
 ```
-{"id":"1","type":"start","payload":{"query":"`{ hello }`"}}
+{"id":"1","type":"start","payload":{"query":"{ hello }"}}
 ```
 
 **Sending mutations**
 
 ```
-{"id":"2","type":"start","payload":{"query":"mutation SavePing `{ savePing }`"}}
+{"id":"2","type":"start","payload":{"query":"mutation SavePing { savePing }"}}
 ```
 
 **Starting and stopping Subscriptions**
@@ -2091,7 +2091,7 @@ To enable a Public GraphQL Playground for one of your GQL APIs follow these few 
 
 <img src="img/dashboard/graphql/enable-playground.png" alt="Headers" />
 
-Your `Public Playground` will be available at `http://`{API-URL}`/playground`.
+Your `Public Playground` will be available at `http://{API-URL}/playground`.
 
 </Tab>
 <Tab title="Tyk API definition">
@@ -2111,7 +2111,7 @@ To enable Public GraphQL Playground using just Tyk API definition, you need to s
 
 You can choose yourself the `path` name.
 
-Your `Public Playground` will be available at `http://`{API-URL}`/playground`.
+Your `Public Playground` will be available at `http://{API-URL}/playground`.
 
 </Tab>
 </Tabs>
@@ -2133,14 +2133,14 @@ mutation createUser {
       firstName: "David", 
       lastName: "Test"
       }) {
-    user `{
+    user {
         id
         username
         email
         phone
         firstName
         lastName
-    }`
+    }
   }
 }
 ```
@@ -2154,14 +2154,14 @@ The operation itself would change to:
 ```graphql
 mutation createUser($input: CreateUserInput!) {
   createUser(input: $input) {
-    user `{
+    user {
       id
       username
       email
       phone
       firstName
       lastName
-    }`
+    }
   }
 }
 ```

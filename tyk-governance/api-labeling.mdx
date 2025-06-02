@@ -85,7 +85,7 @@ A successful request will return a 200 OK status code and the newly created labe
 - The values field is optional. If provided, it defines the allowed values for this label
 - If values is empty, the label will accept any value (free text)
 - Only users with admin privileges can create labels
-- Once created, labels can be applied to APIs using the /api/`{api-id}`/labels endpoint
+- Once created, labels can be applied to APIs using the /api/{api-id}/labels endpoint
 - After creating a custom label, it will be available for selection when labeling APIs, either through the UI or via the API labeling endpoints.
 
 ### Validation
@@ -159,7 +159,7 @@ Labels are structured key-value pairs that can be validated and used for governa
 <Accordion title={'Are labels from source systems preserved during discovery?'}>
 Yes, the discovery process attempts to map source system metadata to corresponding labels in the governance hub where possible.
 </Accordion>
-</AccordionGroup> 
+</AccordionGroup> 
 
 ## Troubleshooting
 
@@ -167,10 +167,10 @@ Yes, the discovery process attempts to map source system metadata to correspondi
 - Ensure the label has been properly defined by a Governance Admin  
 - Check that at least one API has been tagged with this label  
 - Refresh the browser cache if the label was recently added
-</Expandable> 
+</Expandable> 
 
 <Expandable title={'Cannot add a specific label value'}>
 - For predefined value labels, check that the value you're trying to add is in the allowed list  
 - Verify you have sufficient permissions to modify the API's labels  
 - Ensure the label hasn't been deprecated or replaced
-</Expandable> 
+</Expandable> 

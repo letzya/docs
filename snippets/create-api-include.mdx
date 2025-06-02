@@ -98,7 +98,7 @@ You will need an API key for your organization (to authenticate with the Dashboa
     ### Step 2: Query the `/api/apis` endpoint to see what APIs are loaded on the Gateway
 
     ```curl
-    curl -H "Authorization: $`{DASH_KEY}`" $`{DASH_URL}`/apis
+    curl -H "Authorization: ${DASH_KEY}" ${DASH_URL}/apis
     {"apis":[],"pages":1}
     ```
 
@@ -112,7 +112,7 @@ You will need an API key for your organization (to authenticate with the Dashboa
     To load the API definition to the Gateway via the Dashboard API you issue this command:
 
     ```curl
-    curl -H "Authorization: $`{DASH_KEY}`" -H "Content-Type: application/json" $`{DASH_URL}`/apis \
+    curl -H "Authorization: ${DASH_KEY}" -H "Content-Type: application/json" ${DASH_URL}/apis \
       -d "$(wget -qO- https://bit.ly/2PdEHuv)"
     {"Status":"OK","Message":"API created","Meta":"5de83a40767e0271d024661a"}
     ```
@@ -128,7 +128,7 @@ You will need an API key for your organization (to authenticate with the Dashboa
     You can now make a call to your new API as follows:
 
     ```curl
-    curl $`{GATEWAY_URL}`/httpbin/get
+    curl ${GATEWAY_URL}/httpbin/get
     {
       "args": {},
       "headers": {
@@ -151,7 +151,7 @@ You will need an API key for your organization (to authenticate with the Dashboa
     Let's grab the API definition we created before and store the output to a file locally.
 
     ```curl
-    curl -s -H "Authorization: $`{DASH_KEY}`" -H "Content-Type: application/json" $`{DASH_URL}`/apis/$`{API_ID}` | python -mjson.tool > api.httpbin.json
+    curl -s -H "Authorization: ${DASH_KEY}" -H "Content-Type: application/json" ${DASH_URL}/apis/${API_ID} | python -mjson.tool > api.httpbin.json
     ```
 
     We can now edit the `api.httpbin.json` file we just created, and modify a couple of fields to enable authentication.
@@ -165,7 +165,7 @@ You will need an API key for your organization (to authenticate with the Dashboa
     Then send a `PUT` request back to Tyk Dashboard to update its configuration.
 
     ```curl
-    curl -H "Authorization: $`{DASH_KEY}`" -H "Content-Type: application/json" $`{DASH_URL}`/apis/$`{API_ID}` -X PUT -d "@api.httpbin.json"
+    curl -H "Authorization: ${DASH_KEY}" -H "Content-Type: application/json" ${DASH_URL}/apis/${API_ID} -X PUT -d "@api.httpbin.json"
     {"Status":"OK","Message":"Api updated","Meta":null}
     ```
 
@@ -174,7 +174,7 @@ You will need an API key for your organization (to authenticate with the Dashboa
     First try sending a request without any credentials, as before:
 
     ```curl
-    curl -I $`{GATEWAY_URL}`/httpbin/get
+    curl -I ${GATEWAY_URL}/httpbin/get
     HTTP/1.1 401 Unauthorized
     Content-Type: application/json
     X-Generator: tyk.io
@@ -187,7 +187,7 @@ You will need an API key for your organization (to authenticate with the Dashboa
     Now send a request with incorrect credentials:
 
     ```curl
-    curl -I $`{GATEWAY_URL}`/httpbin/get -H 'apikey: somejunk'
+    curl -I ${GATEWAY_URL}/httpbin/get -H 'apikey: somejunk'
     HTTP/1.1 403 Forbidden
     Content-Type: application/json
     X-Generator: tyk.io

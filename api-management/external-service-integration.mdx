@@ -93,7 +93,7 @@ In order to know and understand each of the attributes, implications as well as 
 | CustomEmailField                          | Name of the claim associated with the email value stored in the IDP (Identity Provider).                                                                                                                                                      | No       |
 | CustomUserIDField                         | Name of the claim associated with the User ID value stored in the IDP (Identity Provider).                                                                                                                                                    | No       |
 | IdentityHandlerConfig.DashboardCredential | API Key that will be used to consume the dashboard API to issue nonce codes and validate user data                                                                                                                                            | yes      |
-| ReturnURL                                 | Where to redirect and send the claims from the IDP on login. For dashboard SSO it would be `http://dashboard-host/tap`. For classic portal SSO it would be `http://`{portal-host}`/sso`                                                     | yes      |
+| ReturnURL                                 | Where to redirect and send the claims from the IDP on login. For dashboard SSO it would be `http://dashboard-host/tap`. For classic portal SSO it would be `http://{portal-host}/sso`                                                     | yes      |
 | DefaultUserGroup                          | When mapping groups, if a group is not found, specify which group to fallback to.                                                                                                                                                                        | No       |
 | CustomUserGroupField                      | Name of the claim associated with the Group ID values stored in the Identity Provider                                                                                                                                                            | No       |
 | UserGroupMapping                          | Map that contains the matching between Tyk groups and IDP group.                                                                                                                                                                              | No       |
@@ -154,8 +154,8 @@ In order to know and understand each of the attributes, implications as well as 
 
 | Field                            | Description                                                                                                                                                                   | Required                                                         |
 |----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
-| IDPMetadataURL      | This is a URL, e.g. `https://login.microsoftonline.com/your-tenant-id/federationmetadata/2007-06/federationmetadata.xml`, that links to [XML metadata](https://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf) containing information necessary for interaction with SAML-enabled identity or service providers. The document contains example URLs of endpoints, information about supported bindings, identifiers and public keys. Once you create your TIB profile you can find the SP metadata file under *`{Dashboard HOST}`/auth/`{TIB Profile Name}`/saml/metadata* | Yes |
-| CertLocation        | An X.509 certificate and the private key for signing your requests to the IDP. The value for `CertLocation` should be the path to a single file with the cert and key concatenated, e.g. `/etc/ssl/certs/example_cert.pem`. When used in an [embedded TIB instance in the dashboard](/#installing-tyk-identity-broker-tib) then the `CertLocation` value can be the *certId* from the certificate manager. For further details please refer to [SSO with SAML](/#sso-with-saml)                                                                                                           | Yes |
+| IDPMetadataURL      | This is a URL, e.g. `https://login.microsoftonline.com/your-tenant-id/federationmetadata/2007-06/federationmetadata.xml`, that links to [XML metadata](https://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf) containing information necessary for interaction with SAML-enabled identity or service providers. The document contains example URLs of endpoints, information about supported bindings, identifiers and public keys. Once you create your TIB profile you can find the SP metadata file under `{Dashboard HOST}/auth/{TIB Profile Name}/saml/metadata` | Yes |
+| CertLocation        | An X.509 certificate and the private key for signing your requests to the IDP. The value for `CertLocation` should be the path to a single file with the cert and key concatenated, e.g. `/etc/ssl/certs/example_cert.pem`. When used in an [embedded TIB instance in the dashboard](/#installing-tyk-identity-broker-tib) then the `CertLocation` value can be the *certId* from the certificate manager. For further details please refer to [SSO with SAML](/#sso-with-saml)                                                                                                         | Yes |
 | SAMLBaseURL         | The host of TIB, e.g. `http://tyk-dashboard:3000/`, that will be used in the metadata document for the Service Provider. This will form part of the metadata URL used as the Entity ID by the IDP. The redirects configured in the IDP must match the expected Host and URI configured in the metadata document made available by Tyk Identity Broker.                                                                 | Yes |
 | ForceAuthentication | Ignore any session held by the IDP and force re-login every request. Defaults to false                                                                                                                                                                                                                                                                                             | No  |
 | SAMLBinding         | Key for looking up the email claim in the SAML assertion form the IDP. Defaults to: https://schemas.xmlsoap.org/ws/2005/05/identity/claims.xsd                                                                                                                                                                                                                             | No  |
@@ -264,8 +264,8 @@ In short, all you need is as follow:
 
 1. Access the Identity Manager under System Management in the Tyk Dashboard
 2. Create a profile for your preferred IDP
-3. Get the `client_id` + `secret` that are defined on your IDP
-4. Set the `Callback URL` generated by Tyk on your IDP
+3. Get the `client_id` + `secret` that are defined on your IDP
+4. Set the `Callback URL` generated by Tyk on your IDP
 5. Provide your SSO profile in Tyk with the `Discover URL (well known endpoint)`
 6. Visit the Login URL after saving your profile to initialize the login
 7. More Docs for the flow can be found on our [GitHub TIB repo README](https://github.com/TykTechnologies/tyk-identity-broker) and our [3rd Party integration docs](/api-management/external-service-integration)
@@ -360,35 +360,35 @@ Assuming we have created a client ID and secret in Google Apps to grant ourselve
 1. Go to the [Google Developer Console](https://console.developers.google.com/) and create a new app
 2. Register a new OAuth client. Let's call it WebApp 1 (Select "New Credentials -> OAuth Client ID")
 3. Select Web App
-4. Add the following URL (modify for your domain) to the "Authorized redirect URIs" section: `http://tib-hostname:TIB-PORT/auth/`{PROFILE-ID}`/gplus/callback`
+4. Add the following URL (modify for your domain) to the "Authorized redirect URIs" section: `http://tib-hostname:TIB-PORT/auth/{PROFILE-ID}/gplus/callback`
 
 #### Create an OAuth Client in Tyk Dashboard
 
 TIB will use the OAuth credentials for GPlus to access and authenticate the user, it will then use another set of client credentials to make the request to Tyk to generate a token response and redirect the user, this means we need to create an OAuth client in Tyk Dashboard before we can proceed.
 
-One quirk with the Tyk API is that requests for tokens go via the base APIs listen path (``{listen_path}`/toauth/authorize`), so we will need to know the listen path and ID of this API so TIB can make the correct API calls on your behalf.
+One quirk with the Tyk API is that requests for tokens go via the base APIs listen path (`{listen_path}/toauth/authorize`), so we will need to know the listen path and ID of this API so TIB can make the correct API calls on your behalf.
 
 ```{.copyWrapper}
 {
   "ActionType": "GenerateOAuthTokenForClient",
   "ID": "3",
   "IdentityHandlerConfig": {
-    "DashboardCredential": "`{DASHBOARD-API-ID}`",
+    "DashboardCredential": "{DASHBOARD-API-ID}",
     "DisableOneTokenPerAPI": false,
     "OAuth": {
-      "APIListenPath": "`{API-LISTEN-PATH}`",
-      "BaseAPIID": "`{BASE-API-ID}`",
-      "ClientId": "`{TYK-OAUTH-CLIENT-ID}`",
-      "RedirectURI": "http://`{APP-DOMAIN}`:`{PORT}`/`{AUTH-SUCCESS-PATH}`",
+      "APIListenPath": "{API-LISTEN-PATH}",
+      "BaseAPIID": "{BASE-API-ID}",
+      "ClientId": "{TYK-OAUTH-CLIENT-ID}",
+      "RedirectURI": "http://{APP-DOMAIN}:{PORT}/{AUTH-SUCCESS-PATH}",
       "ResponseType": "token",
-      "Secret": "`{TYK-OAUTH-CLIENT-SECRET}`"
+      "Secret": "{TYK-OAUTH-CLIENT-SECRET}"
     }
   },
   "MatchedPolicyID": "567a86f630c55e3256000003",
   "OrgID": "53ac07777cbb8c2d53000002",
   "ProviderConfig": {
-    "CallbackBaseURL": "http://`{TIB-DOMAIN}`:`{TIB-PORT}`",
-    "FailureRedirect": "http://`{PORTAL-DOMAIN}`:`{PORTAL-PORT}`/portal/login/?fail=true",
+    "CallbackBaseURL": "http://{TIB-DOMAIN}:{TIB-PORT}",
+    "FailureRedirect": "http://{PORTAL-DOMAIN}:{PORTAL-PORT}/portal/login/?fail=true",
     "UseProviders": [{
       "Key": "GOOGLE-OAUTH-CLIENT-KEY",
       "Name": "gplus",
@@ -430,8 +430,8 @@ Similarly to logging into an app using Tyk, OAuth and Google Plus, if we have ou
   "MatchedPolicyID": "1C",
   "OrgID": "53ac07777cbb8c2d53000002",
   "ProviderConfig": {
-    "CallbackBaseURL": "http://:`{TIB-PORT}`",
-    "FailureRedirect": "http://`{DASH-DOMAIN}`:`{DASH-PORT}`/?fail=true",
+    "CallbackBaseURL": "http://:{TIB-PORT}",
+    "FailureRedirect": "http://{DASH-DOMAIN}:{DASH-PORT}/?fail=true",
     "UseProviders": [{
       "Name": "gplus",
       "Key": "GOOGLE-OAUTH-CLIENT-KEY",
@@ -443,7 +443,7 @@ Similarly to logging into an app using Tyk, OAuth and Google Plus, if we have ou
     "Group": ""
   },
   "ProviderName": "SocialProvider",
-  "ReturnURL": "http://`{DASH-DOMAIN}`:`{DASH-PORT}`/tap",
+  "ReturnURL": "http://{DASH-DOMAIN}:{DASH-PORT}/tap",
   "Type": "redirect"
 }
 ```
@@ -484,7 +484,7 @@ You already have authorized access to Tyk's Dashboard. If you haven't, get the a
 
 3. Add a redirect URL to your application as callback to TIB in your Azure application:
 
-    - In your app, either via the Authentication menu or the redirect URL shortcut navigate to and add the redirect to TIB in the Web category i.e. `http://localhost:3000/auth/`{PROFILE-NAME-IN-TIB}`/openid-connect/callback`.
+    - In your app, either via the Authentication menu or the redirect URL shortcut navigate to and add the redirect to TIB in the Web category i.e. `http://localhost:3000/auth/{PROFILE-NAME-IN-TIB}/openid-connect/callback`.
 
     <img src="img/azureAD/redirect-URL-1.png" alt="Redirect URL" />
 
@@ -509,7 +509,7 @@ Check Microsoft's [documentation](https://docs.microsoft.com/en-us/azure/active-
 
 #### Test your Azure Login:
 
-From the browser call `http://localhost:3000/auth/`{PROFILE-NAME-IN-TIB}`/openid-connect`
+From the browser call `http://localhost:3000/auth/{PROFILE-NAME-IN-TIB}/openid-connect`
 - If it's working you'll be redirected to Azures's web page and asked for your username and password.
 
     <img src="img/azureAD/username.png" alt="Username" />
@@ -605,8 +605,8 @@ This guide assumes the following:
 
 
 3. Add a callback to TIB in your application:
-   - Under `General`, click `Edit` and update the `Login redirect URIs` field with the endpoint on TIB `http://localhost:3010/auth/`{PROFILE-NAME-IN-TIB}`/openid-connect/callback`.
-   - ``{PROFILE-NAME-IN-TIB}`` - this can be any string you choose, as long as you use the same one for the profile in TIB.
+   - Under `General`, click `Edit` and update the `Login redirect URIs` field with the endpoint on TIB `http://localhost:3010/auth/{PROFILE-NAME-IN-TIB}/openid-connect/callback`.
+   - `{PROFILE-NAME-IN-TIB}` - this can be any string you choose, as long as you use the same one for the profile in TIB.
 
 4. Permissions to login via Okta:
    Under the `Assignments` tab, make sure group assignments is set to *everyone* (for now, you will change this later!).
@@ -625,18 +625,18 @@ This guide assumes the following:
 ```{.json}
 [{
   "ActionType": "GenerateOrLoginUserProfile",
-  "ID": "`{PROFILE-NAME-IN-TIB}`",
+  "ID": "{PROFILE-NAME-IN-TIB}",
   "OrgID": "5a54a74550200d0001975584",
   "IdentityHandlerConfig": {
-    "DashboardCredential": "`{DASHBOARD-SECRET}`"
+    "DashboardCredential": "{DASHBOARD-SECRET}"
   },
   "ProviderConfig": {
-    "CallbackBaseURL": "http://`{TIB-DOMAIN}`:`{TIB-PORT}`",
-    "FailureRedirect": "http://`{DASHBOARD-DOMAIN}`:`{DASHBOARD-PORT}`/?fail=true",
+    "CallbackBaseURL": "http://{TIB-DOMAIN}:{TIB-PORT}",
+    "FailureRedirect": "http://{DASHBOARD-DOMAIN}:{DASHBOARD-PORT}/?fail=true",
     "UseProviders": [
     {
-      "Key": "`{Okta-App-Client-ID}`",
-      "Secret": "`{Okta-App-Client-SECRET}`",
+      "Key": "{Okta-App-Client-ID}",
+      "Secret": "{Okta-App-Client-SECRET}",
       "Scopes": ["openid", "email"],
       "DiscoverURL": "https://<okta-org>.okta.com/.well-known/openid-configuration",
       "Name": "openid-connect"
@@ -644,7 +644,7 @@ This guide assumes the following:
   ]
   },
   "ProviderName": "SocialProvider",
-  "ReturnURL": "http://`{DASHBOARD-DOMAIN}`:`{DASHBOARD-PORT}`/tap",
+  "ReturnURL": "http://{DASHBOARD-DOMAIN}:{DASHBOARD-PORT}/tap",
   "Type": "redirect"
 }]
 ```
@@ -652,13 +652,13 @@ This guide assumes the following:
 7. Start TIB by running the binary (`profiles.json` is in the same CWD)
    See [Install TIB](/api-management/external-service-integration) for detailed instructions on how to install TIB
 8. Test that it works:
-   From the broswer call `http://localhost:3010/auth/`{PROFILE-NAME-IN-TIB}`/openid-connect`
+   From the broswer call `http://localhost:3010/auth/{PROFILE-NAME-IN-TIB}/openid-connect`
     - If it's working you'll be redirected to Okta's web page and will be asked to enter your Okta user name and password.
     - If you were successfully authenticated by Okta then you'll be redirected to the Tyk Dashboard and login into it without going through the login page. Job's done!
 9. If you need to update your profile then you can use TIB's REST API as follows:
 
 ```{.copyWrapper} 
-curl http://`{TIB-DOMAIN}`:`{TIB-PORT}`/api/profiles/`{PROFILE-NAME-IN-TIB}` -H "Authorization: `{MY-SECRET}`" -H "Content-type: application/json" -X PUT --data "@./my-new-dashboard-profile.json" | prettyjson
+curl http://{TIB-DOMAIN}:{TIB-PORT}/api/profiles/{PROFILE-NAME-IN-TIB} -H "Authorization: {MY-SECRET}" -H "Content-type: application/json" -X PUT --data "@./my-new-dashboard-profile.json" | prettyjson
 ```
 
   - POST and DELETE calls apply as normal
@@ -697,8 +697,8 @@ Once it's working you can also add two more enhancements - SSO and MFA
 #### Common Error
 If you get a `400 Bad Request` it means the profile name in the login endpoint is not identical to the profile name in the callback that you set up on Okta's app:
 
-- On Okta's app - `Login redirect URIs:` `http://localhost:3010/auth/`{PROFILE-NAME-IN-TIB}`/openid-connect/callback`.
-- The endpoint to test - `http://localhost:3010/auth/`{PROFILE-NAME-IN-TIB}`/openid-connect`
+- On Okta's app - `Login redirect URIs:` `http://localhost:3010/auth/{PROFILE-NAME-IN-TIB}/openid-connect/callback`.
+- The endpoint to test - `http://localhost:3010/auth/{PROFILE-NAME-IN-TIB}/openid-connect`
 
 <img src="img/okta-sso/okta-bad-request-wrong-callback.png" alt="okta-bad-request-wrong-callback" />
 
@@ -885,15 +885,15 @@ Example profile configuration:
 {
     "ActionType": "GenerateOrLoginUserProfile",
     "ID": "saml-sso-login",
-    "OrgID": "`{YOUR_ORGANIZATION_ID}`",
+    "OrgID": "{YOUR_ORGANIZATION_ID}",
     "CustomEmailField": "",
     "IdentityHandlerConfig": {
-        "DashboardCredential": "`{DASHBOARD_USER_API_KEY}`"
+        "DashboardCredential": "{DASHBOARD_USER_API_KEY}"
     },
     "ProviderConfig": {
-        "SAMLBaseURL": "https://`{HOST}`",
-        "FailureRedirect": "http://`{DASHBOARD_HOST}`:`{PORT}`/?fail=true",
-        "IDPMetaDataURL": "`{IDP_METADATA_URL}`",
+        "SAMLBaseURL": "https://{HOST}",
+        "FailureRedirect": "http://{DASHBOARD_HOST}:{PORT}/?fail=true",
+        "IDPMetaDataURL": "{IDP_METADATA_URL}",
         "CertLocation":"myservice.cert",
         "ForceAuthentication": false,
         "SAMLEmailClaim": "",
@@ -901,7 +901,7 @@ Example profile configuration:
         "SAMLSurnameClaim": ""
     },
     "ProviderName": "SAMLProvider",
-    "ReturnURL": "http://`{DASHBOARD_URL}`:`{PORT}`/tap",
+    "ReturnURL": "http://{DASHBOARD_URL}:{PORT}/tap",
     "Type": "redirect"
 }
 ```
@@ -1166,19 +1166,19 @@ Below is a sample TIB profile that can be used to log a user into the Dashboard 
 {
   "ActionType": "GenerateOrLoginUserProfile",
   "ID": "4",
-  "OrgID": "`{YOUR-ORG-ID}`",
+  "OrgID": "{YOUR-ORG-ID}",
   "IdentityHandlerConfig": {
 		"DashboardCredential": "ADVANCED-API-USER-API-TOKEN"
   },
   "ProviderConfig": {
-    "FailureRedirect": "http://`{DASH-DOMAIN}`:`{DASH-PORT}`/?fail=true",
+    "FailureRedirect": "http://{DASH-DOMAIN}:{DASH-PORT}/?fail=true",
     "LDAPAttributes": [],
     "LDAPPort": "389",
     "LDAPServer": "localhost",
     "LDAPUserDN": "cn=*USERNAME*,cn=dashboard,ou=Group,dc=test-ldap,dc=tyk,dc=io"
   },
   "ProviderName": "ADProvider",
-  "ReturnURL": "http://`{DASH-DOMAIN}`:`{DASH-PORT}`/tap",
+  "ReturnURL": "http://{DASH-DOMAIN}:{DASH-PORT}/tap",
   "Type": "passthrough" 
 }
 
@@ -1214,21 +1214,21 @@ The configuration below will take a request that is posted to TIB, authenticate 
   "ActionType": "GenerateOAuthTokenForClient",
   "ID": "6",
   "IdentityHandlerConfig": {
-    "DashboardCredential": "`{DASHBAORD-API-ID}`",
+    "DashboardCredential": "{DASHBAORD-API-ID}",
     "DisableOneTokenPerAPI": false,
     "OAuth": {
-      "APIListenPath": "`{API-LISTEN-PATH}`",
-      "BaseAPIID": "`{BASE-API-ID}`",
-      "ClientId": "`{TYK-OAUTH-CLIENT-ID}`",
-      "RedirectURI": "http://`{APP-DOMAIN}`:`{PORT}`/`{AUTH-SUCCESS-PATH}`",
+      "APIListenPath": "{API-LISTEN-PATH}",
+      "BaseAPIID": "{BASE-API-ID}",
+      "ClientId": "{TYK-OAUTH-CLIENT-ID}",
+      "RedirectURI": "http://{APP-DOMAIN}:{PORT}/{AUTH-SUCCESS-PATH}",
       "ResponseType": "token",
-      "Secret": "`{TYK-OAUTH-CLIENT-SECRET}`"
+      "Secret": "{TYK-OAUTH-CLIENT-SECRET}"
     }
   },
   "MatchedPolicyID": "POLICY-ID",
   "OrgID": "53ac07777cbb8c2d53000002",
   "ProviderConfig": {
-    "FailureRedirect": "http://`{APP-DOMAIN}`:`{PORT}`/failure",
+    "FailureRedirect": "http://{APP-DOMAIN}:{PORT}/failure",
     "LDAPAttributes": [],
     "LDAPPort": "389",
     "LDAPServer": "localhost",
@@ -1256,7 +1256,7 @@ LDAP requires little configuration, we can use the same provider configuration t
   },
   "OrgID": "53ac07777cbb8c2d53000002",
   "ProviderConfig": {
-    "FailureRedirect": "http://`{PORTAL-DOMAIN}`:`{PORTAL-PORT}`/portal/login/",
+    "FailureRedirect": "http://{PORTAL-DOMAIN}:{PORTAL-PORT}/portal/login/",
     "LDAPAttributes": [],
     "LDAPPort": "389",
     "LDAPServer": "localhost",
@@ -1267,7 +1267,7 @@ LDAP requires little configuration, we can use the same provider configuration t
     "Group": ""
   },
   "ProviderName": "ADProvider",
-  "ReturnURL": "http://`{PORTAL-DOMAIN}`:`{PORTAL-PORT}`/portal/sso/",
+  "ReturnURL": "http://{PORTAL-DOMAIN}:{PORTAL-PORT}/portal/sso/",
   "Type": "passthrough"
 }
 ```
@@ -1343,13 +1343,13 @@ The Proxy provider can do some clever things, such as extract JSON data from the
 
 ### Log into the Dashboard with the Proxy Provider
 
-The configuration below will proxy a request to `http://`{TARGET-HOSTNAME}`:`{PORT}`/` and evaluate the response status code, if the status code returned is `200` then TIB will assume the response is JSON (`"ResponseIsJson": true`) to extract an access token (e.g. if this is an OAuth pass-through request) and try and find an identity to bind the Dashboard user to in the `user_name` JSON field of the response object (`"UsernameField": "user_name"`):
+The configuration below will proxy a request to `http://{TARGET-HOSTNAME}:{PORT}/` and evaluate the response status code, if the status code returned is `200` then TIB will assume the response is JSON (`"ResponseIsJson": true`) to extract an access token (e.g. if this is an OAuth pass-through request) and try and find an identity to bind the Dashboard user to in the `user_name` JSON field of the response object (`"UsernameField": "user_name"`):
 
 ```{.copyWrapper}
 {
   "ActionType": "GenerateOrLoginUserProfile",
   "ID": "7",
-  "OrgID": "`{YOUR-ORG-ID}`",
+  "OrgID": "{YOUR-ORG-ID}",
   "ProviderConfig": {
     "AccessTokenField": "access_token",
     "ExtractUserNameFromBasicAuthHeader": false,
@@ -1357,11 +1357,11 @@ The configuration below will proxy a request to `http://`{TARGET-HOSTNAME}`:`{PO
     "OKRegex": "",
     "OKResponse": "",
     "ResponseIsJson": true,
-    "TargetHost": "http://`{TARGET-HOSTNAME}`:`{PORT}`/",
+    "TargetHost": "http://{TARGET-HOSTNAME}:{PORT}/",
     "UsernameField": "user_name"
   },
   "ProviderName": "ProxyProvider",
-  "ReturnURL": "http://`{DASH-DOMAIN}`:`{DASH-PORT}`/tap",
+  "ReturnURL": "http://{DASH-DOMAIN}:{DASH-PORT}/tap",
   "Type": "redirect"
 }
 ```

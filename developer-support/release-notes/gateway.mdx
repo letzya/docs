@@ -80,7 +80,7 @@ Addressed an issue for UDG APIs where caching led to the forwarding of stale val
 </Accordion>
 
 <Accordion title={'Improved Route Matching Logic for API Requests'}>
-Resolved an issue where requests could be routed incorrectly due to inverted prioritisation of dynamically declared paths over those with similar static paths. Now, statically declared paths take priority in the path matching algorithm, so if API1 has listen path `/path/`{param}`/endpoint` and API2 has listen path `/path/specific/endpoint` a request to `/path/specific/endpoint/resource` will be correctly routed to API2.
+Resolved an issue where requests could be routed incorrectly due to inverted prioritisation of dynamically declared paths over those with similar static paths. Now, statically declared paths take priority in the path matching algorithm, so if API1 has listen path `/path/{param}/endpoint` and API2 has listen path `/path/specific/endpoint` a request to `/path/specific/endpoint/resource` will be correctly routed to API2.
 </Accordion>
 
 <Accordion title={'Resolved Issue With Default Enforced Request Timeout'}>
@@ -707,17 +707,17 @@ Fixed the following high priority CVEs identified in the Tyk Gateway, providing 
 reconnecting to MDCB control plane or Tyk Cloud<br /> <b>Workaround</b>: Restart Gateway<br /> <b>Affected Product</b>: Tyk
 Gateway as an Edge Gateway<br /> <b>Affected versions</b>: v5.6.0, v5.3.6, and v5.0.14<br /> <b>Issue Description:</b><br />
 
-<p>We have identified an issue affecting Tyk Gateway deployed as a data plane connecting to the Multi-Data Center Bridge (MDCB) control plane or Tyk Cloud. In the above mentioned Gateway versions a panic may occur when gateway reconnect to the control plane after the control plane is restarted.
-<p>Our engineering team is actively working on a fix, and a patch (versions 5.6.1, 5.3.7, and 5.0.15) will be released soon.<br />
+<p>We have identified an issue affecting Tyk Gateway deployed as a data plane connecting to the Multi-Data Center Bridge (MDCB) control plane or Tyk Cloud. In the above mentioned Gateway versions a panic may occur when gateway reconnect to the control plane after the control plane is restarted.</p>
+<p>Our engineering team is actively working on a fix, and a patch (versions 5.6.1, 5.3.7, and 5.0.15) will be released soon.<br /> </p>
 <b>Recommendations:</b><br />
 <ul>
 <li><b>For users on versions 5.5.0, 5.3.5, and 5.0.13</b><br />
-We advise you to delay upgrading to the affected versions (5.6.0, 5.3.6, or 5.0.14) until the patch is available.
+We advise you to delay upgrading to the affected versions (5.6.0, 5.3.6, or 5.0.14) until the patch is available. </li>
 
 <li><b>For users who have already upgraded to 5.6.0, 5.3.6, or 5.0.14 and are experiencing a panic in the gateway:</b><br />
-Restarting the gateway process will restore it to a healthy state. If you are operating in a *Kubernetes* environment, Tyk Gateway instance should automatically restart, which ultimately resolves the issue.<br />
+Restarting the gateway process will restore it to a healthy state. If you are operating in a *Kubernetes* environment, Tyk Gateway instance should automatically restart, which ultimately resolves the issue.<br /> </li>
 </ul>
-<p>We appreciate your understanding and patience as we work to resolve this. Please stay tuned for the upcoming patch release, which will address this issue.
+<p>We appreciate your understanding and patience as we work to resolve this. Please stay tuned for the upcoming patch release, which will address this issue. </p>
 </Note>
 
 
@@ -1091,7 +1091,7 @@ Fixed an issue when using granular [Path-Based Permissions](/api-management/poli
 </li>
 <li>
 <Expandable title={'Missing path parameter can direct to the wrong endpoint'}>
-Fixed an issue where a parameterized endpoint URL (e.g. `/user/`{id}``) would be invoked if a request is made that omits the parameter. For example, a request to `/user/` will now be interpreted as a request to `/user` and not to `/user/`{id}``.
+Fixed an issue where a parameterized endpoint URL (e.g. `/user/{id}`) would be invoked if a request is made that omits the parameter. For example, a request to `/user/` will now be interpreted as a request to `/user` and not to `/user/{id}`.
 </Expandable>
 </li>
 </ul>
@@ -1461,10 +1461,10 @@ Customers are advised to clear their edge Redis instances of any keys that might
 1. **Specific Key Deletion via API**: To remove individual buggy keys, you can use the following API call:
 
 ```bash
-curl --location --request DELETE 'http://tyk-gateway:`{tyk-hybrid-port}`/tyk/keys/my-custom-key' \ --header 'X-Tyk-Authorization: `{dashboard-key}`'
+curl --location --request DELETE 'http://tyk-gateway:{tyk-hybrid-port}/tyk/keys/my-custom-key' \ --header 'X-Tyk-Authorization: {dashboard-key}'
 ```
 
-Replace ``{tyk-hybrid-port}``, `my-custom-key` and ``{dashboard-key}`` with your specific configuration details. This method is safe and recommended for targeted removals without affecting other keys.
+Replace `{tyk-hybrid-port}`, `my-custom-key` and `{dashboard-key}` with your specific configuration details. This method is safe and recommended for targeted removals without affecting other keys.
 
 2. **Bulk Key Deletion Using Redis CLI**: For environments with numerous affected keys, you might consider using the Redis CLI to remove keys en masse:
 
@@ -1635,7 +1635,7 @@ Addressed an issue for UDG APIs where caching led to the forwarding of stale val
 </Accordion>
 
 <Accordion title={'Improved Route Matching Logic for API Requests'}>
-Resolved an issue where requests could be routed incorrectly due to inverted prioritisation of dynamically declared paths over those with similar static paths. Now, statically declared paths take priority in the path matching algorithm, so if API1 has listen path `/path/`{param}`/endpoint` and API2 has listen path `/path/specific/endpoint` a request to `/path/specific/endpoint/resource` will be correctly routed to API2.
+Resolved an issue where requests could be routed incorrectly due to inverted prioritisation of dynamically declared paths over those with similar static paths. Now, statically declared paths take priority in the path matching algorithm, so if API1 has listen path `/path/{param}/endpoint` and API2 has listen path `/path/specific/endpoint` a request to `/path/specific/endpoint/resource` will be correctly routed to API2.
 </Accordion>
 
 <Accordion title={'Resolved Issue With Default Enforced Request Timeout'}>
@@ -2071,17 +2071,18 @@ For agreed CVE security fixes, provide a link to the corresponding entry on the 
 reconnecting to MDCB control plane or Tyk Cloud<br /> <b>Workaround</b>: Restart Gateway<br /> <b>Affected Product</b>: Tyk
 Gateway as an Edge Gateway<br /> <b>Affected versions</b>: v5.6.0, v5.3.6, and v5.0.14<br /> <b>Issue Description:</b><br />
 
-<p>We have identified an issue affecting Tyk Gateway deployed as a data plane connecting to the Multi-Data Center Bridge (MDCB) control plane or Tyk Cloud. In the above mentioned Gateway versions a panic may occur when gateway reconnect to the control plane after the control plane is restarted.
-<p>Our engineering team is actively working on a fix, and a patch (versions 5.6.1, 5.3.7, and 5.0.15) will be released soon.<br />
+<p>We have identified an issue affecting Tyk Gateway deployed as a data plane connecting to the Multi-Data Center Bridge (MDCB) control plane or Tyk Cloud. In the above mentioned Gateway versions a panic may occur when gateway reconnect to the control plane after the control plane is restarted. </p>
+<p>Our engineering team is actively working on a fix, and a patch (versions 5.6.1, 5.3.7, and 5.0.15) will be released soon. </p> <br /> 
 <b>Recommendations:</b><br />
 <ul>
 <li><b>For users on versions 5.5.0, 5.3.5, and 5.0.13</b><br />
 We advise you to delay upgrading to the affected versions (5.6.0, 5.3.6, or 5.0.14) until the patch is available.
-
+</li>
 <li><b>For users who have already upgraded to 5.6.0, 5.3.6, or 5.0.14 and are experiencing a panic in the gateway:</b><br />
 Restarting the gateway process will restore it to a healthy state. If you are operating in a *Kubernetes* environment, Tyk Gateway instance should automatically restart, which ultimately resolves the issue.<br />
+</li>
 </ul>
-<p>We appreciate your understanding and patience as we work to resolve this. Please stay tuned for the upcoming patch release, which will address this issue.
+<p>We appreciate your understanding and patience as we work to resolve this. Please stay tuned for the upcoming patch release, which will address this issue. </p>
 </Note>
 
 
@@ -2368,9 +2369,9 @@ handles both of these scenarios granting access only to the expected resources.
 </li>
 <li>
 <Expandable title={'Missing path parameter could direct to the wrong endpoint'}>
-Fixed an issue where a parameterized endpoint URL (e.g. `/user/`{id}``) would be invoked if a request is made that omits
+Fixed an issue where a parameterized endpoint URL (e.g. `/user/{id}`) would be invoked if a request is made that omits
 the parameter. For example, a request to `/user/` will now be interpreted as a request to `/user` and not to
-`/user/`{id}``.
+`/user/{id}`.
 </Expandable>
 </li>
 </ul>
@@ -3665,7 +3666,7 @@ Special thanks to the following members of the Tyk community for their contribut
 <ul>
 <li>
 <Expandable title={'ULID Normalization implemented'}>
-- Implemented *ULID Normalization*, replacing valid ULID identifiers in the URL with a ``{ulid}`` placeholder for analytics. This matches the existing UUID normalization. Thanks to [Mohammad Abdolirad](https://github.com/atkrad) for the contribution.
+- Implemented *ULID Normalization*, replacing valid ULID identifiers in the URL with a `{ulid}` placeholder for analytics. This matches the existing UUID normalization. Thanks to [Mohammad Abdolirad](https://github.com/atkrad) for the contribution.
 </Expandable>
 </li>
 <li>
@@ -3826,9 +3827,11 @@ In this version, we're introducing the support for *OpenTelemetry Tracing*, the 
 We offer support for integrating *OpenTelemetry* traces with supported open source tools such [Jaeger](/api-management/logs-metrics#using-docker), [Dynatrace](/api-management/logs-metrics#dynatrace) or [New Relic](/api-management/logs-metrics#new-relic). This allows API owners and developers to gain troubleshooting and performance insights from error logs, response times etc.
 You can also find a direct link to our docs in the official [OpenTelemetry Integration page](https://opentelemetry.io/ecosystem/integrations/)
 
+
 <Warning>
 *Tyk Gateway 5.2* now includes *OpenTelemetry Tracing*. Over the next year, we'll be deprecating *OpenTracing*. We recommend migrating to *OpenTelemetry* for better trace insights and more comprehensive support. This change will offer you significant advantages in managing your distributed tracing needs.
 </Warning>
+
 
 #### Downloads
 
@@ -4062,17 +4065,18 @@ In version 5.0.14, Tyk Gateway could encounter panic when attempting to reconnec
 reconnecting to MDCB control plane or Tyk Cloud<br /> <b>Workaround</b>: Restart Gateway<br /> <b>Affected Product</b>: Tyk
 Gateway as an Edge Gateway<br /> <b>Affected versions</b>: v5.6.0, v5.3.6, and v5.0.14<br /> <b>Issue Description:</b><br />
 
-<p>We have identified an issue affecting Tyk Gateway deployed as a data plane connecting to the Multi-Data Center Bridge (MDCB) control plane or Tyk Cloud. In the above mentioned Gateway versions a panic may occur when gateway reconnect to the control plane after the control plane is restarted.
-<p>Our engineering team is actively working on a fix, and a patch (versions 5.6.1, 5.3.7, and 5.0.15) will be released soon.<br />
+<p>We have identified an issue affecting Tyk Gateway deployed as a data plane connecting to the Multi-Data Center Bridge (MDCB) control plane or Tyk Cloud. In the above mentioned Gateway versions a panic may occur when gateway reconnect to the control plane after the control plane is restarted. </p>
+<p>Our engineering team is actively working on a fix, and a patch (versions 5.6.1, 5.3.7, and 5.0.15) will be released soon.</p> <br /> 
 <b>Recommendations:</b><br />
 <ul>
-<li><b>For users on versions 5.5.0, 5.3.5, and 5.0.13</b><br />
+<li><b>For users on versions 5.5.0, 5.3.5, and 5.0.13</b><br /> 
 We advise you to delay upgrading to the affected versions (5.6.0, 5.3.6, or 5.0.14) until the patch is available.
-
+</li>
 <li><b>For users who have already upgraded to 5.6.0, 5.3.6, or 5.0.14 and are experiencing a panic in the gateway:</b><br />
 Restarting the gateway process will restore it to a healthy state. If you are operating in a *Kubernetes* environment, Tyk Gateway instance should automatically restart, which ultimately resolves the issue.<br />
+</li>
 </ul>
-<p>We appreciate your understanding and patience as we work to resolve this. Please stay tuned for the upcoming patch release, which will address this issue.
+<p>We appreciate your understanding and patience as we work to resolve this. Please stay tuned for the upcoming patch release, which will address this issue. </p>
 </Note>
 
 
@@ -4135,9 +4139,9 @@ handles both of these scenarios granting access only to the expected resources.
 </Accordion>
 
 <Accordion title={'Missing path parameter can direct to the wrong endpoint'}>
-Fixed an issue where a parameterized endpoint URL (e.g. `/user/`{id}``) would be invoked if a request is made that omits
+Fixed an issue where a parameterized endpoint URL (e.g. `/user/{id}`) would be invoked if a request is made that omits
 the parameter. For example, a request to `/user/` will now be interpreted as a request to `/user` and not to
-`/user/`{id}``.
+`/user/{id}`.
 </Accordion>
 
 <Accordion title={'Improved Gateway Synchronization with MDCB for Policies and APIs'}>
@@ -4196,10 +4200,10 @@ address this issue:
 1. **Specific Key Deletion via API**: To remove individual buggy keys, you can use the following API call:
 
 ```bash
-curl --location --request DELETE 'http://tyk-gateway:`{tyk-hybrid-port}`/tyk/keys/my-custom-key' \ --header 'X-Tyk-Authorization: `{dashboard-key}`'
+curl --location --request DELETE 'http://tyk-gateway:{tyk-hybrid-port}/tyk/keys/my-custom-key' \ --header 'X-Tyk-Authorization: {dashboard-key}'
 ```
 
-Replace ``{tyk-hybrid-port}``, `my-custom-key` and ``{dashboard-key}`` with your specific configuration details. This method
+Replace `{tyk-hybrid-port}`, `my-custom-key` and `{dashboard-key}` with your specific configuration details. This method
 is safe and recommended for targeted removals without affecting other keys.
 
 2. **Bulk Key Deletion Using Redis CLI**: For environments with numerous affected keys, you might consider using the
@@ -4564,9 +4568,9 @@ enum Example {
   B
 }
 
-extend enum Example `{
+extend enum Example {
   C  
-}`
+}
 ```
 
 Subgraph 2:
@@ -4642,7 +4646,7 @@ This change improves resilience in case the MDCB link or controller Gateway is u
 Changes to keys, certificates and OAuth clients are still synchronised to the worker Gateways from the controller when there are changes and following any failure in the MDCB link.
 
 ##### Go Plugin Loader
-When upgrading your Tyk Installation you need to re-compile your plugin with the new version. At the moment of loading a plugin, the Gateway will try to find a plugin with the name provided in the API definition. If none is found then it will fallback to search the plugin file with the name: ``{plugin-name}`_`{Gw-version}`_`{OS}`_`{arch}`.so`
+When upgrading your Tyk Installation you need to re-compile your plugin with the new version. At the moment of loading a plugin, the Gateway will try to find a plugin with the name provided in the API definition. If none is found then it will fallback to search the plugin file with the name: `{plugin-name}_{Gw-version}_{OS}_{arch}.so`
 
 From v4.1.0 the plugin compiler automatically names plugins with the above naming convention. It enables you to have one directory with different versions of the same plugin. For example:
 
@@ -4678,7 +4682,7 @@ So, if you upgrade from Tyk v4.1.0 to v4.2.0 you only need to have the plugins c
 - Fixed a bug when using Open ID where quota was not tracked correctly
 - Fixed multiple issues with schema merging in GraphQL federation. Federation subgraphs with the same name shared types like objects, interfaces, inputs, enums, unions and scalars will no longer cause errors when users are merging schemas into a federated supergraph.
 - Fixed an issue where schema merging in GraphQL federation could fail depending on the order or resolving subgraph schemas and only first instance of a type and its extension would be valid. Subgraphs are now individually normalized before a merge is attempted and all extensions that are possible in the federated schema are applied.
-- Fixed an issue with accessing child properties of an object query variable for GraphQL where query {{.arguments.arg.foo}} would return "{ "foo":"123456" }" instead of "123456"
+- Fixed an issue with accessing child properties of an object query variable for GraphQL where query `{{.arguments.arg.foo}}` would return `{ "foo":"123456" }` instead of "123456"
 
 #### Updated Versions
 Tyk Gateway 4.1
@@ -4897,7 +4901,7 @@ Now, if Redis is not available, Tyk will be more gracefully handle this scenario
 
 In a multi-org deployment, each organization, team, or environment might have their preferred analytics tooling. At present, when sending analytics to the Tyk Pump, we do not discriminate analytics by org - meaning that we have to send all analytics to the same database - e.g. MongoDB. Now the Tyk Pump can be configured to send analytics for different organizations to different places. E.g. Org A can send their analytics to MongoDB + DataDog. But Org B can send their analytics to DataDog + expose the Prometheus metrics endpoint.
 
-It also becomes possible to put a {{<fn>}}blocklist{{</fn>}} in-place, meaning that some data sinks can receive information for all orgs, whereas others will not receive OrgA’s analytics if blocked.
+It also becomes possible to put a <Tooltip tip="A list of blocked or denied items or entries">blocklist</Tooltip> in-place, meaning that some data sinks can receive information for all orgs, whereas others will not receive OrgA’s analytics if blocked.
 
 This change requires updating to new Tyk Pump 1.0
 

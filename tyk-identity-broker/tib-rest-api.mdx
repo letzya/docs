@@ -51,21 +51,21 @@ Authorization: test-secret
         "ActionType": "GenerateOAuthTokenForClient",
         "ID": "6",
         "IdentityHandlerConfig": {
-          "DashboardCredential": "`{DASHBAORD-API-ID}`",
+          "DashboardCredential": "{DASHBAORD-API-ID}",
           "DisableOneTokenPerAPI": false,
           "OAuth": {
-            "APIListenPath": "`{API-LISTEN-PATH}`",
-            "BaseAPIID": "`{BASE-API-ID}`",
-            "ClientId": "`{TYK-OAUTH-CLIENT-ID}`",
-            "RedirectURI": "http://`{APP-DOMAIN}`:`{PORT}`/`{AUTH-SUCCESS-PATH}`",
+            "APIListenPath": "{API-LISTEN-PATH}",
+            "BaseAPIID": "{BASE-API-ID}",
+            "ClientId": "{TYK-OAUTH-CLIENT-ID}",
+            "RedirectURI": "http://{APP-DOMAIN}:{PORT}/{AUTH-SUCCESS-PATH}",
             "ResponseType": "token",
-            "Secret": "`{TYK-OAUTH-CLIENT-SECRET}`"
+            "Secret": "{TYK-OAUTH-CLIENT-SECRET}"
           }
         },
         "MatchedPolicyID": "POLICY-ID",
         "OrgID": "53ac07777cbb8c2d53000002",
         "ProviderConfig": {
-          "FailureRedirect": "http://`{APP-DOMAIN}`:`{PORT}`/failure",
+          "FailureRedirect": "http://{APP-DOMAIN}:{PORT}/failure",
           "LDAPAttributes": [],
           "LDAPUseSSL": false,
           "LDAPPort": "389",
@@ -85,7 +85,7 @@ Authorization: test-secret
 ### Sample Request
 
 ```{.copyWrapper}
-POST /api/profiles/`{id}`
+POST /api/profiles/{id}
 Authorization: test-secret
 
 {
@@ -158,7 +158,7 @@ Authorization: test-secret
 ### Sample Request
 
 ```{.copyWrapper}
-PUT /api/profiles/`{id}`
+PUT /api/profiles/{id}
 Authorization: test-secret
 
 {
@@ -231,7 +231,7 @@ Authorization: test-secret
 ### Sample Request
 
 ```{.copyWrapper}
-Delete /api/profiles/`{id}`
+Delete /api/profiles/{id}
 Authorization: test-secret
 
 [emtpy body]

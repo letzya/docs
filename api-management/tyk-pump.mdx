@@ -152,7 +152,7 @@ while Org B can send their analytics to DataDog + expose the Prometheus metrics 
 
 ##### Configuring the sharded analytics
 
-You can achieve the sharding by setting both an {{<fn>}}allowlist{{</fn>}}t and a {{<fn>}}blocklist{{</fn>}}, meaning that some data sinks can receive information for all orgs, whereas other data sinks will not receive certain organization's analytics if it was block listed.
+You can achieve the sharding by setting both an <Tooltip tip="A list of allowed items or permitted entries">allowlist</Tooltip>t and a <Tooltip tip="A list of blocked or denied items or entries">blocklist</Tooltip>, meaning that some data sinks can receive information for all orgs, whereas other data sinks will not receive certain organization's analytics if it was block listed.
 
 This feature makes use of the field called `filters`, which can be defined per pump. This is its structure:
 ```
@@ -166,7 +166,7 @@ This feature makes use of the field called `filters`, which can be defined per p
 - `api_ids` and `org_ids` works as allow list (APIs and orgs where we want to send the analytic records).
 - `skip_api_ids` and `skip_org_ids` works as block list (APIs and orgs where we want to filter out and not send their the analytic records). 
 
-The priority is always a {{<fn>}}blocklist{{</fn>}} over a {{<fn>}}allowlist{{</fn>}}.
+The priority is always a <Tooltip tip="A list of blocked or denied items or entries">blocklist</Tooltip> over a <Tooltip tip="A list of allowed items or permitted entries">allowlist</Tooltip>.
 
 An example of configuration would be:
  ```
@@ -228,7 +228,7 @@ See below details about these pumps, their configs, matching collections and rel
       "type": "mongo",
       "meta": {
         "collection_name": "tyk_analytics",
-        "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/`{db_name}`"
+        "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
       }
     }
 }
@@ -261,7 +261,7 @@ The field [use_sharded_analytics](/tyk-dashboard/configuration#use_sharded_analy
 
 ##### Mongo Aggregate Pump
 
-**`mongo-pump-aggregate`** pump stores data in a collection called **z_tyk_analyticz_aggregate_`{ORG ID}`**.
+**`mongo-pump-aggregate`** pump stores data in a collection called **`z_tyk_analyticz_aggregate_{ORG ID}`**.
 
 ###### Pump Config
 
@@ -272,7 +272,7 @@ The field [use_sharded_analytics](/tyk-dashboard/configuration#use_sharded_analy
     "mongo-pump-aggregate": {
       "name": "mongo-pump-aggregate",
       "meta": {
-        "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/`{db_name}`",
+        "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}",
         "use_mixed_collection": true
       }
     }
@@ -280,7 +280,7 @@ The field [use_sharded_analytics](/tyk-dashboard/configuration#use_sharded_analy
 }
 ```
 
-- `use_mixed_collection: true` - will store analytics to **both** your organization defined collections `z_tyk_analyticz_aggregate_`{ORG ID}`` and your org-less `tyk_analytics_aggregates` collection. 
+- `use_mixed_collection: true` - will store analytics to **both** your organization defined collections `z_tyk_analyticz_aggregate_{ORG ID}` and your org-less `tyk_analytics_aggregates` collection. 
 - `use_mixed_collection: false`- your pump will only store analytics to your org defined collection.
 
 `tyk_analytics_aggregates` collection is used to query analytics across your whole Tyk setup. This can be used, for example, by a superuser role that is not attached to an organization. When set to `true`, you also need to set [use_sharded_analytics](/tyk-dashboard/configuration#use_sharded_analytics) to true in your Dashboard config.
@@ -326,7 +326,7 @@ pump.conf:
     "mongo-pump-aggregate": {
       "name": "mongo-pump-aggregate",
       "meta": {
-        "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/`{db_name}`",
+        "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}",
         "use_mixed_collection": true,
         "ignore_aggregations": ["APIKeys"]
       }
@@ -343,7 +343,7 @@ Also, if you are not sure what's causing the growth of the collection, you can a
 
 ##### Mongo Selective Pump
 
-**`mongo-pump-selective`** pump stores individual requests per organization in collections called **`z_tyk_analyticz_`{ORG ID}``**.
+**`mongo-pump-selective`** pump stores individual requests per organization in collections called **`z_tyk_analyticz_{ORG ID}`**.
 Similar to the regular `mongo` pump, Each request will be stored as a single document.
 
 ###### Pump Config
@@ -356,7 +356,7 @@ This collection [should be capped](/api-management/tyk-pump#tyk-pump-capping-ana
     "mongo-pump-selective": {
       "name": "mongo-pump-selective",
       "meta": {
-        "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/`{db_name}`",
+        "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}",
         "use_mixed_collection": true
       }
     }
@@ -370,7 +370,7 @@ This collection [should be capped](/api-management/tyk-pump#tyk-pump-capping-ana
 
 ###### Dashboard Setting
 
-As with the regular analytics, if you are using the Selective pump, you need to set `use_sharded_keys: true` in the dashboard config file so it will query `z_tyk_analyticz_`{ORG ID}`` collections to populate the `Log Browser`. 
+As with the regular analytics, if you are using the Selective pump, you need to set `use_sharded_keys: true` in the dashboard config file so it will query `z_tyk_analyticz_{ORG ID}` collections to populate the `Log Browser`. 
 
 ##### Uptime Tests Analytics
 
@@ -1162,7 +1162,7 @@ Add the following configuration fields to the pumps section within your `pump.co
 #### Environment variables 
 ```bash
 TYK_PMP_PUMPS_LOGZIO_TYPE=logzio
-TYK_PMP_PUMPS_LOGZIO_META_TOKEN="`{YOUR-LOGZIO-TOKEN}`"
+TYK_PMP_PUMPS_LOGZIO_META_TOKEN="{YOUR-LOGZIO-TOKEN}"
 ```
 
 #### Advanced configuration fields
@@ -1423,7 +1423,7 @@ Port 9090 needs also to be exported by Docker in addition to the port used for h
 
 ```.copyWrapper
 tyk-pump:
-   image: tykio/tyk-pump-docker-pub:$`{PUMP_VERSION}`
+   image: tykio/tyk-pump-docker-pub:${PUMP_VERSION}
    ports:
    - 8083:8083
    - 9090:9090
@@ -1576,7 +1576,7 @@ We'll show you how to setup Tyk Pump for Prometheus Service Discovery.
     --set global.redis.passSecret.name=tyk-redis \
     --set global.redis.passSecret.keyName=redis-password \
     --set global.components.pump=true \
-    --set "tyk-pump.pump.backend=`{prometheus}`" \
+    --set "tyk-pump.pump.backend={prometheus}" \
     --set tyk-pump.pump.prometheusPump.customMetrics=$Prometheus_Custom_Metrics \
     --set tyk-pump.pump.prometheusPump.prometheusOperator.enabled=true \
     --set tyk-pump.pump.prometheusPump.prometheusOperator.podMonitorSelector.release=$PromOperator_Release
@@ -1658,7 +1658,7 @@ For Custom Metrics, commas are escaped to be used in helm --set command. You can
     --set global.redis.passSecret.name=tyk-redis \
     --set global.redis.passSecret.keyName=redis-password \
     --set global.components.pump=true \
-    --set "tyk-pump.pump.backend=`{prometheus}`" \
+    --set "tyk-pump.pump.backend={prometheus}" \
     --set tyk-pump.pump.prometheusPump.customMetrics=$Prometheus_Custom_Metrics \
     --set-string tyk-pump.pump.podAnnotations."prometheus\.io/scrape"=true \
     --set-string tyk-pump.pump.podAnnotations."prometheus\.io/port"=9090 \
@@ -1755,14 +1755,14 @@ This [command](https://docs.mongodb.com/manual/tutorial/expire-data/#expire-docu
 #### Create an Organization Quota
 
 ```{.copyWrapper}
-curl --header "x-tyk-authorization: `{tyk-gateway-secret}`" --header "content-type: application/json" --data @expiry.txt http://`{tyk-gateway-ip}`:`{port}`/tyk/org/keys/`{org-id}`
+curl --header "x-tyk-authorization: {tyk-gateway-secret}" --header "content-type: application/json" --data @expiry.txt http://{tyk-gateway-ip}:{port}/tyk/org/keys/{org-id}
 ```
 
 Where context of expiry.txt is:
 
 ```{.json}
 {
-  "org_id": "`{your-org-id}`",
+  "org_id": "{your-org-id}",
   "data_expires": 86400
 }
 ```

@@ -218,11 +218,13 @@ You are now ready to [create an API](/api-management/gateway-config-managing-cla
 For the complete installation guide and configuration options, please see [Tyk OSS Helm Chart](/product-stack/tyk-charts/tyk-oss-chart).
 
 #### Configure Legacy Tyk Headless Helm Chart
+
 <Warning>
 `tyk-headless` chart is deprecated. Please use our Tyk Chart for Tyk Open Source at [tyk-oss](/#quick-start-with-helm-chart) instead. 
 
 We recommend all users migrate to the `tyk-oss` Chart. Please review the [Configuration](/#quick-start-with-helm-chart) section of the new helm chart and cross-check with your existing configurations while planning for migration.
 </Warning>
+
 
 This is the preferred (and easiest) way to install the Tyk OSS Gateway on Kubernetes.
 It will install Tyk gateway in your Kubernetes cluster where you can add and manage APIs directly or via the *Tyk Operator*.
@@ -305,12 +307,14 @@ Alternatively, you can use `--set` flag to set it in the Tyk installation. For e
 
 **For evaluation only: Use *simple-redis* chart**
 
+
 <Warning>
 Another option for Redis, to get started quickly, is to use our *simple-redis* chart.
 Please note that these provided charts must never be used in production or for anything
 but a quick start evaluation only. Use Bitnami Redis or Official Redis Helm chart in any other case.
 We provide this chart, so you can quickly deploy *Tyk gateway*, but it is not meant for long-term storage of data.
 </Warning>
+
 
 ```bash
 helm install redis tyk-helm/simple-redis -n tyk
@@ -571,7 +575,7 @@ $ ansible-playbook playbook.yaml -t tyk-gateway-ce -t redis
 ```
 
 <Note>
-Installation flavors can be specified by using the -t `{tag}` at the end of the ansible-playbook command. In this case we are using:
+Installation flavors can be specified by using the -t {tag} at the end of the ansible-playbook command. In this case we are using:
 -`tyk-gateway-ce`: Tyk Gateway with CE config
 -`redis`: Redis database as Tyk Gateway dependency
 </Note>
@@ -758,7 +762,7 @@ $ ansible-playbook playbook.yaml -t tyk-gateway-ce -t redis
 ```
 
 <Note>
-Installation flavors can be specified by using the -t `{tag}` at the end of the ansible-playbook command. In this case we are using:
+Installation flavors can be specified by using the -t {tag} at the end of the ansible-playbook command. In this case we are using:
   -`tyk-gateway-ce`: Tyk Gateway with CE config
   -`redis`: Redis database as Tyk Gateway dependency
 </Note>
@@ -1053,9 +1057,11 @@ To configure Tyk to work with Redis Sentinel, list your servers under `addrs` an
 },
 ```
 
+
 <Warning>
 When using Bitnami charts to install Redis Sentinel in k8s, a Redis service is exposed, which means that standard Redis config is required instead of the above setup, i.e. a single server in `addrs` and `master_name` is not required.
 </Warning>
+
 
 #### Support for Redis Sentinel AUTH
 

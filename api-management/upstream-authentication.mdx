@@ -27,9 +27,11 @@ When using Tyk, you can choose from a range of authentication methods for each u
     </Note>
 
 
+
 <Warning>
 Note that OAuth 2.0 Password Grant is prohibited in the [OAuth 2.0 Security Best Practice](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-13#section-3.4") but is supported by Tyk for use with legacy upstream services.
 </Warning>
+
 
 
 ## Mutual TLS (mTLS)
@@ -246,7 +248,7 @@ metadata:
   name: domain-secret
 type: kubernetes.io/tls # The secret needs to be a type of kubernetes.io/tls
 data:
-  tls.crt: `<PUBLIC_KEY>`
+  tls.crt: <PUBLIC_KEY>
   tls.key: ""
 ---
 apiVersion: tyk.tyk.io/v1alpha1
@@ -416,6 +418,7 @@ Each key should be set to the name of the domain and the value should refer to t
 
 Wildcard domains are supported and "*" can be used to denote all domains.
 
+
 <Warning>
 **Caveats**
 
@@ -423,6 +426,7 @@ Wildcard domains are supported and "*" can be used to denote all domains.
 - Please use the *tls.crt* field for the public key.
 - The secret that includes a public key must be in the same namespace as the ApiDefinition object.
 </Warning>
+
 
 The example below illustrates a scenario where the public key from the Kubernetes secret object, *httpbin-secret*, is used for all domains, denoted by the wildcard character '*'. In this example the *tls.crt* field of the secret is set to the actual public key of *httpbin.org*. Subsequently, if you any URL other than https://httpbin.org is targetted (e.g. https://github.com/) a *public key pinning error* will be raised for that particular domain. This is because the public key of *httpbin.org* has been configured for all domains.
 
@@ -449,7 +453,7 @@ metadata:
   name: httpbin-secret
 type: kubernetes.io/tls
 data:
-  tls.crt: `<PUBLIC_KEY>` # Use tls.crt field for the public key.
+  tls.crt: <PUBLIC_KEY> # Use tls.crt field for the public key.
   tls.key: ""
 ---
 apiVersion: tyk.tyk.io/v1alpha1

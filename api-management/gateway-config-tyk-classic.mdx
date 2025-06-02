@@ -63,7 +63,7 @@ Set this to `true` to remove the versioning identifier when creating the upstrea
 Set this to `true` to invoke the default version if an invalid version is specified in the request.
 
 **Field: `definition.url_versioning_pattern`**
-Available from Tyk 5.5.0, if you are have set both `definition.strip_versioning_data` and `definition.fallback_to_default` to `true` and are using `definition.location=url` you can configure this with a regex that matches the format that you use for the versioning identifier (`versions.`{version-name}`.name`)
+Available from Tyk 5.5.0, if you are have set both `definition.strip_versioning_data` and `definition.fallback_to_default` to `true` and are using `definition.location=url` you can configure this with a regex that matches the format that you use for the versioning identifier (`versions.{version-name}.name`)
 
 The following fields are either deprecated or otherwise not used for Tyk Classic API versioning and should be left with their default values:
 
@@ -87,34 +87,34 @@ Used to configure where the versioning identifier should be provided, one of:`he
 **Field: `version_data.versions`**
 A list of objects that describe the versions of the API; there must be at least one (`Default`) version defined for any API (even non-versioned APIs). Each version of your API should be defined here with a unique `name`.
 
-**Field: `version_data.versions.`{version-name}`.name`**
+**Field: `version_data.versions.{version-name}.name`**
 An identifier for this version of the API, for example `Default` or `v1`. The value given here is what will Tyk will match against the value in the `definition.key`.
 
-**Field: `version_data.versions.`{version-name}`.expires`**
+**Field: `version_data.versions.{version-name}.expires`**
 If a value is set then Tyk will automatically deprecate access to the API after the specified timestamp. The entry here takes the form of: `"YYYY-MM-DD HH:MM"`. If this is not set the version will never expire.
 
-**Field: `version_data.versions.`{version-name}`.paths`**
+**Field: `version_data.versions.{version-name}.paths`**
 This object enables configuration of the basic allow list, block list and ignore authentication middleware for specific endpoints in the API version. You can also configure these and many other per-endpoint middleware using the `extended_paths` field.
 
-**Field: `version_data.versions.`{version-name}`.override_target`**
+**Field: `version_data.versions.{version-name}.override_target`**
 You can configure a different target URL here which will be used instead of the value stored in `proxy.target_url`, redirecting requests to a different hostname or domain. Note that this will also override (and so is not compatible with) upstream load balancing and Service Discovery, if configured for this API.
 
-**Field: `version_data.versions.`{version-name}`.global_headers`**
+**Field: `version_data.versions.{version-name}.global_headers`**
 A `key:value` map of HTML headers to inject to the request.
 
-**Field: `version_data.versions.`{version-name}`.global_headers_remove`**
+**Field: `version_data.versions.{version-name}.global_headers_remove`**
 A list of HTML headers to remove from the request.
 
-**Field: `version_data.versions.`{version-name}`.global_size_limit`**
+**Field: `version_data.versions.{version-name}.global_size_limit`**
 Apply a maximum size to the request body (payload) - in bytes.
 
-**Field: `version_data.versions.`{version-name}`.ignore_endpoint_case`**
+**Field: `version_data.versions.{version-name}.ignore_endpoint_case`**
 If this boolean flag is set to `false`, Tyk will apply case sensitive matching of requests to endpoints defined in the API definition. 
 
-**Field: `version_data.versions.`{version-name}`.use_extended_paths`**
-Set this value to `true` if you want Tyk to apply specific middleware to endpoints in this version, configured using `version_data.versions.`{version-name}`.extended_paths`.
+**Field: `version_data.versions.{version-name}.use_extended_paths`**
+Set this value to `true` if you want Tyk to apply specific middleware to endpoints in this version, configured using `version_data.versions.{version-name}.extended_paths`.
 
-**Field: `version_data.versions.`{version-name}`.extended_paths`**
+**Field: `version_data.versions.{version-name}.extended_paths`**
 This field contains a list of middleware configurations and to which paths they should be applied. The available middleware are:
 
 ```
@@ -322,7 +322,7 @@ This is an identifier that can be set to indicate ownership of an API key or of 
 **Field: `domain`**
 The domain to bind this API to. Multiple APIs can share the same domain, so long as their listen paths are unique.
 This domain will affect your API only. To set up the portal domain for your organization, please register it in the main Tyk Dashboard settings file. 
-Your Tyk Gateway can listen on multiple domains/subdomains through the use of regular expressions, more precisely the RE2 Syntax. They are defined using the format ``{name}`` or `{name:pattern}`. 
+Your Tyk Gateway can listen on multiple domains/subdomains through the use of regular expressions, more precisely the RE2 Syntax. They are defined using the format `{name}` or `{name:pattern}`. 
   * `www.example.com` Matches only if domain is www.example.com
   * `{subdomain:[a-z]+}.example.com` Matches dynamic subdomain
   * `{subdomain:foo|bar}.example.com` will listen on foo.example.com and bar.example.com"
