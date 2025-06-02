@@ -42,7 +42,7 @@ To complete the email setup, you will need the following information about your 
 
 To start with, you need to configure an email address where the portal will send notifications for admin users: new API Product access requests, new organization registration requests, and so on.
 For that, you need to navigate to the General section in the Setting menu, scroll down to the Portal admin notification address, and specify the admin email address in the Portal admin email field.
-<img src="img/dashboard/portal-management/enterprise-portal/admin_email_settings.png" alt="Portal admin notification address settings" />
+<img src="/img/dashboard/portal-management/enterprise-portal/admin_email_settings.png" alt="Portal admin notification address settings" />
 
 ### Outbound Mailing 
 
@@ -50,13 +50,13 @@ For that, you need to navigate to the General section in the Setting menu, scrol
 
 To enable the portal to send notifications to admin users and API Consumers, you need to specify the outbound email address in the Default Email From field.
 No notifications will be sent until the Default Email From field is specified.
-<img src="img/dashboard/portal-management/enterprise-portal/default_from_email_settings.png" alt="Default from email settings" />
+<img src="/img/dashboard/portal-management/enterprise-portal/default_from_email_settings.png" alt="Default from email settings" />
 
 #### Email Subjects
 
 Once the default from email is configured, you can specify subjects for notifications.
 If you don’t, the default subjects will be used for email notifications.
-<img src="img/dashboard/portal-management/enterprise-portal/email_subjects_settings.png" alt="Email subject settings" />
+<img src="/img/dashboard/portal-management/enterprise-portal/email_subjects_settings.png" alt="Email subject settings" />
 
 #### SMTP Server Settings
 
@@ -64,7 +64,7 @@ Once the default from email, the admin notification email, and the subjects for 
 To do so, navigate to the SMTP setting section in the Settings/General menu and specify:
 * Your SMTP server host and port;
 * The SMTP username and password if authentication is configured for your SMTP server. 
-<img src="img/dashboard/portal-management/enterprise-portal/smtp_settings.png" alt="SMTP settings" />
+<img src="/img/dashboard/portal-management/enterprise-portal/smtp_settings.png" alt="SMTP settings" />
 
 ## Configure Developer Portal SSO
 
@@ -123,7 +123,7 @@ The Tyk Enterprise Developer portal has two audiences:
     Admins created by the SSO flow are portal users who do not belong to any organization (OrgID is 0) and are assigned the **Provider Admin** role.
 
 TIB uses **user group mapping** to map the user groups from the identity provider to the portal teams within an organization.
-<img src="img/dashboard/portal-management/enterprise-portal/user-group-mapping.png" alt="User group mapping" width="600" />
+<img src="/img/dashboard/portal-management/enterprise-portal/user-group-mapping.png" alt="User group mapping" width="600" />
 
 To define the user group mapping for your developer audience, you need to add the UserGroupMapping object to the corresponding [TIB profile](/api-management/external-service-integration#exploring-tib-profiles):
 ```yaml
@@ -146,7 +146,7 @@ If no matching group ID is found in the `UserGroupMapping` object and `DefaultUs
 ##### Login Evaluation Algorithm
 
 To determine whether a developer should be allowed to log in and which team they should be logged into, the portal uses the following algorithm:
-<img src="img/dashboard/portal-management/enterprise-portal/user-group-mapping-algorithm.png" alt="User group mapping algorithm" width="1000" />
+<img src="/img/dashboard/portal-management/enterprise-portal/user-group-mapping-algorithm.png" alt="User group mapping algorithm" width="1000" />
 
 #### Creating TIB Profile
 
@@ -165,13 +165,13 @@ You can access the wizard form by switching to the **Wizard** view.
 <Tab title="Profile for admins">
 Create a profile for admins:
 1. Complete the **Profile action** step. Here you can choose a name (this name will generate the profile ID), the profile type (select **Profile for admin users**) and the redirect url on failure.
-<img src="img/dashboard/portal-management/enterprise-portal/portal-sso-wizard-admin-1.png" alt="SSO Profiles Wizard" />
+<img src="/img/dashboard/portal-management/enterprise-portal/portal-sso-wizard-admin-1.png" alt="SSO Profiles Wizard" />
 2. Select a supported **Provider type**.
-<img src="img/dashboard/portal-management/enterprise-portal/portal-sso-wizard-provider.png" alt="SSO Profiles Wizard" />
+<img src="/img/dashboard/portal-management/enterprise-portal/portal-sso-wizard-provider.png" alt="SSO Profiles Wizard" />
 3. Complete the **Profile configuration** step. Here you can specify the access to your idp. And Advanced settings if needed.
-<img src="img/dashboard/portal-management/enterprise-portal/portal-sso-wizard-profile-config.png" alt="SSO Profiles Wizard" />
+<img src="/img/dashboard/portal-management/enterprise-portal/portal-sso-wizard-profile-config.png" alt="SSO Profiles Wizard" />
 4. Don't add any group mapping since we are creating a profile for admins and will be ignored if added. Click on **Continue** to create the profile.
-<img src="img/dashboard/portal-management/enterprise-portal/portal-sso-wizard-admin-4.png" alt="SSO Profiles Wizard" />
+<img src="/img/dashboard/portal-management/enterprise-portal/portal-sso-wizard-admin-4.png" alt="SSO Profiles Wizard" />
 </Tab>
 <Tab title="Profile for developers">
 
@@ -179,19 +179,19 @@ Create a profile for developers:
 
 1. Complete the **Profile action** step. Here, you can choose a name (this name will generate the profile ID), the profile type (select **Profile for developers**), and the redirect URL on failure.
 
-    <img src="img/dashboard/portal-management/enterprise-portal/portal-sso-wizard-dev-1.png" alt="SSO Profiles Wizard" />
+    <img src="/img/dashboard/portal-management/enterprise-portal/portal-sso-wizard-dev-1.png" alt="SSO Profiles Wizard" />
 
 2. Select a supported **Provider type**.
 
-    <img src="img/dashboard/portal-management/enterprise-portal/portal-sso-wizard-dev-2.png" alt="SSO Profiles Wizard" />
+    <img src="/img/dashboard/portal-management/enterprise-portal/portal-sso-wizard-dev-2.png" alt="SSO Profiles Wizard" />
 
 3. Complete the **Profile configuration** step. Here you can specify the access to your idp. And Advanced settings if needed.
 
-    <img src="img/dashboard/portal-management/enterprise-portal/portal-sso-wizard-dev-3.png" alt="SSO Profiles Wizard" />
+    <img src="/img/dashboard/portal-management/enterprise-portal/portal-sso-wizard-dev-3.png" alt="SSO Profiles Wizard" />
 
 4. Add the group mapping for the developers. **Custom user group claim name** must equal the JWT claim name that refers to the user group in your IDP.
 
-    <img src="img/dashboard/portal-management/enterprise-portal/portal-sso-wizard-dev-4.png" alt="SSO Profiles Wizard" />
+    <img src="/img/dashboard/portal-management/enterprise-portal/portal-sso-wizard-dev-4.png" alt="SSO Profiles Wizard" />
 
 5. Click on **Continue** to create the profile.
 </Tab>
@@ -201,12 +201,12 @@ Create a profile for developers:
 
 The Tyk Identity Broker (TIB) uses [profiles](/api-management/external-service-integration#exploring-tib-profiles) to define details related to the identity provider such as its type and access credentials, and instructs TIB on how to treat users that try log in with that provider.
 You can access the raw editor by switching to the **Raw editor** view, which displays a JSON editor with an empty TIB profile for guidance.
-<img src="img/dashboard/portal-management/enterprise-portal/portal-sso-raw-editor.png" alt="SSO Profiles Raw Editor" />
+<img src="/img/dashboard/portal-management/enterprise-portal/portal-sso-raw-editor.png" alt="SSO Profiles Raw Editor" />
 
 <Tabs>
 <Tab title="Profile for admins">
 Create a profile for admins. Make sure the ActionType is equal to `GenerateOrLoginUserProfile` and the OrgID is equal to “0.”
-<img src="img/dashboard/portal-management/enterprise-portal/portal-sso-raw-editor-admin.png" alt="SSO Profiles Raw Editor" />
+<img src="/img/dashboard/portal-management/enterprise-portal/portal-sso-raw-editor-admin.png" alt="SSO Profiles Raw Editor" />
 
 In the above example, you need to specify the following parameters:
 - `OrgID` must be `"0"` for being accepted as a provider-admin
@@ -219,7 +219,7 @@ In the above example, you need to specify the following parameters:
 
 <Tab title="Profile for developers">
 Create a developer profile. Ensure the ActionType is equal to “GenerateOrLoginDeveloperProfile,” and if you define a user group mapping, the team/s exist in the portal.
-<img src="img/dashboard/portal-management/enterprise-portal/portal-sso-raw-editor-dev.png" alt="SSO Profiles Raw Editor" />
+<img src="/img/dashboard/portal-management/enterprise-portal/portal-sso-raw-editor-dev.png" alt="SSO Profiles Raw Editor" />
 
 In the above example, you need to specify the following parameters:
 - `OrgID` could be anything as its value is ignored;
@@ -260,7 +260,7 @@ Please refer to the [TIB configuration section](/api-management/external-service
 #### Testing SSO
 
 You can access the login URL in your SSO Profile details **Provider configuration** section.
-<img src="img/dashboard/portal-management/enterprise-portal/portal-sso-login.png" alt="SSO Profile Details" />
+<img src="/img/dashboard/portal-management/enterprise-portal/portal-sso-login.png" alt="SSO Profile Details" />
 
 Tyk Enterprise Developer Portal doesn't supply a login page for Single Sign-On out of the box, so you might need to create one.
 Here is an example of such a page that works with a profile for the LDAP identity management system:
@@ -597,7 +597,7 @@ However, for developers there is one additional.
 In order to land a developer into the right API Consumer organization, it is necessary to configure the UserGroupMapping
 in the TIB profile that creates a binding between user groups in your IDP and developer teams in the portal.
 
-<img src="img/dashboard/portal-management/enterprise-portal/user-group-mapping.png" alt="User group mapping" width="600" />
+<img src="/img/dashboard/portal-management/enterprise-portal/user-group-mapping.png" alt="User group mapping" width="600" />
 
 To define the user group mapping for your developer audience, you need to add the UserGroupMapping object to the corresponding TIB profile:
 ```yaml
@@ -616,7 +616,7 @@ We recommend always defining `DefaultUserGroupID` and ensuring that it refers to
 If no matching group ID is found in the `UserGroupMapping` object and `DefaultUserGroupID` isn't defined, the portal logs in the user to the "Default organization | All users" team with an ID of 1.
 
 To determine whether a developer should be allowed to log in and which team they should be logged into, the portal uses the following algorithm:
-<img src="img/dashboard/portal-management/enterprise-portal/user-group-mapping-algorithm.png" alt="User group mapping algorithm" width="1000" />
+<img src="/img/dashboard/portal-management/enterprise-portal/user-group-mapping-algorithm.png" alt="User group mapping algorithm" width="1000" />
 
 
 ###### Configure profile to enable Single Sign-On for developers

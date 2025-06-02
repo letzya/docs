@@ -31,7 +31,7 @@ Start by creating a new API in Tyk Cloud:
 1. **Log in to the Tyk Dashboard.**.
 2. **Navigate to APIs** and click **Add New API** or **Design From Scratch** button.
 
-  <img src="img/getting-started/create-account-design-from-scratch.png" alt="Create New API" />
+  <img src="/img/getting-started/create-account-design-from-scratch.png" alt="Create New API" />
 
 3. **Configure API Details**:
   - **API Name**: Name your API (e.g., `My First API`).
@@ -39,7 +39,7 @@ Start by creating a new API in Tyk Cloud:
   - **API Style**: Select OpenAPI for standardized HTTP APIs or Classic for flexible configurations and non-HTTP APIs.
   - **Target URL**: Provide the URL of your backend service (e.g., `http://httpbin.org`).
 
-  <img src="img/getting-started/create-new-api.png" alt="Create New API" />
+  <img src="/img/getting-started/create-new-api.png" alt="Create New API" />
 
 4. **Connect to Your Desired Gateway**:
 
@@ -47,7 +47,7 @@ Start by creating a new API in Tyk Cloud:
   - `Edge Gateways` generally provide low-latency, regionally distributed API processing, ideal for a global user base.
   - `Regular Gateways` centralize API management, offering comprehensive API processing without additional edge optimizations.
 
-  <img src="img/getting-started/apis-connect-gateways.png" alt="Connect Gateways" />
+  <img src="/img/getting-started/apis-connect-gateways.png" alt="Connect Gateways" />
 
 5. **Configure your API Settings**:
 
@@ -55,7 +55,7 @@ Start by creating a new API in Tyk Cloud:
   - **Gateway Status**: Setting this to `Active` will publish your API and make it public. When in the `Disabled` state, your API will stay in a draft state until you are ready to publish it. This is a required field; for this guide, we will set it to `Active`.
   - **Access**: Your API can be set to either `Internal` or `External`, determining whether you want to keep your API accessible only through Tyk or to external services, respectively. This is a required field; for this guide, we will set it to `External`.
 
-<img src="img/getting-started/apis-configure-settings-1.png" alt="Configure Settings" />
+<img src="/img/getting-started/apis-configure-settings-1.png" alt="Configure Settings" />
 
 Scrolling down, in the **Upstream** section, you can configure settings to control the behaviour of your upstream APIs. 
 
@@ -69,7 +69,7 @@ These are not necessary to add now, but they are good to explore.
   - **Upstream Client Certificates**: Use client certificates for secure backend connections via mutual TLS (mTLS), adding an extra layer of security.
   - **Certificate Public Key Pinning**: Pin specific public keys to validate certificate authenticity and prevent unauthorized access.
 
-  <img src="img/getting-started/apis-configure-settings-2.png" alt="Configure Settings cont" />
+  <img src="/img/getting-started/apis-configure-settings-2.png" alt="Configure Settings cont" />
 
 6. **Configuring the Server section**:
 
@@ -77,14 +77,14 @@ These are not necessary to add now, but they are good to explore.
   - **Listen Path**: This is the `path` Tyk API will use to proxy your API requests. So a request made to this URL `https://<tyk-clou-url>/<listen-path>` will be proxied to the upstream URL configured above.
   - **Authentication**: Choose the desired authentication method (e.g., **API Key**).
 
-    <img src="img/getting-started/create-api-select-authentication.png" alt="Add Authentication" />
+    <img src="/img/getting-started/create-api-select-authentication.png" alt="Add Authentication" />
 
 Save your API configuration once complete.
 
 7. **Copy the API URL**
   - When you save the API configuration, Tyk generates a unique Gateway URL that can be used to access your API. Copy this URL, we will use it later during testing.
 
-    <img src="img/getting-started/api-url-provided-by-tyk.png" alt="Tyk API Gateway URL" />
+    <img src="/img/getting-started/api-url-provided-by-tyk.png" alt="Tyk API Gateway URL" />
 
 ## Create an API Key
 
@@ -92,7 +92,7 @@ The Tyk Dashboard provides the simplest way to generate a new API key. Follow th
 
 1. **Select "Keys"** from the **API Security** section and **Click "Add Key"** to generate a new key.
    
-   <img src="img/getting-started/create-api-security-key.png" alt="Create API Key" />
+   <img src="/img/getting-started/create-api-security-key.png" alt="Create API Key" />
 
 2. **Add a Policy or API to Your Key**:
    - You can either add your key to an existing **Policy** or assign it to an individual **API**.
@@ -101,7 +101,7 @@ The Tyk Dashboard provides the simplest way to generate a new API key. Follow th
      - Use the **Search field** or **Group by Authentication Type** to filter APIs.
    - Leave all other options at their default settings.
 
-   <img src="img/getting-started/configure-api-key.png" alt="Configure API Key" />
+   <img src="/img/getting-started/configure-api-key.png" alt="Configure API Key" />
 
 4. Click on the **Configuration Tab** and add the below details.
    - **Enable Detailed Logging**: This is optional and disabled by default.
@@ -113,7 +113,7 @@ The Tyk Dashboard provides the simplest way to generate a new API key. Follow th
 5. Click **CREATE**:
    - Once the key is created, a **Key successfully generated** pop-up will be displayed showing your key. **Copy the key ID** to your clipboard and save it for future reference, as it will not be shown again. And that should result in a successfully generated key!
 
-   <img src="img/getting-started/apis-keys-success.png" alt="Key Success" />
+   <img src="/img/getting-started/apis-keys-success.png" alt="Key Success" />
   
 
   
@@ -150,7 +150,7 @@ With your API live, monitor its traffic and analyze performance:
 2. **View Traffic Metrics**: Review metrics such as request count, response times, and error rates.
 3. **Analyze Data**: Use traffic trends to identify performance issues or optimize API behavior.
 
-<img src="img/getting-started/apis-analytics.png" alt="APIs Analytics" />
+<img src="/img/getting-started/apis-analytics.png" alt="APIs Analytics" />
 
 
 ### View Log Data
@@ -159,7 +159,7 @@ With your API live, monitor its traffic and analyze performance:
 2. **Search and Filter Logs**: Use filters to drill down by response status, endpoint, or client IP.
 3. **Review Detailed Logs**: View full request and response data to troubleshoot issues.
 
-<img src="img/getting-started/api-activity-logs.png" alt="APIs Logs" />
+<img src="/img/getting-started/api-activity-logs.png" alt="APIs Logs" />
 
 
 ## Next Steps

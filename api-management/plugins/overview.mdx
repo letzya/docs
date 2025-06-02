@@ -31,7 +31,7 @@ Custom plugins are usually referred to by the location where they can be *hooked
 
 The diagram below illustrates a high level architectural overview for how Tyk Gateway interacts with plugins.
 
-<img src="img/plugins/plugins_overview.svg" alt="plugins overview" width="500px" />
+<img src="/img/plugins/plugins_overview.svg" alt="plugins overview" width="500px" />
 
 From the above illustration it can be seen that:
 
@@ -408,13 +408,13 @@ Select your API from the list of *Created APIs* to reach the API designer and th
 
     You can configure custom data that will be made available to your plugin function as a JSON formatted object in the *Config Data* option.
 
-    <img src="img/plugins/plugins_oas_api_driver_options.png" alt="OAS API Plugins Driver Config" />
+    <img src="/img/plugins/plugins_oas_api_driver_options.png" alt="OAS API Plugins Driver Config" />
 
 2. **Configure the custom plugins**
 
     For each plugin that you wish to register with the API, click on the **Add Plugin** button to display a plugin configuration section:
 
-    <img src="img/plugins/plugins_oas_api_source_config.png" alt="OAS Plugins Config Section" />
+    <img src="/img/plugins/plugins_oas_api_source_config.png" alt="OAS Plugins Config Section" />
 
     Complete the following fields:
 
@@ -523,19 +523,19 @@ This section explains how to configure plugins for a Tyk Classic API using Tyk D
 
 Select your API from the list of *Created APIs* to reach the API designer and then follow these steps:
 
-<img src="img/plugins/plugins_classic_api_source_config.png" alt="Plugins Classic API screen" />
+<img src="/img/plugins/plugins_classic_api_source_config.png" alt="Plugins Classic API screen" />
 
 1. **Display the Tyk Classic API Definition editor**
 
     Click on the **View Raw Definition** button to display an editor for updating the Tyk Classic API Definition.
 
-    <img src="img/plugins/plugins_classic_api_definition_editor.png" alt="Plugins Classic API Definition editor screen" />
+    <img src="/img/plugins/plugins_classic_api_definition_editor.png" alt="Plugins Classic API Definition editor screen" />
 
 2. **Edit the Tyk Classic API Definition to configure plugins**
 
     Use the editor to edit the `custom_middleware` section of the [Tyk Classic API Definition](/api-management/plugins/overview#tyk-classic-apis).
 
-    <img src="img/plugins/plugins_classic_api_bundles_config.png" alt="Plugins Classic API Bundle Field" />
+    <img src="/img/plugins/plugins_classic_api_bundles_config.png" alt="Plugins Classic API Bundle Field" />
 
 3. **Save changes**
 
@@ -569,7 +569,7 @@ Plugin bundles are intended to simplify the process of attaching and loading cus
 
 The source code and a [manifest file](#manifest) are bundled into a zip file and uploaded to an external remote web server. The manifest file references the source code file path and the function name within the code that should be invoked for each [plugin type](/api-management/plugins/plugin-types#plugin-types). Within the API definition, custom plugins are configured simply using the name of the bundle (zip file). Tyk Gateway downloads, caches, extracts and executes plugins from the downloaded bundle according to the configuration in the manifest file. 
 
-<img src="" alt="plugin bundles architectural overview" />
+<img src="/" alt="plugin bundles architectural overview" />
 
 #### Caching plugin bundles
 
@@ -722,7 +722,7 @@ To configure plugin bundles for Tyk OAS APIs click on the APIs menu item in the 
 
     Scroll down until the *Enable Plugin* section is displayed.
 
-    <img src="img/plugins/plugins_oas_api_bundles_config.png" alt="Tyk OAS API Bundle section" />
+    <img src="/img/plugins/plugins_oas_api_bundles_config.png" alt="Tyk OAS API Bundle section" />
 
 2. **Enable plugin bundle for you API**
 
@@ -797,7 +797,7 @@ To configure plugin bundles for Tyk Classic APIs click on the APIs menu item in 
 
     Click on the *Advanced Options* tab and scroll down until the *Plugin Options* section is displayed.
 
-    <img src="img/plugins/plugins_classic_api_bundles_config.png" alt="Tyk Classic Plugin Options section" />
+    <img src="/img/plugins/plugins_classic_api_bundles_config.png" alt="Tyk Classic Plugin Options section" />
 
 2. **Enter relative path to bundle file**
 

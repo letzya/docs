@@ -11,7 +11,7 @@ import { ButtonLeft } from '/snippets/ButtonLeft.mdx';
 
 ## Introduction
 
-<img src="img/diagrams/tyk-selfmanaged-architecture-dashboard.png" alt="Tyk Dashboard diagram" />
+<img src="/img/diagrams/tyk-selfmanaged-architecture-dashboard.png" alt="Tyk Dashboard diagram" />
 
 The Tyk Dashboard is a powerful web-based interface that serves as the **central management hub for your API ecosystem**. It provides a user-friendly Graphical User Interface (GUI) for configuring, monitoring, and analyzing your APIs managed by Tyk. 
 
@@ -45,7 +45,7 @@ To get a tour of the Dashboard UI, refer to this [document](/getting-started/usi
 
 The Dashboard is a large, granular REST API with a thin-client web front-end, and if being deployed as part of a Tyk install, serves as the main integration point instead of the Gateway API.
 
-<img src="img/diagrams/dashboardapi2.png" alt="API Overview" />
+<img src="/img/diagrams/dashboardapi2.png" alt="API Overview" />
 
 **The Dashboard API is a superset of the Gateway API**, providing the same functionality, with additional features (anything that can be done in the Dashboard has an API endpoint), and offers some additional advantages:
  - The Dashboard API has a granular structure, you can create separate clients easily.
@@ -94,7 +94,7 @@ For optimal results, it is advisable to exclusively employ the Tyk Dashboard API
 
 
 
-<img src="img/diagrams/diagram_docs_dashboard-API-security-and-concepts@2x.png" alt="Tyk Dashboard API security" />
+<img src="/img/diagrams/diagram_docs_dashboard-API-security-and-concepts@2x.png" alt="Tyk Dashboard API security" />
 
 ### Pagination
 
@@ -3466,7 +3466,7 @@ The Endpoint Designer allows to configure all elements of your Tyk Classic API a
 
 ### Core Settings
 
-<img src="img/dashboard/endpoint-designer/classic-endpoint-designer-core.png" alt="The Tyk Classic Endpoint Designer - Core Settings tab" />
+<img src="/img/dashboard/endpoint-designer/classic-endpoint-designer-core.png" alt="The Tyk Classic Endpoint Designer - Core Settings tab" />
 
 The **Core Settings** tab provides access to configure basic settings for the API:
 - [Detailed logging](/api-management/logs-metrics#capturing-detailed-logs)
@@ -3482,7 +3482,7 @@ The **Core Settings** tab provides access to configure basic settings for the AP
 
 ### Versions
 
-<img src="img/dashboard/endpoint-designer/classic-endpoint-designer-versions.png" alt="The Tyk Classic Endpoint Designer - Versions tab" />
+<img src="/img/dashboard/endpoint-designer/classic-endpoint-designer-versions.png" alt="The Tyk Classic Endpoint Designer - Versions tab" />
 
 The **Versions** tab allows you to create and manage [API versioning](/api-management/gateway-config-tyk-classic#tyk-classic-api-versioning) for the API.
 
@@ -3490,7 +3490,7 @@ At the top of the Endpoint Designer, you can see which version you are currently
 
 ### Endpoint Designer
 
-<img src="img/dashboard/endpoint-designer/classic-endpoint-designer-endpoint.png" alt="The Tyk Classic Endpoint Designer - Endpoint Designer tab" />
+<img src="/img/dashboard/endpoint-designer/classic-endpoint-designer-endpoint.png" alt="The Tyk Classic Endpoint Designer - Endpoint Designer tab" />
 
 The **Endpoint Designer** is where you can define endpoints for your API so that you can enable and configure Tyk middleware to [perform checks and transformations](/api-management/traffic-transformation#) on the API traffic.
 
@@ -3498,7 +3498,7 @@ In some cases, you will want to set global settings that affect all paths that a
 
 ### Advanced Options
 
-<img src="img/dashboard/endpoint-designer/classic-endpoint-designer-advanced.png" alt="The Tyk Classic Endpoint Designer - Advanced Options tab" />
+<img src="/img/dashboard/endpoint-designer/classic-endpoint-designer-advanced.png" alt="The Tyk Classic Endpoint Designer - Advanced Options tab" />
 
 The **Advanced Options** tab is where you can configure Tyk's other powerful features including:
 - Upstream certificate management
@@ -3512,13 +3512,13 @@ The **Advanced Options** tab is where you can configure Tyk's other powerful fea
 
 ### Uptime Tests
 
-<img src="img/dashboard/endpoint-designer/classic-endpoint-designer-uptime.png" alt="The Tyk Classic Endpoint Designer - Uptime Tests tab" />
+<img src="/img/dashboard/endpoint-designer/classic-endpoint-designer-uptime.png" alt="The Tyk Classic Endpoint Designer - Uptime Tests tab" />
 
 In the **Uptime Tests** tab you can configure Tyk's [Uptime Test](/api-management/gateway-config-tyk-classic#uptime-tests) functionality
 
 ### Debugging
 
-<img src="img/dashboard/endpoint-designer/classic-endpoint-designer-debugging.png" alt="The Tyk Classic Endpoint Designer - Debugging tab" />
+<img src="/img/dashboard/endpoint-designer/classic-endpoint-designer-debugging.png" alt="The Tyk Classic Endpoint Designer - Debugging tab" />
 
 The **Debugging** tab allows you to test your endpoints before you publish or update them. You can also use it for testing any middleware plugins you have implemented. Any debugging you create will persist while still in the current API, enabling you to make changes in the rest of the API settings without losing the debugging scenario.
 
@@ -3530,7 +3530,7 @@ The Debugging tab consists of the following sections:
 
 ##### Request
 
-<img src="img/2.10/debugging_request.png" alt="Debugging Request" />
+<img src="/img/2.10/debugging_request.png" alt="Debugging Request" />
 
 In this section, you can enter the following information:
 
@@ -3542,13 +3542,13 @@ Once you have entered all the requested information, click **Run**. Debugging Re
 
 ##### Response
 
-<img src="img/2.10/debugging_results.png" alt="Debugging Response" />
+<img src="/img/2.10/debugging_results.png" alt="Debugging Response" />
 
 The Response section shows the JSON response to your request.
 
 ##### Logs
 
-<img src="img/2.10/debugging_logs.png" alt="Debugging Logs" />
+<img src="/img/2.10/debugging_logs.png" alt="Debugging Logs" />
 
 The debugging level is set to **debug** for the request. This outputs all logging information in the Endpoint Designer. In the Tyk Gateway logs you will see a single request. Any Error messages will be displayed at the bottom of the Logs output.
 
@@ -3571,7 +3571,7 @@ For the Tyk Dashboard's analytics functionality to work, you must configure both
 
 The first screen (and main view) of the Tyk Dashboard will show you an overview of the aggregate usage of your APIs, this view includes the number of hits, the number of errors and the average latency over time for all of your APIs as an average:
 
-<img src="img/2.10/analytics_overview2.png" alt="API Activity Dashboard" />
+<img src="/img/2.10/analytics_overview2.png" alt="API Activity Dashboard" />
 
 You can toggle the graphs by clicking the circular toggles above the graph to isolate only the stats you want to see.
 
@@ -3583,7 +3583,7 @@ The filter by tag option, in a graph view, will enable you to see the graph filt
 
 Below the aggregate graph, you’ll see an error breakdown and endpoint popularity chart. These charts will show you the overall error type (and code) for your APIs as an aggregate and the popularity of the endpoints that are being targeted by your clients:
 
-<img src="img/2.10/error_breakdown.png" alt="Error Breakdown and Endpoints" />
+<img src="/img/2.10/error_breakdown.png" alt="Error Breakdown and Endpoints" />
 
 
 <Note>
@@ -3604,11 +3604,11 @@ The Log Browser will isolate individual log lines in your analytics data set and
 
 You will be presented with a list of requests, and their metadata:
 
-<img src="img/2.10/log_browser.png" alt="Log Viewer" />
+<img src="/img/2.10/log_browser.png" alt="Log Viewer" />
 
 Click a request to view its details.
 
-<img src="img/2.10/log_browser_selected.png" alt="Log Viewer Details" />
+<img src="/img/2.10/log_browser_selected.png" alt="Log Viewer Details" />
 
 #### Self-Managed Installations Option
 
@@ -3627,17 +3627,17 @@ Detailed logging is not available for Tyk Cloud Classic customers.
 
 To get a tabular view of how your API traffic is performing, you can select the **Activity by API** option in the navigation and see a tabular view of your APIs. This table will list out your APIs by their traffic volume and you'll be able to see when they were last accessed:
 
-<img src="img/2.10/traffic_api.png" alt="Activity per API" />
+<img src="/img/2.10/traffic_api.png" alt="Activity per API" />
 
 You can use the same range selectors as with the Dashboard view to modify how you see the data. However, granularity and tag views will not work since they do not apply to a tabulated view.
 
 If you select an API name, you will be taken to the drill-down view for that specific API, here you will have a similar Dashboard as you do with the aggregate API Dashboard that you first visit on log in, but the whole view will be constrained to just the single API in question:
 
-<img src="img/2.10/average_use_api.png" alt="Traffic per API: CLosed graph" />
+<img src="/img/2.10/average_use_api.png" alt="Traffic per API: CLosed graph" />
 
 You will also see an error breakdown and the endpoint popularity stats for the API:
 
-<img src="img/2.10/error_breakdown_api.png" alt="API error breakdown pie chart" />
+<img src="/img/2.10/error_breakdown_api.png" alt="API error breakdown pie chart" />
 
 Tyk will try to normalize endpoint metrics by identifying IDs and UUIDs in a URL string and replacing them with normalized tags, this can help make your analytics more useful. It is possible to configure custom tags in the configuration file of your Tyk Self-Managed or Multi-Cloud installation.
 
@@ -3651,7 +3651,7 @@ From Tyk v5.1 (and LTS patches v4.0.14 and v5.0.3) the Error Breakdown and Endpo
 
 You will often want to see what individual keys are up to in Tyk, and you can do this with the **Activity per Key** section of your analytics Dashboard. This view will show a tabular layout of all keys that Tyk has seen in the range period and provide analytics for them:
 
-<img src="img/dashboard/usage-data/test_alias_key.png" alt="Activity per Token" />
+<img src="/img/dashboard/usage-data/test_alias_key.png" alt="Activity per Token" />
 
 You'll notice in the screenshot above that the keys look completely different to the ones you can generate in the key designer (or via the API), this is because, by default, Tyk will hash all keys once they are created in order for them to not be snooped should your key-store be breached.
 
@@ -3661,9 +3661,9 @@ The key `00000000` is an empty token, or an open-request. If you have an API tha
 
 If you select a key, you can get a drill down view of the activity of that key, and the errors and codes that the token has generated:
 
-<img src="img/2.10/traffic_by_key.png" alt="Traffic activity by key graph" />
+<img src="/img/2.10/traffic_by_key.png" alt="Traffic activity by key graph" />
 
-<img src="img/2.10/error_by_key.png" alt="Errors by Key" />
+<img src="/img/2.10/error_by_key.png" alt="Errors by Key" />
 
 (The filters in this view will not be of any use except to filter by API Version).
 
@@ -3677,7 +3677,7 @@ From Tyk v5.1 (and LTS patches v4.0.14 and v5.0.3) the <b>Traffic per Key</b> sc
 
 To get a tabular view of how your API traffic is performing at the endpoint level, you can select the Activity by Endpoint option in the navigation and see a tabular view of your API endpoints. This table will list your API endpoints by their traffic volume and you’ll be able to see when they were last accessed:
 
-<img src="img/dashboard/analytics/endpoint_popularity.png" alt="Activity by endpoint" />
+<img src="/img/dashboard/analytics/endpoint_popularity.png" alt="Activity by endpoint" />
 
 #### Controlling which endpoints appear in the analytics data
 
@@ -3764,17 +3764,17 @@ Adding the track endpoint middleware to your API endpoints is easy when using th
 
     From the **API Designer** add an endpoint that matches the path and method to which you want to apply the middleware.
 
-    <img src="img/dashboard/api-designer/tyk-oas-no-endpoints.png" alt="Tyk OAS API Designer showing no endpoints created" />
+    <img src="/img/dashboard/api-designer/tyk-oas-no-endpoints.png" alt="Tyk OAS API Designer showing no endpoints created" />
 
-    <img src="img/dashboard/api-designer/tyk-oas-add-endpoint.png" alt="Adding an endpoint to an API using the Tyk OAS API Designer" />
+    <img src="/img/dashboard/api-designer/tyk-oas-add-endpoint.png" alt="Adding an endpoint to an API using the Tyk OAS API Designer" />
 
-    <img src="img/dashboard/api-designer/tyk-oas-no-middleware.png" alt="Tyk OAS API Designer showing no middleware enabled on endpoint" />
+    <img src="/img/dashboard/api-designer/tyk-oas-no-middleware.png" alt="Tyk OAS API Designer showing no middleware enabled on endpoint" />
 
 2. **Select the Track Endpoint middleware**
 
     Select **ADD MIDDLEWARE** and choose the **Track Endpoint** middleware from the *Add Middleware* screen.
 
-    <img src="img/dashboard/api-designer/tyk-oas-track.png" alt="Adding the Track Endpoint middleware" />
+    <img src="/img/dashboard/api-designer/tyk-oas-track.png" alt="Adding the Track Endpoint middleware" />
 
 3. **Save the API**
 
@@ -3812,7 +3812,7 @@ You can use the API Designer in the Tyk Dashboard to configure the track endpoin
 
     From the **Endpoint Designer** add an endpoint that matches the path for which you want to allow access. Select the **Track endpoint** plugin.
 
-    <img src="img/dashboard/analytics/classic_track_endpoint.png" alt="Select the middleware" />
+    <img src="/img/dashboard/analytics/classic_track_endpoint.png" alt="Select the middleware" />
 
 2. **Save the API**
 
@@ -3824,7 +3824,7 @@ Tyk will attempt to record GeoIP based information based on your inbound traffic
 
 You can view the overview of what the traffic breakdown looks like per country, and then drill down into the per-country traffic view by selecting a country code from the list:
 
-<img src="img/2.10/geographic_dist.png" alt="Geographic Distribution" />
+<img src="/img/2.10/geographic_dist.png" alt="Geographic Distribution" />
 
 
 <Note>
@@ -3840,7 +3840,7 @@ To use a MaxMind database, see [MaxMind Database Settings](/tyk-oss-gateway/conf
 
 The error overview page limits the analytics down to errors only, and gives you a detailed look over the range of the number of errors that your APIs have generated. This view is very similar to the Dashboard, but will provide more detail on the error types:
 
-<img src="img/2.10/errors_overview.png" alt="Error Overview" />
+<img src="/img/2.10/errors_overview.png" alt="Error Overview" />
 
 
 <Note>
@@ -3852,11 +3852,11 @@ From Tyk v5.1 (and LTS patches v4.0.14 and v5.0.3) the Errors by Category data w
 
 Traffic statistics are available on a per OAuth Client ID basis if you are using the OAuth mode for one of your APIs. To get a breakdown view of traffic aggregated to a Client ID, you will need to go to the **System Management -> APIs** section and then under the **OAuth API**, there will be a button called **OAuth API**. Selecting an OAuth client will then show its aggregate activity
 
-<img src="img/dashboard/system-management/oauthClientNav.png" alt="OAuth Client" />
+<img src="/img/dashboard/system-management/oauthClientNav.png" alt="OAuth Client" />
 
 In the API list view – an **OAuth Clients** button will appear for OAuth enabled APIs, use this to browse to the Client ID and the associated analytics for that client ID:
 
-<img src="img/dashboard/system-management/oauthClientAnalytics.png" alt="OAuth Client Analytics Data" />
+<img src="/img/dashboard/system-management/oauthClientAnalytics.png" alt="OAuth Client Analytics Data" />
 
 You can view the analytics of individual tokens generated by this Client ID in the regular token view.
 
@@ -3920,21 +3920,21 @@ The API Designer in the Tyk Dashboard UI provides a simple method for assigning 
 
 ##### Managing categories with Tyk OAS APIs
 When working with Tyk OAS APIs, the API Designer has a separate **Access** tab where you can configure the categories to which the API is assigned.
-<img src="img/dashboard/endpoint-designer/categories-oas.png" alt="Tyk OAS API Designer" /> 
+<img src="/img/dashboard/endpoint-designer/categories-oas.png" alt="Tyk OAS API Designer" /> 
 
 You can choose existing categories from the drop-down or define new categories simply by typing in the box. You can also remove the API from a category by clicking on the `x` or deleting the category from the box.
-<img src="img/dashboard/endpoint-designer/categories-oas-add.png" alt="Managing categories for a Tyk OAS API" />
+<img src="/img/dashboard/endpoint-designer/categories-oas-add.png" alt="Managing categories for a Tyk OAS API" />
 
 ##### Managing categories with Tyk Classic APIs
 When working with Tyk Classic APIs, the API Designer has a box in the **API Settings** section where you can configure the categories to which the API is assigned.
-<img src="img/dashboard/endpoint-designer/categories-classic.png" alt="Tyk Classic API Designer" /> 
+<img src="/img/dashboard/endpoint-designer/categories-classic.png" alt="Tyk Classic API Designer" /> 
 
 You can choose existing categories from the list that appears when you click in the box or you can define new categories simply by typing in the box. You can also remove the API from a category by clicking on the `x` or deleting the category from the box.
-<img src="img/dashboard/endpoint-designer/categories-classic-add.png" alt="Managing categories for a Tyk Classic API" />
+<img src="/img/dashboard/endpoint-designer/categories-classic-add.png" alt="Managing categories for a Tyk Classic API" />
 
 ##### Filtering the API list
 When you have APIs assigned to categories, you can choose to view only the APIs in a specific category by using the **FILTER BY API CATEGORY** drop-down on the **Created APIs** screen.
-<img src="img/dashboard/endpoint-designer/categories-filter.png" alt="View APIs in a category" /> 
+<img src="/img/dashboard/endpoint-designer/categories-filter.png" alt="View APIs in a category" /> 
 
 #### Tyk Dashboard API
 The [Tyk Dashboard API](/tyk-dashboard-api) provides endpoints to manage categories directly, if you are not using the API Designer.
@@ -4029,7 +4029,7 @@ The Tyk Dashboard UI provides the following functionality to support working wit
 
 API Templates can be found in the **API Templates** section of the **API Management** menu in the Tyk Dashboard. This screen lists all the templates currently registered with Tyk and displays their names and short descriptions. It also gives access to options to create and manage templates.
 
-<img src="img/dashboard/api-assets/api-templates/api-templates-menu.png" alt="API Templates" />
+<img src="/img/dashboard/api-assets/api-templates/api-templates-menu.png" alt="API Templates" />
 
 
 <Note>
@@ -4051,20 +4051,20 @@ The template does not need to be a complete or valid API definition however as a
 
 In this example, we have configured just the Name, Description, Gateway Status and Access settings:
 
-<img src="img/dashboard/api-assets/api-templates/create-api-template.png" alt="Configure the template" />
+<img src="/img/dashboard/api-assets/api-templates/create-api-template.png" alt="Configure the template" />
  
 When you have configured all of the API-level and endpoint-level settings you require, select **SAVE TEMPLATE** to create and register the template with Tyk.
 
 Returning to the **API Template** screen you will see your new template has been added to the list and assigned a unique `id` that can be used to access the template from the [Tyk Dashboard API](/#structure-of-an-api-template):
 
-<img src="img/dashboard/api-assets/api-templates/template-created.png" alt="Template has been successfully created" />
+<img src="/img/dashboard/api-assets/api-templates/template-created.png" alt="Template has been successfully created" />
 
 ##### Creating a template from an existing API
 You can use an existing API deployed on Tyk as the basis for a new API template - this is a great way to build up a portfolio of standardized APIs once you've got your first one correctly configured.
 
 From the **Created APIs** screen within the **APIs** section of the Tyk Dashboard, select the API that you wish to use as your starting point. In the **ACTIONS** drop-down select the **CREATE API TEMPLATE** option.
 
-<img src="img/dashboard/api-assets/api-templates/create-from-api.png" alt="Select Create API Template" />
+<img src="/img/dashboard/api-assets/api-templates/create-from-api.png" alt="Select Create API Template" />
 
 This will take you to the **Create API Template** screen, where you can configure all aspects of the template.
 
@@ -4074,15 +4074,15 @@ The template does not need to be a complete or valid API definition however as a
 
 In this example, we have configured the Name and Description. The base API included response header transformation middleware on the `/anything` endpoint and API-level cache configuration, all of which will be configured within the template.
 
-<img src="img/dashboard/api-assets/api-templates/second-template.png" alt="Configure the template" />
-<img src="img/dashboard/api-assets/api-templates/second-template-cache.png" alt="Cache settings inherited from base API" />
-<img src="img/dashboard/api-assets/api-templates/second-template-endpoints.png" alt="Endpoint settings inherited from base API" />
+<img src="/img/dashboard/api-assets/api-templates/second-template.png" alt="Configure the template" />
+<img src="/img/dashboard/api-assets/api-templates/second-template-cache.png" alt="Cache settings inherited from base API" />
+<img src="/img/dashboard/api-assets/api-templates/second-template-endpoints.png" alt="Endpoint settings inherited from base API" />
  
 When you have configured all of the API-level and endpoint-level settings you require, select **SAVE TEMPLATE** to create and register the template with Tyk.
 
 Returning to the **API Template** screen you will see your new template has been added to the list and assigned a unique `id` that can be used to access the template from the [Tyk Dashboard API](/#structure-of-an-api-template).
 
-<img src="img/dashboard/api-assets/api-templates/second-template-created.png" alt="Template has been successfully created" />
+<img src="/img/dashboard/api-assets/api-templates/second-template-created.png" alt="Template has been successfully created" />
 
 #### Using templates
 API templates are used as the starting point during the creation of a new API. They can be applied in all of the methods supported by Tyk for creating new APIs.
@@ -4091,25 +4091,25 @@ API templates are used as the starting point during the creation of a new API. T
 There are two ways to base a new API, created entirely within the Tyk Dashboard's API Designer, on a template that you've created and registered with Tyk.
 
 You can go from the **API Template** screen - for the template you want to use, select **CREATE API FROM TEMPLATE** from the **ACTIONS** menu:
-<img src="img/dashboard/api-assets/api-templates/create-api-from-template.png" alt="Select Create API from template" />
+<img src="/img/dashboard/api-assets/api-templates/create-api-from-template.png" alt="Select Create API from template" />
 
 Or, from the **Created APIs** screen, select **ADD NEW API** as normal and then select the template you want to use from the **API Template** section:
-<img src="img/dashboard/api-assets/api-templates/create-api-from-template2.png" alt="Select the template you want to use" />
+<img src="/img/dashboard/api-assets/api-templates/create-api-from-template2.png" alt="Select the template you want to use" />
 
 Both of these routes will take you through to the API Designer, where the settings from your API template will be pre-configured.
 
 In this example, we applied "My first template" that we created [here](/#creating-a-new-api-template). You can see that the Gateway Status and Access fields have been configured:
-<img src="img/dashboard/api-assets/api-templates/created-api.png" alt="The API with template applied" />
+<img src="/img/dashboard/api-assets/api-templates/created-api.png" alt="The API with template applied" />
 
 ##### Using a template when importing an OpenAPI description or API definition
 From the **Import API** screen, if you select the OpenAPI **type** then you can create an API from an OpenAPI description or Tyk OAS API definition; choose the appropriate method to provide this to the Dashboard:
 - paste the JSON into the text editor
 - provide a plain text file containing the JSON
 - provide a URL to the JSON
-<img src="img/dashboard/api-assets/api-templates/import-select-source.png" alt="Options when importing an OpenAPI description" /> 
+<img src="/img/dashboard/api-assets/api-templates/import-select-source.png" alt="Options when importing an OpenAPI description" /> 
 
 After pasting the JSON or locating the file, you can select the template you want to use from the **API Template** section:
-<img src="img/dashboard/api-assets/api-templates/import-select-template.png" alt="Select the template you want to use" /> 
+<img src="/img/dashboard/api-assets/api-templates/import-select-template.png" alt="Select the template you want to use" /> 
 
 In this example we used this simple OpenAPI description and selected "My second template" that we created [here](/#creating-a-template-from-an-existing-api):
 
@@ -4147,23 +4147,23 @@ The Dashboard UI allows you to edit and delete templates after they have been cr
 
 ##### Editing a template
 You can make changes to a template that has been registered with Tyk from the **API Templates** screen. For the template that you want to modify, simply select **EDIT TEMPLATE** from the **ACTIONS** menu:
-<img src="img/dashboard/api-assets/api-templates/edit-template.png" alt="Accessing the API template" /> 
+<img src="/img/dashboard/api-assets/api-templates/edit-template.png" alt="Accessing the API template" /> 
 
 This will take you to the **API Template Details** screen where you can view the current template configuration. If you want to make changes, simply select **EDIT** to make the fields editable:
-<img src="img/dashboard/api-assets/api-templates/template-editor.png" alt="Modifying the API template" /> 
+<img src="/img/dashboard/api-assets/api-templates/template-editor.png" alt="Modifying the API template" /> 
 
 Alternatively you can view and modify the raw JSON for the template by selecting **VIEW RAW TEMPLATE** from the **ACTIONS** menu:
-<img src="img/dashboard/api-assets/api-templates/template-raw-editor.png" alt="Modifying the API template JSON" /> 
+<img src="/img/dashboard/api-assets/api-templates/template-raw-editor.png" alt="Modifying the API template JSON" /> 
 
 You'll need to select **SAVE TEMPLATE** to apply your changes from either screen.
 
 ##### Deleting a template
 You can delete a template from your Tyk Dashboard from the **API Template Details** screen. This screen can be accessed by selecting the template from the **API Templates** screen (either by clicking on the template name, or selecting **EDIT TEMPLATE** from the **ACTIONS** menu):
-<img src="img/dashboard/api-assets/api-templates/edit-template.png" alt="Accessing the API template" /> 
-<img src="img/dashboard/api-assets/api-templates/edit-template.png" alt="Accessing the API template" /> 
+<img src="/img/dashboard/api-assets/api-templates/edit-template.png" alt="Accessing the API template" /> 
+<img src="/img/dashboard/api-assets/api-templates/edit-template.png" alt="Accessing the API template" /> 
 
 From the **API Template Details** screen you can select **DELETE TEMPLATE** from the **ACTIONS** menu:
-<img src="img/dashboard/api-assets/api-templates/delete-template.png" alt="Deleting the API template" /> 
+<img src="/img/dashboard/api-assets/api-templates/delete-template.png" alt="Deleting the API template" /> 
 
 
 <Note>
@@ -4733,7 +4733,7 @@ As well as configuring OPA rules through the API, admin users can view and edit 
 
 1. From the **OPA Rules menu**. From the Dashboard Management menu, select OPA Rules. You can view and make any changes and select whether your OPA rules should be enabled or disabled.
 
-<img src="img/dashboard/system-management/opa-rules-menu.png" alt="OPA Rules Menu" />
+<img src="/img/dashboard/system-management/opa-rules-menu.png" alt="OPA Rules Menu" />
 
 2. From **Developer Tools**. Using the keyboard shortcut `CMD+SHIFT+D` (or `CTRL+SHIFT+D` for PC), you can open the Developer Tools panel on any page in the Dashboard and configure the permissions. Updates are applied in real-time.  
 
@@ -4744,8 +4744,8 @@ As well as configuring OPA rules through the API, admin users can view and edit 
     </Note>
 
 
-<img src="img/2.10/opa-floating.png" alt="OPA Floating UI" />
-<img src="img/2.10/opa.png" alt="OPA screen" />
+<img src="/img/2.10/opa-floating.png" alt="OPA Floating UI" />
+<img src="/img/2.10/opa.png" alt="OPA screen" />
 
 ### Dashboard OPA rules
 
@@ -4961,7 +4961,7 @@ This assumes no other additional permissions already exist.  If you're adding to
 #### Create user
 In the Dashboard UI, navigate to System Management -> Users, and hit the `Add User` button.  Create a user that has API `Write` access and the newly created `API Editor` permission, e.g.  
 
-<img src="img/dashboard/system-management/userAdditionalPermission.png" alt="User with Additional Permission" />
+<img src="/img/dashboard/system-management/userAdditionalPermission.png" alt="User with Additional Permission" />
 
 ##### Add Open Policy Agent (OPA) Rule
 
@@ -5332,7 +5332,7 @@ Being extensible, Tyk supports storing this data across different databases (Mon
 
 As illustrated below it can be seen that Tyk Pump writes to one or more external data sources via a Redis store. Conversely, Tyk Dashboard reads this data from the external data sources. 
 
-<img src="img/diagrams/diagram_docs_pump-open-source@2x.png" alt="Tyk Dashboard Pump Architecture" />
+<img src="/img/diagrams/diagram_docs_pump-open-source@2x.png" alt="Tyk Dashboard Pump Architecture" />
 
 The following details are required to manage this configuration:
 - Data storage layer type

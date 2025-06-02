@@ -289,7 +289,7 @@ This guide explains how to deploy your custom Go plugins on Tyk Cloud:
 
 1. [Create a plugin bundle](/api-management/plugins/overview#plugin-bundles) that includes the newly compiled version
 
-    <img src="img/developer-support/path1-step5-bundle-contents.png" alt="Bundle ZIP example" width="800" />
+    <img src="/img/developer-support/path1-step5-bundle-contents.png" alt="Bundle ZIP example" width="800" />
 
     Your manifest.json will look something like this:
 
@@ -324,7 +324,7 @@ This guide explains how to deploy your custom Go plugins on Tyk Cloud:
 
 1. [Create a plugin bundle](/api-management/plugins/overview#plugin-bundles) that includes both your current version’s plugin along with the newly compiled version
 
-    <img src="img/developer-support/path2-step5-bundle-contents.png" alt="Bundle ZIP example" width="800" />
+    <img src="/img/developer-support/path2-step5-bundle-contents.png" alt="Bundle ZIP example" width="800" />
     
     Your `manifest.json` will look something like this:
 
@@ -569,7 +569,7 @@ from the [packagecloud.io/tyk](https://packagecloud.io/tyk) repository.
 
 The package name contains the version number and the distro/version column displays the specific distribution release.
 
-<img src="img/upgrade-guides/deb_packages.png" alt="Package names" />
+<img src="/img/upgrade-guides/deb_packages.png" alt="Package names" />
 
 ##### Backups
 
@@ -604,7 +604,7 @@ SAVE
 
 **Example - SAVE**
 
-<img src="img/upgrade-guides/redis_save.png" alt="Redis SAVE example" width="600" height="auto" />
+<img src="/img/upgrade-guides/redis_save.png" alt="Redis SAVE example" width="600" height="auto" />
 
 To restore Redis data, follow these steps:
 
@@ -616,7 +616,7 @@ the configuration parameters of a running Redis server.
 
 **Example - CONFIG**
 
-<img src="img/upgrade-guides/redis_config.png" alt="Redis CONFIG example" width="600" height="auto" />
+<img src="/img/upgrade-guides/redis_config.png" alt="Redis CONFIG example" width="600" height="auto" />
 
 **MongoDB**
 
@@ -631,7 +631,7 @@ mongodump --db tyk_analytics --out /path/to/dump/directory
 
 **Example**
 
-<img src="img/upgrade-guides/mongo_dump.png" alt="Mongo DUMP example" height="600" />
+<img src="/img/upgrade-guides/mongo_dump.png" alt="Mongo DUMP example" height="600" />
 
 To restore a database using a previously saved snapshot, simply employ the mongorestore command.
 
@@ -661,7 +661,7 @@ dpkg -l | grep -i tyk
 
 **Example**
 
-<img src="img/upgrade-guides/check_packages.png" alt="Check packages" height="600" />
+<img src="/img/upgrade-guides/check_packages.png" alt="Check packages" height="600" />
 
 List available versions of upgradable packages of Tyk components and ensure that the version you are planning to upgrade to is listed in the output of the above command.
 
@@ -671,7 +671,7 @@ apt list -a 'tyk*'
 
 **Example**
 
-<img src="img/upgrade-guides/list_packages.png" alt="List packages example" width="600" />
+<img src="/img/upgrade-guides/list_packages.png" alt="List packages example" width="600" />
 
 **Step 3. Upgrade Tyk Components**
 
@@ -691,7 +691,7 @@ sudo apt-get install tyk-pump=<desired-version>
 
 **Example**
 
-<img src="img/upgrade-guides/install_deb.png" alt="apt-get install example" width="600" height="auto" />
+<img src="/img/upgrade-guides/install_deb.png" alt="apt-get install example" width="600" height="auto" />
 
 **Step 4. Restart Components**
 
@@ -805,7 +805,7 @@ Depending on the Linux distribution that you are using, ensure that you are pull
 
 The package name contains the version number and the distro/version column displays the specific distribution release.
 
-<img src="img/upgrade-guides/rpm_packages.png" alt="Package names" />
+<img src="/img/upgrade-guides/rpm_packages.png" alt="Package names" />
 
 ##### Backups
 
@@ -842,7 +842,7 @@ SAVE
 
 **Example**
 
-<img src="img/upgrade-guides/redis_save.png" alt="Redis SAVE example" width="600" height="auto" />
+<img src="/img/upgrade-guides/redis_save.png" alt="Redis SAVE example" width="600" height="auto" />
 
 To restore Redis data, follow these steps:
 
@@ -851,7 +851,7 @@ To restore Redis data, follow these steps:
 
 To locate your Redis directory, you can use the CONFIG command. Specifically, the CONFIG GET command allows you to read the configuration parameters of a running Redis server.
 Example:
-<img src="img/upgrade-guides/redis_config.png" alt="Redis CONFIG example" width="600" height="auto" />
+<img src="/img/upgrade-guides/redis_config.png" alt="Redis CONFIG example" width="600" height="auto" />
 
 **MongoDB**
 
@@ -866,7 +866,7 @@ mongodump --db tyk_analytics --out /path/to/dump/directory
 
 **Example**
 
-<img src="img/upgrade-guides/mongo_dump.png" alt="Mongo DUMP example" height="600" />
+<img src="/img/upgrade-guides/mongo_dump.png" alt="Mongo DUMP example" height="600" />
 
 To restore a database using a previously saved snapshot, simply employ the mongorestore command.
 
@@ -903,7 +903,7 @@ rpm -qa | grep -i tyk
 
 **Example**
 
-<img src="img/upgrade-guides/list_rpm.png" alt="List RPM packages example" width="600" height="auto" />
+<img src="/img/upgrade-guides/list_rpm.png" alt="List RPM packages example" width="600" height="auto" />
 
 List available versions of upgradable packages of Tyk components and ensure that the version you are planning to upgrade to is listed in the output of the above command.
 
@@ -912,8 +912,8 @@ yum --showduplicates list tyk*
 ```
 
 Example:
-<img src="img/upgrade-guides/list_package.png" alt="List version example" width="600" height="auto" />
-<img src="img/upgrade-guides/list_package_2.png" alt="List version example" width="600" height="auto" />
+<img src="/img/upgrade-guides/list_package.png" alt="List version example" width="600" height="auto" />
+<img src="/img/upgrade-guides/list_package_2.png" alt="List version example" width="600" height="auto" />
 
 **Step 3. Upgrade Tyk Components**
 
@@ -927,7 +927,7 @@ yum update tyk-pump-<desired-version>
 
 **Example**
 
-<img src="img/upgrade-guides/yum_update.png" alt="Update example" width="auto" height="600" />
+<img src="/img/upgrade-guides/yum_update.png" alt="Update example" width="auto" height="600" />
 
 **Step 4. Restart Tyk Components**
 
@@ -989,7 +989,7 @@ yum history info <ID>
 
 **Example**
 
-<img src="img/upgrade-guides/yum_history.png" alt="Update example" width="auto" height="600" />
+<img src="/img/upgrade-guides/yum_history.png" alt="Update example" width="auto" height="600" />
 
 **Step 3. Revert**
 
@@ -1193,7 +1193,7 @@ docker run --rm -v "$(pwd)":/plugin-source \
 ```
 
 Example:
-<img src="img/upgrade-guides/recompile_plugin.png" alt="Recompile plugin example" width="600" height="auto" />
+<img src="/img/upgrade-guides/recompile_plugin.png" alt="Recompile plugin example" width="600" height="auto" />
 
 You can remove the plugin complier images once your plugin has been successfully recompiled:
 

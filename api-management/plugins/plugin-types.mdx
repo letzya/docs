@@ -442,23 +442,23 @@ Adding a per-endpoint custom plugin to your API endpoints is easy when using the
 
     From the **API Designer** add an endpoint that matches the path and method to which you want to apply the middleware.
 
-    <img src="img/dashboard/api-designer/tyk-oas-no-endpoints.png" alt="Tyk OAS API Designer showing no endpoints created" />
+    <img src="/img/dashboard/api-designer/tyk-oas-no-endpoints.png" alt="Tyk OAS API Designer showing no endpoints created" />
 
-    <img src="img/dashboard/api-designer/tyk-oas-add-endpoint.png" alt="Adding an endpoint to an API using the Tyk OAS API Designer" />
+    <img src="/img/dashboard/api-designer/tyk-oas-add-endpoint.png" alt="Adding an endpoint to an API using the Tyk OAS API Designer" />
 
-    <img src="img/dashboard/api-designer/tyk-oas-no-middleware.png" alt="Tyk OAS API Designer showing no middleware enabled on endpoint" />
+    <img src="/img/dashboard/api-designer/tyk-oas-no-middleware.png" alt="Tyk OAS API Designer showing no middleware enabled on endpoint" />
 
 2. **Select the Go Post-Plugin middleware**
 
     Select **ADD MIDDLEWARE** and choose **Go Post-Plugin** from the *Add Middleware* screen.
 
-    <img src="img/dashboard/api-designer/tyk-oas-go-plugin.png" alt="Adding the Go Post-Plugin middleware" />
+    <img src="/img/dashboard/api-designer/tyk-oas-go-plugin.png" alt="Adding the Go Post-Plugin middleware" />
 
 3. **Configure the middleware**
 
     You must provide the path to the compiled plugin and the name of the Go function that should be invoked by Tyk Gateway when the middleware is triggered.
 
-    <img src="img/dashboard/api-designer/tyk-oas-go-plugin-config.png" alt="Configuring the per-endpoint custom plugin" />
+    <img src="/img/dashboard/api-designer/tyk-oas-go-plugin-config.png" alt="Configuring the per-endpoint custom plugin" />
 
 4. **Save the API**
 
@@ -522,19 +522,19 @@ You can use the API Designer in the Tyk Dashboard to add the per-endpoint custom
 
     From the **Endpoint Designer** add an endpoint that matches the path for which you want to trigger the custom plugin function. Select the **Go Plugin** plugin.
 
-    <img src="img/dashboard/endpoint-designer/endpointplugin.png" alt="Selecting the middleware" />
+    <img src="/img/dashboard/endpoint-designer/endpointplugin.png" alt="Selecting the middleware" />
 
 2. **Locate the middleware in the raw API definition**
 
     Once you have selected the middleware for the endpoint, you need to switch to the *Raw Definition* view and then locate the `go_plugin` section (you can search within the text editor window).
 
-    <img src="img/dashboard/endpoint-designer/endpointplugin_search.png" alt="Locating the middleware configuration" />
+    <img src="/img/dashboard/endpoint-designer/endpointplugin_search.png" alt="Locating the middleware configuration" />
 
 3. **Configure the middleware**
 
     Now you can directly edit the `plugin_path` and `func_name` to locate your compiled plugin function.
 
-    <img src="img/dashboard/endpoint-designer/endpointplugin_config.png" alt="Configuring the middleware" />
+    <img src="/img/dashboard/endpoint-designer/endpointplugin_config.png" alt="Configuring the middleware" />
 
 4. **Save the API**
 

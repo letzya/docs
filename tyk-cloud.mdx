@@ -160,7 +160,7 @@ The following information would be useful so you can set up Tyk Cloud as quickly
 
 This diagram shows how _Organization, Teams, Environments, Control Planes and Cloud Data Planes_ fit in with each other and which object contains which:
 
-<img src="img/cloud/Onboarding_Diagram_2-1_Ara.png" alt="Hierarchy of Organization, Teams, Environments, Control Planes and Cloud Data Planes" />
+<img src="/img/cloud/Onboarding_Diagram_2-1_Ara.png" alt="Hierarchy of Organization, Teams, Environments, Control Planes and Cloud Data Planes" />
 
 ### Complete Cloud Setup Tasks
 
@@ -327,7 +327,7 @@ For further details, please refer to the [release notes](/developer-support/rele
   1. Click the **Advanced Options** tab of the API Designer.
   2. Scroll to the **Segment Tags (Node Segmentation)** setting and add the cloud data plane tag (edge) you saw when creating the Cloud Data Plane.
 
-<img src="img/cloud/edge_segment_tags.png" alt="Segment Tags" />
+<img src="/img/cloud/edge_segment_tags.png" alt="Segment Tags" />
 
 
 <Note>
@@ -604,11 +604,11 @@ Parameters:
 
 1. **Select "APIs" from the "System Management" section**
 
-<img src="img/2.10/apis_menu.png" alt="API listing" />
+<img src="/img/2.10/apis_menu.png" alt="API listing" />
 
 2. **Click "IMPORT API"**
 
-<img src="img/2.10/import_api_button.png" alt="Add API button location" />
+<img src="/img/2.10/import_api_button.png" alt="Add API button location" />
 
 Tyk supports the following import options:
 
@@ -623,11 +623,11 @@ For Apiary Blueprint and Swagger/OpenAPI, the process is the same. For example:
 
 Click the "From Swagger (JSON)" option from the pop-up
 
-<img src="img/2.10/import_api_json.png" alt="Import popup" />
+<img src="/img/2.10/import_api_json.png" alt="Import popup" />
 
 For WSDL:
 
-<img src="img/2.10/import_api_wsdl.png" alt="Import WSDL" />
+<img src="/img/2.10/import_api_wsdl.png" alt="Import WSDL" />
 
 3. **Enter API Information**
 
@@ -648,23 +648,23 @@ As well as importing new APIs, with Tyk, you can also use import to create a new
 
 1. Open the API Designer page and select Import Version from the **Options** drop-down.
 
-<img src="img/oas/import-api-version.png" alt="Import API Version Drop-Down" />
+<img src="/img/oas/import-api-version.png" alt="Import API Version Drop-Down" />
 
 2. Select either OpenAPI (v2.0 or 3.0) or WSDL/XML as your source API
 
 3. You need to add a new **API Version Name**. **Upstream URL** is optional.
 
-<img src="img/oas/import-api-version-config.png" alt="Import API Version Configuration" />
+<img src="/img/oas/import-api-version-config.png" alt="Import API Version Configuration" />
 
 4. Click **Import API**.
 
-<img src="img/oas/import-api-button.png" alt="Import API" />
+<img src="/img/oas/import-api-button.png" alt="Import API" />
 
 5. Select the **Versions** tab and your new version will be available.
 6. Open the **Endpoint Designer** for your API and select your new version from **Edit Version**.
 7. You will see all the endpoints are saved for your new version.
 
-<img src="img/oas/version-endpoints.png" alt="Version Endpoints" />
+<img src="/img/oas/version-endpoints.png" alt="Version Endpoints" />
 
 
 ## Additional Cloud Configuration
@@ -696,13 +696,13 @@ If you are an Organization Admin, when you log in you will see the Overview scre
 
 **Quick Stats**
 
-<img src="img/admin/tyk-cloud-org-overview.png" alt="Quick Stats" />
+<img src="/img/admin/tyk-cloud-org-overview.png" alt="Quick Stats" />
 
 This section gives you an "at a glance" overview of your organization. This section is designed to show what your plan entitles your organization to and how much of your entitlement is currently used in relation to Teams, Control Planes, Cloud Data Plane Deployments and the distribution of those deployments across the available entitlement regions.
 
 **Teams**
 
-<img src="img/admin/tyk-cloud-org-teams.png" alt="Teams" />
+<img src="/img/admin/tyk-cloud-org-teams.png" alt="Teams" />
 
 This section shows the number of teams created within the organization, the number of environments the team is assigned to, and the Control Plane and Deployed Cloud Data Planes within those environments.
 
@@ -710,13 +710,13 @@ This section shows the number of teams created within the organization, the numb
 
 The default view for this section is Group by Control Plane and shows all deployments across all teams.
 
-<img src="img/admin/tyk-cloud-org-deployments.png" alt="Deployments Grouped by Control Plane" />
+<img src="/img/admin/tyk-cloud-org-deployments.png" alt="Deployments Grouped by Control Plane" />
 
 **Environments**
 
 The Environments section shows the environments created within your organization, the team they belong to and active deployments within each environment.
 
-<img src="img/admin/org_admin_environments.png" alt="Environments" />
+<img src="/img/admin/org_admin_environments.png" alt="Environments" />
 
 #### Managing Environments
 
@@ -753,15 +753,15 @@ An Org Admin can perform the following:
 
 1. Click the environment Name from your list
 
-<img src="img/admin/tyk-cloud-edit-env.png" alt="Edit Environment Name" />
+<img src="/img/admin/tyk-cloud-edit-env.png" alt="Edit Environment Name" />
 
 2. Click Edit
 
-<img src="img/admin/tyk-cloud-env-screen.png" alt="Env Edit Screen" />
+<img src="/img/admin/tyk-cloud-env-screen.png" alt="Env Edit Screen" />
 
 3. You can now rename the environment, or delete it from your organization
 
-<img src="img/admin/tyk-cloud-rename-delete.png" alt="Delete or Rename Env" />
+<img src="/img/admin/tyk-cloud-rename-delete.png" alt="Delete or Rename Env" />
 
 
 <Warning>
@@ -817,7 +817,7 @@ To edit an existing Control Plane:
 1. From the Deployments screen, click the **Control Plane Name** from the list
 2. Select **Edit** from the Deployed drop-down list
 
-<img src="img/admin/cp-edit.png" alt="Edit drop-down" />
+<img src="/img/admin/cp-edit.png" alt="Edit drop-down" />
 
 ##### Upgrade Control Planes
 
@@ -826,19 +826,19 @@ To upgrade an existing Control Plane:
 1. Go to the **Control Plane settings** using the _Edit Control Planes_ instructions and scroll down to the **Version** section.
 2. Select a **Bundle Channel**.
 
-<img src="img/admin/cp-edge-upgrade-channel.png" alt="Bundle channel drop-down" />
+<img src="/img/admin/cp-edge-upgrade-channel.png" alt="Bundle channel drop-down" />
 
 3. Next, select a **Bundle Version**.
 
-<img src="img/admin/cp-edge-upgrade-version.png" alt="Bundle version drop-down" />
+<img src="/img/admin/cp-edge-upgrade-version.png" alt="Bundle version drop-down" />
 
 4. To apply your changes, click the **"Save and Re-Deploy"** button located at the top right. After a few seconds, you will be redirected to the overview page of the Control Plane and a **"Deploying"** indicator button will appear. 
 
-<img src="img/admin/cp-edge-upgrade-deploying.png" alt="Deploying notification" />
+<img src="/img/admin/cp-edge-upgrade-deploying.png" alt="Deploying notification" />
 
 5. A **"Deployed"** button indicates a successful upgrade.
 
-<img src="img/admin/cp-edge-upgrade-deployed.png" alt="Deployed notification" />
+<img src="/img/admin/cp-edge-upgrade-deployed.png" alt="Deployed notification" />
 
 #### Managing Cloud Data Plane
 
@@ -889,7 +889,7 @@ To edit an existing Cloud Data Plane:
 1. On the Deployments screen, expand the Control Plane and click on the Cloud Data Plane to access the Cloud Data Plane overview screen.
 2. Select **Edit** from the Deployed drop-down list
 
-<img src="img/admin/cp-edit.png" alt="Cloud Data Plane drop-down" />
+<img src="/img/admin/cp-edit.png" alt="Cloud Data Plane drop-down" />
 
 
 ##### Upgrade Cloud Data Planes
@@ -899,19 +899,19 @@ To upgrade an existing Cloud Data Plane:
 1. Go to the **Cloud Data Plane settings** using the _Edit Cloud Data Planes_ instructions and scroll down to the **Version** section.
 2. Select a **Bundle Channel**.
 
-<img src="img/admin/cp-edge-upgrade-channel.png" alt="Bundle channel drop-down" />
+<img src="/img/admin/cp-edge-upgrade-channel.png" alt="Bundle channel drop-down" />
 
 3. Next, select a **Bundle Version**.
 
-<img src="img/admin/cp-edge-upgrade-version.png" alt="Bundle version drop-down" />
+<img src="/img/admin/cp-edge-upgrade-version.png" alt="Bundle version drop-down" />
 
 4. To apply your changes, click the **"Save and Re-Deploy"** button located at the top right. After a few seconds, you will be redirected to the overview page of the Control Plane and a **"Deploying"** indicator button will appear. 
 
-<img src="img/admin/cp-edge-upgrade-deploying.png" alt="Deploying notification" />
+<img src="/img/admin/cp-edge-upgrade-deploying.png" alt="Deploying notification" />
 
 5. A **"Deployed"** button indicates a successful upgrade.
 
-<img src="img/admin/cp-edge-upgrade-deployed.png" alt="Deployed notification" />
+<img src="/img/admin/cp-edge-upgrade-deployed.png" alt="Deployed notification" />
 
 #### Deploy Hybrid Gateways
 
@@ -934,15 +934,15 @@ The hybrid gateways in the data plane connect to the control plane in Tyk Cloud 
 
 Login to your Tyk Cloud account deployments section and click on `ADD HYBRID DATA PLANE`
 
-  <img src="img/hybrid-gateway/tyk-cloud-hybrid-configuration-home.png" alt="Tyk Cloud hybrid configuration home" />
+  <img src="/img/hybrid-gateway/tyk-cloud-hybrid-configuration-home.png" alt="Tyk Cloud hybrid configuration home" />
 
 Fill in the details and then click _SAVE DATA PLANE CONFIG_
 
-  <img src="img/hybrid-gateway/tyk-cloud-save-hybrid-configuration.png" alt="Save Tyk Cloud hybrid configuration home" />
+  <img src="/img/hybrid-gateway/tyk-cloud-save-hybrid-configuration.png" alt="Save Tyk Cloud hybrid configuration home" />
 
 This will open up a page with the data plane configuration details that we need.
 
-  <img src="img/hybrid-gateway/tyk-cloud-hybrid-masked-details.png" alt="Save Tyk Cloud hybrid configuration masked details" />
+  <img src="/img/hybrid-gateway/tyk-cloud-hybrid-masked-details.png" alt="Save Tyk Cloud hybrid configuration masked details" />
 
 Those details are:
 |                                      | Docker            | Helm                   |
@@ -953,11 +953,11 @@ Those details are:
 
 You can also click on _OPEN DETAILS_
 
-  <img src="img/hybrid-gateway/tyk-cloud-hybrid-open-details.png" alt="Tyk Cloud hybrid open for details" />
+  <img src="/img/hybrid-gateway/tyk-cloud-hybrid-open-details.png" alt="Tyk Cloud hybrid open for details" />
 
 This will reveal instructions that you can use to connect your hybrid data plane to Tyk Cloud.
 
-<img src="img/hybrid-gateway/tyk-cloud-hybrid-revealed-instructions.png" alt="Tyk Cloud hybrid detailed instructions" />
+<img src="/img/hybrid-gateway/tyk-cloud-hybrid-revealed-instructions.png" alt="Tyk Cloud hybrid detailed instructions" />
 
 
 ##### Deploy with Docker
@@ -1129,15 +1129,15 @@ To remove the hybrid data plane configuration, navigate to the page of the hybri
 
 
 
-  <img src="img/hybrid-gateway/tyk-cloud-hybrid-open-details.png" alt="Tyk Cloud hybrid open for details" />
+  <img src="/img/hybrid-gateway/tyk-cloud-hybrid-open-details.png" alt="Tyk Cloud hybrid open for details" />
 
 Then click on _REMOVE DATA PLANE CONFIGS_
 
-  <img src="img/hybrid-gateway/tyk-cloud-hybrid-remove-configs.png" alt="Tyk Cloud hybrid remove configs" />
+  <img src="/img/hybrid-gateway/tyk-cloud-hybrid-remove-configs.png" alt="Tyk Cloud hybrid remove configs" />
 
 Confirm the removal by clicking _DELETE HYBRID DATA PLANE_
 
-  <img src="img/hybrid-gateway/tyk-cloud-hybrid-confirm-config-removal.png" alt="Tyk Cloud hybrid confirm removal of configs" />
+  <img src="/img/hybrid-gateway/tyk-cloud-hybrid-confirm-config-removal.png" alt="Tyk Cloud hybrid confirm removal of configs" />
 
 #### Manage APIs
 
@@ -1367,11 +1367,11 @@ If you are interested in getting access, contact your account manager or reach o
 ##### Add new SSO profile
 To add a new SSO profile, login to Tyk Cloud, navigate to the _Profile_ list and click on the _ADD PROFILE_ button.
 
-  <img src="img/cloud/cloud-sso-profile-list.png" alt="Tyk Cloud SSO profile list" />
+  <img src="/img/cloud/cloud-sso-profile-list.png" alt="Tyk Cloud SSO profile list" />
 
 Populate the form with all the mandatory fields and click the _ADD PROFILE_ button.
 
-  <img src="img/cloud/cloud-sso-add-profile-form.png" alt="Tyk Cloud SSO add profile form" />
+  <img src="/img/cloud/cloud-sso-add-profile-form.png" alt="Tyk Cloud SSO add profile form" />
 
 The table below explains the fields that should be completed:
 | Field name             | Explanation                                                                                                                     |
@@ -1387,17 +1387,17 @@ The table below explains the fields that should be completed:
 As illustrated below an authentication and callback URL will be generated, once the new profile has been added. You need to add these URLs to the configuration of your chosen IdP provider.
 The Auth URL is your custom URL that can be used to start the SSO login flow whereas Callback URL is the URL that the SSO provider will callback to confirm successful authentication.
 
-  <img src="img/cloud/cloud-sso-add-config-details.png" alt="Tyk Cloud SSO example of filled form" />
+  <img src="/img/cloud/cloud-sso-add-config-details.png" alt="Tyk Cloud SSO example of filled form" />
 
 ##### Edit SSO profile
 
 To update/re-configure SSO profile, login to Tyk Cloud, navigate to _Profile_ list and click on the profile that you would like to update.
   
-  <img src="img/cloud/cloud-sso-edit-select.png" alt="Tyk Cloud SSO edit selection" />
+  <img src="/img/cloud/cloud-sso-edit-select.png" alt="Tyk Cloud SSO edit selection" />
 
 Edit the fields you would like to change and then click on the _SAVE PROFILE_ button.
 
-  <img src="img/cloud/cloud-sso-save-edit.png" alt="Tyk Cloud SSO save edit selection" />
+  <img src="/img/cloud/cloud-sso-save-edit.png" alt="Tyk Cloud SSO save edit selection" />
 
 ##### Delete SSO profile
 
@@ -1409,15 +1409,15 @@ To delete an SSO profile, login to Tyk Cloud, navigate to _Profile_ list and cli
 </Warning>
 
 
-  <img src="img/cloud/cloud-sso-delete-select.png" alt="Tyk Cloud SSO delete selection" />
+  <img src="/img/cloud/cloud-sso-delete-select.png" alt="Tyk Cloud SSO delete selection" />
 
 On the profile page, click on the _DELETE PROFILE_ button.
 
-  <img src="img/cloud/cloud-sso-delete-click.png" alt="Tyk Cloud SSO delete accept" />
+  <img src="/img/cloud/cloud-sso-delete-click.png" alt="Tyk Cloud SSO delete accept" />
 
 On the confirmation window, confirm by clicking the _DELETE PROFILE_ button.
 
-  <img src="img/cloud/cloud-sso-delete-confirm.png" alt="Tyk Cloud SSO delete confirm" />
+  <img src="/img/cloud/cloud-sso-delete-confirm.png" alt="Tyk Cloud SSO delete confirm" />
 
 After profile deletion, the authentication URL will not be available anymore. 
 
@@ -1572,15 +1572,15 @@ To add a new Billing Admin team member requires you to have one of the following
 
 1. Select **Account & Billing** from the Admin menu (if you only have Billing Admin permissions you will automatically be logged into the Account and Billing area).
 
-<img src="img/admin/tyk-cloud-account-billing-menu.png" alt="Account & Billing menu" />
+<img src="/img/admin/tyk-cloud-account-billing-menu.png" alt="Account & Billing menu" />
 
 2. Select **Billing Admins** from the Accounts & Billing menu
 
-<img src="img/admin/billing-admins.png" alt="Billing Admins menu" />
+<img src="/img/admin/billing-admins.png" alt="Billing Admins menu" />
 
 3. Click **Invite Billing Admin**
 
-<img src="img/admin/invite-billing-admin.png" alt="Invite Billing Admin" />
+<img src="/img/admin/invite-billing-admin.png" alt="Invite Billing Admin" />
 
 4. Complete the Billing Admin form and click **Send Invite**
 
@@ -1628,20 +1628,20 @@ Watch our video on configuring your Tyk Cloud Developer Portal.
 1. From the Control Plane Dashboard, select **Pages** from the **Portal Management** menu
 2. Click **Add Page**
 
-<img src="img/getting-started/create-account-portal-pages.png" alt="Add Portal Page" />
+<img src="/img/getting-started/create-account-portal-pages.png" alt="Add Portal Page" />
 
 3. In the Settings, give your page a name and slug. Below we've called it Home
 4. Select **Check to make this page the Home page**
 5. Select **Default Home page template** from the Page type drop-down list
 6. You can leave the Registered Fields sections for now
 
-<img src="img/getting-started/portal-home-page-settings.png" alt="Portal Home page settings" />
+<img src="/img/getting-started/portal-home-page-settings.png" alt="Portal Home page settings" />
 
 7. Click **Save**.
 
 You should now be able to access your Portal from **Open Your Portal** from the **Your Developer Portal** menu.
 
-<img src="img/getting-started/portal_menu.png" alt="Portal Menu" />
+<img src="/img/getting-started/portal_menu.png" alt="Portal Menu" />
 
 #### Further Portal Configuration
 
@@ -1677,15 +1677,15 @@ In this example we are going to set up a custom domain called `Cloud Data Plane.
 1. Create a CNAME DNS record `edge.corp.com` that points to your Cloud Data Plane ingress (e.g. `something-something.aws-euw2.cloud-ara.tyk.io`).
 2. From your Cloud Data Plane deployment, select **Edit** from the Status drop-down.
 
-<img src="img/2.10/edge-dropdown.png" alt="Cloud Data Plane drop-down" />
+<img src="/img/2.10/edge-dropdown.png" alt="Cloud Data Plane drop-down" />
 
 3. Enter `edge.corp.com` in the Custom Domains field.
 
-<img src="img/2.10/edge_custom_domain.png" alt="Cloud Data Plane Custom Domain" />
+<img src="/img/2.10/edge_custom_domain.png" alt="Cloud Data Plane Custom Domain" />
 
 4. Click **Save and Re-deploy**.
 
-<img src="img/2.10/save_redeploy.png" alt="Save and Re-Deploy" />
+<img src="/img/2.10/save_redeploy.png" alt="Save and Re-Deploy" />
 
 #### How our Custom Domain functionality works
 
@@ -1711,7 +1711,7 @@ This page explains how to set up a control plane with plugins to customize it on
 
 **What do I need to do to use Plugins?**
 
-<img src="img/plugins/plugins_enable.png" alt="Plugins Settings" />
+<img src="/img/plugins/plugins_enable.png" alt="Plugins Settings" />
 
 1. You need to enable Plugins on a Control Plane and on a Cloud Data Plane.
 2. You need to enter Provider details to enable you to store and access your plugins. For this version of Tyk Cloud, we are supporting Amazon AWS S3. If you haven't got an AWS S3 account, go to [https://aws.amazon.com/s3/](https://aws.amazon.com/s3/) and set one up. You will need the following details to configure SW3 within your Control Plane:
@@ -1792,7 +1792,7 @@ We are going to use a Tyk CLI tool called **mservctl**. This acts as a file serv
 
 2. From your Control Plane you need the following settings.
 
-<img src="img/plugins/fileserver_settings.png" alt="File Server Settings" />
+<img src="/img/plugins/fileserver_settings.png" alt="File Server Settings" />
 
    * Your Tyk Cloud Control Plane Ingress File Server Endpoint (1)
    * Your File Server API Key (2)
@@ -1923,11 +1923,11 @@ You now have your middleware uploaded to your S3 bucket. We are now going to cre
 
 1. From your Control Plane in Tyk Cloud, click the *Ingress > Dashboard link*
 
-<img src="img/plugins/control_plane_dashboard_link.png" alt="Dashboard Link" />
+<img src="/img/plugins/control_plane_dashboard_link.png" alt="Dashboard Link" />
 
 2. From the Dashboard screen, click **APIs** from the System Management menu
 
-<img src="img/plugins/apis_menu.png" alt="APIs Menu" />
+<img src="/img/plugins/apis_menu.png" alt="APIs Menu" />
 
 3. Click **Add New API**
 4. From the API Designer, enter the following in the **Core Settings** tab:
@@ -1954,11 +1954,11 @@ You now need to test your API to show how the Python Authorization middleware wo
    * Now replace the random text with the `auth` value from your Python code. In our example `47a0c79c427728b3df4af62b9228c8ae` and click **Send** again.
    * You should now see the **HTTPB** in test page
 
-<img src="img/plugins/postman_success.png" alt="Postman Success" />
+<img src="/img/plugins/postman_success.png" alt="Postman Success" />
 
 4. As a further test of your plugin, you can add `get` to your API request in Postman. So in our example `uptight-paddle-gw.usw2.ara.app/test/get`. Click **Send**. This will return all the get requests, including headers. You should see the `x-tyk-request: "something"` which is the post middleware hook you set up in the Python code.
 
-<img src="img/plugins/postman_all_get_requests.png" alt="Postman All Get Requests" />
+<img src="/img/plugins/postman_all_get_requests.png" alt="Postman All Get Requests" />
 
 
 #### Create a Python Code Bundle
@@ -2262,7 +2262,7 @@ Tyk Cloud counts the total request/response sizes for traffic transferred throug
 
 External traffic is subject to billing, while internal traffic is exempt. The monitoring service aggregates traffic between different services:
 
-<img src="img/cloud/tyk-cloud-monitoring-priced-traffic.png" alt="Monitoring Traffic Pricing" />
+<img src="/img/cloud/tyk-cloud-monitoring-priced-traffic.png" alt="Monitoring Traffic Pricing" />
 
 **Billed traffic**
  - Traffic between user → Control Plane
@@ -2342,7 +2342,7 @@ Configuring telemetry in Tyk cloud is a two step process.
     </Note>
 
 
-    <img src="img/cloud/telemetry-exports.png" alt="Tyk Cloud Telemetry providers" />
+    <img src="/img/cloud/telemetry-exports.png" alt="Tyk Cloud Telemetry providers" />
 
 2. **Configuring Basic Elements**
 
@@ -2388,7 +2388,7 @@ Configuring telemetry in Tyk cloud is a two step process.
       API Key: your-datadog-api-key
       ```
 
-      <img src="img/cloud/telemetry-datadog.png" alt="Tyk Cloud Telemetry Datadog" />
+      <img src="/img/cloud/telemetry-datadog.png" alt="Tyk Cloud Telemetry Datadog" />
 
     {{< tab_end "Datadog" >}}
 
@@ -2403,7 +2403,7 @@ Configuring telemetry in Tyk cloud is a two step process.
       API Token: your-dynatrace-token
       ```
 
-      <img src="img/cloud/telemetry-dynatrace.png" alt="Tyk Cloud Telemetry Dynatrace" />
+      <img src="/img/cloud/telemetry-dynatrace.png" alt="Tyk Cloud Telemetry Dynatrace" />
 
     {{< tab_end "Dynatrace" >}}
 
@@ -2418,7 +2418,7 @@ Configuring telemetry in Tyk cloud is a two step process.
       API Token: your-newrelic-api-key
       ```
 
-      <img src="img/cloud/telemetry-newrelic.png" alt="Tyk Cloud Telemetry NewRelic" />
+      <img src="/img/cloud/telemetry-newrelic.png" alt="Tyk Cloud Telemetry NewRelic" />
 
     {{< tab_end "New Relic" >}}
 
@@ -2433,7 +2433,7 @@ Configuring telemetry in Tyk cloud is a two step process.
       Secret Token: your-elastic-secret-token
       ```
 
-      <img src="img/cloud/telemetry-elastic.png" alt="Tyk Cloud Telemetry Elastic" />
+      <img src="/img/cloud/telemetry-elastic.png" alt="Tyk Cloud Telemetry Elastic" />
 
     {{< tab_end "Elastic" >}}
 
@@ -2453,7 +2453,7 @@ Configuring telemetry in Tyk cloud is a two step process.
       Authorization Header Value: Bearer your-token
       ```
 
-      <img src="img/cloud/telemetry-custom.png" alt="Tyk Cloud Telemetry Custom" />
+      <img src="/img/cloud/telemetry-custom.png" alt="Tyk Cloud Telemetry Custom" />
 
     {{< tab_end "Custom" >}}
 
@@ -2471,7 +2471,7 @@ Your Cloud Data Planes need to be redeployed to activate the new telemetry confi
 <br />
 
 <h6 id="configuration-options">Configuration Options</h6>
-<img src="img/cloud/telemetry-enable.png" alt="Tyk Cloud Telemetry Enable" />
+<img src="/img/cloud/telemetry-enable.png" alt="Tyk Cloud Telemetry Enable" />
 
 1. **Enable Datadog Connection**
     - Toggle switch to enable/disable Datadog monitoring for this specific Cloud Data Plane deployment
@@ -2490,7 +2490,7 @@ Your Cloud Data Planes need to be redeployed to activate the new telemetry confi
     
     As shown in the below image, you should observe `Telemetry Export` to be enabled:
 
-    <img src="img/cloud/tyk-cloud-data-plane-enable-telemetry.png" alt="Tyk Cloud Data Plane Telemetry Enabled" />
+    <img src="/img/cloud/tyk-cloud-data-plane-enable-telemetry.png" alt="Tyk Cloud Data Plane Telemetry Enabled" />
 
 
 ### Tyk Cloud MDCB Supported versions
@@ -2526,19 +2526,19 @@ This section lists the supported MDCB version for hybrid setup
 ##### How to check metrics
 Login to Tyk Cloud and click on *Monitoring* within the *Operations* menu. Enable *Throughput* to display throughput metrics.
 
-<img src="img/cloud/tyk-cloud-monitoring-throughput.png" alt="Monitoring Throughput" />
+<img src="/img/cloud/tyk-cloud-monitoring-throughput.png" alt="Monitoring Throughput" />
 
 Enable *Storage* to display storage metrics.
 
-<img src="img/cloud/tyk-cloud-monitoring-storage.png" alt="Monitoring Storage" />
+<img src="/img/cloud/tyk-cloud-monitoring-storage.png" alt="Monitoring Storage" />
 
 You can also optionally filter for metrics by date.
 
-<img src="img/cloud/tyk-cloud-monitoring-filtering-by-date.png" alt="Monitoring Metric Filtering" />
+<img src="/img/cloud/tyk-cloud-monitoring-filtering-by-date.png" alt="Monitoring Metric Filtering" />
 
 Here you can see the metrics broken down per environment and a list of the top 5 control and cloud data planes.
 
-<img src="img/cloud/tyk-cloud-monitoring-break-down.png" alt="Monitoring Metric break down" />
+<img src="/img/cloud/tyk-cloud-monitoring-break-down.png" alt="Monitoring Metric break down" />
 
 ### Troubleshooting Tyk Cloud
 

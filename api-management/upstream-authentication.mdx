@@ -155,17 +155,17 @@ These are labelled *insecure* with good reason and should never be configured in
 
 Using the Tyk Dashboard, you can enable upstream mTLS from the **Upstream** section in the API Designer:
 
-<img src="img/dashboard/api-designer/tyk-oas-upstream-mtls-client.png" alt="Enable upstream mTLS" />
+<img src="/img/dashboard/api-designer/tyk-oas-upstream-mtls-client.png" alt="Enable upstream mTLS" />
 
 Click on **Attach Certificate** to open the certificate attachment window:
 
-<img src="img/dashboard/api-designer/tyk-oas-certificate-attach.png" alt="Attach a certificate to an API" />
+<img src="/img/dashboard/api-designer/tyk-oas-certificate-attach.png" alt="Attach a certificate to an API" />
 
 This is where you can define the upstream **Domain Name** and either select an existing certificate from the Tyk Certificate Store, or upload a new certificate to the store.
 
 If you want to [pin the public certificates](/api-management/upstream-authentication#certificate-pinning) that can be used by Tyk when verifying the upstream service, then you should enable **Public certificates** and attach certificates in the same manner as for the client certificates:
 
-<img src="img/dashboard/api-designer/tyk-oas-upstream-mtls-public.png" alt="Enable public key pinning" />
+<img src="/img/dashboard/api-designer/tyk-oas-upstream-mtls-public.png" alt="Enable public key pinning" />
 
 For details on managing certificates with Tyk, please see the [certificate management](/api-management/certificates#certificate-management) documentation.
 
@@ -736,7 +736,7 @@ Upstream Authentication is configured from the **Settings** tab of the Tyk OAS A
 
 Select **Basic Auth** from the choice in the **Authentication Method** drop-down, then you can provide the client credentials and header name.
 
-<img src="img/dashboard/api-designer/upstream-basic-auth.png" alt="Tyk OAS API Designer showing Upstream Basic Auth configuration options" />
+<img src="/img/dashboard/api-designer/upstream-basic-auth.png" alt="Tyk OAS API Designer showing Upstream Basic Auth configuration options" />
 
 <hr />
 
@@ -878,7 +878,7 @@ Upstream Authentication is configured from the **Settings** tab of the Tyk OAS A
 
 Select **OAuth** from the choice in the **Authentication Method** drop-down, then you can provide the header name, authorization server token URL and select **Client Credentials** to reveal the configuration for the credentials to be passed to the auth server.
 
-<img src="img/dashboard/api-designer/upstream-oauth-client-credentials.png" alt="Tyk OAS API Designer showing Upstream OAuth client credentials configuration options" />
+<img src="/img/dashboard/api-designer/upstream-oauth-client-credentials.png" alt="Tyk OAS API Designer showing Upstream OAuth client credentials configuration options" />
 
 #### Configuring Upstream OAuth 2.0 Password Grant in the Tyk OAS API definition
 
@@ -990,4 +990,4 @@ Upstream Authentication is configured from the **Settings** tab of the Tyk OAS A
 
 Select **OAuth** from the choice in the **Authentication Method** drop-down, then you can provide the header name, authorization server token URL and select **Resource Owner Password Credentials** to reveal the configuration for the credentials to be passed to the auth server.
 
-<img src="img/dashboard/api-designer/upstream-oauth-password-grant.png" alt="Tyk OAS API Designer showing Upstream OAuth password grant configuration options" />
+<img src="/img/dashboard/api-designer/upstream-oauth-password-grant.png" alt="Tyk OAS API Designer showing Upstream OAuth password grant configuration options" />

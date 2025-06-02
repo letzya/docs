@@ -23,7 +23,7 @@ The full Tyk Self-Managed system consists of:
 * [Tyk Identity Broker](/api-management/external-service-integration#what-is-tyk-identity-broker-tib) (Optional): Tyk Identify Broker handles integrations with third-party IDP's. It (TIB) is a component providing a bridge between various Identity Management Systems such as LDAP, Social OAuth (e.g. GPlus, Twitter, GitHub) or Basic Authentication providers, to your Tyk installation.
 * [Tyk Multi-Data Center Bridge](/tyk-multi-data-centre) (Optional, add-on): Tyk Multi-Data Center Bridge allows for the configuration of a Tyk ecosystem that spans many data centers and clouds. It also (MDCB) acts as a broker between Tyk Gateway Instances that are isolated from one another and typically have their own Redis DB.
 
-<img src="img/diagrams/diagram_docs_pump-data-flow@2x.png" alt="Tyk Self-Managed Archtecture" />
+<img src="/img/diagrams/diagram_docs_pump-data-flow@2x.png" alt="Tyk Self-Managed Archtecture" />
 
 ### Tyk Self Managed Pricing
 
@@ -49,7 +49,7 @@ Visit the [Gateway page](/tyk-oss-gateway) for more info.
 
 The Tyk Gateway can run completely independently, requiring only a Redis database, and can scale horizontally:
 
-<img src="img/diagrams/oss-architecture.png" alt="Open Source Architecture" />
+<img src="/img/diagrams/oss-architecture.png" alt="Open Source Architecture" />
 
 
 #### Init Systems
@@ -103,35 +103,35 @@ Head over to our **Tyk Demo** guides in [Kubernetes](/tyk-self-managed#kubernete
 <GridWrapper type="">
 
 
-<BadgeCard read="10 mins" href="tyk-self-managed#install-with-docker" image="img/docker.png" alt="Docker install">
+<BadgeCard read="10 mins" href="tyk-self-managed#install-with-docker" image="/img/docker.png" alt="Docker install">
 Install with Docker
 </BadgeCard>
 
-<BadgeCard read="10 mins" href="tyk-self-managed#install-on-kubernetes" image="img/k8s.png" alt="Kubernetes install">
+<BadgeCard read="10 mins" href="tyk-self-managed#install-on-kubernetes" image="/img/k8s.png" alt="Kubernetes install">
 Install on K8s
 </BadgeCard>
 
-<BadgeCard read="10 mins" href="tyk-self-managed#install-with-ansible" image="img/ansible.png" alt="Ansible install">
+<BadgeCard read="10 mins" href="tyk-self-managed#install-with-ansible" image="/img/ansible.png" alt="Ansible install">
 Install with Ansible
 </BadgeCard>
 
-<BadgeCard read="10 mins" href="tyk-self-managed#install-tyk-on-redhat-rhel-centos" image="img/redhat-logo2.png" alt="Red Hat install">
+<BadgeCard read="10 mins" href="tyk-self-managed#install-tyk-on-redhat-rhel-centos" image="/img/redhat-logo2.png" alt="Red Hat install">
 Install on Red Hat
 </BadgeCard>
 
-<BadgeCard read="10 mins" href="tyk-self-managed#install-tyk-on-debian-or-ubuntu" image="img/debian-nd-753.png" alt="Ubuntu install">
+<BadgeCard read="10 mins" href="tyk-self-managed#install-tyk-on-debian-or-ubuntu" image="/img/debian-nd-753.png" alt="Ubuntu install">
 Install on Ubuntu
 </BadgeCard>
 
-<BadgeCard read="10 mins" href="tyk-self-managed#install-on-aws-marketplace" image="img/aws.png" alt="Amazon AWS install">
+<BadgeCard read="10 mins" href="tyk-self-managed#install-on-aws-marketplace" image="/img/aws.png" alt="Amazon AWS install">
 Install on Amazon AWS
 </BadgeCard>
 
-<BadgeCard read="10 mins" href="tyk-self-managed#install-on-heroku" image="img/heroku-logo.png" alt="Heroku install">
+<BadgeCard read="10 mins" href="tyk-self-managed#install-on-heroku" image="/img/heroku-logo.png" alt="Heroku install">
 Install Tyk on Heroku
 </BadgeCard>
 
-<BadgeCard read="10 mins" href="tyk-self-managed#install-on-microsoft-azure" image="img/azure-2.png" alt="Azure install">
+<BadgeCard read="10 mins" href="tyk-self-managed#install-on-microsoft-azure" image="/img/azure-2.png" alt="Azure install">
 Install on Microsoft Azure
 </BadgeCard>
 
@@ -1983,7 +1983,7 @@ sudo systemctl restart postgresql-13
 
     You should get to the Tyk Dashboard Setup screen:
 
-    <img src="img/dashboard/system-management/bootstrap_screen.png" alt="Tyk Dashboard Bootstrap Screen" />
+    <img src="/img/dashboard/system-management/bootstrap_screen.png" alt="Tyk Dashboard Bootstrap Screen" />
 
 9. **Create your Organization and Default User**
 
@@ -2766,7 +2766,7 @@ Go to:
 
 You should get to the Tyk Dashboard Setup screen:
 
-<img src="img/dashboard/system-management/bootstrap_screen.png" alt="Tyk Dashboard Bootstrap Screen" />
+<img src="/img/dashboard/system-management/bootstrap_screen.png" alt="Tyk Dashboard Bootstrap Screen" />
 
 **Step 5 - Create your Organization and Default User**
 
@@ -3595,7 +3595,7 @@ This will will download and setup the five Docker containers. This may take some
 
 Go to [http://localhost:3000](http://localhost:3000) in your browser. You will be presented with the Bootstrap UI to create your first organization and admin user.
 
-<img src="img/dashboard/system-management/tyk-bootstrap.png" alt="Tyk Bootstrap sceen" width="768" />
+<img src="/img/dashboard/system-management/tyk-bootstrap.png" alt="Tyk Bootstrap sceen" width="768" />
 
 
 6. **Create your organization and default user**
@@ -3713,7 +3713,7 @@ Go to:
 
 You should get to the Tyk Dashboard Setup screen:
 
-<img src="img/dashboard/system-management/bootstrap_screen.png" alt="Tyk Dashboard Bootstrap Screen" />
+<img src="/img/dashboard/system-management/bootstrap_screen.png" alt="Tyk Dashboard Bootstrap Screen" />
 
 **Step 6 - Create your Organization and Default User**
 
@@ -3920,7 +3920,7 @@ Go to:
 
 You should get to the Tyk Dashboard Setup screen:
 
-<img src="img/dashboard/system-management/bootstrap_screen.png" alt="Tyk Dashboard Bootstrap Screen" />
+<img src="/img/dashboard/system-management/bootstrap_screen.png" alt="Tyk Dashboard Bootstrap Screen" />
 
 **Step 7 - Create your Organization and Default User**
 
@@ -3966,13 +3966,13 @@ With the optimizations outlined below, and using our distributed rate limiter, T
 
 In the test below, Tyk v2.7 evaluates each request through its access control list, rate limiter, quota evaluator, and analytics recorder across a single test token and still retains a latency firmly under 70 milliseconds:
 
-<img src="img/diagrams/deployGraph.png" alt="Tyk 2.7 performance" />
+<img src="/img/diagrams/deployGraph.png" alt="Tyk 2.7 performance" />
 
 ##### Performance changes based on use case
 
 A popular use case for Tyk that we've seen crop up is as an interstitial API Gateway for microservices that are making service-to-service calls. Now, with these APIs, rate limiting and quotas are not usually needed: only authentication and analytics. If we run the same tests again with rate limits disabled, and quotas disabled, then we see a different performance graph:
 
-<img src="img/diagrams/deployGraphNoRateLimitQuota.png" alt="Tyk 2.7 performance" />
+<img src="/img/diagrams/deployGraphNoRateLimitQuota.png" alt="Tyk 2.7 performance" />
 
 Here we have pushed the test to 3,000 requests per second, and we can see that Tyk copes just fine. With only a few spikes past the 100ms line, we can clearly see solid performance right up to 3,000 requests per second with acceptable latency.
 
@@ -3980,7 +3980,7 @@ Here we have pushed the test to 3,000 requests per second, and we can see that T
 
 If you were to just test Tyk as a pass-through auth proxy, we can see that 4k RPS (requests per second) is easily handled:
 
-<img src="img/diagrams/deployGraphVanilla.png" alt="Tyk 2.7 performance" />
+<img src="/img/diagrams/deployGraphVanilla.png" alt="Tyk 2.7 performance" />
 
 This configuration has analytics recording disabled, but we are still authenticating the inbound request. As you can see, we easily handle the 4k RPS mark and we can go further with more optimization.
 
@@ -4508,7 +4508,7 @@ Tyk's circuit breaker can be configured at the endpoint level, where it monitors
 
 Tyk can trigger events when the circuit breaker trips and when it resets. These events can be used for monitoring, alerting, or automation of recovery processes.
 
-<img src="img/diagrams/diagram_docs_circuit-breakers@2x.png" alt="Circuit breaker example" />
+<img src="/img/diagrams/diagram_docs_circuit-breakers@2x.png" alt="Circuit breaker example" />
 
 ##### When to use a circuit breaker
 
@@ -4696,17 +4696,17 @@ Adding the circuit breaker to your API endpoints is easy when using the API Desi
 
 From the **API Designer** add an endpoint that matches the path and method to which you want to apply the middleware.
 
-<img src="img/dashboard/api-designer/tyk-oas-no-endpoints.png" alt="Tyk OAS API Designer showing no endpoints created" />
+<img src="/img/dashboard/api-designer/tyk-oas-no-endpoints.png" alt="Tyk OAS API Designer showing no endpoints created" />
 
-<img src="img/dashboard/api-designer/tyk-oas-add-endpoint.png" alt="Adding an endpoint to an API using the Tyk OAS API Designer" />
+<img src="/img/dashboard/api-designer/tyk-oas-add-endpoint.png" alt="Adding an endpoint to an API using the Tyk OAS API Designer" />
 
-<img src="img/dashboard/api-designer/tyk-oas-no-middleware.png" alt="Tyk OAS API Designer showing no middleware enabled on endpoint" />
+<img src="/img/dashboard/api-designer/tyk-oas-no-middleware.png" alt="Tyk OAS API Designer showing no middleware enabled on endpoint" />
 
 **Step 2: Select the Circuit Breaker middleware**
 
 Select **ADD MIDDLEWARE** and choose the **Circuit Breaker** middleware from the *Add Middleware* screen.
 
-<img src="img/dashboard/api-designer/tyk-oas-circuit-breaker.png" alt="Adding the Circuit Breaker middleware" />
+<img src="/img/dashboard/api-designer/tyk-oas-circuit-breaker.png" alt="Adding the Circuit Breaker middleware" />
 
 **Step 3: Configure the middleware**
 
@@ -4716,7 +4716,7 @@ Set the circuit breaker configuration parameters so that Tyk can protect your up
 - the cooldown period for which the breaker will remain _open_ after being tripped before returning to service (in seconds)
 - optionally enable [half-open mode](/#circuit-breakers) for upstream services with variable recovery times
 
-<img src="img/dashboard/api-designer/tyk-oas-circuit-breaker-config.png" alt="Configuring the circuit breaker for the endpoint" />
+<img src="/img/dashboard/api-designer/tyk-oas-circuit-breaker-config.png" alt="Configuring the circuit breaker for the endpoint" />
 
 Select **ADD MIDDLEWARE** to apply the change to the middleware configuration.
 
@@ -4773,13 +4773,13 @@ You can use the API Designer in the Tyk Dashboard to configure the circuit break
 
 From the **Endpoint Designer** add an endpoint that matches the path for which you want to deploy the circuit breaker. Select the **Circuit Breaker** plugin.
 
-<img src="img/2.10/circuit_breaker.png" alt="Plugin dropdown list" />
+<img src="/img/2.10/circuit_breaker.png" alt="Plugin dropdown list" />
 
 **Step 2: Configure the circuit breaker**
 
 You can set up the various configurations options for the breaker in the drawer by clicking on it:
 
-<img src="img/2.10/ciruit_breaker_settings.png" alt="Circuit breaker configuration form" />
+<img src="/img/2.10/ciruit_breaker_settings.png" alt="Circuit breaker configuration form" />
 
 - **Trigger threshold percentage**: The percentage of requests that can error before the breaker is tripped, this must be a value between 0.0 and 1.0
 - **Sample size (requests)**: The number of samples to take for a circuit breaker window
@@ -4793,7 +4793,7 @@ Use the *save* or *create* buttons to save the changes and activate the middlewa
 
 The Dashboard supports the separate `BreakerTripped` and `BreakerReset` events, but not the combined `BreakerTriggered` [event type](/api-management/gateway-events#event-types). You should use **API Designer > Advanced Options** to add a Webhook plugin to your endpoint for each event.
 
-<img src="img/dashboard/system-management/webhook-breaker.png" alt="Webhook events" />
+<img src="/img/dashboard/system-management/webhook-breaker.png" alt="Webhook events" />
 
 ##### Configuring the Circuit Breaker in Tyk Operator
 
@@ -4974,23 +4974,23 @@ Adding the enforced timeout to your API endpoints is easy when using the API Des
 
 From the **API Designer** add an endpoint that matches the path and method to which you want to apply the middleware.
 
-<img src="img/dashboard/api-designer/tyk-oas-no-endpoints.png" alt="Tyk OAS API Designer showing no endpoints created" />
+<img src="/img/dashboard/api-designer/tyk-oas-no-endpoints.png" alt="Tyk OAS API Designer showing no endpoints created" />
 
-<img src="img/dashboard/api-designer/tyk-oas-add-endpoint.png" alt="Adding an endpoint to an API using the Tyk OAS API Designer" />
+<img src="/img/dashboard/api-designer/tyk-oas-add-endpoint.png" alt="Adding an endpoint to an API using the Tyk OAS API Designer" />
 
-<img src="img/dashboard/api-designer/tyk-oas-no-middleware.png" alt="Tyk OAS API Designer showing no middleware enabled on endpoint" />
+<img src="/img/dashboard/api-designer/tyk-oas-no-middleware.png" alt="Tyk OAS API Designer showing no middleware enabled on endpoint" />
 
 **Step 2: Select the Enforce Timeout middleware**
 
 Select **ADD MIDDLEWARE** and choose the **Enforce Timeout** middleware from the *Add Middleware* screen.
 
-<img src="img/dashboard/api-designer/tyk-oas-enforce-timeout.png" alt="Adding the Enforce Timeout middleware" />
+<img src="/img/dashboard/api-designer/tyk-oas-enforce-timeout.png" alt="Adding the Enforce Timeout middleware" />
 
 **Step 3: Configure the middleware**
 
 Set the timeout duration that you wish to enforce for requests to the endpoint.
 
-<img src="img/dashboard/api-designer/tyk-oas-enforce-timeout-config.png" alt="Configuring the enforced timeout for the endpoint" />
+<img src="/img/dashboard/api-designer/tyk-oas-enforce-timeout-config.png" alt="Configuring the enforced timeout for the endpoint" />
 
 Select **ADD MIDDLEWARE** to apply the change to the middleware configuration.
 
@@ -5044,13 +5044,13 @@ You can use the API Designer in the Tyk Dashboard to configure the enforced time
 
 From the **Endpoint Designer** add an endpoint that matches the path for which you want to deploy the enforced timeout. Select the **Enforced timeout** plugin.
 
-<img src="img/2.10/enforced_breakout.png" alt="Plugin dropdown" />
+<img src="/img/2.10/enforced_breakout.png" alt="Plugin dropdown" />
 
 **Step 2: Configure the timeout**
 
 Then enter the timeout to be enforced for the endpoint (in seconds):
 
-<img src="img/2.10/enforced_timeouts_settings.png" alt="Enforced timeout configuration" />
+<img src="/img/2.10/enforced_timeouts_settings.png" alt="Enforced timeout configuration" />
 
 **Step 3: Save the API**
 
@@ -5384,7 +5384,7 @@ See [Service Discovery](/#service-discovery) to see how you can integrate a serv
 
 To set up load balancing via the Dashboard, from the **Core Settings** tab in the **API Designer** select **Enable round-robin load balancing** from the **API Settings** options:
 
-<img src="img/2.10/round_robin.png" alt="Dashboard load balancing configuration" />
+<img src="/img/2.10/round_robin.png" alt="Dashboard load balancing configuration" />
 
 You can now add your Load Balancing **Upstream targets** and apply weighting to it. For example, for testing purposes, you can send 10% (set weighting to `1`) of traffic to a beta environment, and 90% (set weighting to `9`)to the production environment.
 
@@ -5444,7 +5444,7 @@ We recommend using the SD module in conjunction with the circuit breaker feature
 
 The Service Discovery settings are located in the Core tab from the API Designer.
 
-<img src="img/2.10/service_discovery_settings.png" alt="Service discovery" />
+<img src="/img/2.10/service_discovery_settings.png" alt="Service discovery" />
 
 **Configuring Service Discovery via the Dashboard**
 
@@ -5452,7 +5452,7 @@ Select **Enable service discovery** to enable the discovery module.
 
 Once enabled, you will have all the options to configure your Service Discovery endpoints:
 
-<img src="img/2.10/service_discovery_settings2.png" alt="Service discovery configuration" />
+<img src="/img/2.10/service_discovery_settings2.png" alt="Service discovery configuration" />
 
 The settings are as follows:
 
@@ -5811,19 +5811,19 @@ To add an uptime test using the dashboard is very simple. Make sure that you hav
 
 From the API Designer select the **Uptime Tests** tab:
 
-<img src="img/2.10/uptime_tests.png" alt="Uptime tests tab location" />
+<img src="/img/2.10/uptime_tests.png" alt="Uptime tests tab location" />
 
 **Step 2: Click Add**
 
 Click **Add** to add a test:
 
-<img src="img/2.10/uptime_test_add.png" alt="Add button location" />
+<img src="/img/2.10/uptime_test_add.png" alt="Add button location" />
 
 **Step 3: Enter Path Details**
 
 From the **Path Details** pop-up, complete the details and click **Add** to add the test:
 
-<img src="img/2.10/uptime_test_path_details.png" alt="Test details form and add button location" />
+<img src="/img/2.10/uptime_test_path_details.png" alt="Test details form and add button location" />
 
 ##### Events
 

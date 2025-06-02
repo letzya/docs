@@ -276,13 +276,13 @@ To create a global webhook definition from the Dashboard UI you should follow th
 
     Click **Add Webhook**.
 
-    <img src="img/2.10/add_webhook.png" alt="Add webhook button" />
+    <img src="/img/2.10/add_webhook.png" alt="Add webhook button" />
 
 2. **Configure the webhook**
 
     Now you need to tell Tyk how and where to send the request. You can include custom headers, for example to inform the target service that the request has come from Tyk - remember to click **ADD** to add the custom header to the configuration.
 
-    <img src="img/2.10/webhook_details.png" alt="Add webhook detail" />
+    <img src="/img/2.10/webhook_details.png" alt="Add webhook detail" />
 
     Click **Save** to save it.
 
@@ -460,13 +460,13 @@ If you want to use a *global webhook* then you'll need to declare it first, foll
 
     From the **Settings** tab in the API Designer, scroll down to the **Server** section to find the **Event Handlers** pane. Select **Add Event**.
 
-    <img src="img/dashboard/api-designer/tyk-oas-webhook-server.png" alt="Add an event handler from the Server section" />
+    <img src="/img/dashboard/api-designer/tyk-oas-webhook-server.png" alt="Add an event handler from the Server section" />
 
 2. **Choose the event to be handled**
 
     This will add an event handler to the API. You'll need to select which event you want to handle from the drop-down list. Note that currently Tyk OAS only supports webhook event handlers, so this will default to *webhook* type.
 
-    <img src="img/dashboard/api-designer/tyk-oas-webhook-event-trigger.png" alt="Choose the event that will trigger the webhook" />
+    <img src="/img/dashboard/api-designer/tyk-oas-webhook-event-trigger.png" alt="Choose the event that will trigger the webhook" />
 
 3. **Choose and configure global webhook**
 
@@ -474,11 +474,11 @@ If you want to use a *global webhook* then you'll need to declare it first, foll
 
     The only other thing you'll need to configure is the cooldown period.
 
-    <img src="img/dashboard/api-designer/tyk-oas-webhook-global.png" alt="Select from the list of available global webhooks" />
+    <img src="/img/dashboard/api-designer/tyk-oas-webhook-global.png" alt="Select from the list of available global webhooks" />
 
     Note that Tyk automatically retrieves the details of the *global webhook* and displays them (read-only) in the API designer.
 
-    <img src="img/dashboard/api-designer/tyk-oas-webhook-global-complete.png" alt="A fully configured global webhook" />
+    <img src="/img/dashboard/api-designer/tyk-oas-webhook-global-complete.png" alt="A fully configured global webhook" />
 
     Don't forget to select **Save API** to apply the changes.
 
@@ -486,11 +486,11 @@ If you want to use a *global webhook* then you'll need to declare it first, foll
 
     If you don't want to use a shared *global webhook* but instead want to configure a *local webhook* only available to this API/event then you should ensure that the **Webhook source** is set to **Local webhook**.
 
-    <img src="img/dashboard/api-designer/tyk-oas-webhook-local.png" alt="Ready to configure a local webhook" />
+    <img src="/img/dashboard/api-designer/tyk-oas-webhook-local.png" alt="Ready to configure a local webhook" />
 
     Now you can complete the various fields to set up your *local webhook*. If you want to add custom headers to send with the HTTP request, select **New Header** then enter the header key and value.
 
-    <img src="img/dashboard/api-designer/tyk-oas-webhook-local-complete.png" alt="A fully configured global webhook" />
+    <img src="/img/dashboard/api-designer/tyk-oas-webhook-local-complete.png" alt="A fully configured global webhook" />
 
     Don't forget to select **Save API** to apply the changes.
 
@@ -590,7 +590,7 @@ the Gateway.
 
     From the API Designer select the **Advanced Options** tab and locate the **Webhooks** panel:
 
-    <img src="img/2.10/webhooks_designer_settings.png" alt="Webhook API Details" />
+    <img src="/img/2.10/webhooks_designer_settings.png" alt="Webhook API Details" />
 
     Now:
 

@@ -11,7 +11,7 @@ Tyk's support for the OpenAPI Specification is designed to fit in with your exis
 
 One of the great things about working with Tyk is that the OpenAPI document containing the OAS compliant description of your service is a single file (or group of files) that you deploy throughout your workflow. You can iterate on that document within your source control system until you are totally happy. At this point, you can publish the OpenAPI description to your Developer Portal to document what a Developer needs to use the API (and nothing they don’t need to know). As the OpenAPI description is the source of truth for the Tyk OAS API definition and can be updated without impacting the Tyk Vendor Extension, you can automate deployment of updates to your API on Tyk whenever a new version is committed into your source control. This model is very popular in GitOps and CI/CD environments.
 
-<img src="img/oas/diagram_oas-flow-2.png" alt="Tyk OAS API workflow" />
+<img src="/img/oas/diagram_oas-flow-2.png" alt="Tyk OAS API workflow" />
 
 
 <Warning>
@@ -60,11 +60,11 @@ In this tutorial we guide you through the steps to create a new Tyk OAS API usin
 
 1. Start by selecting **APIs** from the **API Management** section
 
-    <img src="img/oas/api-menu.png" alt="Add new API" />
+    <img src="/img/oas/api-menu.png" alt="Add new API" />
 
 2. Now select **Add New API** and then, choose **Design from scratch**
 
-    <img src="img/oas/add-new-api.png" alt="Start designing a new API" />
+    <img src="/img/oas/add-new-api.png" alt="Start designing a new API" />
 
 3. Now complete the basic configuration for your new API following the guided steps providing:
     - API name
@@ -73,19 +73,19 @@ In this tutorial we guide you through the steps to create a new Tyk OAS API usin
     - [API template](/api-management/dashboard-configuration#working-with-api-templates-using-the-template-designer) (optional)
     - Upstream URL
 
-    <img src="img/oas/api-create-stepper.png" alt="Basic configuration of the new API" />
+    <img src="/img/oas/api-create-stepper.png" alt="Basic configuration of the new API" />
 
 4. Deploy the API to your Gateway
 
     - If you are using Tyk Cloud or a [sharded](/api-management/multiple-environments) deployment you will be prompted to select on which Gateways the API should be deployed
 
-    <img src="img/oas/api-create-deploy-targets.png" alt="Choose where to deploy the API" />
+    <img src="/img/oas/api-create-deploy-targets.png" alt="Choose where to deploy the API" />
 
     - You need to set the **API status** (if you set this to **Active**, Tyk will accept requests to the API)
     - You need to set the **Access** (set this to **External** to expose your API outside Tyk so that your clients can consume it)
     - When creating a new API you will probably want to set API status to **Inactive** while you configure the rest of the API definition
 
-    <img src="img/oas/api-create-set-status.png" alt="Set API Status" />
+    <img src="/img/oas/api-create-set-status.png" alt="Set API Status" />
 
     Click **Save API** to create the API definition and, depending on the options you chose for API status and access, deploy the API to your gateway to start serving traffic.
 
@@ -111,7 +111,7 @@ In this tutorial we guide you through the steps to create a new Tyk OAS API usin
 
     1. After selecting **Edit**, move to the **Endpoints** tab.
 
-    <img src="img/oas/api-create-no-endpoints.png" alt="Add new endpoint" />
+    <img src="/img/oas/api-create-no-endpoints.png" alt="Add new endpoint" />
 
 
     2. Click **Add Endpoint** then complete the requested details for the new endpoint:
@@ -121,11 +121,11 @@ In this tutorial we guide you through the steps to create a new Tyk OAS API usin
         - Add an optional summary and description
         - select  **Add Endpoint**
 
-        <img src="img/oas/api-create-endpoint.png" alt="Provide the details of the new endpoint" />
+        <img src="/img/oas/api-create-endpoint.png" alt="Provide the details of the new endpoint" />
 
     3. Your new endpoint will now be listed in the Endpoints tab
 
-    <img src="img/oas/api-create-endpoint-list.png" alt="List of all endpoints declared for the API" />
+    <img src="/img/oas/api-create-endpoint-list.png" alt="List of all endpoints declared for the API" />
 
     4. You can now add [middleware](/api-management/traffic-transformation) to your endpoint via the **Add Middleware** button.
 
@@ -164,17 +164,17 @@ Armed with a Tyk OAS API definition, in YAML or JSON format, you can use this to
 
 1. Start by selecting **APIs** from the **API Management** section
 
-    <img src="img/oas/api-menu.png" alt="Add new API" />
+    <img src="/img/oas/api-menu.png" alt="Add new API" />
 
 2. Now select **Add New API** and then, choose **Import**.
 
-    <img src="img/oas/add-new-api.png" alt="Loading the API definition into Tyk Dashboard" />
+    <img src="/img/oas/add-new-api.png" alt="Loading the API definition into Tyk Dashboard" />
 
     Note that you can optionally apply an [API template](/api-management/dashboard-configuration#governance-using-api-templates) by choosing **Start from template** as explained [here](/api-management/dashboard-configuration#using-a-template-when-creating-a-new-api), however in this explanation we will not be applying a template.
 
 3. From the Import API screen, select **Tyk API** because the object you want to import to Tyk is a complete API definition.
 
-    <img src="img/oas/api-create-import.png" alt="Choosing what to import" />
+    <img src="/img/oas/api-create-import.png" alt="Choosing what to import" />
 
     
 
@@ -189,7 +189,7 @@ Armed with a Tyk OAS API definition, in YAML or JSON format, you can use this to
 
 4. Now you can paste the entire Tyk OAS API definition into the text editor.
 
-    <img src="img/oas/api-create-import-tykapi.png" alt="Loading the API definition into Tyk Dashboard" />
+    <img src="/img/oas/api-create-import-tykapi.png" alt="Loading the API definition into Tyk Dashboard" />
 
 5. Select **Import API** to complete the import and create the API based on your API definition.
 
@@ -329,15 +329,15 @@ If you have a valid OAS 3.0 compliant OpenAPI description, in YAML or JSON forma
 
 1. Start by selecting **APIs** from the **API Management** section
 
-    <img src="img/oas/api-menu.png" alt="Add new API" />
+    <img src="/img/oas/api-menu.png" alt="Add new API" />
 
 2. Now select **Add New API** and then, choose **Import**.
 
-    <img src="img/oas/add-new-api.png" alt="Loading the API definition into Tyk Dashboard" />
+    <img src="/img/oas/add-new-api.png" alt="Loading the API definition into Tyk Dashboard" />
 
 3. From the Import API screen, select **openAPI** because the object you want to import to Tyk is an OpenAPI description.
 
-    <img src="img/oas/api-create-import.png" alt="Choosing what to import" />
+    <img src="/img/oas/api-create-import.png" alt="Choosing what to import" />
 
     
 
@@ -356,19 +356,19 @@ If you have a valid OAS 3.0 compliant OpenAPI description, in YAML or JSON forma
     - uploaded using a file picker
     - retrieved from a file server
 
-    <img src="img/oas/api-create-import-location.png" alt="Loading the API definition into Tyk Dashboard" />
+    <img src="/img/oas/api-create-import-location.png" alt="Loading the API definition into Tyk Dashboard" />
 
 5. You can optionally apply an [API template](/api-management/dashboard-configuration#governance-using-api-templates) from the drop-down.
 
-    <img src="img/oas/api-create-import-template.png" alt="Applying a template" />
+    <img src="/img/oas/api-create-import-template.png" alt="Applying a template" />
 
 6. You can configure the *listen path* and *upstream (target) URL* in the **Manual configuration options** section. Note that if you do not provide a listen path, Tyk will default to `/` and if you do not provide an upstream URL, Tyk will use the first value provided in the [servers.url](/api-management/gateway-config-managing-oas#api-base-path) section in the OpenAPI description.
 
-    <img src="img/oas/api-create-import-manual-options.png" alt="Configuring the listen path and upstream URL" />
+    <img src="/img/oas/api-create-import-manual-options.png" alt="Configuring the listen path and upstream URL" />
 
 7. Tyk can automatically configure the request processing middleware chain based upon configuration defined by the OpenAPI Specification. If your OpenAPI desription contains the relevant data then select the characteristics you would like to configure.
 
-    <img src="img/oas/api-create-import-auto-options.png" alt="Configuring the listen path and upstream URL" />
+    <img src="/img/oas/api-create-import-auto-options.png" alt="Configuring the listen path and upstream URL" />
 
     | Middleware | OpenAPI data used for configuration |
     |------------|-------------------------------------|
@@ -610,7 +610,7 @@ If you have an updated OpenAPI description or Tyk OAS API definition, in YAML or
 
 2. Now select **Update OAS** from the **Actions** dropdown.
 
-    <img src="img/oas/api-actions-menu.png" alt="Select Update OAS to import the new OpenAPI description" />
+    <img src="/img/oas/api-actions-menu.png" alt="Select Update OAS to import the new OpenAPI description" />
 
 3. Now you can choose the location of the file that you want to use to update your API, which can be:
 
@@ -618,13 +618,13 @@ If you have an updated OpenAPI description or Tyk OAS API definition, in YAML or
     - uploaded using a file picker
     - retrieved from a file server
 
-    <img src="img/oas/api-update-options.png" alt="Configuring the import location and options" />
+    <img src="/img/oas/api-update-options.png" alt="Configuring the import location and options" />
 
 4. You can re-configure the *listen path* and *upstream (target) URL* in the **Manual configuration options** section, but if you do not provide these then Tyk will leave them unchanged.
 
 5. Tyk must select the options to automatically configure the request processing middleware chain based upon configuration defined by the OpenAPI Specification for any new endpoints added in the update. If your OpenAPI desription contains the relevant data then select the characteristics you would like to configure.
 
-    <img src="img/oas/api-create-import-auto-options.png" alt="Configuring the listen path and upstream URL" />
+    <img src="/img/oas/api-create-import-auto-options.png" alt="Configuring the listen path and upstream URL" />
 
     | Middleware | OpenAPI data used for configuration |
     |------------|-------------------------------------|
@@ -772,11 +772,11 @@ From Tyk 5.8.0, when using Tyk Dashboard these can be exported in either JSON or
 
 2. Select **Export API** from the **Actions** dropdown.
 
-    <img src="img/oas/api-actions-menu.png" alt="Select Export API to download an asset from Tyk" />
+    <img src="/img/oas/api-actions-menu.png" alt="Select Export API to download an asset from Tyk" />
 
 3. Now you can choose what you want to export, the filename (a default is offered which is based on the API Id) and the file format (JSON or YAML).
 
-    <img src="img/oas/api-export-options.png" alt="Choosing what to download" />
+    <img src="/img/oas/api-export-options.png" alt="Choosing what to download" />
 
 4. Finally select **Export** to save the file to your local machine.
 

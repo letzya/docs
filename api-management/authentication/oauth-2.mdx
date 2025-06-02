@@ -94,7 +94,7 @@ For all grant types, the first common step is the registration of the *client* w
 
 1. *Client apps* are registered per-API, so the first step is to [configure Tyk OAuth 2.0](#configuring-your-api-proxy) as the security method to be used for the API. With this done, you can navigate to the OAuth Client management screen for the API from the **Actions** menu on the **Created APIs** screen:
 
-<img src="img/api-management/security/create-oauth-from-api-list.png" alt="Accessing the list of OAuth Clients for an API" />
+<img src="/img/api-management/security/create-oauth-from-api-list.png" alt="Accessing the list of OAuth Clients for an API" />
 
 2. You will now be prompted to register a *client app* that will be granted access to the API configuring:
 
@@ -102,7 +102,7 @@ For all grant types, the first common step is the registration of the *client* w
 - [optional] [security policies](#manage-client-access-policies) to be applied to access tokens generated for the client
 - [optional] [metadata](/api-management/policies#what-is-a-session-metadata) to be added to the access tokens
 
-<img src="img/api-management/security/fill-out-client-details-oauth.png" alt="Add New OAuth Client" />
+<img src="/img/api-management/security/fill-out-client-details-oauth.png" alt="Add New OAuth Client" />
 
 **Note**: when using *Authorization Code grant* the *redirect uri* configured for the *client app* must be the same as that configured in the API definition.
 
@@ -110,7 +110,7 @@ Select the **Create** button to register the *client app*.
 
 3. In the OAuth Client management screen, you will see a list of *client apps* registered with the API (as identified by their *client Id*). By clicking on the list item, or from the **Actions** menu's **Edit** option you will be taken to the *Edit Client app* screen, where you can see the *client secret* and make any modifications you need. There is also the option to [revoke tokens](#revoking-access-tokens) that have been issued for this *client app*.
 
-<img src="img/api-management/security/client-secret-oauth.png" alt="View client Id and client secret" />
+<img src="/img/api-management/security/client-secret-oauth.png" alt="View client Id and client secret" />
 
 ### Using the Tyk Dashboard API
 
@@ -128,7 +128,7 @@ The Tyk Dashboard API contains several endpoints that are provided to manage *cl
 
 When using Tyk as the Authorization Server with the Authorization Code grant, the following steps are followed after [registering the Client App](#client-app-registration):
 
-<img src="img/diagrams/diagram_docs_authorization-code-grant-type@2x.png" alt="Authorization grant type flow" />
+<img src="/img/diagrams/diagram_docs_authorization-code-grant-type@2x.png" alt="Authorization grant type flow" />
 
 **Explanatory notes:**
 
@@ -262,7 +262,7 @@ When using Tyk as the *authorization server* with the Client Credentials grant, 
 
 After [registering the Client App](#client-app-registration), the *client* simply requests an access token directly from the authorization server:
 
-<img src="img/diagrams/diagram_docs_client-credentials-grant-type@2x.png" alt="Client Credentials grant type flow" />
+<img src="/img/diagrams/diagram_docs_client-credentials-grant-type@2x.png" alt="Client Credentials grant type flow" />
 
 ### Access Token Request
 
@@ -318,7 +318,7 @@ When using Tyk as the *authorization server* with the Resource Owner Password gr
 
 After [registering the Client App](#client-app-registration), the *client* simply requests an access token directly from the authorization server:
 
-<img src="img/diagrams/diagram_docs_username-_-password-grant-type@2x.png" alt="Username and password grant sequence" />
+<img src="/img/diagrams/diagram_docs_username-_-password-grant-type@2x.png" alt="Username and password grant sequence" />
 
 ### Access Token Request
 
@@ -375,7 +375,7 @@ When using Tyk as the Authorization Server, the API configuration can be applied
 
 1. Client Authentication is configured on the **Settings** screen within the API Designer, within the **Server** section. Ensure that you are in **Edit** mode, click on the button to **Enable** *Authentication* and then select **Tyk OAuth 2.0** from the drop down options:
 
-<img src="img/dashboard/system-management/oauth-auth-mode-new.png" alt="Set Authentication Mode" />
+<img src="/img/dashboard/system-management/oauth-auth-mode-new.png" alt="Set Authentication Mode" />
 
 2. Select the OAuth Grant Type that you wish to use for the API, if appropriate you can also select the *Refresh Token* grant so that the Auth Server (Tyk) will generate both access and refresh tokens.
 
@@ -526,7 +526,7 @@ You configure whether Tyk should issue a refresh token within the [API proxy def
 
 If you have correctly configured your API, then Tyk will provide a *refresh token* with the *access token*. The *client* can subsequently exchange the *refresh token* for a new *access token* without having to re-authenticate, with another call to the `POST /<listen-path>/oauth/token` endpoint as follows:
 
-<img src="img/diagrams/diagram_docs_refresh-token-grant-type@2x.png" alt="Refresh Token flow" />
+<img src="/img/diagrams/diagram_docs_refresh-token-grant-type@2x.png" alt="Refresh Token flow" />
 
 This endpoint is protected using Basic Authentication where the username is the *client Id* and the password is the *client secret*.
 

@@ -90,7 +90,7 @@ To protect an API with JWT, we need to execute the following steps:
 2. [Set the cryptographic signing method](/basic-config-and-security/security/authentication-authorization/json-web-tokens#set-up-jwt-signing-method) to `HMAC (shared)` and the public secret as `tyk123`
 3. Set the Identity Source and Policy Field Name
 
-    <img src="img/api-management/security/jwt-auth-settings.png" alt="Target Details: JSON Web Token" />
+    <img src="/img/api-management/security/jwt-auth-settings.png" alt="Target Details: JSON Web Token" />
 
 ### Set a Default Policy
 
@@ -104,7 +104,7 @@ Let's generate a JWT so we can test our new protected API.
 
 Head on over to [https://jwt.io/](https://jwt.io/).  Sign the default JWT with our HMAC Shared Secret `tyk123` in the VERIFY SIGNATURE section.  Your screen should look similar to this:
 
-<img src="img/dashboard/system-management/jwt_jwtio_example.png" alt="Auth Configuration" />
+<img src="/img/dashboard/system-management/jwt_jwtio_example.png" alt="Auth Configuration" />
 
 Copy the Encoded JWT and let's make a cURL against the Tyk API Definition:
 
@@ -147,15 +147,15 @@ This will walk you through securing your APIs with JWTs via Auth0. We also have 
 1. Log in to your Auth0 account.
 2. Select APIs from the Applications menu.
 
-   <img src="img/auth0/auth0-create-api.png" alt="Auth0 Create API" />
+   <img src="/img/auth0/auth0-create-api.png" alt="Auth0 Create API" />
 
 3. Click Create API and enter a name and identifier for your API.
 
-   <img src="img/auth0/api-details.png" alt="Auth0 API details" />
+   <img src="/img/auth0/api-details.png" alt="Auth0 API details" />
 
 4. From the Test tab, follow the instructions on how to get an access token.
 
-   <img src="img/auth0/auth0-test-curl.png" alt="Auth0 Test with cURL" />
+   <img src="/img/auth0/auth0-test-curl.png" alt="Auth0 Test with cURL" />
 
 5. From the cURL tab, copy the token request command.
 
@@ -177,11 +177,11 @@ This will walk you through securing your APIs with JWTs via Auth0. We also have 
 
 7. After creating your API, a new Auth0 Application will be created. Go to the Applications section to view it.
 
-   <img src="img/auth0/new-application.png" alt="New Auth0 Application" />
+   <img src="/img/auth0/new-application.png" alt="New Auth0 Application" />
 
 8. Copy the Domain from the Basic Information. You will use this when adding an API to Tyk.
 
-   <img src="img/auth0/auth0-basic-info.png" alt="Auth0 Application Basic Information" />
+   <img src="/img/auth0/auth0-basic-info.png" alt="Auth0 Application Basic Information" />
 
 
 
@@ -190,14 +190,14 @@ This will walk you through securing your APIs with JWTs via Auth0. We also have 
 1. Log in to your Tyk Dashboard
 2. Create a new HTTP API (the default http://httpbin.org upstream URL is fine)
 
-<img src="img/auth0/tyk-create-api.png" alt="Tyk Create HTTP API" width="400px" height="400" />
+<img src="/img/auth0/tyk-create-api.png" alt="Tyk Create HTTP API" width="400px" height="400" />
 
 1. From the Authentication section, select **JSON Web Token (JWT)** as your authentication mode.
 2. Select RSA public Key as the JWT signing method.
 3. Enter your Auth0 Application Domain from Step 8 above to complete the `jwks_uri` end point `https://<<your-auth0-domain>>/.well-known/jwks.json`
 4. Copy your `jwks_uri` in to the **Public Key** field. 
 
-<img src="img/auth0/tyk-api-auth.png" alt="Tyk API Authentication" width="800px" height="400" />
+<img src="/img/auth0/tyk-api-auth.png" alt="Tyk API Authentication" width="800px" height="400" />
 
 1. Add an **Identity Source** and **Policy Field Name**. The defaults of `sub` and `pol` are fine.
 2. Save your API.
@@ -205,17 +205,17 @@ This will walk you through securing your APIs with JWTs via Auth0. We also have 
 4.  Click Add Policy
 5.  Select your Auth0 API
 
-<img src="img/auth0/policy-access-rights.png" alt="Tyk Policy access rights" width="800px" height="400" />
+<img src="/img/auth0/policy-access-rights.png" alt="Tyk Policy access rights" width="800px" height="400" />
 
 1.   You can keep the rest of the access rights at the defaults.
 2.   Click the **Configurations** tab and enter a **Policy Name** and a **Keys Expiry after** period.
 
-<img src="img/auth0/policy-configuration.png" alt="Tyk Policy Configuration" width="400px" height="400" />
+<img src="/img/auth0/policy-configuration.png" alt="Tyk Policy Configuration" width="400px" height="400" />
 
 1.  Click **Create Policy**.
 2.  Edit your JWT Auth0 API and add the policy you created as the **Default Policy** from the Authentication section.
 
-<img src="img/auth0/api-default-policy.png" alt="Tyk API Default Policy Configuration" width="600px" height="300" />
+<img src="/img/auth0/api-default-policy.png" alt="Tyk API Default Policy Configuration" width="600px" height="300" />
 
 1.  From the top of the API copy the API URL
 2.  From a terminal window using the API URL and the Auth0 generated token.
@@ -247,35 +247,35 @@ This guide will walk you through securing your APIs with JWTs via Keycloak.
 1. Access your Keycloak admin dashboard.
 2. Navigate to the Administration console.
 
-   <img src="img/keycloak-jwt/navigate-to-admin-console.png" alt="Navigate to Keycloak Administration console" />
+   <img src="/img/keycloak-jwt/navigate-to-admin-console.png" alt="Navigate to Keycloak Administration console" />
 
 3. Create a Keycloak realm from the top left-hand side dropdown.
 
-   <img src="img/keycloak-jwt/create-jwt-realm.png" alt="Create Keycloak Realm" />
+   <img src="/img/keycloak-jwt/create-jwt-realm.png" alt="Create Keycloak Realm" />
 
 4. Create a Keycloak client.
 
-   <img src="img/keycloak-jwt/create-client.png" alt="Create Client" />
+   <img src="/img/keycloak-jwt/create-client.png" alt="Create Client" />
 
 5. Enter the necessary client details.
 
-   <img src="img/keycloak-jwt/create-client-step-1.png" alt="Add client details" />
+   <img src="/img/keycloak-jwt/create-client-step-1.png" alt="Add client details" />
 
 6. Enable client authentication and Service account roles under Authentication flow.
 
-   <img src="img/keycloak-jwt/create-client-step-2.png" alt="Update client permissions" />
+   <img src="/img/keycloak-jwt/create-client-step-2.png" alt="Update client permissions" />
 
 7. Set the redirection URL rules.
 
-   <img src="img/keycloak-jwt/create-client-step-3.png" alt="Add redirection URL rules" />
+   <img src="/img/keycloak-jwt/create-client-step-3.png" alt="Add redirection URL rules" />
 
 8. Save.
 
-   <img src="img/keycloak-jwt/client.png" alt="Example client" />
+   <img src="/img/keycloak-jwt/client.png" alt="Example client" />
 
 9. Retrieve the client secret from the Credentials tab under the client you just created.
 
-   <img src="img/keycloak-jwt/client-secret.png" alt="Retrieve client secret" />
+   <img src="/img/keycloak-jwt/client-secret.png" alt="Retrieve client secret" />
 
 10. Generate your JWT using `curl`. This is the token you will use to access your services through the Tyk Gateway. You can generate your JWT using either of the following methods. Make sure to replace the `KEYCLOAK` prefixed parameters with the appropriate values.
 
@@ -328,7 +328,7 @@ If you are looking to POC this functionality in Kubernetes, you can run a fully 
 1. Log in to your Tyk Dashboard.
 2. Create a new HTTP API (the default `http://httpbin.org` upstream URL is fine).
 
-   <img src="img/api-management/security/jwt-keycloak-api-create.png" alt="Create a new HTTP API" />
+   <img src="/img/api-management/security/jwt-keycloak-api-create.png" alt="Create a new HTTP API" />
 
 3. Scroll to the Authentication mode section and select JWT from the list.
 4. Select RSA public Key as JWT Signing method.
@@ -336,27 +336,27 @@ If you are looking to POC this functionality in Kubernetes, you can run a fully 
 6. Add an Identity Source and Policy Field Name. The defaults of `sub` and `pol` are fine.
 7. Click on the update button to save the API.
 
-   <img src="img/api-management/security/jwt-keycloak-set-auth.png" alt="Create API" />
+   <img src="/img/api-management/security/jwt-keycloak-set-auth.png" alt="Create API" />
 
 8. Create a policy to manage access to your API.
 9. Navigate to the Policies section on the left-hand side menu.
 10. Click on Add Policy on the top right-hand side of your screen.
 11. Select your API from the Add API Access Rights list.
 
-   <img src="img/api-management/security/jwt-keycloak-add-policy.png" alt="Select API for Security Policy" />
+   <img src="/img/api-management/security/jwt-keycloak-add-policy.png" alt="Select API for Security Policy" />
 
 12. Click on the Configurations tab and choose a policy name and TLL.
 
-    <img src="img/api-management/security/jwt-keycloak-add-policy-cont.png" alt="Create API Security Policy" />
+    <img src="/img/api-management/security/jwt-keycloak-add-policy-cont.png" alt="Create API Security Policy" />
 
 13. Add the default policy to the API.
 
-    <img src="img/api-management/security/jwt-keycloak-api-set-policy.png" alt="Add default policy to API" />
+    <img src="/img/api-management/security/jwt-keycloak-api-set-policy.png" alt="Add default policy to API" />
 
 14. Test access to the API using curl.
 15. Retrieve the API URL.
 
-    <img src="img/api-management/security/jwt-keycloak-get-api-url.png" alt="Add default Policy to API" />
+    <img src="/img/api-management/security/jwt-keycloak-get-api-url.png" alt="Add default Policy to API" />
 
 16. Test with curl. Make sure to replace `TOKEN` with the JWT you received from the curl earlier.
 
@@ -406,7 +406,7 @@ The JWT consists of three parts:
 
 Using the Split Token Flow, only the signature is returned to the client, while the header and payload are stored server-side by Tyk.
 
-<img src="img/2.10/split_token2.png" alt="Split Token Example" />
+<img src="/img/2.10/split_token2.png" alt="Split Token Example" />
 
 #### Create a Virtual Endpoint in Tyk
 
@@ -479,9 +479,9 @@ $ curl localhost:8080/basic-protected-api/get -H "Authorization: MEw….GJ0"
 
 This request uses the opaque token, which Tyk validates and then injects the full JWT into the Authorization header for the API request.
 
-<img src="img/2.10/split_token3.png" alt="Split Token Key Metadata" />
+<img src="/img/2.10/split_token3.png" alt="Split Token Key Metadata" />
 
-<img src="img/2.10/split_token1.png" alt="Split Token API Injection" />
+<img src="/img/2.10/split_token1.png" alt="Split Token API Injection" />
 
 
 
@@ -553,7 +553,7 @@ Instead of a static public key, configure a public JSON Web Key Sets (JWKs) URL 
 2. Ensure JWTs contain the `kid` header, matching the `kid` in the JWK payload for verification.
 
 
-<img src="img/2.10/jwt_rsa_public_key.png" alt="JWKS Public Key Rotation" />
+<img src="/img/2.10/jwt_rsa_public_key.png" alt="JWKS Public Key Rotation" />
 
 
 For example, cURLing the JWKs URL returns:
@@ -638,4 +638,4 @@ Assign JWT scopes to security policies to control access:
 ## Visualize JWT Flow in Tyk API Gateway
 View the diagram below for an overview of JWT flow in Tyk:
 
-<img src="img/diagrams/diagram_docs_JSON-web-tokens@2x.png" alt="JSON Web Tokens Flow" />
+<img src="/img/diagrams/diagram_docs_JSON-web-tokens@2x.png" alt="JSON Web Tokens Flow" />

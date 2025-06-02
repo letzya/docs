@@ -69,15 +69,15 @@ In order to complete the next steps, you need to have [Tyk Self Managed installe
 
 1. **Select "APIs" from the "System Management" section**
 
-    <img src="img/2.10/apis_menu.png" alt="API Menu" />
+    <img src="/img/2.10/apis_menu.png" alt="API Menu" />
 
 2. **Click "ADD NEW API"**
 
-    <img src="img/2.10/add_api.png" alt="Add API button location" />
+    <img src="/img/2.10/add_api.png" alt="Add API button location" />
 
 3. **Set up the Base Configuration for your API**
 
-    <img src="img/dashboard/graphql/choose-gql-api.png" alt="Create GQL API" />
+    <img src="/img/dashboard/graphql/choose-gql-api.png" alt="Create GQL API" />
 
     - From the **Overview** section, add your **API Name** and your API **Type** (In this case it's GraphQL). 
     - From the **Details** section, add your **Target URL**. This will set the upstream origin that hosts the service you want to proxy to. As an example, you can use [https://countries.trevorblades.com/](https://countries.trevorblades.com/).
@@ -89,7 +89,7 @@ In order to complete the next steps, you need to have [Tyk Self Managed installe
 
     From the **Authentication** section:
 
-    <img src="img/2.10/authentication.png" alt="Authentication" />
+    <img src="/img/2.10/authentication.png" alt="Authentication" />
 
     You have the following options:
 
@@ -104,13 +104,13 @@ In order to complete the next steps, you need to have [Tyk Self Managed installe
 
     Click **SAVE**
 
-    <img src="img/2.10/save.png" alt="Save button" />
+    <img src="/img/2.10/save.png" alt="Save button" />
 
     Once saved, you will be taken back to the API list, where the new API will be displayed.
 
     To see the URL given to your API, select the API from the list to open it again. The API URL will be displayed at the top of the editor:
 
-    <img src="img/2.10/api_url.png" alt="API URL location" />
+    <img src="/img/2.10/api_url.png" alt="API URL location" />
 
     Your GQL API is now secured and ready to use.
 
@@ -129,7 +129,7 @@ You will need an API key for your organization and one command to create a GQL A
     From the Tyk Dashboard, select "Users" from the "System Management" section.
     Click **Edit** for your user, then scroll to the bottom of the page. Your **Tyk Dashboard API Access Credentials** key is the first entry:
 
-    <img src="img/2.10/user_api_id.png" alt="API key location" />
+    <img src="/img/2.10/user_api_id.png" alt="API key location" />
 
     Store your Dashboard Key, Dashboard URL & Gateway URL as environment variables so you don't need to keep typing them in:
 
@@ -339,7 +339,7 @@ Like other APIs, the GraphQL API supports policies, but with more advanced setti
 
 1. Log in to the Dashboard and go to APIs > Add New API > GraphQL.
 
-<img src="img/dashboard/graphql/create_graphql.png" alt="Creating GraphQL Proxy Only API" />
+<img src="/img/dashboard/graphql/create_graphql.png" alt="Creating GraphQL Proxy Only API" />
 
 2. Choose a name for your API and provide an upstream URL
 
@@ -359,7 +359,7 @@ Like other APIs, the GraphQL API supports policies, but with more advanced setti
     </Note>
 
 
-<img src="img/dashboard/graphql/gql_upstream_header.png" alt="Adding Auth Header for GraphQL Proxy Only API" />
+<img src="/img/dashboard/graphql/gql_upstream_header.png" alt="Adding Auth Header for GraphQL Proxy Only API" />
 
 
 4. Once done, click **Configure API**, and the Dashboard API designer will show up.
@@ -371,7 +371,7 @@ Like other APIs, the GraphQL API supports policies, but with more advanced setti
 There can be a need to update/sync the schema on your GraphQL API, say when the schema on the upstream is updated.
 The Dashboard UI can show the last time your API schema was synced with the upstream schema.
 
-<img src="img/dashboard/graphql/schema_sync.png" alt="schema last updated screenshot" />
+<img src="/img/dashboard/graphql/schema_sync.png" alt="schema last updated screenshot" />
 
 If you click the **Get latest version**, the gateway will make an introspection query to your upstream to fetch the schema.
 You need to click **Update** on the top right button, to update your API.
@@ -466,7 +466,7 @@ When you are creating a GQL API using Tyk Dashboard and your target GQL API is p
 
 In the *Create new API* screen you have to tick the **Upstream Protected** option under your Upstream URL.
 
- <img src="img/dashboard/graphql/introspection-auth.png" alt="Upstream protected" />
+ <img src="/img/dashboard/graphql/introspection-auth.png" alt="Upstream protected" />
 
  - From the **Upstream protected by** section choose the right option for your case: Headers or Certificate.
  - Choosing **Headers** will allow you to add multiple key/value pairs in *Introsopection headers* section. 
@@ -495,7 +495,7 @@ First, check the general information on [how to create a security policy with Ty
 
 For GraphQL APIs the *API ACCESS* section will show additional, GQL-specific options that can be enabled. 
 
-<img src="img/dashboard/graphql/disable-introspection.png" alt="Disable introspection" />
+<img src="/img/dashboard/graphql/disable-introspection.png" alt="Disable introspection" />
 
 You can diable introspection by changing the switch position.
 
@@ -897,7 +897,7 @@ Tyk Dashboard can introspect any upstream GraphQL API and download a copy of the
 
 For protected upstreams that require authorization for introspection, Tyk allows you to persist authorization headers within the GraphQL API configuration using **Introspection headers**.
 
-<img src="img/dashboard/graphql/introspection-headers.png" alt="Introspection headers" />
+<img src="/img/dashboard/graphql/introspection-headers.png" alt="Introspection headers" />
 
 Any header key/value pair defined in **Introspection headers** will only be used while making an introspection call from Tyk Dashboard to the upstream. Those headers will not be used while proxying requests from consumers to the upstream.
 
@@ -919,7 +919,7 @@ Any header key/value pair defined in **Introspection headers** will only be used
 
 You can enrich any GraphQL request proxied through Tyk Gateway with additional information in the headers by configuring **Request headers** in the Tyk Dashboard.
 
-<img src="img/dashboard/graphql/headers-gql-request.png" alt="Request headers" />
+<img src="/img/dashboard/graphql/headers-gql-request.png" alt="Request headers" />
 
 **Request headers** values can be defined as context variables. To know how to refer to request context variables check [this page](/api-management/traffic-transformation#request-context-variables).
 
@@ -955,7 +955,7 @@ Syncing schemas is only available for proxy-only GraphQL APIs and **not** for UD
 </Note>
 
 
-<img src="img/dashboard/graphql/schema_sync.png" alt="Sync Schema Button" />
+<img src="/img/dashboard/graphql/schema_sync.png" alt="Sync Schema Button" />
 
 If your upstream is protected then you need to make sure you provide Tyk with the authorization details to execute the introspection query correctly. You can add those detail while [creating GQL API](/api-management/graphql#introspection-for-protected-upstreams) or using [Introspection headers](/api-management/graphql#introspection-headers) later on.
 
@@ -1215,7 +1215,7 @@ Query depth limitation can be applied on three different levels:
   3. Select your GraphQL API (marked as *GraphQL*). <em>(if Policy is not applied on Key)</em>
   4. Change the value for **Query depth**, from `Global Limits and Quota` by unchecking the *Unlimited query depth* checkmark and insert the maximum allowed query depth.
 
-<img src="img/dashboard/system-management/global_limits_query_depth.png" alt="query-depth-limit" />
+<img src="/img/dashboard/system-management/global_limits_query_depth.png" alt="query-depth-limit" />
 
 * **API limits and quota. (`Set per API Limits and Quota`)** This value will overwrite any value registered for query depth limitation on global Key/Policy level, and will be applied on all fields for Query and Mutation types defined within the API schema.
   1. *Optional:* Configure a Policy from **System Management > Policies > Add Policy**.
@@ -1224,7 +1224,7 @@ Query depth limitation can be applied on three different levels:
   4. Enable `Set per API Limits and Quota` section.
   5. Change the value for **Query depth**, from API level, by unchecking the *Unlimited query depth* checkmark and insert the maximum allowed query depth
 
-<img src="img/dashboard/system-management/api_limits_query_depth.png" alt="query-depth-limit" />
+<img src="/img/dashboard/system-management/api_limits_query_depth.png" alt="query-depth-limit" />
 
 * **API per query depth limit. (`Set per query depth limits`)** By setting a query depth limit value on a specific Query/Mutation type field, will take highest priority and all values set on first 2 steps will be overwritten.
   1. *Optional:* Configure a Policy from **System Management > Policies > Add Policy**.
@@ -1233,7 +1233,7 @@ Query depth limitation can be applied on three different levels:
   4. Enable `Set per query depth limits` section.
   5. Add as many queries you want to apply depth limitation on.
 
-<img src="img/dashboard/system-management/query_limits_query_depth.png" alt="query-depth-limit" />
+<img src="/img/dashboard/system-management/query_limits_query_depth.png" alt="query-depth-limit" />
 
 
 #### Enable depth limits using Tyk APIs
@@ -1497,7 +1497,7 @@ For example, the settings illustrated below would block the following:
 - `code` and `countries` fields in `Continent` type.
 - `latt` and `longt` fields in `Coordinates` type.
 
-<img src="img/dashboard/system-management/field-based-permissions-blocklist.png" alt="field-based-permissions" />
+<img src="/img/dashboard/system-management/field-based-permissions-blocklist.png" alt="field-based-permissions" />
 
 #### Allow list
 
@@ -1509,7 +1509,7 @@ For example, the settings illustrated below would only allow the following:
 
 Note that the `Query` type is unchecked, which indicates that all fields in `Query` type are unchecked. Subsequently, you will not be able to run any query.
 
-<img src="img/dashboard/system-management/field-based-permissions-allowlist.png" alt="field-based-permissions" />
+<img src="/img/dashboard/system-management/field-based-permissions-allowlist.png" alt="field-based-permissions" />
 
 ## GraphQL Federation
 
@@ -1525,7 +1525,7 @@ Ease-of-use is an important factor when adopting GraphQL either as a provider or
 
 To remedy this, Tyk, with release 4.0 offers GraphQL federation that allows you to divide GQL implementation across multiple back-end services, while still exposing them all as a single graph for the consumers.
 
-<img src="img/dashboard/graphql/diagram_graphql-federation-B.png" alt="GraphQL federation flowchart" />
+<img src="/img/dashboard/graphql/diagram_graphql-federation-B.png" alt="GraphQL federation flowchart" />
 
 #### Subgraphs and supergraphs
 
@@ -1636,7 +1636,7 @@ type User {
 #### Creating a subgraph via the Dashboard UI
 
 1. Log in to the Dashboard and go to APIs > Add New API > Federation > Subgraph.
-<img src="img/dashboard/graphql/add-subgraph-api.png" alt="Add federation subgraph" />
+<img src="/img/dashboard/graphql/add-subgraph-api.png" alt="Add federation subgraph" />
 
 2. Choose a name for the subgraph and provide an upstream URL.
 
@@ -1649,7 +1649,7 @@ type User {
     </Note>
 
 
-<img src="img/dashboard/graphql/subgraph-upstream-url.png" alt="Add upstream URL" />
+<img src="/img/dashboard/graphql/subgraph-upstream-url.png" alt="Add upstream URL" />
 
 3. Go to Configure API and configure your subgraph just as you would any other API in Tyk.
 
@@ -1663,18 +1663,18 @@ type User {
 
 
 4. Once you have configured all the options, click Save. The subgraph is now visible in the list of APIs.
-<img src="img/dashboard/graphql/subgraph-api-listing.png" alt="Subgraph API listing" />
+<img src="/img/dashboard/graphql/subgraph-api-listing.png" alt="Subgraph API listing" />
 
 #### Creating a supergraph via the Dashboard UI
 1. Log in to the Dashboard and go to APIs > Add New API > Federation > Supergraph.
-<img src="img/dashboard/graphql/add-supergraph-api.png" alt="Add supergraph API" />
+<img src="/img/dashboard/graphql/add-supergraph-api.png" alt="Add supergraph API" />
 
 2. In the Details section, select all the subgraphs that will be included in your supergraph.
-<img src="img/dashboard/graphql/select-subgraphs.png" alt="Select subgraphs" />
+<img src="/img/dashboard/graphql/select-subgraphs.png" alt="Select subgraphs" />
 
 3. Go to Configure API and configure your supergraph just as you would any other API in Tyk.
 4. Once you configure all the options, click Save. The supergraph is now available in your list of APIs.
-<img src="img/dashboard/graphql/supergraph-api-listing.png" alt="Supergraph API listing" />
+<img src="/img/dashboard/graphql/supergraph-api-listing.png" alt="Supergraph API listing" />
 
 #### Defining Headers
 In v4.0 you can define global (Supergraph) headers. Global headers are forwarded to all subgraphs that apply to the specific upstream request.
@@ -1683,10 +1683,10 @@ In v4.0 you can define global (Supergraph) headers. Global headers are forwarded
 
 1. After creating your supergraph, open the API in your Dashboard.
 2. From the Subgraphs tab, click Global Headers.
-<img src="img/dashboard/graphql/global-header1.png" alt="Global Header setup for a supergraph" />
+<img src="/img/dashboard/graphql/global-header1.png" alt="Global Header setup for a supergraph" />
 
 3. Enter your header name and value. You can add more headers by clicking Add Headers.
-<img src="img/dashboard/graphql/global-header2.png" alt="Add further Global headers in a supergraph" />
+<img src="/img/dashboard/graphql/global-header2.png" alt="Add further Global headers in a supergraph" />
 
 4. Click **Update** to save the header.
 5. On the pop-up that is displayed, click Update API.
@@ -2040,13 +2040,13 @@ There is no need to enable subscriptions separately. They are supported alongsid
 
 Here's a general sequence diagram showing how subscriptions in Tyk work exactly:
 
-<img src="img/dashboard/graphql/tyk-subscriptions-workflow.png" alt="Tyk Subscriptions workflow" />
+<img src="/img/dashboard/graphql/tyk-subscriptions-workflow.png" alt="Tyk Subscriptions workflow" />
 
 ## GraphQL playground
 
 When you are creating or editing your GraphQL API, any change you make can be tested using Tyk Dashboard built-in GraphiQL Playground.
 
-<img src="img/dashboard/graphql/gql-playground-new.png" alt="Playground" />
+<img src="/img/dashboard/graphql/gql-playground-new.png" alt="Playground" />
 
 At the top of the Playground itself, you can switch between Dark and Light theme using the `Set theme` dropdown.
 
@@ -2089,7 +2089,7 @@ To enable a Public GraphQL Playground for one of your GQL APIs follow these few 
 2. Change the setting in `Enable API Playground` section.
 3. Provide `Playground path`. By default, this path is set to `/playground` but you can change it.
 
-<img src="img/dashboard/graphql/enable-playground.png" alt="Headers" />
+<img src="/img/dashboard/graphql/enable-playground.png" alt="Headers" />
 
 Your `Public Playground` will be available at `http://{API-URL}/playground`.
 
@@ -2184,7 +2184,7 @@ The values for variables would need be provided in the `Query variables` section
 
 Debugging a GraphQL API might require additional headers to be passed to the requests while playing with the GraphiQL interface (i.e. `Authorization` header in case of Authentication Token protection over the API). This can be done using the dedicated headers tab in the Graphiql IDE.
 
-<img src="img/dashboard/udg/getting-started/headers.png" alt="Headers" />
+<img src="/img/dashboard/udg/getting-started/headers.png" alt="Headers" />
 
 You can also [forward headers](/api-management/graphql#graphql-apis-headers) from your client request to the upstream data sources.
 
@@ -2199,15 +2199,15 @@ GraphQL request logs described below are **only available in Tyk Dashboard**.
 
 Besides the results displayed in the GraphiQL playground, Tyk also provides you with a full list of logs of the triggered request, which can help a lot when debugging the API functionality.
 
-<img src="img/dashboard/udg/getting-started/logs.png" alt="Logs" />
+<img src="/img/dashboard/udg/getting-started/logs.png" alt="Logs" />
   
 The Request Logs can be seen under the playground itself. When no logs are present, there will be no option to expand the logs, and the filter buttons (top right) will be disabled:
 
-<img src="img/dashboard/udg/getting-started/logs_bar.png" alt="Logs Bar" />
+<img src="/img/dashboard/udg/getting-started/logs_bar.png" alt="Logs Bar" />
 
 After creating and sending a query, the logs will automatically expand, and the filter buttons will display the number of logs for its respective level (category).
 
-<img src="img/dashboard/udg/getting-started/logs_table.png" alt="Logs table" />
+<img src="/img/dashboard/udg/getting-started/logs_table.png" alt="Logs table" />
 
 ##### Contents of the logs
 
@@ -2225,13 +2225,13 @@ Filter buttons have two states: active and inactive; the default of which is act
 
 In the below picture, the `info` and `error` filters buttons are both active. If there are no logs for a particular level of log, the button will appear as a gray and disabled, as shown by the `Warning` filter button.
 
-<img src="img/dashboard/udg/getting-started/logs_navigation.png" alt="Logs navigation" />
+<img src="/img/dashboard/udg/getting-started/logs_navigation.png" alt="Logs navigation" />
 
 Here's an example where there is at least one log, but all the filter buttons are in the inactive state. If the cursor (not shown) hovers over an inactive filter button, the button background will change to solid, and the tooltip will display `“Show”`. 
 
 If all filter buttons are inactive, a message asking whether the user would like to reset all filters will display. Clicking this text will activate all available filters.
 
-<img src="img/dashboard/udg/getting-started/logs_empty.png" alt="Logs empty" />
+<img src="/img/dashboard/udg/getting-started/logs_empty.png" alt="Logs empty" />
 
 ## Migrating to 3.2
 

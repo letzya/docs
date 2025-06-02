@@ -229,7 +229,7 @@ This is how OWASP describe the attack vectors for the three authorization levels
 
 #### REST API - Reading Data
 
-<img src="img/api-management/security/rest-api-read-data.jpeg" alt="Rest API - Read Data" width="150px" />
+<img src="/img/api-management/security/rest-api-read-data.jpeg" alt="Rest API - Read Data" width="150px" />
 
 The client sends a `GET` request using the path `/profile/1`. This path has two parts:
 
@@ -245,7 +245,7 @@ Lastly, the API handles object level authorization by using custom logic. This t
 
 #### REST API - Writing Data
 
-<img src="img/api-management/security/rest-api-write-data.jpeg" alt="Rest API - Write Data" width="150px" />
+<img src="/img/api-management/security/rest-api-write-data.jpeg" alt="Rest API - Write Data" width="150px" />
 
 The client sends a `POST` request using the path `/profile` and body data containing the object to write. The path `/profile` is static and requires function level authorization. The body data contains a JSON object that has two fields:
 
@@ -261,7 +261,7 @@ Lastly, the API handles object level authorization by using custom logic. This t
 
 #### GraphQL API - Querying Data
 
-<img src="img/api-management/security/graphql-query-data.jpeg" alt="Rest API - Write Data" width="150px" />
+<img src="/img/api-management/security/graphql-query-data.jpeg" alt="Rest API - Write Data" width="150px" />
 
 The client sends a `POST` request using the path `/graphql` and body data containing a GraphQL query. The path `/graphql` is static and requires function level authorization. The GraphQL query contains several elements:
 

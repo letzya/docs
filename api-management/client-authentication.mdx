@@ -142,7 +142,7 @@ definition:
 
 From the Tyk Dashboard, to do the same from the **API Designer Core settings** section you need to select **Mutual TLS** authentication mode from the **Authentication** section, and allow the certificates using the built-in widget, as below:
 
-<img src="img/2.10/mtls_auth_cert.png" alt="mutual_tls_auth" />
+<img src="/img/2.10/mtls_auth_cert.png" alt="mutual_tls_auth" />
 
 If all your APIs have a common set of certificates, you can define them in your Gateway configuration file via the `security.certificates.apis` key - string array of certificate IDs or paths.
 
@@ -198,7 +198,7 @@ To set up Dynamic Client mTLS, we need to follow these steps:
 
 In the API Designer, set the Authentication Type to Auth Token under Target Details > Authentication mode. Then select Enable Client Certificate.
 
-<img src="img/api-management/security/client-mtls-api-setup.png" alt="Enable Client Certificate" />
+<img src="/img/api-management/security/client-mtls-api-setup.png" alt="Enable Client Certificate" />
 
 ##### Generate a Self-Signed Key Pair
 
@@ -238,7 +238,7 @@ Instead of manually creating keys, you can allow developers to upload their own 
 2. **Create a Catalog Entry:** Create a catalog entry for this policy.
 3. **Request a Key through the Portal:** As a developer, request a key for the API through the Portal. This will present a screen where the developer can upload their public certificate.
 
-<img src="img/dashboard/system-management/portal_cert_request.png" alt="portal_cert_request" />
+<img src="/img/dashboard/system-management/portal_cert_request.png" alt="portal_cert_request" />
 
 Add your public cert (cert.pem from above) into here and hit "Request Key".  
 
@@ -712,11 +712,11 @@ You can configure chained authentication using the Dashboard UI by following the
 
 2.  Select the **Multiple Authentication Mechanisms** option from the drop-down list.
 
-    <img src="img/api-management/security/multiple-auth-choose-auth.png" alt="Select Multiple Auth" />
+    <img src="/img/api-management/security/multiple-auth-choose-auth.png" alt="Select Multiple Auth" />
 
 3.  Select the **Authentication methods** you want to implement and identify the **Base identity provider**
 
-    <img src="img/api-management/security/multiple-auth-methods.png" alt="Select Auth Methods" />
+    <img src="/img/api-management/security/multiple-auth-methods.png" alt="Select Auth Methods" />
 
 4.  You can now configure each of the individual authentication methods in the usual manner using the options in the API designer.
 

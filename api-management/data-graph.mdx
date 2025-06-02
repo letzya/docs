@@ -17,7 +17,7 @@ With the Universal Data Graph Tyk becomes your central integration point for all
 In addition to this, the UDG benefits from all existing solutions that already come with your Tyk installation.
 That is, your Data Graph will be secure from the start and there's a large array of middleware you can build on to power your Graph.
 
-<img src="img/diagrams/universal_datagraph_overview.png" alt="Universal Datagraph Overview" />
+<img src="/img/diagrams/universal_datagraph_overview.png" alt="Universal Datagraph Overview" />
 
 Currently supported DataSources:
 - REST
@@ -99,7 +99,7 @@ Typing an opening curly brace (  ) will produce a dropdown that contains all ava
 https://example.com/user/{{ .arguments.id }}
 ``` 
 
-<img src="img/dashboard/udg/concepts/parameter_dropdown.png" alt="Create New API" />
+<img src="/img/dashboard/udg/concepts/parameter_dropdown.png" alt="Create New API" />
 
 ### Field Mappings
 
@@ -168,7 +168,7 @@ It is also possible to use this syntax for nested paths. For example: `[0].user.
 
 See below how to configure the field mapping for each individual field.
 
-<img src="img/dashboard/udg/concepts/field-mapping-new.png" alt="Field mapping UI" />
+<img src="/img/dashboard/udg/concepts/field-mapping-new.png" alt="Field mapping UI" />
 
 
 #### Field mapping in Tyk API definition
@@ -286,7 +286,7 @@ So the URL for the driver license data source would look like this:
 ```
 https://driver-license-api.dev/driver-licenses/{{.object.driverLicenseID}}
 ```
- <img src="img/dashboard/udg/concepts/object_placeholder.png" alt="Use the object placeholder" />
+ <img src="/img/dashboard/udg/concepts/object_placeholder.png" alt="Use the object placeholder" />
 
 #### Result
 
@@ -515,7 +515,7 @@ The response is wrapped in the field "employee" whereas in a typical REST API yo
 Because of this, field mappings are by default disabled for REST APIs.
 For GraphQL APIs, the mapping is enabled by default and the path is set to the root field name.
 
-<img src="img/dashboard/udg/datasources/graph-fieldmapping.png" alt="Create New API" />
+<img src="/img/dashboard/udg/datasources/graph-fieldmapping.png" alt="Create New API" />
 
 Other than this slight difference what's so special about the GraphQL Datasource to give it a dedicated name?
 
@@ -552,7 +552,7 @@ Above steps are explained in detail in our [Getting started pages](/api-manageme
 
 
 
-<img src="img/dashboard/udg/datasources/add_gql_operation.png" alt="Add GQL Operation" />
+<img src="/img/dashboard/udg/datasources/add_gql_operation.png" alt="Add GQL Operation" />
 
 ### Kafka
 
@@ -626,7 +626,7 @@ The above configuration object is just a part of the API Definition Object of Ty
 
 2. From the right-hand side *Configure data source* panel choose KAFKA at the bottom in the *Add a new external data source* section
 
-<img src="img/dashboard/udg/datasources/kafka-config.png" alt="Kafkaconfig" /> 
+<img src="/img/dashboard/udg/datasources/kafka-config.png" alt="Kafkaconfig" /> 
 
 3. Provide datasource name, broker address (at least 1), topics (at least 1), groupID, clientID. Optionally you can also choose Kafka version, balance strategy and field mapping options. 
 
@@ -634,7 +634,7 @@ The above configuration object is just a part of the API Definition Object of Ty
 
 Once done the field you just configured will show information about data source type and name:
 
-<img src="img/dashboard/udg/datasources/kafka-list.png" alt="KafkaList" /> 
+<img src="/img/dashboard/udg/datasources/kafka-list.png" alt="KafkaList" /> 
 
 ##### Subscribing to topics
 
@@ -686,7 +686,7 @@ When you change any of the fields, all subscribers of the `productUpdated`kafk f
 
 The result should be similar to the following:
 
-<img src="img/2.10/kafka0.png" alt="API Menu" />
+<img src="/img/2.10/kafka0.png" alt="API Menu" />
 
 
 ##### API Definition for the Kafka DataSource
@@ -1261,11 +1261,11 @@ In order to use an external REST API as a Datasource you need to first navigate 
 1. Click on the field which should have a datasource attached
 2. From the right-hand side *Configure data source* panel choose REST at the bottom in the *Add a new external data source* section
 
-<img src="img/dashboard/udg/datasources/external-rest-config.png" alt="ExternalREST" />
+<img src="/img/dashboard/udg/datasources/external-rest-config.png" alt="ExternalREST" />
 
 3. Provide data source name, URL, method to be used. Optionally you can add headers information and configure field mapping 
 
-<img src="img/dashboard/udg/datasources/rest-datasource.png" alt="ExternalRESTdetail" />
+<img src="/img/dashboard/udg/datasources/rest-datasource.png" alt="ExternalRESTdetail" />
 
 4. Click the *Save & Update API* button to persist the configuration and generate a REST resolver, to  resolve this field at runtime.
 
@@ -1274,18 +1274,18 @@ In order to use an external REST API as a Datasource you need to first navigate 
 1. Click on the field which should have a datasource attached
 2. From the right-hand side *Configure data source* panel choose *REST | Tyk* dropdown to see all available APIs
 
-<img src="img/dashboard/udg/datasources/rest-internal-config.png" alt="InternalREST" />
+<img src="/img/dashboard/udg/datasources/rest-internal-config.png" alt="InternalREST" />
 
 3. Choose which Tyk REST API you want to attach
 4. Provide data source name, endpoint and method to be used. Optionally you can add headers information and configure field mapping
 
-<img src="img/dashboard/udg/datasources/tyk-rest-datasource.png" alt="InternalRESTdetail" />
+<img src="/img/dashboard/udg/datasources/tyk-rest-datasource.png" alt="InternalRESTdetail" />
 
 5. Click the *Save & Update API* button to persist the configuration and generate a REST resolver, to resolve this field at runtime.
 
 Once done the field you just configured will show information about data source type and name:
 
-<img src="img/dashboard/udg/datasources/datasources-list.png" alt="datasourcesList" />
+<img src="/img/dashboard/udg/datasources/datasources-list.png" alt="datasourcesList" />
 
 #### Automatically creating REST UDG configuration based on OAS specification
 
@@ -1837,7 +1837,7 @@ The syntax for this is straight forward:
 
   In your data sources, define your new Header name and then declare which request header's value to use:
 
-  <img src="img/dashboard/udg/getting-started/request-forward-syntax.png" alt="Forwarding Headers" />
+  <img src="/img/dashboard/udg/getting-started/request-forward-syntax.png" alt="Forwarding Headers" />
 
   That's it!
 
@@ -1876,8 +1876,8 @@ You can find more detailed instructions in the [Dashboard API Import documentati
 
 Navigate to `Data Graphs` section of the Tyk Dashboard menu. If you haven't yet created any Universal Data Graphs you will see three options in the screen - one of them `Try example data graph` - will allow you to browse all examples compatible with your Dashboard version and choose the one you want to import.
 
-<img src="img/dashboard/udg/getting-started/example data graph.png" alt="Examples in Dashboard" />
+<img src="/img/dashboard/udg/getting-started/example data graph.png" alt="Examples in Dashboard" />
 
 In case you have created data graphs before and your screen looks different, just use the `Add Data Graph` button and in the next step decide if you want to create one yourself, or use one of the available examples.
 
-<img src="img/dashboard/udg/getting-started/data graph example new graph menu.png" alt="Examples in Dashboard New Graph" />
+<img src="/img/dashboard/udg/getting-started/data graph example new graph menu.png" alt="Examples in Dashboard New Graph" />

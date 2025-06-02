@@ -13,7 +13,7 @@ Tyk’s Multi Data Center Bridge (MDCB) is a separately licensed extension to th
 
 When your users are spread geographically and want to access your APIs from different parts of the world you can optimize the performance, value and utility of your APIs by deploying API Gateways in data centers local to them.
 
-<img src="img/mdcb/mdcb-intro1.png" alt="Single API gateway" width="800" height="975" />
+<img src="/img/mdcb/mdcb-intro1.png" alt="Single API gateway" width="800" height="975" />
 
 Having localised gateways offers benefits to you and your users, such as:
 
@@ -22,7 +22,7 @@ Having localised gateways offers benefits to you and your users, such as:
 - Increased availability across your estate - if one region goes offline the rest will continue to serve users
 - Compliance with data residency and sovereignty regulations
 
-<img src="img/mdcb/mdcb-intro2.png" alt="Distributed API gateways" width="800" height="975" />
+<img src="/img/mdcb/mdcb-intro2.png" alt="Distributed API gateways" width="800" height="975" />
 
 This distributed architecture, however, introduces challenges for you in terms of managing the configuration, synchronisation and resilience of the Gateways in each data center.
 
@@ -41,7 +41,7 @@ Combining Tyk Dashboard with MDCB, you are provided with a “single pane of gla
 
 By deploying MDCB, API Management with Tyk becomes a service that can be easily offered to multiple teams from a centralised location.
 
-<img src="img/mdcb/mdcb-intro3.png" alt="Distributed API Gateways with MDCB" width="800" height="975" />
+<img src="/img/mdcb/mdcb-intro3.png" alt="Distributed API Gateways with MDCB" width="800" height="975" />
 
 ### How does MDCB work?
 
@@ -51,7 +51,7 @@ MDCB is extremely flexible, supporting clusters of Tyk Gateways within or across
 
 MDCB keeps your Tyk API Gateways highly available because all the Worker Gateways, where your users access your APIs, can be configured and run independently. If the MDCB link back to the Management Gateway goes down, the Workers will continue to service API requests; when the link is back up, MDCB will automatically refresh the Workers with any changes they missed.
 
-<img src="img/mdcb/mdcb-intro4.png" alt="Multi Data Center Bridge is down" width="800" height="975" />
+<img src="/img/mdcb/mdcb-intro4.png" alt="Multi Data Center Bridge is down" width="800" height="975" />
 
 What happens if the worst happens and Worker Gateways fail while the link to the Control Plane is down? We’ve thought of that: Tyk will automatically configure the new Workers that spin up using the last known set of API resources in the worker’s cluster, minimizing the impact on availability of your services.
 
@@ -61,21 +61,21 @@ What happens if the worst happens and Worker Gateways fail while the link to the
 
 Consider Acme Global Bank: they have customers in the USA and the EU. Due to compliance, security and performance requirements they need to deploy their Tyk API Gateways locally in each of those regions. They need to manage the deployment and synchronisation of APIs and associated resources (e.g. keys, policies and certificates) between the data centers to ensure global service for their customers.
 
-<img src="img/mdcb/mdcb-acme-global-bank1.png" alt="Acme Global Bank without MDCB" width="600" height="750" />
+<img src="/img/mdcb/mdcb-acme-global-bank1.png" alt="Acme Global Bank without MDCB" width="600" height="750" />
 
 Tyk MDCB enables Acme Global Bank to power this architecture by creating a primary data center with all the Tyk Control Plane components and secondary (worker) data centers that act as local caches to run validation and rate limiting operations to optimize latency and performance.
 
-<img src="img/mdcb/mdcb-acme-global-bank2.png" alt="Acme Global Bank with MDCB" width="600" height="750" />
+<img src="/img/mdcb/mdcb-acme-global-bank2.png" alt="Acme Global Bank with MDCB" width="600" height="750" />
 
 #### Managing a complex deployment of services with internal and externally facing APIs
 
 Consider Acme Telecoms: they have a large nationally distributed workforce and complex self-hosted IT systems; are using Tyk API Gateways to deploy internal and external APIs; and have different teams managing and consuming different sets of APIs across multiple sites. They need to ensure data segregation, availability, and access for internal and external users and partners.
 
-<img src="img/mdcb/mdcb-acme-telecoms1.png" alt="Acme Telecoms without MDCB" width="600" height="750" />
+<img src="/img/mdcb/mdcb-acme-telecoms1.png" alt="Acme Telecoms without MDCB" width="600" height="750" />
 
 Combining Tyk’s built-in multi-tenancy capability with MDCB enables Acme Telecoms to set up dedicated logical gateways for different user groups and different physical gateways to guarantee data segregation, with a single management layer for operational simplicity.
 
-<img src="img/mdcb/mdcb-acme-telecoms2.png" alt="Acme Telecoms with MDCB" width="600" height="750" />
+<img src="/img/mdcb/mdcb-acme-telecoms2.png" alt="Acme Telecoms with MDCB" width="600" height="750" />
 
 ### Why Choose MDCB for Your API Infrastructure?
 
@@ -124,7 +124,7 @@ Here are some examples of the benefits that deploying Tyk MDCB can bring:
 ### Overview
 
 Here we will give an overview of the main elements of a Tyk Multi Data Center (distributed) solution, clarifying the terminology used by Tyk.
-<img src="img/mdcb/mdcb-components.png" alt="A Tyk Multi Data Center Bridge deployment" width="800" height="975" />
+<img src="/img/mdcb/mdcb-components.png" alt="A Tyk Multi Data Center Bridge deployment" width="800" height="975" />
 
 #### Tyk Gateway 
 - The workhorse of any deployment, Tyk’s lightweight Open Source API gateway that exposes your APIs for consumption by your users. It is a reverse proxy that secures your APIs, manages session and policies, monitors, caches and manipulates requests/responses when needed before/after it proxies them to and from the upstream.
@@ -149,7 +149,7 @@ Here we will give an overview of the main elements of a Tyk Multi Data Center (d
 
 
 ### Control Plane
-<img src="img/mdcb/mdcb-control-plane.png" alt="The Tyk Control Plane" width="800" height="975" />
+<img src="/img/mdcb/mdcb-control-plane.png" alt="The Tyk Control Plane" width="800" height="975" />
 
 The Control Plane must consist of the following elements:
 - **Tyk Dashboard** (used to configure and control the whole Tyk installation)
@@ -165,7 +165,7 @@ To improve resilience and availability, multiple instances of each Tyk component
 - A **Tyk Developer Portal** can be added to enhance the end-user experience when accessing your APIs.
  
 ### Data Plane
-<img src="img/mdcb/mdcb-data-plane.png" alt="The Tyk Data Plane" width="800" height="975" />
+<img src="/img/mdcb/mdcb-data-plane.png" alt="The Tyk Data Plane" width="800" height="975" />
 
 The Data Plane deployment must consist of the following elements:
 - **Tyk Gateway** (one or more Gateways specifically configured as Workers)
@@ -547,7 +547,7 @@ This is the URL you use to access the Dashboard (including the port if not using
 
 You can find your organization id in the Dashboard, under your user account details.
 
-<img src="img/2.10/user_api_id.png" alt="Org ID" />
+<img src="/img/2.10/user_api_id.png" alt="Org ID" />
 
 4. Send a GET request to the Dashboard API to `/admin/organisations/$ORG_ID` to retrieve the organization object. In the example below, we are redirecting the output json to a file `myorg.json` for easy editing.
 
@@ -759,7 +759,7 @@ By using Tyk's Multi-Data Center Bridge (MDCB), however, they are able to centra
 
 In this example we will show you how to create the Acme Global Bank deployment using our example Helm charts.
 
-<img src="img/mdcb/mdcb_poc1_overview.png" alt="MDCB Proof of Concept - Acme Global Bank" width="600" height="750" />
+<img src="/img/mdcb/mdcb_poc1_overview.png" alt="MDCB Proof of Concept - Acme Global Bank" width="600" height="750" />
 
 **Step-by-step instructions to deploy the Acme Global Bank scenario with Kubernetes in a public cloud (here we’ve used Google Cloud Platform):**
 
@@ -795,7 +795,7 @@ In this example we will show you how to create the Acme Global Bank deployment u
      - `./up.sh -r redis-cluster -e load-balancer tyk-cp`
 
 *Deploying the Tyk Control Plane*
-<img src="img/mdcb/mdcb-poc1-screenshot1.png" alt="Tyk Control Plane Deployed" />
+<img src="/img/mdcb/mdcb-poc1-screenshot1.png" alt="Tyk Control Plane Deployed" />
 
 2. Create two logically-separate Tyk Data Planes (Workers) to represent Acme Global Bank’s US and EU operations using the command provided in the output from the `./up.sh` script:
     - `TYK_WORKER_CONNECTIONSTRING=<MDCB-exposure-address:port> TYK_WORKER_ORGID=<org_id> TYK_WORKER_AUTHTOKEN=<mdcb_auth_token> TYK_WORKER_USESSL=false ./up.sh --namespace <worker-namespace> tyk-worker`
@@ -803,26 +803,26 @@ In this example we will show you how to create the Acme Global Bank deployment u
 Note that you need to run the same command twice, once setting `<worker-namespace>` to `tyk-worker-us`, the other to `tyk-worker-eu` (or namespaces of your choice)
 
 *Deploying the `tyk-worker-us` namespace (Data Plane #1)*
-<img src="img/mdcb/mdcb-poc1-screenshot2.png" alt="Deploying the tyk-worker-us namespace" />  
+<img src="/img/mdcb/mdcb-poc1-screenshot2.png" alt="Deploying the tyk-worker-us namespace" />  
 
 *Deploying the `tyk-worker-eu` namespace (Data Plane #2)*
-<img src="img/mdcb/mdcb-poc1-screenshot3.png" alt="Deploying the tyk-worker-eu namespace" />
+<img src="/img/mdcb/mdcb-poc1-screenshot3.png" alt="Deploying the tyk-worker-eu namespace" />
 
 3. Verify and observe the Tyk Control and Data Planes
     - Use `curl` to verify that the gateways are alive by calling their `/hello` endpoints
 
-<img src="img/mdcb/mdcb-poc1-screenshot4.png" alt="observe Tyk K8s namespace console output" />
+<img src="/img/mdcb/mdcb-poc1-screenshot4.png" alt="observe Tyk K8s namespace console output" />
 
     - You can use `watch` to observe each of the Kubernetes namespaces
 
 *`tyk-cp` (Control Plane)*
-<img src="img/mdcb/mdcb-poc1-screenshot5.png" alt="Control Plane" />  
+<img src="/img/mdcb/mdcb-poc1-screenshot5.png" alt="Control Plane" />  
 
 *`tyk-worker-us` (Data Plane #1)*
-<img src="img/mdcb/mdcb-poc1-screenshot6.png" alt="" /> 
+<img src="/img/mdcb/mdcb-poc1-screenshot6.png" alt="" /> 
 
 *`tyk-worker-eu` (Data Plane #2)*
-<img src="img/mdcb/mdcb-poc1-screenshot7.png" alt="Data Plane #2" />
+<img src="/img/mdcb/mdcb-poc1-screenshot7.png" alt="Data Plane #2" />
 
 ### Testing the deployment to prove the concept
 As you know, the Tyk Multi Data Center Bridge provides a link from the Control Plane to the Data Plane (worker) gateways, so that we can control all the remote gateways from a single dashboard.
@@ -833,7 +833,7 @@ As you know, the Tyk Multi Data Center Bridge provides a link from the Control P
       - username: `default@example.com`
       - password: `topsecretpassword` (or whatever you’ve configured in the `.env` file)
       
-<img src="img/mdcb/mdcb-poc1-screenshot8.png" alt="Tyk Dashboard login" />
+<img src="/img/mdcb/mdcb-poc1-screenshot8.png" alt="Tyk Dashboard login" />
 
 2. Create an API in the dashboard, but don’t secure it (set it to `Open - keyless`); for simplicity we suggest a simple pass-through proxy to `httbin.org`.
 3. MDCB will propagate this API through to the workers - so try hitting that endpoint on the two Data Plane gateways (their addresses are given in the watch windows: for example `34.173.240.149:8081` for my `tyk-worker-us` gateway above).
@@ -884,7 +884,7 @@ Every time that a key is updated or removed the control plane emits a signal to 
 Considerations:
 This introduces a single point of failure. When the MDCB or controller Gateway in the control plane fails then the worker Gateways are also affected.
 
-<img src="img/mdcb/synchroniser-before.gif" alt="Without Synchroniser" width="1000" />
+<img src="/img/mdcb/synchroniser-before.gif" alt="Without Synchroniser" width="1000" />
 
 **With Synchroniser**
 
@@ -894,7 +894,7 @@ Considerations:
 - Size of local Redis storage: If there are a lot of keys / resources to be synchronised this will increase the size of local Redis storage. The data stored in Redis, including keys, OAuth clients, and certificates, is passed to the Redis instance of each data plane. This is a characteristic of the synchronisation mechanism and occurs regardless of whether these elements are being actively used on a given data plane. Keep in mind that even if certain resources are not being utilized in a specific data plane, they are still stored and maintained in sync by the Multi Data Center Bridge (MDCB). Therefore, if your system has a large volume of keys, OAuth clients, and certificates, this could increase the storage requirements and network traffic between your data planes. It's essential to consider these factors when designing and scaling your system.
 - Data residency: The synchronization of resources does not support the application of this feature to specific groups. Instead, all keys, oauth-clients, etc. will be propagated to all Redis instances in the worker Gateways, without any differentiation based on groups. This should be considered for those customers who have a single control plane but multiple clusters of worker Gateways connected. In this scenario, all Redis instances in the Worker Gateways will receive all the keys. This aspect should be taken into account if you have specific data residency requirements.
 
-<img src="img/mdcb/synchroniser-after.gif" alt="With Synchroniser" width="1000" />
+<img src="/img/mdcb/synchroniser-after.gif" alt="With Synchroniser" width="1000" />
 
 ### Configuring the Synchroniser for Tyk Self Managed
 

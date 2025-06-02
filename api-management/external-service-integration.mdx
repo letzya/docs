@@ -64,19 +64,19 @@ An identity handler will perform a predefined set of actions once a provider has
 
 1. `GenerateOrLoginUserProfile` - this will log a user into the Tyk Dashboard (this does not create a user, it only creates a temporary session for the user to have access). This flow is defined as next:
 
-<img src="img/diagrams/generate-or-login-user-profile.png" alt="Generate Or Login User Profile flow" />
+<img src="/img/diagrams/generate-or-login-user-profile.png" alt="Generate Or Login User Profile flow" />
 
 2. `GenerateOrLoginDeveloperProfile` - this will create or login a user to the Tyk Developer Portal. The flow is similar to _GenerateOrLoginUserProfile_ but in this case if the developer doesn't exist then it will be created.
 
 3. `GenerateOAuthTokenForClient` - this will act as a client ID delegate and grant an Tyk provided OAuth token for a user using a fragment in the redirect URL (standard flow). The flow is defined as:
 
-<img src="img/diagrams/generate-oauth-token-for-client.png" alt="Generate Oauth token for client" />
+<img src="/img/diagrams/generate-oauth-token-for-client.png" alt="Generate Oauth token for client" />
 
 ### Exploring TIB Profiles
 
 TIB takes as input one or many profiles that are stored in mongo or a file (it depends on the type of installation), a profile is a configuration that outlines of how to match a identity provider with a handler and what action to perform (Example: enable Dashboard SSO using OpenID and Microsoft Azure as IDP). The Dashboard adds a user interface to manage the profiles.
 
-<img src="https://user-images.githubusercontent.com/4504205/105425983-58940c00-5c18-11eb-9c8c-ede3b8bae000.gif" alt="Identity Broker User Interface" />
+<img src="/https://user-images.githubusercontent.com/4504205/105425983-58940c00-5c18-11eb-9c8c-ede3b8bae000.gif" alt="Identity Broker User Interface" />
 
 ### Anatomy of a Profile
 Each profile is outlined by a series of attributes that will describe: action to perform, IDP to connect, URL's to redirect on success and failure, etc.
@@ -486,11 +486,11 @@ You already have authorized access to Tyk's Dashboard. If you haven't, get the a
 
     - In your app, either via the Authentication menu or the redirect URL shortcut navigate to and add the redirect to TIB in the Web category i.e. `http://localhost:3000/auth/{PROFILE-NAME-IN-TIB}/openid-connect/callback`.
 
-    <img src="img/azureAD/redirect-URL-1.png" alt="Redirect URL" />
+    <img src="/img/azureAD/redirect-URL-1.png" alt="Redirect URL" />
 
 4. Go to Overview and add a secret in Client Credentials. Don't forget to copy the secret value, not the secretID. 
 
-    <img src="img/azureAD/overview-1.png" alt="Overview" />
+    <img src="/img/azureAD/overview-1.png" alt="Overview" />
 
 Check Microsoft's [documentation](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app) for more detail.
 
@@ -501,24 +501,24 @@ Check Microsoft's [documentation](https://docs.microsoft.com/en-us/azure/active-
 3. Under Profile Configuration, paste the secret value, clientID, and well-known endpoint URL from the Azure site. 
     - Profile Configuation may look something like this:
 
-    <img src="img/azureAD/profile-configuration-1.png" alt="Profile Configuration" />
+    <img src="/img/azureAD/profile-configuration-1.png" alt="Profile Configuration" />
 
     - The well-known endpoint URL is created by Azure and can be located by selecting Endpoints on their site
 
-    <img src="img/azureAD/endpoints-11.png" alt="Endpoints" />
+    <img src="/img/azureAD/endpoints-11.png" alt="Endpoints" />
 
 #### Test your Azure Login:
 
 From the browser call `http://localhost:3000/auth/{PROFILE-NAME-IN-TIB}/openid-connect`
 - If it's working you'll be redirected to Azures's web page and asked for your username and password.
 
-    <img src="img/azureAD/username.png" alt="Username" />
+    <img src="/img/azureAD/username.png" alt="Username" />
 
-    <img src="img/azureAD/password.png" alt="Password" />
+    <img src="/img/azureAD/password.png" alt="Password" />
   
 - If it's working you'll be redirected to Azures's web page and asked for your username and password.
 
-    <img src="img/azureAD/dashboard.png" alt="Dashboard" />
+    <img src="/img/azureAD/dashboard.png" alt="Dashboard" />
 
 #### Enhancements
 
@@ -528,7 +528,7 @@ Once it's working you can also add more enhancements such as automatic user grou
 
 Group mapping can be managed from Advanced Settings section of the Profile Configuration screen.
 
-<img src="img/azureAD/additional-options.png" alt="Profile Configuration - Additional Options" />
+<img src="/img/azureAD/additional-options.png" alt="Profile Configuration - Additional Options" />
 
 As illustrated in the screen below the following information must be provided:
 
@@ -537,7 +537,7 @@ As illustrated in the screen below the following information must be provided:
 
 For more information on how to set and change user permissions, head to this [guide](/api-management/user-management#using-dashboard-ui-1)
 
-<img src="img/azureAD/raw-editor.png" alt="Profile Configuration - Raw-editor" />
+<img src="/img/azureAD/raw-editor.png" alt="Profile Configuration - Raw-editor" />
 
 You can select the scopes you would like your request to include. By default, Tyk will provide the connectid scope, anything additional must be requested.
 
@@ -546,37 +546,37 @@ You can select the scopes you would like your request to include. By default, Ty
 For debugging purposes, you can find an example we created using the OpenID Connect playground.
 1. Add the redirect url found on the OpenID Connect site to the redirect urls found under the Web section
 
-    <img src="img/azureAD/openid_connect/access_redirect_urls.png" alt="Access redirect urls" />
+    <img src="/img/azureAD/openid_connect/access_redirect_urls.png" alt="Access redirect urls" />
 
-    <img src="img/azureAD/openid_connect/additional_redirect_url.png" alt="Additional URL Added" />
+    <img src="/img/azureAD/openid_connect/additional_redirect_url.png" alt="Additional URL Added" />
 
 2. Copy the OpenID Connect endpoint from the Azure site
 3. On the OpenID Connect site select Edit. In the Server Template dropdown menu select the Custom option and paste the endpoint in the Discovery Document URL. 
 
-    <img src="img/azureAD/openid_connect/edit_button.png" alt="Edit Button" />
+    <img src="/img/azureAD/openid_connect/edit_button.png" alt="Edit Button" />
 
-    <img src="img/azureAD/openid_connect/custom_dropdown.png" alt="Custom Dropdown" />
+    <img src="/img/azureAD/openid_connect/custom_dropdown.png" alt="Custom Dropdown" />
 
 4. Press the Use Discovery Document button and this will autofill Authorization Token Endpoint, Token Endpoint, and Token Keys Endpoint
 
-    <img src="img/azureAD/openid_connect/discovery_document.png" alt="Discovery Document" />
+    <img src="/img/azureAD/openid_connect/discovery_document.png" alt="Discovery Document" />
 
 5. Copy and paste the Client ID and Client Secret from the Azure site to your ConnectID. Scope is autofilled for you and save the configuration.
 
-    <img src="img/azureAD/openid_connect/client_id_client_secret.png" alt="Client ID and Secret" />
+    <img src="/img/azureAD/openid_connect/client_id_client_secret.png" alt="Client ID and Secret" />
 6. Press start at the bottom of the Request window and if done correctly, this should prompt you to sign in to your Azure account.
 
-    <img src="img/azureAD/openid_connect/step-2.png" alt="OpenID Connect Step 2" />
+    <img src="/img/azureAD/openid_connect/step-2.png" alt="OpenID Connect Step 2" />
 7. You should then be redirected back to OpenID Connect where you'll be shown the Exchange Code. This needs to be turned into an access token. Press the exchange button under the request and then press Next.
 
-    <img src="img/azureAD/openid_connect/step-3.png" alt="OpenID Connect Step 3" />
-    <img src="img/azureAD/openid_connect/step-4.png" alt="OpenID Connect Step 4" />
+    <img src="/img/azureAD/openid_connect/step-3.png" alt="OpenID Connect Step 3" />
+    <img src="/img/azureAD/openid_connect/step-4.png" alt="OpenID Connect Step 4" />
 8. We can then verify this by pressing the verify button. We can also view the information or scope of what is being returned by heading to jwt.io and viewing the payload: data there.
 
-    <img src="img/azureAD/openid_connect/step-5.png" alt="OpenID Connect Step 5" />
+    <img src="/img/azureAD/openid_connect/step-5.png" alt="OpenID Connect Step 5" />
 9. We are given an object with key, value pairs and we can pass in the key ie. name to our Custom User Group and the value of to our Identity Provider Role in our Tyk dashboard as shown in the example above. 
 
-    <img src="img/azureAD/openid_connect/step-6.png" alt="OpenID Connect Step 6" />
+    <img src="/img/azureAD/openid_connect/step-6.png" alt="OpenID Connect Step 6" />
 
 To try this yourself, we have included the link: https://openidconnect.net/
 
@@ -612,7 +612,7 @@ This guide assumes the following:
    Under the `Assignments` tab, make sure group assignments is set to *everyone* (for now, you will change this later!).
 
 5. This is how it should look like after step #4
-<img src="img/okta-sso/Okta-create-app.png" alt="okta-create-app" />
+<img src="/img/okta-sso/Okta-create-app.png" alt="okta-create-app" />
 
 #### Configuration at TIB
 
@@ -687,12 +687,12 @@ Once it's working you can also add two more enhancements - SSO and MFA
    MFA works out-of-the-box in Tyk since luckily Okta supports it. you would need to add it to the configuration of the account holder. Under `Security --> Multifactor --> Factor types` you can choose the types you want. For instance I chose Google Authenticator.
 
    1. While trying to login to the Dashboard, Okta enforced the MFA and asked me to use the Google Authenticator:
-   <img src="img/okta-sso/okta-mfa-setup-1.png" alt="okta-mfa-setup-1" />
+   <img src="/img/okta-sso/okta-mfa-setup-1.png" alt="okta-mfa-setup-1" />
 
    2. I had to download the Google Authenticator and identify with the generated code
-   <img src="img/okta-sso/okta-mfa-download-google-authenticator-2.png" alt="okta-mfa-download-google-authenticator-2" />
+   <img src="/img/okta-sso/okta-mfa-download-google-authenticator-2.png" alt="okta-mfa-download-google-authenticator-2" />
    3. I successfully authenticated with Google Authenticator
-   <img src="img/okta-sso/okta-mfa-google-auth-approved-3.png" alt="okta-mfa-google-auth-approved-3" />
+   <img src="/img/okta-sso/okta-mfa-google-auth-approved-3.png" alt="okta-mfa-google-auth-approved-3" />
 
 #### Common Error
 If you get a `400 Bad Request` it means the profile name in the login endpoint is not identical to the profile name in the callback that you set up on Okta's app:
@@ -700,7 +700,7 @@ If you get a `400 Bad Request` it means the profile name in the login endpoint i
 - On Okta's app - `Login redirect URIs:` `http://localhost:3010/auth/{PROFILE-NAME-IN-TIB}/openid-connect/callback`.
 - The endpoint to test - `http://localhost:3010/auth/{PROFILE-NAME-IN-TIB}/openid-connect`
 
-<img src="img/okta-sso/okta-bad-request-wrong-callback.png" alt="okta-bad-request-wrong-callback" />
+<img src="/img/okta-sso/okta-bad-request-wrong-callback.png" alt="okta-bad-request-wrong-callback" />
 
 ### OIDC with Auth0
 
@@ -719,63 +719,63 @@ This will walk you through securing access to your Tyk Dashboard using OpenID Co
 1. Log in to your Auth0 account.
 2. Select **Users** from the **User Management** menu.
 
-<img src="img/sso-auth0/auth0-create-user.png" alt="Auth0 Create User" width="800px" height="400" />
+<img src="/img/sso-auth0/auth0-create-user.png" alt="Auth0 Create User" width="800px" height="400" />
 
 3. Click Create User and complete the new user form, using the default **Username-Password-Authentication** Connection method.
 4. Click Create to save your new user.
-<img src="img/sso-auth0/auth0-user-details.png" alt="Auth0 User profile" width="400px" height="400" />
+<img src="/img/sso-auth0/auth0-user-details.png" alt="Auth0 User profile" width="400px" height="400" />
 
 #### Create an Auth0 application
 
 You will use settings from your Auth0 application within the Tyk Dashboard Identity profile you will create.
 
 1. Select Applications from the Auth0 menu.
-<img src="img/sso-auth0/auth0-create-app.png" alt="Auth0 Applications" width="400px" height="300" />
+<img src="/img/sso-auth0/auth0-create-app.png" alt="Auth0 Applications" width="400px" height="300" />
 2. Click **Create Application**.
 3. Give your application a name and select **Regular Web Application** from the applications types.
-<img src="img/sso-auth0/auth0-app-type.png" alt="Auth0 Application information" width="400px" height="400" />
+<img src="/img/sso-auth0/auth0-app-type.png" alt="Auth0 Application information" width="400px" height="400" />
 4. Click **Create**.
 5. After you application has been created select the **Basic Information** tab.
-<img src="img/sso-auth0/auth0-app-basic-info.png" alt="Auth0 Application Basic information" width="400px" height="400" />
+<img src="/img/sso-auth0/auth0-app-basic-info.png" alt="Auth0 Application Basic information" width="400px" height="400" />
 6. You will use the **Domain**, **Client Id** and **Client Secret** values in the Identity profile you create next in the Tyk Dashboard.
 
 #### Create an Identity Management profile in your Dashboard
 
 1. Log in to your Tyk Dashboard as an Admin user.
 2. Select **Identity Management** from the **System Management** menu.
-<img src="img/sso-auth0/tyk-create-profile.png" alt="Create Identity profile" width="800px" height="400" />
+<img src="/img/sso-auth0/tyk-create-profile.png" alt="Create Identity profile" width="800px" height="400" />
 3. Click **Create Profile**.
 4. In the **Profile action** section enter a name for your profile and make sure the **Login to Tyk Dashboard** option is selected.
-<img src="img/sso-auth0/tyk-new-profile.png" alt="Identity Profile action settings" width="400px" height="400" />
+<img src="/img/sso-auth0/tyk-new-profile.png" alt="Identity Profile action settings" width="400px" height="400" />
 5. Click Next. In the **Provider type** section, select **OpenID Connect**.
-<img src="img/sso-auth0/tyk-openid.png" alt="Identity profile Provider type" width="400px" height="400" />
+<img src="/img/sso-auth0/tyk-openid.png" alt="Identity profile Provider type" width="400px" height="400" />
 6. Click Next. Copy the **Client ID** value from your **Auth0 application** > **Basic Information** and paste it in the **Client ID / Key** field.
 7. Copy the **Client Secret** value from your **Auth0 application** > **Basic Information** and paste it in the **Secret** field.
 8. You need to add a **Discover URL (well known endpoint)**. Use the following URL, replacing `<<your-auth0-domain>>` with the **Domain** value from your **Auth0 application** > **Basic Information**. 
 
     `https://<<your-auth0-domain>>/.well-known/openid-configuration`
 
-    <img src="img/sso-auth0/tyk-new-profile-config.png" alt="Tyk new identity profile configuration" width="400px" height="400" />
+    <img src="/img/sso-auth0/tyk-new-profile-config.png" alt="Tyk new identity profile configuration" width="400px" height="400" />
 
 9. Copy the **Callback URL** and paste it into the **Allowed Callback URLs** field in your **Auth0 application** > **Basic Information**.
-<img src="img/sso-auth0/auth0-tyk-callback-url.png" alt="Auth0 Allowed Callback URLs" width="400px" height="400" />
+<img src="/img/sso-auth0/auth0-tyk-callback-url.png" alt="Auth0 Allowed Callback URLs" width="400px" height="400" />
 10. Click **Save Changes** to update your Auth0 Application.
 11. Click **Create Profile** to save your Identity profile in your Tyk Dashboard.
 
 #### Test your Auth0 Login
 
 1. From your **Identity Management Profiles** click the profile you created to open it.
-<img src="img/sso-auth0/tyk-profile-list.png" alt="Tyk Identity Profiles" width="800px" height="400" />
+<img src="/img/sso-auth0/tyk-profile-list.png" alt="Tyk Identity Profiles" width="800px" height="400" />
 2. Click the **Login URL**.
-<img src="img/sso-auth0/tyk-id-profile-provider-config.png" alt="Tyk Identity Profile Config" width="800px" height="400" />
+<img src="/img/sso-auth0/tyk-id-profile-provider-config.png" alt="Tyk Identity Profile Config" width="800px" height="400" />
 3. You will now see the Auth0 login form in a browser tab.
-<img src="img/sso-auth0/auth0-login.png" alt="Auth0 login form" width="400px" height="400" />
+<img src="/img/sso-auth0/auth0-login.png" alt="Auth0 login form" width="400px" height="400" />
 4. Enter the email address and password of your Auth0 user.
 5. You may be asked to authorize your Auth0 application. 
-<img src="img/sso-auth0/auth0-accept.png" alt="Accept Auth0 application" width="400px" height="400" />
+<img src="/img/sso-auth0/auth0-accept.png" alt="Accept Auth0 application" width="400px" height="400" />
 6. Click **Accept**.
 7. You will now be taken to the Tyk Dashboard.
-<img src="img/sso-auth0/tyk-dash-success.png" alt="Tyk Dashboard from Auth0 SSO login" width="800px" height="400" />
+<img src="/img/sso-auth0/tyk-dash-success.png" alt="Tyk Dashboard from Auth0 SSO login" width="800px" height="400" />
 
 ### OIDC with Keycloak
 
@@ -785,56 +785,56 @@ This is a walk-through of how you can use [Keycloak](https://www.keycloak.org) a
 
 1. In your desired Realm, create a client of OpenID Connect type, and set your desired Client ID.
 
-   <img src="img/keycloak-sso/create-client.png" alt="Create Client" width="900px" height="900" />
+   <img src="/img/keycloak-sso/create-client.png" alt="Create Client" width="900px" height="900" />
 
-   <img src="img/keycloak-sso/create-client2.png" alt="Set Client Type and ID" width="900px" height="900" />
+   <img src="/img/keycloak-sso/create-client2.png" alt="Set Client Type and ID" width="900px" height="900" />
 
 
 2. Enable client authentication, then save the client.
 
-   <img src="img/keycloak-sso/enable-client-auth.png" alt="Enable Client Auth" width="900px" height="900" />
+   <img src="/img/keycloak-sso/enable-client-auth.png" alt="Enable Client Auth" width="900px" height="900" />
 
 
 3. Retrieve the Secret (from the credentials tab) of the Client you just created. You will need the Client ID and Secret in later steps.
 
-   <img src="img/keycloak-sso/retrieve-client-secret.png" alt="Retrieve Client Secret" width="900px" height="900" />
+   <img src="/img/keycloak-sso/retrieve-client-secret.png" alt="Retrieve Client Secret" width="900px" height="900" />
 
 4. Retrieve the discovery endpoint of the realm, `https://<your-keycloak-host-and-realm>/.well-known/openid-configuration`. 
 
    This is accessible from “Realm Settings” > “General” Tab > OpenID Endpoint Configuration. You will need it in later steps.
 
-   <img src="img/keycloak-sso/realm-discovery-endpoint.png" alt="Keycloak discovery endpoint" width="900px" height="600" />
+   <img src="/img/keycloak-sso/realm-discovery-endpoint.png" alt="Keycloak discovery endpoint" width="900px" height="600" />
 
 
 #### Configuration at Dashboard
 
 1. Log in to your Dashboard and select Identity Management, located under System Management
 
-   <img src="img/keycloak-sso/identity-management.png" alt="Select Identity Management" width="800px" height="400" />
+   <img src="/img/keycloak-sso/identity-management.png" alt="Select Identity Management" width="800px" height="400" />
 
 
 2. Create a profile, give it a name and select “Login to Tyk Dashboard”
 
-   <img src="img/keycloak-sso/create-profile.png" alt="Create a profile" width="800px" height="400" />
+   <img src="/img/keycloak-sso/create-profile.png" alt="Create a profile" width="800px" height="400" />
 
 
 3. Set the provider type as “OpenID Connect”
 
-   <img src="img/keycloak-sso/set-provider-type.png" alt="OpenID Connect provider type" width="800px" height="400" />
+   <img src="/img/keycloak-sso/set-provider-type.png" alt="OpenID Connect provider type" width="800px" height="400" />
 
 
 4. Fill in the Client ID, Client Secret and Discovery URL/endpoint from Keycloak (from steps 3 and 4 in Keycloak's Side)
 
 5. Copy the callback URL from Tyk and then you can click "Create Profile" to save the profile.
 
-   <img src="img/keycloak-sso/copy-callback-url.png" alt="Copy callback URL" width="800px" height="400" />
+   <img src="/img/keycloak-sso/copy-callback-url.png" alt="Copy callback URL" width="800px" height="400" />
 
 
 6. Go to Keycloak, and paste the callback URL you just copied to “Valid redirect URIs” in the Keycloak Client, and then save the client.
 
    This can be accessed by selecting the "Settings" tab when viewing a Keycloak client.
 
-   <img src="img/keycloak-sso/add-redirectUrl-to-client.png" alt="Add Redirect URL to keycloak client" width="800px" height="400" />
+   <img src="/img/keycloak-sso/add-redirectUrl-to-client.png" alt="Add Redirect URL to keycloak client" width="800px" height="400" />
 
 
 #### Test Keycloak Login
@@ -842,15 +842,15 @@ This is a walk-through of how you can use [Keycloak](https://www.keycloak.org) a
 1. From your **Identity Management Profiles** click the profile you created to open it.
 
 2. Copy the **Login URL** and paste it into a browser tab
-   <img src="img/keycloak-sso/login-url.png" alt="Copy login url" width="800px" height="400" />
+   <img src="/img/keycloak-sso/login-url.png" alt="Copy login url" width="800px" height="400" />
 
 3. You will now see the Keycloak login form.
-   <img src="img/keycloak-sso/keycloak-login.png" alt="Login to keycloak" width="400px" height="400" />
+   <img src="/img/keycloak-sso/keycloak-login.png" alt="Login to keycloak" width="400px" height="400" />
 
 4. Enter the email address and password of your Keycloak user.
 
 5. You should now be redirected to the Tyk Dashboard and logged in
-   <img src="img/keycloak-sso/logged-in.png" alt="Tyk Dashboard from Keycloak SSO login" width="800px" height="400" />
+   <img src="/img/keycloak-sso/logged-in.png" alt="Tyk Dashboard from Keycloak SSO login" width="800px" height="400" />
 
 
 ## SSO with SAML
@@ -1382,7 +1382,7 @@ The configuration below will proxy a request to `http://{TARGET-HOSTNAME}:{PORT}
   
   - Load the certificate with the private key into Tyk:
     - **For embedded TIB in Dashboard:** Use Tyk Dashboard's certificate manager. In the below image you can see the module in dashboard that allows to upload certificates:
-      <img src="img/dashboard/certificate-manager/adding-certificate.gif" alt="Certificate manager" />
+      <img src="/img/dashboard/certificate-manager/adding-certificate.gif" alt="Certificate manager" />
     - **For standalone TIB:** Store the certificate as a file accessible to Tyk
 
   - Load the public key into your IdP for ID token encryption (process varies by IdP)
@@ -1395,7 +1395,7 @@ The configuration below will proxy a request to `http://{TARGET-HOSTNAME}:{PORT}
     - Select Social > OIDC as the provider
     - Enter the client key and client secret from the IdP
     - Copy the callback URL from TIB and add it to the IdP client's allowed redirect URLs
-    <img src="img/tib/profiles/tib-profile-creation.gif" alt="Profile creation" />
+    <img src="/img/tib/profiles/tib-profile-creation.gif" alt="Profile creation" />
   - Test the basic SSO flow to ensure it's working correctly
 
 4. **Enable JWE**

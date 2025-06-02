@@ -142,11 +142,11 @@ Follow these simple steps to enable and configure basic API caching via the Dash
 
     From the API Designer, select the **Advanced Options** tab:
 
-    <img src="img/2.10/advanced_options_designer.png" alt="Advanced options tab location" />
+    <img src="/img/2.10/advanced_options_designer.png" alt="Advanced options tab location" />
 
 2. **Set the Cache Options for the Global Cache**
 
-    <img src="img/2.10/cache_options.png" alt="Cache settings" />
+    <img src="/img/2.10/cache_options.png" alt="Cache settings" />
 
     Here you must set:
 
@@ -307,23 +307,23 @@ Adding endpoint caching to your API endpoints is easy when using the API Designe
 
     From the **API Designer** add an endpoint to which you want to apply the middleware.
 
-    <img src="img/dashboard/api-designer/tyk-oas-no-endpoints.png" alt="Tyk OAS API Designer showing no endpoints created" />
+    <img src="/img/dashboard/api-designer/tyk-oas-no-endpoints.png" alt="Tyk OAS API Designer showing no endpoints created" />
 
-    <img src="img/dashboard/api-designer/tyk-oas-add-endpoint.png" alt="Adding an endpoint to an API using the Tyk OAS API Designer" />
+    <img src="/img/dashboard/api-designer/tyk-oas-add-endpoint.png" alt="Adding an endpoint to an API using the Tyk OAS API Designer" />
 
-    <img src="img/dashboard/api-designer/tyk-oas-no-middleware.png" alt="Tyk OAS API Designer showing no middleware enabled on endpoint" />
+    <img src="/img/dashboard/api-designer/tyk-oas-no-middleware.png" alt="Tyk OAS API Designer showing no middleware enabled on endpoint" />
 
 2. **Select the Endpoint Cache middleware**
 
     Select **ADD MIDDLEWARE** and choose the **Cache** middleware from the *Add Middleware* screen.
 
-    <img src="img/dashboard/api-designer/tyk-oas-cache.png" alt="Adding the Endpoint Cache middleware" />
+    <img src="/img/dashboard/api-designer/tyk-oas-cache.png" alt="Adding the Endpoint Cache middleware" />
 
 3. **Configure the middleware**
 
     Set the timeout and HTTP response codes for the endpoint. You can remove a response code from the list by clicking on the `x` next to it.
 
-    <img src="img/dashboard/api-designer/tyk-oas-cache-config.png" alt="Configuring the endpoint cache middleware for a Tyk OAS API" />
+    <img src="/img/dashboard/api-designer/tyk-oas-cache-config.png" alt="Configuring the endpoint cache middleware for a Tyk OAS API" />
 
     
 
@@ -465,13 +465,13 @@ To enable and configure the simple endpoint cache, follow these instructions:
     - **Cache only these status codes** is a list of HTTP status codes that should be cached, remember to click **Add** after entering each code to add it to the list 
     - **Cache all safe requests** ensure that this is **not** selected, otherwise the responses from all endpoints for the API will be cached
 
-    <img src="img/dashboard/endpoint-designer/cache-options.png" alt="Cache Options" />
+    <img src="/img/dashboard/endpoint-designer/cache-options.png" alt="Cache Options" />
 
 2. **Add an endpoint for the path and select the plugin**
 
     From the **Endpoint Designer** add an endpoint that matches the path for which you want to cache responses. Select the **Cache** plugin.
 
-    <img src="img/2.10/cache_plugin.png" alt="Dropdown list showing Cache plugin" />
+    <img src="/img/2.10/cache_plugin.png" alt="Dropdown list showing Cache plugin" />
 
 3. **Save the API**
 
@@ -489,19 +489,19 @@ To enable and configure the advanced endpoint cache, follow these instructions:
     - **Cache only these status codes** leave this blank
     - **Cache all safe requests** ensure that this is **not** selected, otherwise the responses from all endpoints for the API will be cached
 
-    <img src="img/dashboard/endpoint-designer/cache-options.png" alt="Cache Options" />
+    <img src="/img/dashboard/endpoint-designer/cache-options.png" alt="Cache Options" />
 
 2. **Add an endpoint for the path and select the plugin**
 
     From the **Endpoint Designer** add an endpoint that matches the path for which you want to cache responses. Select the **Advanced Cache** plugin.
 
-    <img src="img/dashboard/endpoint-designer/advanced-cache.png" alt="Selecting the Advanced Cache plugin for a Tyk Classic API" />
+    <img src="/img/dashboard/endpoint-designer/advanced-cache.png" alt="Selecting the Advanced Cache plugin for a Tyk Classic API" />
 
 3. **Configure the Advanced Cache plugin**
 
     Set the timeout and HTTP response codes for the endpoint. If you don't need to set a specific timeout for an endpoint you can leave this blank and Tyk will use the cache timeout configured at the API level.
 
-    <img src="img/dashboard/endpoint-designer/advanced-cache-config.png" alt="Endpoint cache configuration for Tyk Classic API" />
+    <img src="/img/dashboard/endpoint-designer/advanced-cache-config.png" alt="Endpoint cache configuration for Tyk Classic API" />
 
     
 

@@ -57,21 +57,21 @@ The API Designer provides a simple interface for migrating your Tyk Classic APIs
 
     Find the API that you want to convert in the list of **Created APIs**. You can use the **Select API type** filter to show just Tyk Classic APIs.
 
-    <img src="img/dashboard/api-designer/migrate-classic-filter.png" alt="Applying a filter to see just the Tyk Classic APIs" />
+    <img src="/img/dashboard/api-designer/migrate-classic-filter.png" alt="Applying a filter to see just the Tyk Classic APIs" />
 
     From the **Actions** menu select **Convert to Tyk OAS**. You can also find this option in the **Actions** menu within the Tyk Classic API Designer.
 
-    <img src="img/dashboard/api-designer/migrate-classic-actions.png" alt="Convert an API to Tyk OAS" />
+    <img src="/img/dashboard/api-designer/migrate-classic-actions.png" alt="Convert an API to Tyk OAS" />
     
     This will open the **Convert to Tyk OAS** mode selector. Choose whether to **stage** the conversion or perform a **direct** migration, then select **Convert API**.
 
-    <img src="img/dashboard/api-designer/migrate-classic-choose.png" alt="Choosing the migration path: staged or direct" />
+    <img src="/img/dashboard/api-designer/migrate-classic-choose.png" alt="Choosing the migration path: staged or direct" />
 
 5. **Staging the API:**
 
     If you selected **stage** you'll be taken to the API Designer for the newly created staged Tyk OAS API. Note the prefixes that have been applied to the API name, API ID and API base path.
 
-    <img src="img/dashboard/api-designer/migrate-classic-staged.png" alt="The staged Tyk OAS API with prefixes" />
+    <img src="/img/dashboard/api-designer/migrate-classic-staged.png" alt="The staged Tyk OAS API with prefixes" />
 
     For the staged API, you can now validate the configuration, make any required modifications and test that behavior is as expected.
 
@@ -79,10 +79,10 @@ The API Designer provides a simple interface for migrating your Tyk Classic APIs
 
     When you are ready, you can promote the staged API to complete migration by selecting **Promote staged API** from the API Designer's **Actions** menu. Note that the **promote** option is not available from the API list, only within the API Designer for the specific API. This is to protect against accidentally promoting the wrong API.
 
-    <img src="img/dashboard/api-designer/migrate-classic-promote.png" alt="Promoting a staged API" />
+    <img src="/img/dashboard/api-designer/migrate-classic-promote.png" alt="Promoting a staged API" />
 <br />
 
-    <img src="img/dashboard/api-designer/migrate-classic-confirm.png" alt="Confirm the promotion" />
+    <img src="/img/dashboard/api-designer/migrate-classic-confirm.png" alt="Confirm the promotion" />
 <br />
 
     
@@ -96,7 +96,7 @@ There is a known issue in Tyk 5.8.0 that the <b>cancel</b> button does not work 
 
     Following promotion, or if you selected **direct** conversion, you'll be taken to the API Designer for the newly created Tyk OAS API. Note that this has inherited the API ID from your Tyk Classic API and has replaced the Tyk Classic in your API database.
 
-    <img src="img/dashboard/api-designer/migrate-classic-oas.png" alt="Migration complete!" />
+    <img src="/img/dashboard/api-designer/migrate-classic-oas.png" alt="Migration complete!" />
 
 ## Using the Migration API
 

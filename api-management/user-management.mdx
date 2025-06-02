@@ -58,15 +58,15 @@ To create a dashboard user from the GUI:
 
 1. **Select "Users" from the "System Management" section**
 
-    <img src="img/2.10/users_menu.png" alt="Users menu" />
+    <img src="/img/2.10/users_menu.png" alt="Users menu" />
 
 2. **Click "ADD USER"**
 
-    <img src="img/2.10/add_user.png" alt="Add user button location" />
+    <img src="/img/2.10/add_user.png" alt="Add user button location" />
 
 3. **Add the user's basic details**
 
-    <img src="img/2.10/user_basic_details.png" alt="User form" />
+    <img src="/img/2.10/user_basic_details.png" alt="User form" />
 
     In this section:
 
@@ -78,7 +78,7 @@ To create a dashboard user from the GUI:
 
 4. **Set the user permissions**
 
-    <img src="img/2.10/user_permissions.png" alt="Admin checkbox location" />
+    <img src="/img/2.10/user_permissions.png" alt="Admin checkbox location" />
 
     You can be very specific with regards to which pages and segments of the Dashboard the user has access to. Some Dashboard pages require access to multiple parts of the API, and so you may get errors if certain related elements are disabled (e.g. APIs + Policies)
 
@@ -86,7 +86,7 @@ To create a dashboard user from the GUI:
 
 5. **Click "Save"**
 
-    <img src="img/2.10/users_save.png" alt="Save button location" />
+    <img src="/img/2.10/users_save.png" alt="Save button location" />
 
     The user will automatically be created, as will their API Access token, which you will be able to retrieve by opening the user listing page again and selecting the user's username.
 
@@ -96,7 +96,7 @@ To authenticate requests to the Tyk Dashboard API, you will need to provide an A
 
 This is your **Tyk Dashboard API Access Credentials**, which can be found on the user detail page:
 
-<img src="img/2.10/user_credentials.png" alt="API key and RPC key locations" />
+<img src="/img/2.10/user_credentials.png" alt="API key and RPC key locations" />
 
 You can [create a user](/api-management/dashboard-configuration#add-user) with a call to the `POST /api/users` endpoint, for example:
 
@@ -140,7 +140,7 @@ You can change your password in these circumstances:
 ### Forgotten Your Password?
 If you have forgotten your password, you can request a password reset email from the **Dashboard Login** screen:
 
-<img src="img/2.10/dashboard_login.png" alt="password reset email" />
+<img src="/img/2.10/dashboard_login.png" alt="password reset email" />
 
 Enter your login email address, and you will receive an email with a link that enables you to create a new password.
 
@@ -163,7 +163,7 @@ You will not be able to change the password for other Dashboard users.
 
 From your user details, click **Reset Password**:
 
-<img src="img/2.10/user_reset_password.png" alt="reset password button" />
+<img src="/img/2.10/user_reset_password.png" alt="reset password button" />
 Enter your current and new password (and confirm it) in the dialog box that is displayed, and click **Reset Password**.
 You will automatically be logged out of the Dashboard and will have to enter your username and new password to log back in.
 
@@ -193,38 +193,38 @@ For further information, please check our [price comparison](https://tyk.io/pric
 
 1. **Select "User Groups" from the "System Management" section**
 
-    <img src="img/2.10/user_groups_menu.png" alt="User group menu" />
+    <img src="/img/2.10/user_groups_menu.png" alt="User group menu" />
 
 2. **Click "ADD NEW USER GROUP"**
 
-    <img src="img/2.10/add_user_group.png" alt="Add user group location" />
+    <img src="/img/2.10/add_user_group.png" alt="Add user group location" />
 
 3. **Add User Group Name**
 
     Enter the name for your User Group, and an optional Description.
 
-    <img src="img/2.10/user_group_details.png" alt="Add name" />
+    <img src="/img/2.10/user_group_details.png" alt="Add name" />
 
 4. **Set User Group Permissions**
 
     Selet the User Group Permissions you want to apply.
 
-    <img src="img/2.10/user_group_permissions.png" alt="Add permissions" />
+    <img src="/img/2.10/user_group_permissions.png" alt="Add permissions" />
 
 5. **Click "Save" to create the Group**
 
-    <img src="img/2.10/user_group_save.png" alt="Click Save" />
+    <img src="/img/2.10/user_group_save.png" alt="Click Save" />
 
 6. **Add Users to your Group**
 
     1. From the **Users** menu, select **Edit** from the **Actions** drop-down list for a user to add to the group.
     2. Select your group from the **User group** drop-down list.
 
-    <img src="img/2.10/user_select_group.png" alt="select user group" />
+    <img src="/img/2.10/user_select_group.png" alt="select user group" />
 
     Click Update to save the User details
 
-    <img src="img/2.10/user_reset_password.png" alt="update user" />
+    <img src="/img/2.10/user_reset_password.png" alt="update user" />
 
 ### Using Dashboard API
 
@@ -240,7 +240,7 @@ You can also manage User Groups via our [Dashboard API](/api-management/dashboar
 
 You can search for a user (by email address) by entering the address in the search field. The user list will automatically refresh with that user being displayed.
 
-<img src="img/2.10/user_search.png" alt="User Profile Search" />
+<img src="/img/2.10/user_search.png" alt="User Profile Search" />
 
 ## Password Policy
 
@@ -328,7 +328,7 @@ An *admin* user can be identified either by setting `IsAdmin` to `true` or by se
 
 User permissions are configured in the user detail view:
 
-<img src="img/2.10/user_permissions.png" alt="Admin account" />
+<img src="/img/2.10/user_permissions.png" alt="Admin account" />
 
 The configuration of each property will affect the dashboard navigation, with `denied` sections or screens hidden or disabled. Note that some side-effects can occur if pages that make use of multiple APIs to fetch configuration data cross over e.g. policies and API Definition listings.
 
@@ -407,20 +407,20 @@ Currently, only [API Usage](/api-management/dashboard-configuration#activity-by-
 Note that the `owned_analytics` permission depends upon the `analytics` permission being granted (set to `read`) - without this, the more granular control is ignored and the user will not have visibility of any Tyk Dashboard analytics.
 
 In the Dashboard UI, the control for `owned_analytics` is implemented as a drop-down option (`all` or `owned`) on the `analytics` permission.
-<img src="img/dashboard/analytics/owned_analytics.png" alt="Permissions with API Ownership" />
+<img src="/img/dashboard/analytics/owned_analytics.png" alt="Permissions with API Ownership" />
 
 ### Managing API owners using the Dashboard UI
 The Dashboard UI provides a simple method for managing *ownership* for your APIs, where you can select from the lists of users and user groups that have been created in the Dashboard. Users and user groups are managed in separate lists for ease of use.
 
 #### Using Tyk OAS APIs
 When using Tyk OAS APIs, the option to assign owner(s) to an API is provided on the **Access** tab in the API Designer. You simply select the owner (or owners) that you wish to assign to the API from the drop-down boxes:
-<img src="img/dashboard/endpoint-designer/ownership-oas.png" alt="API ownership section for Tyk OAS APIs" />
+<img src="/img/dashboard/endpoint-designer/ownership-oas.png" alt="API ownership section for Tyk OAS APIs" />
 
 You can remove owners from the API by clicking on the `x` next to their name in the drop-down/selection box.
 
 #### Using Tyk Classic APIs
 When using Tyk Classic APIs, the option to assign owner(s) to an API is provided on the **Core Settings** tab in the API Designer. You simply select the owner (or owners) that you wish to assign to the API from the drop-down boxes:
-<img src="img/dashboard/system-management/api_ownership.png" alt="API ownership section for Tyk Classic APIs" />
+<img src="/img/dashboard/system-management/api_ownership.png" alt="API ownership section for Tyk Classic APIs" />
 
 You can remove owners from the API by deselecting them from the drop-down.
 

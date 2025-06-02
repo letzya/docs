@@ -205,7 +205,7 @@ func main() {}
 
 In your exporter (in this case, Jaeger) you should see something like this:
 
-<img src="img/plugins/span_from_context.png" alt="OTel Span from context" />
+<img src="/img/plugins/span_from_context.png" alt="OTel Span from context" />
 
 As you can see, the name we set is present: `GoPlugin_first-span` and it’s the first child of the `GoPluginMiddleware` span.
 
@@ -242,7 +242,7 @@ The available span statuses in ascending hierarchical order are:
 
 This order is important: a span with an **OK** status cannot be overridden with an **ERROR** status. However, the reverse is possible - a span initially marked as **UNSET** or **ERROR** can later be updated to **OK**.
 
-<img src="img/plugins/span_name_and_status.png" alt="OTel Span name and status" />
+<img src="/img/plugins/span_name_and_status.png" alt="OTel Span name and status" />
 
 Now we can see the new name and the `otel.status_code` tag with the **OK** status.
 
@@ -270,7 +270,7 @@ Attributes are key-value pairs. The value isn't restricted to string data types;
 
 The illustration below, shows how the `go_plugin` attribute looks in Jaeger:
 
-<img src="img/plugins/span_attributes.png" alt="OTel Span attributes" />
+<img src="/img/plugins/span_attributes.png" alt="OTel Span attributes" />
 
 ### Multiple functions = Multiple spans
 
@@ -311,7 +311,7 @@ In this example, the `AddFooBarHeader` function creates a span and then calls `N
 
 The illustration below, shows how this new child looks in Jaeger:
 
-<img src="img/plugins/multiple_spans.png" alt="OTel Span attributes" />
+<img src="/img/plugins/multiple_spans.png" alt="OTel Span attributes" />
 
 ### Error handling
 
@@ -370,7 +370,7 @@ func NewFuncWithError(ctx context.Context) {
 
 In the above code, the `NewFuncWithError` function demonstrates error handling in OpenTelemetry. First, it creates a new span. Then it sets the status to error, and adds an attribute. Finally, it uses `RecordError()` to log an error event. This two-step process ensures that both the error event is recorded and the span status is set to reflect the error.
 
-<img src="img/plugins/span_error_handling.png" alt="OTel Span error handling" />
+<img src="/img/plugins/span_error_handling.png" alt="OTel Span error handling" />
 
 
 

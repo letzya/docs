@@ -26,19 +26,19 @@ Here's the architecture depending on your deployment model:
 <Tabs>
 <Tab title="Enterprise">
 
-<img src="img/diagrams/tyk-selfmanaged-architecture-pump.png" alt="Tyk Enterprise Pump Architecture" />
+<img src="/img/diagrams/tyk-selfmanaged-architecture-pump.png" alt="Tyk Enterprise Pump Architecture" />
 
 </Tab>
 <Tab title="Open Source">
 
-<img src="img/diagrams/diagram_docs_pump-open-source@2x.png" alt="Tyk Open Source Pump Architecture" />
+<img src="/img/diagrams/diagram_docs_pump-open-source@2x.png" alt="Tyk Open Source Pump Architecture" />
 
 </Tab>
 </Tabs>
 
 Tyk-Pump is both extensible, and flexible- meaning it is possible to configure Tyk-Pump to send data to multiple different backends at the same time as depicted by Pump Backends (i) and (ii), MongoDB and Elasticsearch respectively in Figure 1. Tyk-Pump is scalable, both horizontally and vertically, as indicated by Instances "1", "2", and "n". Additionally, it is possible to apply filters that dictate WHAT analytics go WHERE, please see the [docs on sharded analytics configuration here](/api-management/tyk-pump#configuring-the-sharded-analytics).
 
-| <img src="img/diagrams/diagram_docs_pump-configuration-multi-backend.png" alt="Configuration and Scaling of Tyk Pump" />  |
+| <img src="/img/diagrams/diagram_docs_pump-configuration-multi-backend.png" alt="Configuration and Scaling of Tyk Pump" />  |
 |--|
 | Figure 1: An architecture diagram illustrating horizontal scaling of "n" Instances of Tyk-Pump each with two different backends. |
 
@@ -806,7 +806,7 @@ The Tyk Pump can be configured to send your API traffic analytics to [Datadog](h
 
 We ceated a defaulkt Tyk dashboard canvat to give our users an easier starting point. You can find it in Datadog portal, under the `Dashboards --> lists` section, (https://app.datadoghq.com/dashboard/lists)[https://app.datadoghq.com/dashboard/lists], and it is called `Tyk Analytics Canvas`. To use this dashboard you will need to make sure that your datadog agent deployment has the following tag `env:tyk-demo-env` and that your Tyk Pump configuration has `dogstatsd.meta.namespace` set to `pump`. You can also import it from [Datadog official GH repo](https://github.com/DataDog/integrations-extras/blob/master/tyk/assets/dashboards/tyk_analytics_canvas.json) and change those values in the dashboard itself to visualize your analytics data as it flows into Datadog.
 
-<img src="img/pump/datadog-tyk-analytics-dashboard.jpeg" alt="Sample Datadog dashboard" />
+<img src="/img/pump/datadog-tyk-analytics-dashboard.jpeg" alt="Sample Datadog dashboard" />
 
 
 #### Prerequisites
@@ -1026,7 +1026,7 @@ You can now make a few API calls and verify they show up in Moesif.
 ```bash
 $ curl localhost:8080
 ```
-<img src="img/pump/moesif_step5.png" alt="Step5" />
+<img src="/img/pump/moesif_step5.png" alt="Step5" />
 
 The Moesif Tyk integration automatically maps a [Tyk Token Alias](https://tyk.io/blog/simpler-usage-tracking-token-aliases-tyk-cloud/) to a user id in Moesif. With a Moesif SDK, you can store additional customer demographics to break down API usage by customer email, company industry, and more.
 
@@ -1078,16 +1078,16 @@ The assumptions are that you have Docker installed and Tyk Pro Self-Managed alre
     A) Visit http://localhost:8000 and log into the Splunk Dashboard using the username `admin` and the password we set in the Docker run command, `mypassword`
 
     B) Create a new Data input
-    <img src="img/pump/splunk_step1.png" alt="Step1" />
+    <img src="/img/pump/splunk_step1.png" alt="Step1" />
 
     C) Select `HTTP Event Collector -> Add New`  
-    <img src="img/pump/splunk_step2.png" alt="Step2" />
+    <img src="/img/pump/splunk_step2.png" alt="Step2" />
 
     D) Set the name to "tyk" and then leave everything else as default
-    <img src="img/pump/splunk_step2b.png" alt="Step2b" />
+    <img src="/img/pump/splunk_step2b.png" alt="Step2b" />
 
     Grab your token at the end page:
-    <img src="img/pump/splunk_step3.png" alt="Step3" />
+    <img src="/img/pump/splunk_step3.png" alt="Step3" />
 
 3. **Add the Splunk bit to pump.conf**
 
@@ -1134,7 +1134,7 @@ Make sure that the `localhost` value matches with your setup. Head on over to ou
     ```
 
     Success:
-    <img src="img/pump/splunk_step4.png" alt="Step4" />
+    <img src="/img/pump/splunk_step4.png" alt="Step4" />
 
 ### Logzio
 
@@ -1466,7 +1466,7 @@ scrape_configs:
 1. Then restart your Prometheus instance after any configuration change
 2. In Prometheus under “Status” / “Targets”, we can see that Prometheus is able to scrape the metrics successfully: state is UP.
 
-<img src="img/pump/prometheus/tyk_config_prometheus_target.png" alt="Prometheus status" />
+<img src="/img/pump/prometheus/tyk_config_prometheus_target.png" alt="Prometheus status" />
 
 ### Exploring your metrics in Grafana
 
@@ -1474,7 +1474,7 @@ Before trying out, make sure to generate traffic by calling your APIs. You will 
 
 You also need to make sure that Grafana is connected to your Prometheus server. This can be configured under [Configuration / Data sources](https://grafana.com/docs/grafana/latest/datasources/add-a-data-source/)
 
-<img src="img/pump/prometheus/tyk_grafana_configuration.png" alt="Grafana Configuration with Prometheus" />
+<img src="/img/pump/prometheus/tyk_grafana_configuration.png" alt="Grafana Configuration with Prometheus" />
 
 ### Useful queries
 
@@ -1487,7 +1487,7 @@ Tyk collects latency data of how long your upstream services take to respond to 
 ```
 histogram_quantile(0.95, sum(rate(tyk_http_latency_bucket[1m])) by (le))
 ```
-<img src="img/pump/prometheus/tyk_prometheus_upstream_time.png" alt="Upstream Time Query output" />
+<img src="/img/pump/prometheus/tyk_prometheus_upstream_time.png" alt="Upstream Time Query output" />
 
 #### Upstream time per API
 
@@ -1536,7 +1536,7 @@ Replace `<api name>` with the name of your API for this query.
 
 We'll show you how to setup Tyk Pump for Prometheus Service Discovery.
 
-<img src="img/diagrams/pump-prometheus.png" alt="pump-prometheus" />
+<img src="/img/diagrams/pump-prometheus.png" alt="pump-prometheus" />
 
 ### Integrate with Prometheus using Prometheus Operator
 
@@ -1606,15 +1606,15 @@ For Custom Metrics, commas are escaped to be used in helm --set command. You can
 
     On Prometheus Dashboard, you can see the Pump is listed as one of the target and Prometheus is successfully scrapped from it.
 
-    <img src="img/diagrams/pump-prometheus-1.png" alt="pump-prometheus" />
+    <img src="/img/diagrams/pump-prometheus-1.png" alt="pump-prometheus" />
 
     You can check our [Guide on Monitoring API with Prometheus](/api-management/tyk-pump#useful-queries) for a list of useful queries you can setup and use.
 
     e.g. The custom metrics tyk_http_requests_total can be retrieved:
 
-    <img src="img/diagrams/pump-prometheus-2.png" alt="pump-prometheus" />
+    <img src="/img/diagrams/pump-prometheus-2.png" alt="pump-prometheus" />
 
-    <img src="img/diagrams/pump-prometheus-3.png" alt="pump-prometheus" />
+    <img src="/img/diagrams/pump-prometheus-3.png" alt="pump-prometheus" />
 
 ### Integrate with Prometheus using annotations
 
@@ -1675,7 +1675,7 @@ Please make sure you are installing Redis versions that are supported by Tyk. Pl
 
     After some time, you can see that Prometheus is successfully scraping from Tyk Pump:
 
-    <img src="img/diagrams/pump-prometheus-4.png" alt="pump-prometheus" />
+    <img src="/img/diagrams/pump-prometheus-4.png" alt="pump-prometheus" />
 
 ### Expose a service for Prometheus to scrape
 

@@ -29,15 +29,15 @@ We will use the Tyk Dashboard to create a very simple API that has no special el
 
 1. **Select "APIs" from the "System Management" section**
 
-    <img src="img/2.10/apis_menu.png" alt="API Menu" />
+    <img src="/img/2.10/apis_menu.png" alt="API Menu" />
 
 2. **Click "ADD NEW API"**
 
-    <img src="img/2.10/add_api.png" alt="Add API button location" />
+    <img src="/img/2.10/add_api.png" alt="Add API button location" />
 
 3. **Set up the basic configuration of your API**
 
-    <img src="img/dashboard/4.1-updates/create-api.png" alt="Create API" />
+    <img src="/img/dashboard/4.1-updates/create-api.png" alt="Create API" />
 
     - In the **Overview** section, add a **Name** for your API and select the **Type** of API you wish to create. We will use HTTP for this tutorial. 
     - In the **Details** section, add the **Upstream URL**. This is the Target URL that hosts the service to which you want to proxy incoming requests. You can configure Tyk to perform round-robin load balancing between multiple upstream servers (Target URLs) by selecting **Enable round-robin load balancing**; see [Load Balancing](/tyk-self-managed#load-balancing) for more details. For this tutorial, we will use a single upstream target: [http://httpbin.org](http://httpbin.org).
@@ -47,7 +47,7 @@ We will use the Tyk Dashboard to create a very simple API that has no special el
 
     Take a look at the **Authentication** section:
 
-    <img src="img/2.10/authentication.png" alt="Authentication" />
+    <img src="/img/2.10/authentication.png" alt="Authentication" />
 
     You have the following options:
 
@@ -62,13 +62,13 @@ We will use the Tyk Dashboard to create a very simple API that has no special el
 
     Click **SAVE**
 
-    <img src="img/2.10/save.png" alt="Save button" />
+    <img src="/img/2.10/save.png" alt="Save button" />
 
     Once saved, you will be taken back to the API list, where your new API will be displayed.
 
     If you select the API from the list to open it again, the API URL will be displayed in the top of the editor. This is the URL that your consumers will need to call to invoke your API. 
 
-    <img src="img/2.10/api_url.png" alt="API URL location" />
+    <img src="/img/2.10/api_url.png" alt="API URL location" />
 
 #### Create an API with the Dashboard API
 
@@ -81,7 +81,7 @@ You will need an API key for your organization (to authenticate with the Dashboa
     - Click **Edit** for your username, then scroll to the bottom of the page.  
     - Your personal API key, granting you access to the Dashboard API, is labeled **Tyk Dashboard API Access Credentials** key
 
-    <img src="img/2.10/user_api_id.png" alt="API key location" />
+    <img src="/img/2.10/user_api_id.png" alt="API key location" />
 
     - Store your Dashboard Key, Dashboard URL & Gateway URL as environment variables so you don't need to keep typing them in
 
