@@ -348,6 +348,18 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "Dashboard Admin",
+            "openapi": {
+              "source": "/api-reference/dashboard-admin-swagger.yml",
+              "directory": "api-reference"
+            }
+          }
+        ]
       }
     ]
   },
