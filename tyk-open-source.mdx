@@ -4,8 +4,8 @@ description: "This page serves as a comprehensive guide to migrating workloads t
 tags: ['installation', 'migration', 'open source']
 ---
 
-import { GridWrapper } from '/snippets/Grid.mdx';
-import { BadgeCard } from '/snippets/Badge.mdx';
+import { GitHubStarButton } from '/snippets/GitHubStarButton.mdx';
+import { ResponsiveGrid } from '/snippets/ResponsiveGrid.mdx';
 
 ## What is Tyk Open Source
 
@@ -27,10 +27,10 @@ Tyk OSS, Tyk Open Source, Tyk Gateway, Tyk CE
 
 The Tyk Team has created and maintains the following components, which are fully Open Source and available under Mozilla Public License 2.0 (MPL). Star the Tyk components you use by clicking the appropriate button:
 
-* [Tyk Gateway](/tyk-oss-gateway) - Fully fledged API Gateway (Start here!) - `<GitHubStarButton owner="TykTechnologies" repo="tyk" showCount="true" />`
-* [Tyk Pump](/tyk-pump) - Send API analytics data to your chosen backend - `<GitHubStarButton owner="TykTechnologies" repo="tyk-pump" showCount="true" />`
-* [Tyk Identity Broker](/api-management/external-service-integration#what-is-tyk-identity-broker-tib) - Connect your third-party IdP systems - `<GitHubStarButton owner="TykTechnologies" repo="api-management/external-service-integration#what-is-tyk-identity-broker-tib" showCount="true" />`
-* [Tyk Helm Chart](/product-stack/tyk-charts/overview) - Deploy Tyk in K8S - `<GitHubStarButton owner="TykTechnologies" repo="tyk-charts" showCount="true" />`
+* [Tyk Gateway](/tyk-oss-gateway) - Fully fledged API Gateway (Start here!) - <GitHubStarButton owner="TykTechnologies" repo="tyk" showCount="true" />
+* [Tyk Pump](/tyk-pump) - Send API analytics data to your chosen backend - <GitHubStarButton owner="TykTechnologies" repo="tyk-pump" showCount="true" />
+* [Tyk Identity Broker](/api-management/external-service-integration#what-is-tyk-identity-broker-tib) - Connect your third-party IdP systems - <GitHubStarButton owner="TykTechnologies" repo="api-management/external-service-integration#what-is-tyk-identity-broker-tib" showCount="true" />
+* [Tyk Helm Chart](/product-stack/tyk-charts/overview) - Deploy Tyk in K8S - <GitHubStarButton owner="TykTechnologies" repo="tyk-charts" showCount="true" />
 
 You can find additional FAQs regarding the MPL license [here](https://www.mozilla.org/en-US/MPL/2.0/FAQ/).
 
@@ -80,35 +80,47 @@ The output should be similar to that shown below:
 
 The backbone of all our products is our open source Gateway. You can install our Open Source / Community Edition on the following platforms:
 
-<GridWrapper type="">
+<ResponsiveGrid>
 
 
-<BadgeCard read="10 mins" href="tyk-open-source#install-tyk-gateway-with-docker" image="/img/docker.png" alt="Docker install">
+<Card href="tyk-open-source#install-tyk-gateway-with-docker" img="/img/docker.png">
+**Read time: 10 mins**
+
 Install with Docker.
-</BadgeCard>
+</Card>
 
-<BadgeCard read="10 mins" href="tyk-open-source#install-tyk-gateway-with-kubernetes" image="/img/k8s.png" alt="Kubernetes Install">
+<Card href="tyk-open-source#install-tyk-gateway-with-kubernetes" img="/img/k8s.png">
+**Read time: 10 mins**
+
 Install with K8s.
-</BadgeCard>
+</Card>
 
-<BadgeCard read="10 mins" href="tyk-open-source#install-tyk-gateway-with-ansible" image="/img/ansible.png" alt="Ansible install">
+<Card href="tyk-open-source#install-tyk-gateway-with-ansible" img="/img/ansible.png">
+**Read time: 10 mins**
+
 Install with Ansible.
-</BadgeCard>
+</Card>
 
-<BadgeCard read="10 mins" href="tyk-open-source#install-tyk-gateway-on-red-hat-rhel--centos" image="/img/redhat-logo2.png" alt="Redhat / CentOS install">
+<Card href="tyk-open-source#install-tyk-gateway-on-red-hat-rhel--centos" img="/img/redhat-logo2.png">
+**Read time: 10 mins**
+
 Install on RHEL / CentOS.
-</BadgeCard>
+</Card>
 
-<BadgeCard read="10 mins" href="tyk-open-source#install-tyk-gateway-with-ubuntu" image="/img/debian-nd-753.png" alt="Debian / Ubuntu install">
+<Card href="tyk-open-source#install-tyk-gateway-with-ubuntu" img="/img/debian-nd-753.png">
+**Read time: 10 mins**
+
 Install on Debian / Ubuntu.
-</BadgeCard>
+</Card>
 
-<BadgeCard read="10 mins" href="https://github.com/TykTechnologies/tyk" image="/img/GitHub-Mark-64px.png" alt="Tyk Gateway GitHub Repo">
+<Card href="https://github.com/TykTechnologies/tyk" img="/img/GitHub-Mark-64px.png">
+**Read time: 10 mins**
+
 Visit our Gateway GitHub Repo.
-</BadgeCard>
+</Card>
 
 
-</GridWrapper>
+</ResponsiveGrid>
 
 ### Install Tyk Gateway with Docker
 

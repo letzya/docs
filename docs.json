@@ -1,11 +1,6 @@
 {
   "name": "Tyk Documentation",
-  "theme": "maple",
-  "integrations": {
-    "gtm": {
-      "tagId": "GTM-K5PPWPH7"
-    }
-  },
+  "theme": "mint",
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg"
@@ -16,15 +11,10 @@
     "light": "#8438FA",
     "dark": "#8438FA"
   },
-  "topbarLinks": [
-    {
-      "name": "Tyk Website",
-      "url": "https://tyk.io"
+  "integrations": {
+    "gtm": {
+      "tagId": "GTM-K5PPWPH7"
     }
-  ],
-  "topbarCtaButton": {
-    "name": "Get Started",
-    "url": "/getting-started"
   },
   "navigation": {
     "tabs": [
@@ -351,25 +341,6 @@
               "tyk-governance/api-repository",
               "tyk-governance/api-labeling"
             ]
-          }
-        ]
-      },
-      {
-        "tab": "API Reference",
-        "groups": [
-          {
-            "group": "Dashboard Admin",
-            "openapi": {
-              "source": "/api-reference/dashboard-admin-swagger.yml",
-              "directory": "api-reference"
-            }
-          },
-          {
-            "group": "keith Admin",
-            "openapi": {
-              "source": "/api-reference/dashboard-admin-swagger.yml",
-              "directory": "api-reference"
-            }
           }
         ]
       }

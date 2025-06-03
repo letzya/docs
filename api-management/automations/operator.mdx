@@ -2310,7 +2310,7 @@ spec:
   quota_renewal_rate: 60                # Quota renewal rate in seconds (1 minute)
 ```
 
-**Path based permissions
+**Path based permissions**
 
 You can secure your APIs by specifying [allowed URLs](/api-management/policies#secure-your-apis-by-method-and-path) (methods and paths) for each API within a security policy. This is done using the `allowed_urls` field under `access_rights_array`.
 
@@ -2366,7 +2366,7 @@ With this security policy applied:
         { "error": "Access to this resource has been disallowed" }
     ```
 
-**<span id="partitioned-policies">Partitioned policies</span>**
+**Partitioned policies**
 
 [Partitioned policies](/api-management/policies#partitioned-policies) allow you to selectively enforce different segments of a security policy, such as quota, rate limiting, access control lists (ACL), and GraphQL complexity rules. This provides flexibility in applying different security controls as needed.
 

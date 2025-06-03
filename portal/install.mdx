@@ -5,8 +5,7 @@ sidebarTitle: "Install and Configure Tyk Enterprise Developer Portal"
 tags: ['Developer Portal', 'Tyk', 'Install Tyk Enterprise Developer Portal', 'Bootstrap Tyk Enterprise Developer Portal']
 ---
 
-import { GridWrapper } from '/snippets/Grid.mdx';
-import { BadgeCard } from '/snippets/Badge.mdx';
+import { ResponsiveGrid } from '/snippets/ResponsiveGrid.mdx';
 
 
 <Note>
@@ -55,27 +54,35 @@ Please refer to [the Bootstrapping section](/portal/install#bootstrapping-enterp
 
 The Tyk Enterprise Developer Portal supports multiple installation flavors. Check out the guides below to deploy the portal on the platform that suits you best. 
 
-<GridWrapper type="">
+<ResponsiveGrid>
 
 
-<BadgeCard read="10 mins" href="portal/install#docker" image="/img/docker.png" alt="Docker install">
+<Card href="portal/install#docker" img="/img/docker.png">
+**Read time: 10 mins**
+
 Install with Docker
-</BadgeCard>
+</Card>
 
-<BadgeCard read="10 mins" href="portal/install#docker-compose" image="/img/docker.png" alt="Docker-compose install">
+<Card href="portal/install#docker-compose" img="/img/docker.png">
+**Read time: 10 mins**
+
 Install with Docker Compose
-</BadgeCard>
+</Card>
 
-<BadgeCard read="10 mins" href="portal/install#using-new-helm-chart" image="/img/k8s.png" alt="Kubernetes install">
+<Card href="portal/install#using-new-helm-chart" img="/img/k8s.png">
+**Read time: 10 mins**
+
 Install on Kubernetes
-</BadgeCard>
+</Card>
 
-<BadgeCard read="10 mins" href="portal/install#linux-redhat-centos" image="/img/redhat-logo2.png" alt="Red Hat install">
+<Card href="portal/install#linux-redhat-centos" img="/img/redhat-logo2.png">
+**Read time: 10 mins**
+
 Install on Red Hat
-</BadgeCard>
+</Card>
 
 
-</GridWrapper>
+</ResponsiveGrid>
 
 ### Docker
 
