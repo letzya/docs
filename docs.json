@@ -17,6 +17,13 @@
     }
   },
   "navigation": {
+    "global": {
+      "versions": [
+        {"version": "v5.7", "href": "https://tyk.io/docs/5.7"},
+        {"version": "v5.6", "href": "https://tyk.io/docs/5.6"},
+        {"version": "v5.5", "href": "https://tyk.io/docs/5.5"}
+      ]
+    },
     "tabs": [
       {
         "tab": "Home",
